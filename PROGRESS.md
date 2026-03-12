@@ -195,10 +195,10 @@
 - [x] Drag-and-drop content calendar items between dates
 
 ### Module 34: Competitive Research Dashboard
-- [ ] Competitor SERP overlap analysis (shared keywords)
-- [ ] Content gap finder (keywords competitors rank for, you don't)
-- [ ] Competitor content frequency tracking
-- [ ] Competitive positioning matrix chart
+- [x] Competitor SERP overlap analysis (shared keywords)
+- [x] Content gap finder (keywords competitors rank for, you don't)
+- [x] Competitor content frequency tracking
+- [x] Competitive positioning matrix chart
 
 ### Module 35: Advanced Analytics
 - [ ] Keyword ranking trends over time (multi-keyword chart)
@@ -210,5 +210,5 @@
 
 **Phase 4 COMPLETE — All 24/24 features built.**
 
-**Next up:** Module 34 — Competitive Research Dashboard
+**Next up:** Module 35 — Advanced Analytics
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

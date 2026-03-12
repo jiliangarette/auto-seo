@@ -22,6 +22,7 @@ import {
   Code2,
   Gauge,
   FileText,
+  Swords,
   LogOut,
   Bell,
   Check,
@@ -50,6 +51,7 @@ const navItems = [
   { label: 'Schema', path: '/schema', icon: Code2 },
   { label: 'Readability', path: '/readability', icon: BookText },
   { label: 'Social Preview', path: '/social', icon: Share2 },
+  { label: 'Competitive', path: '/competitive', icon: Swords },
   { label: 'Bulk Ops', path: '/bulk', icon: FolderKanban },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
