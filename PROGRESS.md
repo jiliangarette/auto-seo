@@ -91,10 +91,10 @@
 - [x] Keyword opportunity score (volume vs difficulty ratio)
 
 ### Module 18: Content Optimizer
-- [ ] Paste existing content + target keyword input
-- [ ] OpenAI optimization suggestions (density, readability, headings, word count)
-- [ ] Before/after comparison view
-- [ ] Optimization score with action items
+- [x] Paste existing content + target keyword input
+- [x] OpenAI optimization suggestions (density, readability, headings, word count)
+- [x] Before/after comparison view
+- [x] Optimization score with action items
 
 ### Module 19: SERP Preview Tool
 - [ ] Input URL + target keyword
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 18 — Content Optimizer
+**Next up:** Module 19 — SERP Preview Tool
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
