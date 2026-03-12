@@ -101,6 +101,7 @@ const navItems = [
   { label: 'Broken Links', path: '/broken-links', icon: Link2 },
   { label: 'Pillars', path: '/content-pillars', icon: FileText },
   { label: 'Content Tracker', path: '/competitor-content', icon: Eye },
+  { label: 'SEO Checklist', path: '/seo-checklist', icon: Shield },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
