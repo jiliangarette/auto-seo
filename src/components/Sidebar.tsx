@@ -181,6 +181,7 @@ const navItems = [
   { label: 'News SEO', path: '/news-seo', icon: FileText },
   { label: 'Intent Classifier', path: '/intent-classifier', icon: Search },
   { label: 'SEO Alerts', path: '/seo-alerts', icon: Bell },
+  { label: 'Repurpose', path: '/content-repurpose', icon: Share2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

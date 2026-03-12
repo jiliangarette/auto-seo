@@ -1237,10 +1237,10 @@
 - [x] Recommended actions for each alert type
 
 ### Module 172: Content Repurposing Engine
-- [ ] Input content for multi-format repurposing
-- [ ] AI generates social posts, email snippets, and infographic outlines
-- [ ] Platform-specific formatting recommendations
-- [ ] Repurposing calendar with scheduling suggestions
+- [x] Input content for multi-format repurposing
+- [x] AI generates social posts, email snippets, and infographic outlines
+- [x] Platform-specific formatting recommendations
+- [x] Repurposing calendar with scheduling suggestions
 
 ### Module 173: Topical Map Generator
 - [ ] Input niche for comprehensive topical map creation

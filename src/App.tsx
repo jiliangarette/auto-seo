@@ -164,6 +164,7 @@ const PodcastSeoPlanner = lazy(() => import('@/pages/PodcastSeoPlanner'));
 const NewsSeoOptimizer = lazy(() => import('@/pages/NewsSeoOptimizer'));
 const SearchIntentClassifier = lazy(() => import('@/pages/SearchIntentClassifier'));
 const SeoAlertSystem = lazy(() => import('@/pages/SeoAlertSystem'));
+const ContentRepurposingEngine = lazy(() => import('@/pages/ContentRepurposingEngine'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1208,6 +1209,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoAlertSystem /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-repurpose"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentRepurposingEngine /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
