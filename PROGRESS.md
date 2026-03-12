@@ -522,4 +522,38 @@
 
 **All 13 Phases complete (Modules 1-75). 315/315 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-13: 315/315, build: pass -->
+---
+
+## Phase 14 — Content Intelligence & SEO Automation
+
+### Module 76: Paragraph Rewriter
+- [ ] Input paragraph + target keyword
+- [ ] AI-generate multiple rewrite variants
+- [ ] SEO score comparison (before vs after)
+- [ ] One-click copy best variant
+
+### Module 77: Title Tag Tester
+- [ ] Input multiple title tag variants
+- [ ] AI-predicted CTR for each variant
+- [ ] SERP preview comparison
+- [ ] Winner recommendation with reasoning
+
+### Module 78: Keyword Density Checker
+- [ ] Paste content + target keywords
+- [ ] Calculate density per keyword
+- [ ] Flag over/under-optimization
+- [ ] Recommended density ranges
+
+### Module 79: Competitor Backlink Spy
+- [ ] Input competitor domain
+- [ ] AI-generate estimated backlink profile
+- [ ] Identify link-worthy content types
+- [ ] Replication strategy suggestions
+
+### Module 80: SEO Task Manager
+- [ ] Create SEO improvement tasks per project
+- [ ] Priority and status tracking (todo/in-progress/done)
+- [ ] Due date assignment
+- [ ] Progress dashboard with completion stats
+
+<!-- watchdog: 2026-03-13 — Phases 1-13: 315/315, Phase 14: 0/20, build: pass -->
