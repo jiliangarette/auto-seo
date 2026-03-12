@@ -115,10 +115,10 @@
 - [x] Mark as read / clear all
 
 ### Module 22: Search & Filter
-- [ ] Global search bar in navbar
-- [ ] Advanced filters on keyword table (position range, volume range)
-- [ ] Filter content calendar by status
-- [ ] Search audit issues by category/severity
+- [x] Global search bar in navbar (Ctrl+K, searches projects/keywords/content)
+- [x] Advanced filters on keyword table (position range, volume range)
+- [x] Filter content calendar by status
+- [x] Search audit issues by category/severity
 
 ### Module 23: Onboarding Flow
 - [ ] First-login welcome modal with setup wizard
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 22 — Search & Filter
+**Next up:** Module 23 — Onboarding Flow
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

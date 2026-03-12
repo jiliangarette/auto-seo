@@ -4,7 +4,7 @@ import { estimateKeywordDifficulty, batchEstimateDifficulty } from '@/lib/keywor
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Plus, Trash2, ArrowUpDown, Zap, Loader2 } from 'lucide-react';
+import { Plus, Trash2, ArrowUpDown, Zap, Loader2, Filter } from 'lucide-react';
 import { toast } from 'sonner';
 
 type SortField = 'keyword' | 'position' | 'search_volume' | 'created_at';
@@ -34,6 +34,11 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
   const [volume, setVolume] = useState('');
   const [sortField, setSortField] = useState<SortField>('created_at');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
+  const [filterPosMin, setFilterPosMin] = useState('');
+  const [filterPosMax, setFilterPosMax] = useState('');
+  const [filterVolMin, setFilterVolMin] = useState('');
+  const [filterVolMax, setFilterVolMax] = useState('');
+  const [showFilters, setShowFilters] = useState(false);
 
   const [difficulties, setDifficulties] = useState<Record<string, DifficultyInfo>>({});
   const [checkingId, setCheckingId] = useState<string | null>(null);
@@ -115,7 +120,15 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
     }
   };
 
-  const sorted = [...(keywords ?? [])].sort((a, b) => {
+  const filtered = (keywords ?? []).filter((kw) => {
+    if (filterPosMin && (kw.position === null || kw.position < parseInt(filterPosMin))) return false;
+    if (filterPosMax && (kw.position === null || kw.position > parseInt(filterPosMax))) return false;
+    if (filterVolMin && (kw.search_volume === null || kw.search_volume < parseInt(filterVolMin))) return false;
+    if (filterVolMax && (kw.search_volume === null || kw.search_volume > parseInt(filterVolMax))) return false;
+    return true;
+  });
+
+  const sorted = [...filtered].sort((a, b) => {
     const aVal = a[sortField];
     const bVal = b[sortField];
     if (aVal === null || aVal === undefined) return 1;
@@ -134,15 +147,21 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
           </div>
           <div className="flex gap-1">
             {keywords && keywords.length > 0 && (
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={checkAllDifficulty}
-                disabled={batchChecking}
-              >
-                {batchChecking ? <Loader2 className="size-4 animate-spin" /> : <Zap className="size-4" />}
-                Check All
-              </Button>
+              <>
+                <Button size="sm" variant="outline" onClick={() => setShowFilters(!showFilters)}>
+                  <Filter className="size-4" />
+                  Filter
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={checkAllDifficulty}
+                  disabled={batchChecking}
+                >
+                  {batchChecking ? <Loader2 className="size-4 animate-spin" /> : <Zap className="size-4" />}
+                  Check All
+                </Button>
+              </>
             )}
             <Button size="sm" onClick={() => setShowForm(!showForm)}>
               <Plus className="size-4" />
@@ -179,6 +198,22 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
               Add
             </Button>
           </form>
+        )}
+
+        {showFilters && (
+          <div className="flex gap-2 items-center text-xs">
+            <span className="text-muted-foreground">Position:</span>
+            <Input placeholder="Min" type="number" value={filterPosMin} onChange={(e) => setFilterPosMin(e.target.value)} className="w-20 h-7 text-xs" />
+            <span className="text-muted-foreground">-</span>
+            <Input placeholder="Max" type="number" value={filterPosMax} onChange={(e) => setFilterPosMax(e.target.value)} className="w-20 h-7 text-xs" />
+            <span className="text-muted-foreground ml-2">Volume:</span>
+            <Input placeholder="Min" type="number" value={filterVolMin} onChange={(e) => setFilterVolMin(e.target.value)} className="w-20 h-7 text-xs" />
+            <span className="text-muted-foreground">-</span>
+            <Input placeholder="Max" type="number" value={filterVolMax} onChange={(e) => setFilterVolMax(e.target.value)} className="w-20 h-7 text-xs" />
+            {(filterPosMin || filterPosMax || filterVolMin || filterVolMax) && (
+              <span className="text-muted-foreground">({filtered.length}/{keywords?.length ?? 0})</span>
+            )}
+          </div>
         )}
 
         {isLoading ? (

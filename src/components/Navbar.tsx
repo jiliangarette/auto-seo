@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNotifications } from '@/contexts/NotificationContext';
+import GlobalSearch from '@/components/GlobalSearch';
 import { Button } from '@/components/ui/button';
 import { LogOut, Bell, Check, Trash2 } from 'lucide-react';
 
@@ -81,6 +82,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="flex items-center gap-3">
+          <GlobalSearch />
           {/* Notification Bell */}
           <div ref={notifRef} className="relative">
             <button
