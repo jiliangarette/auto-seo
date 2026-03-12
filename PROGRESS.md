@@ -904,4 +904,38 @@
 
 **All 23 Phases complete (Modules 1-125). 515/515 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-22: 495/495, Phase 23: 0/20, build: pass -->
+---
+
+## Phase 24 — SEO Scale & Performance Optimization
+
+### Module 126: Bulk Page Analyzer
+- [ ] Input hundreds of URLs for batch SEO analysis
+- [ ] Score title, meta, headings, content length per page
+- [ ] Sortable results table with filter by score range
+- [ ] Export full analysis as CSV
+
+### Module 127: Hreflang Tag Generator
+- [ ] Input page URLs with language/region targets
+- [ ] Generate correct hreflang tag sets
+- [ ] Validate bidirectional hreflang references
+- [ ] Export as HTML head tags or XML sitemap entries
+
+### Module 128: Content Performance Tracker
+- [ ] Input content URLs with KPIs (traffic, rankings, conversions)
+- [ ] AI-generate performance trends and insights
+- [ ] Identify top and underperforming content
+- [ ] Optimization priority recommendations
+
+### Module 129: SEO Budget Allocator
+- [ ] Input total SEO budget and goals
+- [ ] AI-recommend allocation across content, links, technical
+- [ ] ROI projection per budget category
+- [ ] Monthly spend plan with milestones
+
+### Module 130: Competitor Alert System
+- [ ] Input competitor domains and keywords to watch
+- [ ] AI-detect new content, ranking changes, new backlinks
+- [ ] Priority-ranked alert feed
+- [ ] Weekly competitor digest summary
+
+<!-- watchdog: 2026-03-13 — Phases 1-23: 515/515, Phase 24: 0/20, build: pass -->
