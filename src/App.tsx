@@ -17,6 +17,7 @@ import Reports from '@/pages/Reports';
 import SharedReport from '@/pages/SharedReport';
 import MetaTagGenerator from '@/pages/MetaTagGenerator';
 import InternalLinks from '@/pages/InternalLinks';
+import Settings from '@/pages/Settings';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -141,6 +142,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <InternalLinks />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <Settings />
                   </AppLayout>
                 </ProtectedRoute>
               }

@@ -65,12 +65,12 @@
 - [x] Copy updated content with links
 
 ### Module 15: Settings & Profile
-- [ ] Profile page (email, name)
-- [ ] API usage tracking (OpenAI call count)
-- [ ] Theme toggle (dark/light)
-- [ ] Delete account
+- [x] Profile page (email, name)
+- [x] API usage tracking (OpenAI call count)
+- [x] Theme toggle (dark/light)
+- [x] Delete account
 
 ---
 
-**Next up:** Module 15 — Settings & Profile
+**Phase 2 COMPLETE — All 38/38 features built.**
 <!-- watchdog: 2026-03-13 03:06 — Phase 1: 27/27 done, Phase 2: 19/38, build: pass -->

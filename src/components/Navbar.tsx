@@ -13,6 +13,7 @@ const navLinks = [
   { label: 'Reports', path: '/reports' },
   { label: 'Meta Tags', path: '/meta-tags' },
   { label: 'Links', path: '/internal-links' },
+  { label: 'Settings', path: '/settings' },
 ];
 
 export default function Navbar() {
