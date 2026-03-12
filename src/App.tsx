@@ -119,6 +119,7 @@ const TopicalAuthorityScore = lazy(() => import('@/pages/TopicalAuthorityScore')
 const SeoForecaster = lazy(() => import('@/pages/SeoForecaster'));
 const SearchIntentMapper = lazy(() => import('@/pages/SearchIntentMapper'));
 const SeoMigrationPlanner = lazy(() => import('@/pages/SeoMigrationPlanner'));
+const KeywordClusteringPro = lazy(() => import('@/pages/KeywordClusteringPro'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -843,6 +844,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/keyword-clustering-pro"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><KeywordClusteringPro /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
