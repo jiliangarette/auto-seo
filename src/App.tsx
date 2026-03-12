@@ -144,6 +144,7 @@ const ContentLocalizationPlanner = lazy(() => import('@/pages/ContentLocalizatio
 const SeoComplianceChecker = lazy(() => import('@/pages/SeoComplianceChecker'));
 const SeoTaskPrioritizer = lazy(() => import('@/pages/SeoTaskPrioritizer'));
 const ContentSentimentAnalyzer = lazy(() => import('@/pages/ContentSentimentAnalyzer'));
+const BacklinkQualityScorer = lazy(() => import('@/pages/BacklinkQualityScorer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -988,6 +989,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentSentimentAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/link-scorer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><BacklinkQualityScorer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
