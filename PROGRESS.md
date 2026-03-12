@@ -647,10 +647,10 @@
 - [x] Save and reuse custom templates
 
 ### Module 92: Topical Map Generator
-- [ ] Input seed topic for topical map
-- [ ] AI-generate hierarchical topic clusters
-- [ ] Visualize topic relationships as tree structure
-- [ ] Export topical map as JSON
+- [x] Input seed topic for topical map
+- [x] AI-generate hierarchical topic clusters
+- [x] Visualize topic relationships as tree structure
+- [x] Export topical map as JSON
 
 ### Module 93: SERP Feature Tracker
 - [ ] Input keywords to track SERP features

@@ -108,6 +108,7 @@ const navItems = [
   { label: 'Outreach Email', path: '/outreach-emails', icon: Share2 },
   { label: 'Audit Report', path: '/audit-report', icon: FileBarChart },
   { label: 'Brief Templates', path: '/brief-templates', icon: FileText },
+  { label: 'Topical Map', path: '/topical-map', icon: Share2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

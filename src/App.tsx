@@ -91,6 +91,7 @@ const ContentReadabilityGrader = lazy(() => import('@/pages/ContentReadabilityGr
 const BacklinkOutreachEmails = lazy(() => import('@/pages/BacklinkOutreachEmails'));
 const SeoAuditReportBuilder = lazy(() => import('@/pages/SeoAuditReportBuilder'));
 const ContentBriefTemplates = lazy(() => import('@/pages/ContentBriefTemplates'));
+const TopicalMapGenerator = lazy(() => import('@/pages/TopicalMapGenerator'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -795,6 +796,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/topical-map"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><TopicalMapGenerator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
