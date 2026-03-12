@@ -1158,4 +1158,38 @@
 
 **Phase 30 complete — 20/20 features built (Modules 156-160)**
 
-<!-- watchdog: 2026-03-13 — Phases 1-30: 655/655, build: pass -->
+---
+
+## Phase 31: SEO Specialist Tools (Modules 161-165)
+
+### Module 161: E-commerce SEO Analyzer
+- [x] Input product page URL for e-commerce SEO audit
+- [x] AI evaluates product schema, pricing markup, and reviews
+- [x] Category page optimization recommendations
+- [x] Product feed and merchant center readiness check
+
+### Module 162: Local SEO Optimizer
+- [ ] Input business name and location for local SEO audit
+- [ ] AI analyzes Google Business Profile optimization
+- [ ] Local citation consistency checker
+- [ ] Review management strategy with response templates
+
+### Module 163: Video SEO Optimizer
+- [ ] Input video URL or topic for video SEO analysis
+- [ ] AI generates video title, description, and tag optimization
+- [ ] Thumbnail and engagement optimization recommendations
+- [ ] Video schema markup generator
+
+### Module 164: Podcast SEO Planner
+- [ ] Input podcast topic for SEO-optimized show planning
+- [ ] AI generates episode titles with keyword targeting
+- [ ] Show notes template with SEO best practices
+- [ ] Podcast distribution and discovery strategy
+
+### Module 165: News SEO Optimizer
+- [ ] Input article for news SEO optimization
+- [ ] AI evaluates Google News and Discover eligibility
+- [ ] Article structured data and AMP readiness
+- [ ] Breaking news and trending topic timing recommendations
+
+<!-- watchdog: 2026-03-13 — Phases 1-30: 655/655, Phase 31: 0/20, build: pass -->

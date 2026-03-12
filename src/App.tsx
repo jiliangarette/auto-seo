@@ -157,6 +157,7 @@ const SeoChangeLogTracker = lazy(() => import('@/pages/SeoChangeLogTracker'));
 const ContentReadinessScorer = lazy(() => import('@/pages/ContentReadinessScorer'));
 const SeoApiRateChecker = lazy(() => import('@/pages/SeoApiRateChecker'));
 const CompetitiveIntelligenceHub = lazy(() => import('@/pages/CompetitiveIntelligenceHub'));
+const EcommerceSeoAnalyzer = lazy(() => import('@/pages/EcommerceSeoAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1131,6 +1132,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><CompetitiveIntelligenceHub /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/ecommerce-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><EcommerceSeoAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
