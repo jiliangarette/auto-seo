@@ -165,6 +165,7 @@ const NewsSeoOptimizer = lazy(() => import('@/pages/NewsSeoOptimizer'));
 const SearchIntentClassifier = lazy(() => import('@/pages/SearchIntentClassifier'));
 const SeoAlertSystem = lazy(() => import('@/pages/SeoAlertSystem'));
 const ContentRepurposingEngine = lazy(() => import('@/pages/ContentRepurposingEngine'));
+const SeoForecastingTool = lazy(() => import('@/pages/SeoForecastingTool'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1219,6 +1220,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentRepurposingEngine /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-forecast"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoForecastingTool /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
