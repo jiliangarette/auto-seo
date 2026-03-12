@@ -65,6 +65,7 @@ const ContentRoi = lazy(() => import('@/pages/ContentRoi'));
 const AnchorTextAnalyzer = lazy(() => import('@/pages/AnchorTextAnalyzer'));
 const CannibalizationDetector = lazy(() => import('@/pages/CannibalizationDetector'));
 const FeaturedSnippetOptimizer = lazy(() => import('@/pages/FeaturedSnippetOptimizer'));
+const RobotsTxtAnalyzer = lazy(() => import('@/pages/RobotsTxtAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -539,6 +540,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/robots-txt"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><RobotsTxtAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

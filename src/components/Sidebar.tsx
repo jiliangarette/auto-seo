@@ -82,6 +82,7 @@ const navItems = [
   { label: 'Anchor Text', path: '/anchor-text', icon: Link2 },
   { label: 'Cannibalization', path: '/cannibalization', icon: Swords },
   { label: 'Snippets', path: '/featured-snippet', icon: Search },
+  { label: 'Robots.txt', path: '/robots-txt', icon: Shield },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
