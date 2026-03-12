@@ -130,6 +130,7 @@ const ContentPerformanceTracker = lazy(() => import('@/pages/ContentPerformanceT
 const SeoBudgetAllocator = lazy(() => import('@/pages/SeoBudgetAllocator'));
 const CompetitorAlertSystem = lazy(() => import('@/pages/CompetitorAlertSystem'));
 const SeoClientReport = lazy(() => import('@/pages/SeoClientReport'));
+const KeywordOpportunityFinder = lazy(() => import('@/pages/KeywordOpportunityFinder'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -854,6 +855,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/keyword-opportunities"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><KeywordOpportunityFinder /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

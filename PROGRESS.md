@@ -953,10 +953,10 @@
 - [x] Export as formatted HTML report
 
 ### Module 132: Keyword Opportunity Finder
-- [ ] Input seed keywords and niche
-- [ ] AI-discover untapped keyword opportunities
-- [ ] Difficulty vs volume opportunity scoring
-- [ ] Export prioritized keyword list
+- [x] Input seed keywords and niche
+- [x] AI-discover untapped keyword opportunities
+- [x] Difficulty vs volume opportunity scoring
+- [x] Export prioritized keyword list
 
 ### Module 133: Content Velocity Calculator
 - [ ] Input current publishing rate and traffic goals
