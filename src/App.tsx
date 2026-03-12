@@ -39,6 +39,7 @@ const KeywordClustering = lazy(() => import('@/pages/KeywordClustering'));
 const ContentScoring = lazy(() => import('@/pages/ContentScoring'));
 const TopicAuthority = lazy(() => import('@/pages/TopicAuthority'));
 const BacklinkQuality = lazy(() => import('@/pages/BacklinkQuality'));
+const WritingAssistant = lazy(() => import('@/pages/WritingAssistant'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -243,6 +244,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentBrief /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/writer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><WritingAssistant /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
