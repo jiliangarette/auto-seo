@@ -129,6 +129,7 @@ const navItems = [
   { label: 'Knowledge Base', path: '/seo-knowledge-base', icon: BookText },
   { label: 'SEO ROI', path: '/seo-roi', icon: BarChart3 },
   { label: 'Decay Detector', path: '/content-decay-detector', icon: Clock },
+  { label: 'SERP Volatility', path: '/serp-volatility', icon: Gauge },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

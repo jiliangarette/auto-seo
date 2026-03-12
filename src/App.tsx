@@ -112,6 +112,7 @@ const ContentSummarizer = lazy(() => import('@/pages/ContentSummarizer'));
 const SeoKnowledgeBase = lazy(() => import('@/pages/SeoKnowledgeBase'));
 const SeoRoiDashboard = lazy(() => import('@/pages/SeoRoiDashboard'));
 const ContentDecayDetector = lazy(() => import('@/pages/ContentDecayDetector'));
+const SerpVolatilityMonitor = lazy(() => import('@/pages/SerpVolatilityMonitor'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -836,6 +837,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/serp-volatility"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SerpVolatilityMonitor /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
