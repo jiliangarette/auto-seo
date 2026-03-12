@@ -82,6 +82,7 @@ const CompetitorBacklinkSpy = lazy(() => import('@/pages/CompetitorBacklinkSpy')
 const SeoTaskManager = lazy(() => import('@/pages/SeoTaskManager'));
 const LocalSeoChecker = lazy(() => import('@/pages/LocalSeoChecker'));
 const BrokenLinkFinder = lazy(() => import('@/pages/BrokenLinkFinder'));
+const ContentPillarPlanner = lazy(() => import('@/pages/ContentPillarPlanner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -786,6 +787,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-pillars"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentPillarPlanner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

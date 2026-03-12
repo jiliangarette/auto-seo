@@ -99,6 +99,7 @@ const navItems = [
   { label: 'SEO Tasks', path: '/seo-tasks', icon: FolderKanban },
   { label: 'Local SEO', path: '/local-seo', icon: Search },
   { label: 'Broken Links', path: '/broken-links', icon: Link2 },
+  { label: 'Pillars', path: '/content-pillars', icon: FileText },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
