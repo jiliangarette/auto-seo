@@ -231,10 +231,10 @@
 - [x] Actionable improvement checklist per content piece
 
 ### Module 38: Topic Authority Mapper
-- [ ] Map topical coverage across all content
-- [ ] Identify uncovered subtopics in your niche
-- [ ] Topical authority score per subject area
-- [ ] Recommended next articles to build authority
+- [x] Map topical coverage across all content
+- [x] Identify uncovered subtopics in your niche
+- [x] Topical authority score per subject area
+- [x] Recommended next articles to build authority
 
 ### Module 39: Backlink Quality Analyzer
 - [ ] Score backlinks by domain metrics (estimated DA, relevance)
@@ -284,5 +284,5 @@
 
 ---
 
-**Next up:** Module 38 — Topic Authority Mapper
+**Next up:** Module 39 — Backlink Quality Analyzer
 <!-- watchdog: 2026-03-13 — Phases 1-5: 155/155, Phase 6-7: 0/40, build: pass -->
