@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { generateSEOContent, type GeneratedContent, type GenerateMode } from '@/lib/content-generator';
 import { Button } from '@/components/ui/button';
@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
 import {
   Sparkles, Copy, Check, Globe, Swords, FileText, Loader2,
-  Eye, Code2, RotateCcw, Download,
+  Eye, Code2, RotateCcw, Download, Lightbulb, Wand2,
 } from 'lucide-react';
 
 const modes = [
@@ -52,6 +52,17 @@ const tones = [
   { value: 'persuasive', label: 'Persuasive' },
 ];
 
+const exampleTopics = [
+  '10 ways to improve your website loading speed',
+  'How to choose the right keywords for your business',
+  'Why your small business needs a blog in 2026',
+  'The complete guide to local SEO for restaurants',
+  'Email marketing tips that actually convert',
+  'How to write product descriptions that sell',
+  'Social media strategies for e-commerce stores',
+  'Understanding Google Analytics for beginners',
+];
+
 function ScoreRing({ score }: { score: number }) {
   const r = 32;
   const c = 2 * Math.PI * r;
@@ -72,10 +83,18 @@ function ScoreRing({ score }: { score: number }) {
 }
 
 export default function Generator() {
-  const [mode, setMode] = useState<GenerateMode>('topic');
+  const [mode, setMode] = useState<GenerateMode>('url-audit');
   const [topic, setTopic] = useState('');
   const [keywords, setKeywords] = useState('');
   const [siteUrl, setSiteUrl] = useState('');
+  const [placeholderIdx, setPlaceholderIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlaceholderIdx(prev => (prev + 1) % exampleTopics.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
   const [competitorUrl, setCompetitorUrl] = useState('');
   const [tone, setTone] = useState('professional');
   const [length, setLength] = useState<'short' | 'medium' | 'long'>('medium');
@@ -191,28 +210,55 @@ export default function Generator() {
               <>
                 <div className="space-y-1.5">
                   <label className="text-xs font-medium text-muted-foreground">Topic</label>
-                  <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="e.g., Best practices for technical SEO in 2026" className="bg-background/60 border-border/30 h-11" />
+                  <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder={exampleTopics[placeholderIdx]} className="bg-background/60 border-border/30 h-11" />
                 </div>
+
+                {/* Quick topic suggestions */}
+                {!topic && (
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                      <Lightbulb className="size-3" />
+                      Try one of these:
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {exampleTopics.slice(0, 4).map((t) => (
+                        <button
+                          key={t}
+                          onClick={() => setTopic(t)}
+                          className="text-[11px] px-3 py-1.5 rounded-full border border-border/30 bg-background/40 text-muted-foreground hover:text-foreground hover:border-violet-500/30 hover:bg-violet-500/5 transition-all"
+                        >
+                          {t}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-muted-foreground">Keywords <span className="font-normal opacity-60">(comma-separated, optional)</span></label>
-                  <Input value={keywords} onChange={(e) => setKeywords(e.target.value)} placeholder="e.g., technical SEO, site speed, core web vitals" className="bg-background/60 border-border/30 h-11" />
+                  <label className="text-xs font-medium text-muted-foreground">Keywords <span className="font-normal opacity-60">(optional — AI will pick if left blank)</span></label>
+                  <Input value={keywords} onChange={(e) => setKeywords(e.target.value)} placeholder="Leave blank and AI will choose the best keywords" className="bg-background/60 border-border/30 h-11" />
                 </div>
               </>
             )}
 
             {mode === 'url-audit' && (
               <>
+                <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3 flex items-start gap-2">
+                  <Wand2 className="size-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <p className="text-[11px] text-emerald-400/80 leading-relaxed">
+                    <span className="font-semibold text-emerald-400">One-click mode:</span> Just paste your URL below and hit Generate. AI will visit your site, find what topics you should write about, pick the best keywords, and write the article for you.
+                  </p>
+                </div>
                 <div className="space-y-1.5">
                   <label className="text-xs font-medium text-muted-foreground">Your Website URL</label>
                   <div className="relative">
                     <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
                     <Input value={siteUrl} onChange={(e) => setSiteUrl(e.target.value)} placeholder="e.g., mybusiness.com" className="pl-10 bg-background/60 border-border/30 h-11" />
                   </div>
-                  <p className="text-[11px] text-muted-foreground/70">AI will fetch your site, analyze content gaps, and automatically pick the best keywords</p>
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-xs font-medium text-muted-foreground">Focus Topic <span className="font-normal opacity-60">(optional — AI picks if blank)</span></label>
-                  <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Leave blank for AI to choose the best topic" className="bg-background/60 border-border/30 h-11" />
+                  <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Leave blank — AI will choose the best topic for you" className="bg-background/60 border-border/30 h-11" />
                 </div>
               </>
             )}

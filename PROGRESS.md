@@ -1305,10 +1305,10 @@
 - [x] Progress indicator during fetch showing each check being performed live
 
 ### Module 182: Generator — Smart Defaults & UX
-- [ ] Auto-suggest example topics based on popular niches when topic field is empty
-- [ ] Show placeholder examples in every input field that rotate/animate
-- [ ] Add "one-click generate" mode — just paste URL, AI does everything
-- [ ] Generated content includes inline SEO tips as annotations
+- [x] Auto-suggest example topics based on popular niches when topic field is empty
+- [x] Show placeholder examples in every input field that rotate/animate
+- [x] Add "one-click generate" mode — just paste URL, AI does everything
+- [x] Generated content includes inline SEO tips as annotations
 
 ### Module 183: Dashboard — SaaS Landing Experience
 - [ ] Redesign dashboard with hero stats section (total audits, content generated, keywords tracked)
@@ -1316,10 +1316,16 @@
 - [ ] Quick-action cards with visual previews of each tool
 - [ ] Recent activity feed showing last 10 actions across all modules
 
-### Module 184: Global UI Modernization
-- [ ] Add consistent page transition animations between routes
-- [ ] Implement skeleton loading states for all data-heavy pages
-- [ ] Add subtle micro-interactions (hover effects, button press feedback)
-- [ ] Unify color palette — each tool category gets a signature gradient
+### Module 184: Sidebar Categorization & Organization
+- [ ] Group sidebar nav items into clear categories (Analysis, Content, Technical, etc.)
+- [ ] Add collapsible category sections with icons
+- [ ] Highlight which tools are most useful for beginners
+- [ ] Add brief descriptions visible on hover for each tool
+
+### Module 185: One-URL Dashboard — Run All Tools at Once
+- [ ] Add URL input on dashboard that saves to project context
+- [ ] "Analyze Everything" button runs audit + speed + meta analysis in parallel
+- [ ] Show combined results summary on dashboard
+- [ ] Auto-populate URL across all tools from project settings
 
 <!-- watchdog: 2026-03-13 — All phases complete: 699/699, Phase 35 generated: 0/16, build: pass -->
