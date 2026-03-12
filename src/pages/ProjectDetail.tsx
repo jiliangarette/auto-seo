@@ -4,6 +4,7 @@ import { useKeywords } from '@/hooks/useKeywords';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import KeywordTable from '@/components/KeywordTable';
+import CompetitorSection from '@/components/CompetitorSection';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export default function ProjectDetail() {
@@ -83,6 +84,8 @@ export default function ProjectDetail() {
         </div>
 
         <KeywordTable projectId={id!} />
+
+        <CompetitorSection projectId={id!} projectUrl={project.url} />
       </div>
     </div>
   );

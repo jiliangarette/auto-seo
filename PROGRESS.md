@@ -14,11 +14,11 @@
 ## Phase 2 — Advanced Features
 
 ### Module 7: Competitor Analysis
-- [ ] DB: `competitors` table + RLS
-- [ ] Add competitor form on project detail page
-- [ ] OpenAI competitor comparison call
-- [ ] Side-by-side comparison display
-- [ ] Save competitor analysis to DB
+- [x] DB: `competitors` + `competitor_analyses` tables + RLS
+- [x] Add competitor form on project detail page (`src/components/CompetitorSection.tsx`)
+- [x] OpenAI competitor comparison call (`src/lib/competitor-analyzer.ts`)
+- [x] Side-by-side comparison display (strengths/weaknesses/opportunities cards)
+- [x] Save competitor analysis to DB (`src/hooks/useCompetitors.ts`)
 
 ### Module 8: Backlink Tracker
 - [ ] DB: `backlinks` table + RLS
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 7 — Competitor Analysis
-<!-- watchdog: 2026-03-13 02:15 — Phase 1: 27/27 done, Phase 2: 0/38, build: pass -->
+**Next up:** Module 8 — Backlink Tracker
+<!-- watchdog: 2026-03-13 02:30 — Phase 1: 27/27 done, Phase 2: 5/38, build: pass -->

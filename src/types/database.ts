@@ -30,3 +30,24 @@ export interface Analysis {
   raw_response: Record<string, unknown> | null;
   created_at: string;
 }
+
+export interface Competitor {
+  id: string;
+  project_id: string;
+  url: string;
+  name: string;
+  notes: string | null;
+  created_at: string;
+}
+
+export interface CompetitorAnalysis {
+  id: string;
+  competitor_id: string;
+  project_id: string;
+  comparison: Record<string, unknown>;
+  strengths: string[] | null;
+  weaknesses: string[] | null;
+  opportunities: string[] | null;
+  score: number | null;
+  created_at: string;
+}
