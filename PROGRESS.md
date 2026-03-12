@@ -370,4 +370,38 @@
 
 **All 9 Phases complete (Modules 1-55). 235/235 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-9: 235/235, build: pass -->
+---
+
+## Phase 10 — Deep Analytics & UX Polish
+
+### Module 56: Keyword Gap Analysis
+- [x] Input your domain + competitor domains
+- [x] AI-powered keyword gap detection (they rank, you don't)
+- [x] Opportunity prioritization matrix (volume × difficulty)
+- [x] Export gap analysis report
+
+### Module 57: Content Decay Detector
+- [ ] Track content age and performance over time
+- [ ] Flag declining content (traffic/ranking drops)
+- [ ] AI refresh suggestions for stale content
+- [ ] Content lifecycle status badges (fresh/aging/stale)
+
+### Module 58: Structured Data Validator
+- [ ] Paste JSON-LD for validation
+- [ ] Property completeness checker per schema type
+- [ ] Google Rich Results eligibility check
+- [ ] Fix suggestions with corrected JSON-LD output
+
+### Module 59: Image SEO Optimizer
+- [ ] Input image URLs for analysis
+- [ ] Alt text quality scorer and generator
+- [ ] File size and format recommendations
+- [ ] Image sitemap XML generator
+
+### Module 60: SEO Scoring Dashboard
+- [ ] Unified SEO health score per project (0-100)
+- [ ] Score breakdown by category (technical, content, links, speed)
+- [ ] Week-over-week score change tracking
+- [ ] Actionable improvement roadmap sorted by impact
+
+<!-- watchdog: 2026-03-13 — Phases 1-9: 235/235, Phase 10: 0/20, build: pass -->
