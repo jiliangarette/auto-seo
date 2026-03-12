@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# Auto-SEO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI-powered SEO optimization platform that analyzes, generates, and optimizes content for search engines.
 
-Currently, two official plugins are available:
+**Live:** [auto-seo-eight.vercel.app](https://auto-seo-eight.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Dashboard** — Overview stats, recent analyses, quick actions
+- **Projects** — Organize SEO work by website/project
+- **Keyword Tracker** — Track keywords with volume, difficulty, and intent
+- **Content Analyzer** — AI-powered SEO scoring across 6 categories
+- **Content Generator** — Generate SEO-optimized articles with meta tags
+- **Competitor Analysis** — Side-by-side competitor comparison with strengths/weaknesses
+- **Backlink Tracker** — Monitor backlinks with active/broken status
+- **Site Audit** — Technical SEO audit with categorized issues and severity
+- **Content Calendar** — Plan, schedule, and track content with status workflows
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend:** React + TypeScript + Vite
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Database:** Supabase (Postgres + Auth + RLS)
+- **AI:** OpenAI GPT-4o-mini
+- **State:** TanStack Query + React Context
+- **Routing:** React Router v6
+- **Deployment:** Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/jiliangarette/auto-seo.git
+cd auto-seo
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Create a `.env` file:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_OPENAI_API_KEY=your_openai_api_key
 ```
+
+```bash
+npm run dev
+```
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run lint` | ESLint check |
+| `npm run preview` | Preview production build |
+
+## License
+
+MIT
