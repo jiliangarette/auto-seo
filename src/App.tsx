@@ -128,6 +128,7 @@ const BulkPageAnalyzer = lazy(() => import('@/pages/BulkPageAnalyzer'));
 const HreflangTagGenerator = lazy(() => import('@/pages/HreflangTagGenerator'));
 const ContentPerformanceTracker = lazy(() => import('@/pages/ContentPerformanceTracker'));
 const SeoBudgetAllocator = lazy(() => import('@/pages/SeoBudgetAllocator'));
+const CompetitorAlertSystem = lazy(() => import('@/pages/CompetitorAlertSystem'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -852,6 +853,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/competitor-alerts"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><CompetitorAlertSystem /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
