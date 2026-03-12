@@ -38,6 +38,7 @@ const Analytics = lazy(() => import('@/pages/Analytics'));
 const KeywordClustering = lazy(() => import('@/pages/KeywordClustering'));
 const ContentScoring = lazy(() => import('@/pages/ContentScoring'));
 const TopicAuthority = lazy(() => import('@/pages/TopicAuthority'));
+const BacklinkQuality = lazy(() => import('@/pages/BacklinkQuality'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -242,6 +243,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentBrief /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/backlink-quality"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><BacklinkQuality /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

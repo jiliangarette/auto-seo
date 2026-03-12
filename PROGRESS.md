@@ -237,10 +237,10 @@
 - [x] Recommended next articles to build authority
 
 ### Module 39: Backlink Quality Analyzer
-- [ ] Score backlinks by domain metrics (estimated DA, relevance)
-- [ ] Flag toxic/spammy backlinks
-- [ ] Backlink acquisition opportunity suggestions
-- [ ] Disavow list generator
+- [x] Score backlinks by domain metrics (estimated DA, relevance)
+- [x] Flag toxic/spammy backlinks
+- [x] Backlink acquisition opportunity suggestions
+- [x] Disavow list generator
 
 ### Module 40: AI Writing Assistant
 - [ ] In-editor real-time SEO suggestions while typing
@@ -284,5 +284,5 @@
 
 ---
 
-**Next up:** Module 39 — Backlink Quality Analyzer
+**Next up:** Module 40 — AI Writing Assistant
 <!-- watchdog: 2026-03-13 — Phases 1-5: 155/155, Phase 6-7: 0/40, build: pass -->
