@@ -659,10 +659,10 @@
 - [x] Historical feature presence tracking
 
 ### Module 94: Duplicate Content Checker
-- [ ] Input multiple URLs or paste content blocks
-- [ ] AI-detect similarity percentage between pages
-- [ ] Flag near-duplicate and exact-duplicate content
-- [ ] Consolidation and canonical recommendations
+- [x] Input multiple URLs or paste content blocks
+- [x] AI-detect similarity percentage between pages
+- [x] Flag near-duplicate and exact-duplicate content
+- [x] Consolidation and canonical recommendations
 
 ### Module 95: Meta Description Bulk Generator
 - [ ] Input page titles and URLs in bulk

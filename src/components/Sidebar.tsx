@@ -110,6 +110,7 @@ const navItems = [
   { label: 'Brief Templates', path: '/brief-templates', icon: FileText },
   { label: 'Topical Map', path: '/topical-map', icon: Share2 },
   { label: 'SERP Features', path: '/serp-features', icon: Eye },
+  { label: 'Duplicates', path: '/duplicate-checker', icon: Search },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

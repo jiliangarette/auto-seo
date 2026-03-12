@@ -93,6 +93,7 @@ const SeoAuditReportBuilder = lazy(() => import('@/pages/SeoAuditReportBuilder')
 const ContentBriefTemplates = lazy(() => import('@/pages/ContentBriefTemplates'));
 const TopicalMapGenerator = lazy(() => import('@/pages/TopicalMapGenerator'));
 const SerpFeatureTracker = lazy(() => import('@/pages/SerpFeatureTracker'));
+const DuplicateContentChecker = lazy(() => import('@/pages/DuplicateContentChecker'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -797,6 +798,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/duplicate-checker"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><DuplicateContentChecker /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
