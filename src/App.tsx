@@ -78,6 +78,7 @@ const HeadingAnalyzer = lazy(() => import('@/pages/HeadingAnalyzer'));
 const ParagraphRewriter = lazy(() => import('@/pages/ParagraphRewriter'));
 const TitleTagTester = lazy(() => import('@/pages/TitleTagTester'));
 const KeywordDensityChecker = lazy(() => import('@/pages/KeywordDensityChecker'));
+const CompetitorBacklinkSpy = lazy(() => import('@/pages/CompetitorBacklinkSpy'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -552,6 +553,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/backlink-spy"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><CompetitorBacklinkSpy /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

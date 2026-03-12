@@ -95,6 +95,7 @@ const navItems = [
   { label: 'Rewriter', path: '/rewriter', icon: Wand2 },
   { label: 'Title Tester', path: '/title-tester', icon: Tags },
   { label: 'Density', path: '/keyword-density', icon: BarChart3 },
+  { label: 'Backlink Spy', path: '/backlink-spy', icon: Eye },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
