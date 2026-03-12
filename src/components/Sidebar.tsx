@@ -91,6 +91,7 @@ const navItems = [
   { label: 'Content Gaps', path: '/content-gaps', icon: Search },
   { label: 'Link Intersect', path: '/link-intersection', icon: Link2 },
   { label: 'FAQ Schema', path: '/faq-schema', icon: Code2 },
+  { label: 'Headings', path: '/heading-analyzer', icon: FileText },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
