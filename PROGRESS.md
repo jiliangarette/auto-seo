@@ -1,46 +1,76 @@
 # Auto-SEO — Build Progress
 
-## Module 1: Auth
-- [x] Supabase client setup (`src/integrations/supabase/client.ts`)
-- [x] OpenAI client setup (`src/integrations/openai/client.ts`)
-- [x] AuthContext provider (`src/contexts/AuthContext.tsx`)
-- [x] Login page (`src/pages/Login.tsx`)
-- [x] Signup page (`src/pages/Signup.tsx`)
-- [x] Protected route wrapper (`src/components/ProtectedRoute.tsx`)
-- [x] Auth navbar (`src/components/Navbar.tsx`)
+## Phase 1 — Core (COMPLETE)
 
-## Module 2: Projects
-- [x] DB: `projects` table + RLS (created via Supabase MCP)
-- [x] Create project form (`src/pages/Projects.tsx`)
-- [x] Projects list page (`src/pages/Projects.tsx`)
-- [x] Project detail page (`src/pages/ProjectDetail.tsx`)
-
-## Module 3: Keyword Tracker
-- [x] DB: `keywords` table + RLS (created via Supabase MCP)
-- [x] Add keywords form (`src/components/KeywordTable.tsx`)
-- [x] Keywords table with sorting (`src/components/KeywordTable.tsx`)
-- [x] Position tracking (manual entry in keyword table)
-
-## Module 4: Content Analyzer
-- [x] DB: `analyses` table + RLS (created via Supabase MCP)
-- [x] URL input / paste HTML (`src/pages/Analyzer.tsx`)
-- [x] OpenAI SEO analysis call (`src/lib/seo-analyzer.ts`)
-- [x] Results display — score + suggestions per category (`src/pages/Analyzer.tsx`)
-- [x] Save to DB (`src/hooks/useAnalyses.ts`)
-
-## Module 5: Content Generator
-- [x] Topic/keyword/tone input form (`src/pages/Generator.tsx`)
-- [x] OpenAI content generation call (`src/lib/content-generator.ts`)
-- [x] Preview with SEO score (`src/pages/Generator.tsx`)
-- [x] Copy/export — clipboard copy (`src/pages/Generator.tsx`)
-
-## Module 6: Dashboard
-- [x] Project selector (projects data drives dashboard)
-- [x] Stats cards — projects, keywords, analyses, avg SEO score
-- [x] Recent analyses list with scores
-- [x] Quick actions — new project, run analysis, generate content
+### Module 1: Auth ✅
+### Module 2: Projects ✅
+### Module 3: Keyword Tracker ✅
+### Module 4: Content Analyzer ✅
+### Module 5: Content Generator ✅
+### Module 6: Dashboard ✅
 
 ---
 
-**ALL MODULES COMPLETE!** Frontend + DB fully wired. App is functional.
-<!-- watchdog: 2026-03-13 02:00 — 27/27 done, build: pass, DB: all tables created -->
+## Phase 2 — Advanced Features
+
+### Module 7: Competitor Analysis
+- [ ] DB: `competitors` table + RLS
+- [ ] Add competitor form on project detail page
+- [ ] OpenAI competitor comparison call
+- [ ] Side-by-side comparison display
+- [ ] Save competitor analysis to DB
+
+### Module 8: Backlink Tracker
+- [ ] DB: `backlinks` table + RLS
+- [ ] Manual backlink entry form
+- [ ] Backlink table with status (active/broken), sortable
+- [ ] Backlink summary stats on project detail
+
+### Module 9: Site Audit Tool
+- [ ] DB: `audits` table + RLS
+- [ ] Site URL input page
+- [ ] OpenAI technical SEO audit call
+- [ ] Audit report with categorized issues (critical/warning/info)
+- [ ] Save audit history
+
+### Module 10: Content Calendar
+- [ ] DB: `content_items` table + RLS
+- [ ] Calendar month grid view
+- [ ] Content item CRUD (plan/draft/published statuses)
+- [ ] Generate content from calendar item via generator
+- [ ] Date picker for scheduling
+
+### Module 11: Rank Tracking History
+- [ ] DB: `rank_history` table + RLS
+- [ ] Manual position check-in button per keyword
+- [ ] Position history chart (line chart)
+- [ ] Rank change indicators (up/down arrows with delta)
+
+### Module 12: Reports & Export
+- [ ] DB: `reports` table + RLS
+- [ ] Generate project SEO report (HTML)
+- [ ] Export keywords/analyses as CSV
+- [ ] Shareable report link (public read-only page)
+
+### Module 13: Meta Tag Generator
+- [ ] Input form (page title, description, keywords, page type)
+- [ ] OpenAI meta tag generation call
+- [ ] Google search preview
+- [ ] Copy tags as HTML snippet
+
+### Module 14: Internal Linking Suggestions
+- [ ] Input: paste article + existing pages list
+- [ ] OpenAI internal linking suggestions call
+- [ ] Display suggestions with highlighted anchors
+- [ ] Copy updated content with links
+
+### Module 15: Settings & Profile
+- [ ] Profile page (email, name)
+- [ ] API usage tracking (OpenAI call count)
+- [ ] Theme toggle (dark/light)
+- [ ] Delete account
+
+---
+
+**Next up:** Module 7 — Competitor Analysis
+<!-- watchdog: 2026-03-13 02:15 — Phase 1: 27/27 done, Phase 2: 0/38, build: pass -->

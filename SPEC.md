@@ -11,88 +11,86 @@ An AI-powered SEO optimization platform that helps users analyze, generate, and 
 - **State:** TanStack Query (server) + React Context (local)
 - **Routing:** React Router v7
 
-## Modules (build order)
+## Modules — Phase 1 (DONE)
 
-### 1. Auth Module
-- [x] Supabase client setup
-- [ ] Login page (email/password via Supabase Auth)
-- [ ] Signup page
-- [ ] Protected route wrapper
-- [ ] Auth state in navbar (user email, sign out button)
+### 1. Auth Module ✅
+### 2. Projects Module ✅
+### 3. Keyword Tracker Module ✅
+### 4. Content Analyzer Module ✅
+### 5. Content Generator Module ✅
+### 6. Dashboard Module ✅
 
-### 2. Projects Module
-- [ ] DB: `projects` table (id, user_id, name, url, created_at)
-- [ ] Create project form (name + URL)
-- [ ] Projects list page
-- [ ] Project detail page (shell)
+## Modules — Phase 2 (build these next)
 
-### 3. Keyword Tracker Module
-- [ ] DB: `keywords` table (id, project_id, keyword, position, search_volume, created_at)
-- [ ] Add keywords form
-- [ ] Keywords table with sorting
-- [ ] Keyword position tracking (manual entry for now)
+### 7. Competitor Analysis
+- DB: `competitors` table (id, project_id, url, name, created_at)
+- Add competitor URL form on project detail page
+- OpenAI call: compare your site vs competitor (content quality, keyword overlap, gaps)
+- Side-by-side comparison display with actionable recommendations
+- Save competitor analysis results to DB
 
-### 4. Content Analyzer Module
-- [ ] DB: `analyses` table (id, project_id, url, score, suggestions, created_at)
-- [ ] URL input → fetch page content (or paste HTML)
-- [ ] OpenAI call: analyze content for SEO (title, meta, headings, keyword density, readability)
-- [ ] Display analysis results with score + suggestions
-- [ ] Save analysis to DB
+### 8. Backlink Tracker
+- DB: `backlinks` table (id, project_id, source_url, target_url, anchor_text, status, discovered_at)
+- Manual backlink entry form (source URL, anchor text)
+- Backlink table with status (active/broken), sortable
+- Backlink summary stats on project detail page
 
-### 5. Content Generator Module
-- [ ] Input: topic, target keywords, tone, length
-- [ ] OpenAI call: generate SEO-optimized content
-- [ ] Preview generated content with SEO score
-- [ ] Copy to clipboard / export
+### 9. Site Audit Tool
+- Input: full site URL
+- OpenAI call: comprehensive technical SEO audit (page speed suggestions, mobile-friendliness, meta tags, structured data, internal linking)
+- Audit report page with categorized issues (critical/warning/info)
+- DB: `audits` table (id, project_id, url, issues_count, report, created_at)
+- Save audit history
 
-### 6. Dashboard Module
-- [ ] Project selector
-- [ ] Stats cards (projects count, keywords tracked, analyses run, avg SEO score)
-- [ ] Recent analyses list
-- [ ] Quick actions (new project, run analysis, generate content)
+### 10. Content Calendar
+- DB: `content_items` table (id, project_id, title, topic, keywords, status, scheduled_date, content, created_at)
+- Calendar view (month grid) showing planned content
+- Content item CRUD (plan, draft, published statuses)
+- Generate content directly from calendar item using the generator
+- Drag to reschedule (or simple date picker)
+
+### 11. Rank Tracking History
+- DB: `rank_history` table (id, keyword_id, position, checked_at)
+- Record keyword position over time (manual check-in button)
+- Position history chart per keyword (line chart showing rank changes)
+- Rank change indicators (up/down arrows with delta)
+- Weekly summary view
+
+### 12. Reports & Export
+- Generate PDF/HTML SEO report for a project
+- Include: keyword rankings, analysis scores, competitor comparison, audit results
+- Export data as CSV (keywords, analyses, backlinks)
+- Shareable report link (public read-only page)
+- DB: `reports` table (id, project_id, type, data, created_at)
+
+### 13. Meta Tag Generator
+- Input: page title, description, keywords, page type
+- OpenAI call: generate optimized meta tags (title, description, OG tags, Twitter cards, structured data JSON-LD)
+- Live preview of how it looks in Google search results
+- Copy all tags as HTML snippet
+
+### 14. Internal Linking Suggestions
+- Input: paste article content + list of existing site pages
+- OpenAI call: suggest internal links (which phrases to link, which pages to link to)
+- Display suggestions with highlighted anchor text
+- Copy updated content with links inserted
+
+### 15. Settings & Profile
+- Profile page (email, name, avatar placeholder)
+- API usage tracking (count OpenAI calls made)
+- DB: add `api_calls_count` column to profiles
+- Theme toggle (dark/light mode)
+- Delete account functionality
 
 ## Database Schema (Supabase)
 
-```sql
--- profiles (auto-created on signup)
-create table profiles (
-  id uuid references auth.users primary key,
-  email text,
-  created_at timestamptz default now()
-);
+Core tables (created):
+- `profiles`, `projects`, `keywords`, `analyses`
 
--- projects
-create table projects (
-  id uuid default gen_random_uuid() primary key,
-  user_id uuid references profiles(id) on delete cascade not null,
-  name text not null,
-  url text,
-  created_at timestamptz default now()
-);
+Phase 2 tables (build as needed):
+- `competitors`, `backlinks`, `audits`, `content_items`, `rank_history`, `reports`
 
--- keywords
-create table keywords (
-  id uuid default gen_random_uuid() primary key,
-  project_id uuid references projects(id) on delete cascade not null,
-  keyword text not null,
-  position integer,
-  search_volume integer,
-  created_at timestamptz default now()
-);
-
--- analyses
-create table analyses (
-  id uuid default gen_random_uuid() primary key,
-  project_id uuid references projects(id) on delete cascade not null,
-  url text not null,
-  score integer,
-  suggestions jsonb,
-  raw_response jsonb,
-  created_at timestamptz default now()
-);
-```
-
-RLS: All tables filtered by `auth.uid() = user_id` (or via project ownership for keywords/analyses).
+RLS: All tables filtered by `auth.uid() = user_id` (or via project ownership).
 
 ## Design Direction
 - Dark theme by default
