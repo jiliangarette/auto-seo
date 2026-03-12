@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useSiteUrl } from '@/contexts/SiteContext';
 import { auditSite, type SiteAuditResult } from '@/lib/site-auditor';
 import { useSaveAudit } from '@/hooks/useAudits';
 import { useProjects } from '@/hooks/useProjects';
@@ -69,8 +70,15 @@ export default function SiteAudit() {
   const { data: projects } = useProjects();
   const saveAudit = useSaveAudit();
 
-  const [url, setUrl] = useState('');
+  const { siteUrl: globalUrl } = useSiteUrl();
+  const urlParam = searchParams.get('url') ?? '';
+  const [url, setUrl] = useState(urlParam || globalUrl);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (urlParam && !url) setUrl(urlParam);
+    else if (globalUrl && !url) setUrl(globalUrl);
+  }, [urlParam, globalUrl]);
   const [result, setResult] = useState<SiteAuditResult | null>(null);
   const [selectedProject, setSelectedProject] = useState(preselectedProject);
   const [filter, setFilter] = useState<'all' | 'critical' | 'warning' | 'info'>('all');

@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/sonner';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { NotificationProvider } from '@/contexts/NotificationContext';
+import { SiteProvider } from '@/contexts/SiteContext';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import Sidebar from '@/components/Sidebar';
@@ -205,6 +206,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <NotificationProvider>
+        <SiteProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<LazyPage><Login /></LazyPage>} />
@@ -1794,6 +1796,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
         <Toaster />
+        </SiteProvider>
         </NotificationProvider>
       </AuthProvider>
     </QueryClientProvider>

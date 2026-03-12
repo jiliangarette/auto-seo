@@ -1323,9 +1323,9 @@
 - [x] Add brief descriptions visible on hover for each tool
 
 ### Module 185: One-URL Dashboard — Run All Tools at Once
-- [ ] Add URL input on dashboard that saves to project context
-- [ ] "Analyze Everything" button runs audit + speed + meta analysis in parallel
-- [ ] Show combined results summary on dashboard
-- [ ] Auto-populate URL across all tools from project settings
+- [x] Add URL input on dashboard that saves to project context
+- [x] "Analyze Everything" button runs audit + speed + meta analysis in parallel
+- [x] Show combined results summary on dashboard
+- [x] Auto-populate URL across all tools from project settings
 
 <!-- watchdog: 2026-03-13 — All phases complete: 699/699, Phase 35 generated: 0/16, build: pass -->

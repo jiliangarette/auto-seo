@@ -16,7 +16,14 @@ import OnboardingModal from '@/components/OnboardingModal';
 import AnimatedNumber from '@/components/AnimatedNumber';
 import EmptyState from '@/components/EmptyState';
 import { auditSite } from '@/lib/site-auditor';
+import { useSiteUrl } from '@/contexts/SiteContext';
 import type { Analysis } from '@/types/database';
+
+interface AnalyzeAllResult {
+  audit?: { score: number; critical: number; warning: number; info: number };
+  speed?: { loadTimeMs: number; htmlSize: number; jsScripts: number; cssLinks: number };
+  meta?: { title: string; titleLen: number; desc: string; descLen: number };
+}
 
 interface ActivityItem {
   type: string;
@@ -31,9 +38,12 @@ export default function Dashboard() {
   const { data: projects } = useProjects();
   const projectIds = projects?.map((p) => p.id) ?? [];
 
-  const [quickUrl, setQuickUrl] = useState('');
+  const { siteUrl, setSiteUrl } = useSiteUrl();
+  const [quickUrl, setQuickUrl] = useState(siteUrl);
   const [analyzing, setAnalyzing] = useState(false);
+  const [analyzeAll, setAnalyzeAll] = useState(false);
   const [quickResult, setQuickResult] = useState<{ score: number; critical: number; warning: number; info: number } | null>(null);
+  const [allResults, setAllResults] = useState<AnalyzeAllResult | null>(null);
 
   const { data: allAnalyses } = useQuery({
     queryKey: ['all-analyses', user?.id],
@@ -148,6 +158,7 @@ export default function Dashboard() {
 
   const handleQuickAnalyze = async () => {
     if (!quickUrl.trim()) return;
+    setSiteUrl(quickUrl.trim());
     setAnalyzing(true);
     setQuickResult(null);
     try {
@@ -163,6 +174,25 @@ export default function Dashboard() {
     } finally {
       setAnalyzing(false);
     }
+  };
+
+  const handleAnalyzeAll = async () => {
+    if (!quickUrl.trim()) return;
+    setSiteUrl(quickUrl.trim());
+    setAnalyzeAll(true);
+    setAllResults(null);
+    const results: AnalyzeAllResult = {};
+    try {
+      const auditPromise = auditSite(quickUrl.trim()).then(r => {
+        results.audit = { score: r.summary.score, critical: r.summary.critical, warning: r.summary.warning, info: r.summary.info };
+        results.speed = { loadTimeMs: r.siteData.loadTimeMs, htmlSize: r.siteData.htmlSize, jsScripts: r.siteData.jsScripts, cssLinks: r.siteData.cssLinks };
+        results.meta = { title: r.siteData.title, titleLen: r.siteData.title.length, desc: r.siteData.metaDescription, descLen: r.siteData.metaDescription.length };
+      }).catch(() => {});
+      await auditPromise;
+      setAllResults(results);
+      if (results.audit) setQuickResult(results.audit);
+    } catch { /* handled per-promise */ }
+    setAnalyzeAll(false);
   };
 
   const quickActions = [
@@ -214,14 +244,23 @@ export default function Dashboard() {
               </div>
               <Button
                 onClick={handleQuickAnalyze}
-                disabled={analyzing}
-                className="h-11 px-6 bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl"
+                disabled={analyzing || analyzeAll}
+                variant="outline"
+                className="h-11 px-4 border-border/30 rounded-xl"
               >
-                {analyzing ? <Loader2 className="size-4 animate-spin" /> : <Zap className="size-4" />}
-                {analyzing ? 'Scanning...' : 'Analyze'}
+                {analyzing ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />}
+                Quick Scan
+              </Button>
+              <Button
+                onClick={handleAnalyzeAll}
+                disabled={analyzing || analyzeAll}
+                className="h-11 px-5 bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl"
+              >
+                {analyzeAll ? <Loader2 className="size-4 animate-spin" /> : <Zap className="size-4" />}
+                {analyzeAll ? 'Analyzing...' : 'Analyze Everything'}
               </Button>
             </div>
-            {quickResult && (
+            {quickResult && !allResults && (
               <div className="flex items-center gap-4 mt-3 pt-3 border-t border-border/20">
                 <div className="flex items-center gap-2">
                   <span className={`text-2xl font-bold ${scoreColor(quickResult.score)}`}>{quickResult.score}</span>
@@ -236,8 +275,66 @@ export default function Dashboard() {
                   <Button size="sm" variant="outline" className="h-7 text-xs border-border/30" onClick={() => navigate(`/audit?url=${encodeURIComponent(quickUrl)}`)}>
                     Full Audit <ArrowRight className="size-3 ml-1" />
                   </Button>
-                  <Button size="sm" variant="outline" className="h-7 text-xs border-border/30" onClick={() => navigate(`/generator`)}>
-                    Generate Content <ArrowRight className="size-3 ml-1" />
+                </div>
+              </div>
+            )}
+            {allResults && (
+              <div className="mt-3 pt-3 border-t border-border/20 space-y-3">
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {allResults.audit && (
+                    <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Shield className="size-3.5 text-emerald-400" />
+                        <span className="text-xs font-medium">SEO Audit</span>
+                      </div>
+                      <p className={`text-2xl font-bold ${scoreColor(allResults.audit.score)}`}>{allResults.audit.score}<span className="text-xs text-muted-foreground">/100</span></p>
+                      <div className="flex gap-2 mt-1 text-[10px]">
+                        <span className="text-red-400">{allResults.audit.critical} critical</span>
+                        <span className="text-amber-400">{allResults.audit.warning} warn</span>
+                      </div>
+                    </div>
+                  )}
+                  {allResults.speed && (
+                    <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Zap className="size-3.5 text-amber-400" />
+                        <span className="text-xs font-medium">Speed</span>
+                      </div>
+                      <p className="text-2xl font-bold">{allResults.speed.loadTimeMs}<span className="text-xs text-muted-foreground">ms</span></p>
+                      <div className="flex gap-2 mt-1 text-[10px] text-muted-foreground">
+                        <span>{Math.round(allResults.speed.htmlSize / 1024)}KB HTML</span>
+                        <span>{allResults.speed.jsScripts} scripts</span>
+                        <span>{allResults.speed.cssLinks} CSS</span>
+                      </div>
+                    </div>
+                  )}
+                  {allResults.meta && (
+                    <div className="rounded-xl border border-purple-500/20 bg-purple-500/5 p-3">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Tags className="size-3.5 text-purple-400" />
+                        <span className="text-xs font-medium">Meta Tags</span>
+                      </div>
+                      <p className="text-xs truncate" title={allResults.meta.title}>{allResults.meta.title || <span className="text-red-400">Missing title</span>}</p>
+                      <div className="flex gap-2 mt-1 text-[10px] text-muted-foreground">
+                        <span className={allResults.meta.titleLen > 60 ? 'text-amber-400' : allResults.meta.titleLen === 0 ? 'text-red-400' : 'text-emerald-400'}>
+                          Title: {allResults.meta.titleLen} chars
+                        </span>
+                        <span className={allResults.meta.descLen > 160 ? 'text-amber-400' : allResults.meta.descLen === 0 ? 'text-red-400' : 'text-emerald-400'}>
+                          Desc: {allResults.meta.descLen} chars
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="flex gap-2 justify-end">
+                  <Button size="sm" variant="outline" className="h-7 text-xs border-border/30" onClick={() => navigate(`/audit?url=${encodeURIComponent(quickUrl)}`)}>
+                    Full Audit <ArrowRight className="size-3 ml-1" />
+                  </Button>
+                  <Button size="sm" variant="outline" className="h-7 text-xs border-border/30" onClick={() => navigate('/speed-analyzer')}>
+                    Speed Details <ArrowRight className="size-3 ml-1" />
+                  </Button>
+                  <Button size="sm" variant="outline" className="h-7 text-xs border-border/30" onClick={() => navigate('/meta-optimizer')}>
+                    Optimize Meta <ArrowRight className="size-3 ml-1" />
                   </Button>
                 </div>
               </div>
