@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Projects', path: '/projects' },
   { label: 'Analyzer', path: '/analyzer' },
   { label: 'Generator', path: '/generator' },
+  { label: 'Audit', path: '/audit' },
 ];
 
 export default function Navbar() {

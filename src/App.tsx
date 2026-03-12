@@ -11,6 +11,7 @@ import Projects from '@/pages/Projects';
 import ProjectDetail from '@/pages/ProjectDetail';
 import Analyzer from '@/pages/Analyzer';
 import Generator from '@/pages/Generator';
+import SiteAudit from '@/pages/SiteAudit';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -85,6 +86,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <Generator />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/audit"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <SiteAudit />
                   </AppLayout>
                 </ProtectedRoute>
               }

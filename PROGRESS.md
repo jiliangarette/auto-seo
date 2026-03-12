@@ -27,11 +27,11 @@
 - [x] Backlink summary stats on project detail (total/active/broken counts)
 
 ### Module 9: Site Audit Tool
-- [ ] DB: `audits` table + RLS
-- [ ] Site URL input page
-- [ ] OpenAI technical SEO audit call
-- [ ] Audit report with categorized issues (critical/warning/info)
-- [ ] Save audit history
+- [x] DB: `audits` table + RLS (created via Supabase MCP)
+- [x] Site URL input page (`src/pages/SiteAudit.tsx`)
+- [x] OpenAI technical SEO audit call (`src/lib/site-auditor.ts`)
+- [x] Audit report with categorized issues — critical/warning/info filters (`src/pages/SiteAudit.tsx`)
+- [x] Save audit history (`src/hooks/useAudits.ts`)
 
 ### Module 10: Content Calendar
 - [ ] DB: `content_items` table + RLS
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 9 — Site Audit Tool
-<!-- watchdog: 2026-03-13 02:42 — Phase 1: 27/27 done, Phase 2: 9/38, build: pass -->
+**Next up:** Module 10 — Content Calendar
+<!-- watchdog: 2026-03-13 02:54 — Phase 1: 27/27 done, Phase 2: 14/38, build: pass -->

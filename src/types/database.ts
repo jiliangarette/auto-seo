@@ -40,6 +40,28 @@ export interface Competitor {
   created_at: string;
 }
 
+export interface Audit {
+  id: string;
+  project_id: string;
+  url: string;
+  issues_count: number;
+  critical_count: number;
+  warning_count: number;
+  info_count: number;
+  report: {
+    issues: AuditIssue[];
+  };
+  created_at: string;
+}
+
+export interface AuditIssue {
+  category: string;
+  severity: 'critical' | 'warning' | 'info';
+  title: string;
+  description: string;
+  recommendation: string;
+}
+
 export interface Backlink {
   id: string;
   project_id: string;
