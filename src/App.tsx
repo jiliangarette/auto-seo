@@ -60,6 +60,7 @@ const ContentDecay = lazy(() => import('@/pages/ContentDecay'));
 const StructuredDataValidator = lazy(() => import('@/pages/StructuredDataValidator'));
 const ImageSeoOptimizer = lazy(() => import('@/pages/ImageSeoOptimizer'));
 const SeoScoringDashboard = lazy(() => import('@/pages/SeoScoringDashboard'));
+const CtaOptimizer = lazy(() => import('@/pages/CtaOptimizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -534,6 +535,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cta-optimizer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><CtaOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

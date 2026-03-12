@@ -77,6 +77,7 @@ const navItems = [
   { label: 'Schema Validator', path: '/structured-data', icon: Code2 },
   { label: 'Image SEO', path: '/image-seo', icon: Eye },
   { label: 'SEO Score', path: '/seo-score', icon: Gauge },
+  { label: 'CTA Optimizer', path: '/cta-optimizer', icon: LayoutDashboard },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
