@@ -90,6 +90,7 @@ const CanonicalTagChecker = lazy(() => import('@/pages/CanonicalTagChecker'));
 const ContentReadabilityGrader = lazy(() => import('@/pages/ContentReadabilityGrader'));
 const BacklinkOutreachEmails = lazy(() => import('@/pages/BacklinkOutreachEmails'));
 const SeoAuditReportBuilder = lazy(() => import('@/pages/SeoAuditReportBuilder'));
+const ContentBriefTemplates = lazy(() => import('@/pages/ContentBriefTemplates'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -794,6 +795,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/brief-templates"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentBriefTemplates /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

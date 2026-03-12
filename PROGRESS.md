@@ -641,10 +641,10 @@
 ## Phase 17 — Content Operations & Link Intelligence
 
 ### Module 91: Content Brief Templates
-- [ ] Select from pre-built brief templates (blog, pillar, product)
-- [ ] Customize template fields and sections
-- [ ] AI-populate brief from topic keyword
-- [ ] Save and reuse custom templates
+- [x] Select from pre-built brief templates (blog, pillar, product)
+- [x] Customize template fields and sections
+- [x] AI-populate brief from topic keyword
+- [x] Save and reuse custom templates
 
 ### Module 92: Topical Map Generator
 - [ ] Input seed topic for topical map

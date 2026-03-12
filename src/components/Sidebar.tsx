@@ -107,6 +107,7 @@ const navItems = [
   { label: 'Grader', path: '/readability-grader', icon: BookText },
   { label: 'Outreach Email', path: '/outreach-emails', icon: Share2 },
   { label: 'Audit Report', path: '/audit-report', icon: FileBarChart },
+  { label: 'Brief Templates', path: '/brief-templates', icon: FileText },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
