@@ -10,19 +10,19 @@
 - [x] Auth navbar (`src/components/Navbar.tsx`)
 
 ## Module 2: Projects
-- [ ] [NEEDS-DB] DB: `projects` table + RLS (SQL in SUPABASE.md)
+- [x] DB: `projects` table + RLS (created via Supabase MCP)
 - [x] Create project form (`src/pages/Projects.tsx`)
 - [x] Projects list page (`src/pages/Projects.tsx`)
 - [x] Project detail page (`src/pages/ProjectDetail.tsx`)
 
 ## Module 3: Keyword Tracker
-- [ ] [NEEDS-DB] DB: `keywords` table + RLS (SQL in SUPABASE.md)
+- [x] DB: `keywords` table + RLS (created via Supabase MCP)
 - [x] Add keywords form (`src/components/KeywordTable.tsx`)
 - [x] Keywords table with sorting (`src/components/KeywordTable.tsx`)
 - [x] Position tracking (manual entry in keyword table)
 
 ## Module 4: Content Analyzer
-- [ ] [NEEDS-DB] DB: `analyses` table + RLS (SQL in SUPABASE.md)
+- [x] DB: `analyses` table + RLS (created via Supabase MCP)
 - [x] URL input / paste HTML (`src/pages/Analyzer.tsx`)
 - [x] OpenAI SEO analysis call (`src/lib/seo-analyzer.ts`)
 - [x] Results display — score + suggestions per category (`src/pages/Analyzer.tsx`)
@@ -42,5 +42,5 @@
 
 ---
 
-**All frontend modules complete!** Remaining: DB tables need to be created in Supabase (see SUPABASE.md).
-<!-- watchdog: 2026-03-13 01:12 — 24/24 frontend done, 3 [NEEDS-DB], build: pass -->
+**ALL MODULES COMPLETE!** Frontend + DB fully wired. App is functional.
+<!-- watchdog: 2026-03-13 02:00 — 27/27 done, build: pass, DB: all tables created -->

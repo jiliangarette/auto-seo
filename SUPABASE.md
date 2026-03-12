@@ -4,6 +4,10 @@ Claude Code documents database changes here. User applies them via Supabase Dash
 
 ## Pending
 
+_No pending changes._
+
+## Applied (2026-03-13)
+
 ### 1. Profiles table (auto-created on signup)
 ```sql
 create table public.profiles (
@@ -112,4 +116,4 @@ create policy "Users can CRUD own analyses"
 
 ## Completed
 
-_No completed changes yet._
+All core tables created via Supabase MCP on 2026-03-13.
