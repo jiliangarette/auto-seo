@@ -158,6 +158,7 @@ const navItems = [
   { label: 'Split Tests', path: '/split-tests', icon: Swords },
   { label: 'Cannibalization', path: '/cannibalization', icon: Search },
   { label: 'Localization', path: '/localization', icon: Share2 },
+  { label: 'Compliance', path: '/compliance', icon: Check },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
