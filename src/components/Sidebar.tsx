@@ -166,6 +166,7 @@ const navItems = [
   { label: 'Distribution', path: '/distribution', icon: Share2 },
   { label: 'CTR Optimizer', path: '/ctr-optimizer', icon: Eye },
   { label: 'Content Funnel', path: '/content-funnel', icon: FileText },
+  { label: 'PageRank Flow', path: '/pagerank-flow', icon: Code2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
