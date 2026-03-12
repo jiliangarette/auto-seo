@@ -16,10 +16,10 @@
 - [x] Project detail page (`src/pages/ProjectDetail.tsx`)
 
 ## Module 3: Keyword Tracker
-- [ ] DB: `keywords` table + RLS
-- [ ] Add keywords form
-- [ ] Keywords table with sorting
-- [ ] Position tracking
+- [ ] [NEEDS-DB] DB: `keywords` table + RLS (SQL in SUPABASE.md)
+- [x] Add keywords form (`src/components/KeywordTable.tsx`)
+- [x] Keywords table with sorting (`src/components/KeywordTable.tsx`)
+- [x] Position tracking (manual entry in keyword table)
 
 ## Module 4: Content Analyzer
 - [ ] DB: `analyses` table + RLS
@@ -42,5 +42,5 @@
 
 ---
 
-**Next up:** Module 3 — Keyword Tracker
-<!-- watchdog: 2026-03-13 00:24 — 10/24 done, build: pass -->
+**Next up:** Module 4 — Content Analyzer (OpenAI integration)
+<!-- watchdog: 2026-03-13 00:36 — 13/24 done, build: pass -->

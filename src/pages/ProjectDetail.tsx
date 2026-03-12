@@ -1,13 +1,16 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useProject } from '@/hooks/useProjects';
+import { useKeywords } from '@/hooks/useKeywords';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import KeywordTable from '@/components/KeywordTable';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { data: project, isLoading } = useProject(id!);
+  const { data: keywords } = useKeywords(id!);
 
   if (isLoading) {
     return (
@@ -54,7 +57,7 @@ export default function ProjectDetail() {
               <CardDescription>Tracked keywords</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold">0</p>
+              <p className="text-2xl font-bold">{keywords?.length ?? 0}</p>
             </CardContent>
           </Card>
 
@@ -78,6 +81,8 @@ export default function ProjectDetail() {
             </CardContent>
           </Card>
         </div>
+
+        <KeywordTable projectId={id!} />
       </div>
     </div>
   );
