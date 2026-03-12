@@ -1181,10 +1181,10 @@
 - [x] Video schema markup generator
 
 ### Module 164: Podcast SEO Planner
-- [ ] Input podcast topic for SEO-optimized show planning
-- [ ] AI generates episode titles with keyword targeting
-- [ ] Show notes template with SEO best practices
-- [ ] Podcast distribution and discovery strategy
+- [x] Input podcast topic for SEO-optimized show planning
+- [x] AI generates episode titles with keyword targeting
+- [x] Show notes template with SEO best practices
+- [x] Podcast distribution and discovery strategy
 
 ### Module 165: News SEO Optimizer
 - [ ] Input article for news SEO optimization

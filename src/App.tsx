@@ -160,6 +160,7 @@ const CompetitiveIntelligenceHub = lazy(() => import('@/pages/CompetitiveIntelli
 const EcommerceSeoAnalyzer = lazy(() => import('@/pages/EcommerceSeoAnalyzer'));
 const LocalSeoOptimizer = lazy(() => import('@/pages/LocalSeoOptimizer'));
 const VideoSeoOptimizer = lazy(() => import('@/pages/VideoSeoOptimizer'));
+const PodcastSeoPlanner = lazy(() => import('@/pages/PodcastSeoPlanner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1164,6 +1165,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><VideoSeoOptimizer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/podcast-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><PodcastSeoPlanner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
