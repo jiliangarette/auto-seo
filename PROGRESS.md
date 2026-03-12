@@ -1260,4 +1260,38 @@
 - [x] Link building opportunity identification
 - [x] Outreach template generation for target sites
 
-<!-- watchdog: 2026-03-13 — Phases 1-32: 695/695, Phase 33: 0/20, build: pass -->
+---
+
+## Phase 34: Smart Automation & UX Polish (Modules 176–180)
+
+### Module 176: AI Content Calendar
+- [x] Auto-generate content plan from website URL or niche
+- [x] AI suggests topics, keywords, and publishing schedule
+- [x] Drag-and-drop calendar with status tracking
+- [x] One-click generate content from calendar items
+
+### Module 177: SEO Health Monitor
+- [ ] Automated weekly site health checks
+- [ ] Track score changes over time with trend visualization
+- [ ] Alert when critical issues are detected
+- [ ] Comparison dashboard showing improvement history
+
+### Module 178: Keyword Gap Finder
+- [ ] Input your site and competitor for keyword gap analysis
+- [ ] AI identifies keywords competitor ranks for that you don't
+- [ ] Opportunity scoring by search volume and difficulty
+- [ ] Content suggestions to close each gap
+
+### Module 179: AI Meta Tag Optimizer
+- [ ] Input page URL for real-time meta tag analysis
+- [ ] AI rewrites title and description for better CTR
+- [ ] A/B test variations with predicted click rates
+- [ ] Bulk meta tag optimization for multiple pages
+
+### Module 180: Site Speed Analyzer
+- [ ] Input URL for performance analysis
+- [ ] AI identifies render-blocking resources and bottlenecks
+- [ ] Priority-ranked speed optimization recommendations
+- [ ] Before/after impact estimates for each fix
+
+<!-- watchdog: 2026-03-13 — Phases 1-33: 715/715, Phase 34: 0/20, build: pass -->
