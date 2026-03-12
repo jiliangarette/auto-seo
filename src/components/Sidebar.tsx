@@ -121,6 +121,7 @@ const navItems = [
   { label: 'Tone Analyzer', path: '/tone-analyzer', icon: Sparkles },
   { label: 'KW Map', path: '/cannibalization-map', icon: Swords },
   { label: 'Workflows', path: '/workflows', icon: Wand2 },
+  { label: 'SERP Tracker', path: '/serp-tracker', icon: BarChart3 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

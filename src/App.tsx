@@ -104,6 +104,7 @@ const UrlSlugOptimizer = lazy(() => import('@/pages/UrlSlugOptimizer'));
 const ContentToneAnalyzer = lazy(() => import('@/pages/ContentToneAnalyzer'));
 const KeywordCannibalizationMap = lazy(() => import('@/pages/KeywordCannibalizationMap'));
 const SeoWorkflowAutomator = lazy(() => import('@/pages/SeoWorkflowAutomator'));
+const CompetitorSerpTracker = lazy(() => import('@/pages/CompetitorSerpTracker'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -808,6 +809,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/serp-tracker"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><CompetitorSerpTracker /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
