@@ -72,6 +72,18 @@ export interface Backlink {
   discovered_at: string;
 }
 
+export interface ContentItem {
+  id: string;
+  project_id: string;
+  title: string;
+  topic: string | null;
+  keywords: string | null;
+  status: 'plan' | 'draft' | 'published';
+  scheduled_date: string | null;
+  content: string | null;
+  created_at: string;
+}
+
 export interface CompetitorAnalysis {
   id: string;
   competitor_id: string;

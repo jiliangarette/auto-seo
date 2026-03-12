@@ -34,11 +34,11 @@
 - [x] Save audit history (`src/hooks/useAudits.ts`)
 
 ### Module 10: Content Calendar
-- [ ] DB: `content_items` table + RLS
-- [ ] Calendar month grid view
-- [ ] Content item CRUD (plan/draft/published statuses)
-- [ ] Generate content from calendar item via generator
-- [ ] Date picker for scheduling
+- [x] DB: `content_items` table + RLS (created via Supabase MCP)
+- [x] Calendar month grid view with month navigation (`src/pages/ContentCalendar.tsx`)
+- [x] Content item CRUD with plan/draft/published status cycling (`src/hooks/useContentItems.ts`)
+- [x] Generate content from calendar item — links to generator with prefilled topic/keywords
+- [x] Date picker for scheduling + unscheduled items list
 
 ### Module 11: Rank Tracking History
 - [ ] DB: `rank_history` table + RLS
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 10 — Content Calendar
-<!-- watchdog: 2026-03-13 02:54 — Phase 1: 27/27 done, Phase 2: 14/38, build: pass -->
+**Next up:** Module 11 — Rank Tracking History
+<!-- watchdog: 2026-03-13 03:06 — Phase 1: 27/27 done, Phase 2: 19/38, build: pass -->

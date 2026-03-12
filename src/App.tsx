@@ -12,6 +12,7 @@ import ProjectDetail from '@/pages/ProjectDetail';
 import Analyzer from '@/pages/Analyzer';
 import Generator from '@/pages/Generator';
 import SiteAudit from '@/pages/SiteAudit';
+import ContentCalendar from '@/pages/ContentCalendar';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -96,6 +97,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <SiteAudit />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/calendar"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <ContentCalendar />
                   </AppLayout>
                 </ProtectedRoute>
               }
