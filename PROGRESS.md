@@ -883,10 +883,10 @@
 - [x] Export audit spreadsheet with recommendations
 
 ### Module 123: Anchor Text Planner
-- [ ] Input target pages and desired anchor text profile
-- [ ] AI-generate diverse anchor text suggestions
-- [ ] Balance exact match, branded, generic, and naked URLs
-- [ ] Export outreach-ready anchor text list
+- [x] Input target pages and desired anchor text profile
+- [x] AI-generate diverse anchor text suggestions
+- [x] Balance exact match, branded, generic, and naked URLs
+- [x] Export outreach-ready anchor text list
 
 ### Module 124: SEO Experiment Log
 - [ ] Log SEO experiments with hypothesis and variables

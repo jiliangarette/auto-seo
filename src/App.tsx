@@ -121,6 +121,7 @@ const SearchIntentMapper = lazy(() => import('@/pages/SearchIntentMapper'));
 const SeoMigrationPlanner = lazy(() => import('@/pages/SeoMigrationPlanner'));
 const KeywordClusteringPro = lazy(() => import('@/pages/KeywordClusteringPro'));
 const ContentAuditScorer = lazy(() => import('@/pages/ContentAuditScorer'));
+const AnchorTextPlanner = lazy(() => import('@/pages/AnchorTextPlanner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -845,6 +846,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/anchor-text-planner"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><AnchorTextPlanner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
