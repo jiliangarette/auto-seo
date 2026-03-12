@@ -159,6 +159,7 @@ const navItems = [
   { label: 'Cannibalization', path: '/cannibalization', icon: Search },
   { label: 'Localization', path: '/localization', icon: Share2 },
   { label: 'Compliance', path: '/compliance', icon: Check },
+  { label: 'Task Priority', path: '/task-priority', icon: Tags },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

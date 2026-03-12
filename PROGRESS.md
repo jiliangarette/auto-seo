@@ -1050,4 +1050,38 @@
 
 **Phase 27 complete — 20/20 features built (Modules 141-145)**
 
-<!-- watchdog: 2026-03-13 — Phases 1-27: 595/595, build: pass -->
+---
+
+## Phase 28: SEO Productivity & Insights (Modules 146-150)
+
+### Module 146: SEO Task Prioritizer
+- [x] Input SEO tasks and goals for prioritization
+- [x] AI scores tasks by impact, effort, and urgency
+- [x] Eisenhower matrix visualization for SEO tasks
+- [x] Weekly sprint planning with task assignments
+
+### Module 147: Content Sentiment Analyzer
+- [ ] Input content URL or text for sentiment analysis
+- [ ] AI detects emotional tone and reader engagement signals
+- [ ] Sentiment breakdown by paragraph with highlights
+- [ ] Tone adjustment recommendations for target audience
+
+### Module 148: Backlink Quality Scorer
+- [ ] Input backlink profile for quality assessment
+- [ ] AI scores each backlink on authority and relevance
+- [ ] Toxic link detection with disavow recommendations
+- [ ] Backlink acquisition priority list
+
+### Module 149: SEO Revenue Calculator
+- [ ] Input traffic, conversion rates, and average order value
+- [ ] AI projects revenue from SEO improvements
+- [ ] ROI scenarios for different SEO strategies
+- [ ] Monthly revenue growth projections
+
+### Module 150: Content Distribution Planner
+- [ ] Input content for multi-channel distribution planning
+- [ ] AI generates platform-specific content adaptations
+- [ ] Posting schedule across social and content platforms
+- [ ] Performance tracking recommendations per channel
+
+<!-- watchdog: 2026-03-13 — Phases 1-27: 595/595, Phase 28: 0/20, build: pass -->
