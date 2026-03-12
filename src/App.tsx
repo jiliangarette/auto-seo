@@ -61,6 +61,7 @@ const StructuredDataValidator = lazy(() => import('@/pages/StructuredDataValidat
 const ImageSeoOptimizer = lazy(() => import('@/pages/ImageSeoOptimizer'));
 const SeoScoringDashboard = lazy(() => import('@/pages/SeoScoringDashboard'));
 const CtaOptimizer = lazy(() => import('@/pages/CtaOptimizer'));
+const ContentRoi = lazy(() => import('@/pages/ContentRoi'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -535,6 +536,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-roi"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentRoi /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
