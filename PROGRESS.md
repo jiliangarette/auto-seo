@@ -1187,9 +1187,9 @@
 - [x] Podcast distribution and discovery strategy
 
 ### Module 165: News SEO Optimizer
-- [ ] Input article for news SEO optimization
-- [ ] AI evaluates Google News and Discover eligibility
-- [ ] Article structured data and AMP readiness
+- [x] Input article for news SEO optimization
+- [x] AI evaluates Google News and Discover eligibility
+- [x] Article structured data and AMP readiness
 - [ ] Breaking news and trending topic timing recommendations
 
 <!-- watchdog: 2026-03-13 — Phases 1-30: 655/655, Phase 31: 0/20, build: pass -->

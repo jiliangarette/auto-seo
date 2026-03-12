@@ -161,6 +161,7 @@ const EcommerceSeoAnalyzer = lazy(() => import('@/pages/EcommerceSeoAnalyzer'));
 const LocalSeoOptimizer = lazy(() => import('@/pages/LocalSeoOptimizer'));
 const VideoSeoOptimizer = lazy(() => import('@/pages/VideoSeoOptimizer'));
 const PodcastSeoPlanner = lazy(() => import('@/pages/PodcastSeoPlanner'));
+const NewsSeoOptimizer = lazy(() => import('@/pages/NewsSeoOptimizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1175,6 +1176,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><PodcastSeoPlanner /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/news-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><NewsSeoOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
