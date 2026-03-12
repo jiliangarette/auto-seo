@@ -107,6 +107,7 @@ const SeoWorkflowAutomator = lazy(() => import('@/pages/SeoWorkflowAutomator'));
 const CompetitorSerpTracker = lazy(() => import('@/pages/CompetitorSerpTracker'));
 const ContentCalendarAi = lazy(() => import('@/pages/ContentCalendarAi'));
 const SeoAbTestPlanner = lazy(() => import('@/pages/SeoAbTestPlanner'));
+const BacklinkGapAnalyzer = lazy(() => import('@/pages/BacklinkGapAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -831,6 +832,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/backlink-gap"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><BacklinkGapAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
