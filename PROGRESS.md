@@ -674,4 +674,38 @@
 
 **All 17 Phases complete (Modules 1-95). 395/395 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-17: 395/395, build: pass -->
+---
+
+## Phase 18 — SEO Intelligence & Automation Pro
+
+### Module 96: Keyword Intent Classifier
+- [ ] Input keywords for intent classification
+- [ ] AI-classify as informational, navigational, commercial, transactional
+- [ ] Suggest content types per intent
+- [ ] Bulk classification with export
+
+### Module 97: Page Title Optimizer
+- [ ] Input existing page titles for optimization
+- [ ] AI-generate optimized title variants
+- [ ] Keyword placement and power word analysis
+- [ ] CTR prediction per variant
+
+### Module 98: Internal Link Audit
+- [ ] Input site URL for internal link analysis
+- [ ] Detect orphan pages with no internal links
+- [ ] Link equity distribution analysis
+- [ ] Generate internal linking improvement plan
+
+### Module 99: Content Length Analyzer
+- [ ] Input URLs or content for word count analysis
+- [ ] Compare against top-ranking competitors
+- [ ] Optimal length recommendation per keyword
+- [ ] Content depth scoring
+
+### Module 100: SEO Dashboard Summary
+- [ ] Aggregate scores from all modules
+- [ ] Overall platform health score
+- [ ] Recent activity timeline across all tools
+- [ ] Quick-launch buttons for top modules
+
+<!-- watchdog: 2026-03-13 — Phases 1-17: 395/395, Phase 18: 0/20, build: pass -->
