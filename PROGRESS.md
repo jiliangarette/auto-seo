@@ -501,10 +501,10 @@
 - [x] Generate content briefs for top gaps
 
 ### Module 73: Link Intersection Tool
-- [ ] Input multiple competitor domains
-- [ ] Find sites linking to competitors but not you
-- [ ] Domain authority estimation per prospect
-- [ ] Export outreach-ready prospect list
+- [x] Input multiple competitor domains
+- [x] Find sites linking to competitors but not you
+- [x] Domain authority estimation per prospect
+- [x] Export outreach-ready prospect list
 
 ### Module 74: FAQ Schema Generator
 - [ ] Input topic or paste existing FAQ content

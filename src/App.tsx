@@ -72,6 +72,7 @@ const EeatAnalyzer = lazy(() => import('@/pages/EeatAnalyzer'));
 const LogFileAnalyzer = lazy(() => import('@/pages/LogFileAnalyzer'));
 const CoreWebVitals = lazy(() => import('@/pages/CoreWebVitals'));
 const ContentGapFinder = lazy(() => import('@/pages/ContentGapFinder'));
+const LinkIntersection = lazy(() => import('@/pages/LinkIntersection'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -546,6 +547,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/link-intersection"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><LinkIntersection /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
