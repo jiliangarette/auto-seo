@@ -42,6 +42,7 @@ const BacklinkQuality = lazy(() => import('@/pages/BacklinkQuality'));
 const WritingAssistant = lazy(() => import('@/pages/WritingAssistant'));
 const TeamCollaboration = lazy(() => import('@/pages/TeamCollaboration'));
 const ReportBuilder = lazy(() => import('@/pages/ReportBuilder'));
+const ApiPlayground = lazy(() => import('@/pages/ApiPlayground'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -346,6 +347,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ReadabilityAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/api-playground"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ApiPlayground /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
