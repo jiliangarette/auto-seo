@@ -828,4 +828,38 @@
 
 **All 21 Phases complete (Modules 1-115). 475/475 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-20: 455/455, Phase 21: 0/20, build: pass -->
+---
+
+## Phase 22 — SEO Intelligence & Content Mastery
+
+### Module 116: Topical Authority Score
+- [ ] Input domain and niche topic
+- [ ] AI-calculate topical authority score (0-100)
+- [ ] Content coverage gap analysis per subtopic
+- [ ] Authority building roadmap with priorities
+
+### Module 117: SEO Forecaster
+- [ ] Input current traffic and growth targets
+- [ ] AI-generate 12-month SEO traffic forecast
+- [ ] Scenario modeling (conservative, moderate, aggressive)
+- [ ] Required content and link velocity estimates
+
+### Module 118: Content Repurposer
+- [ ] Input existing content for repurposing
+- [ ] AI-generate multiple format versions (blog to video script, infographic outline, podcast notes)
+- [ ] Platform-optimized adaptations
+- [ ] Distribution calendar suggestions
+
+### Module 119: Search Intent Mapper
+- [ ] Input keyword list for intent mapping
+- [ ] Map keywords to funnel stages (TOFU, MOFU, BOFU)
+- [ ] Suggest optimal content formats per stage
+- [ ] Visual funnel with keyword distribution
+
+### Module 120: SEO Migration Planner
+- [ ] Input old and new URL structures
+- [ ] AI-generate redirect mapping plan
+- [ ] Risk assessment with traffic impact estimates
+- [ ] Pre/post migration checklist
+
+<!-- watchdog: 2026-03-13 — Phases 1-21: 475/475, Phase 22: 0/20, build: pass -->
