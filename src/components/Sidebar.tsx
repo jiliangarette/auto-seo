@@ -111,6 +111,7 @@ const navItems = [
   { label: 'Topical Map', path: '/topical-map', icon: Share2 },
   { label: 'SERP Features', path: '/serp-features', icon: Eye },
   { label: 'Duplicates', path: '/duplicate-checker', icon: Search },
+  { label: 'Bulk Meta', path: '/meta-bulk', icon: Tags },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

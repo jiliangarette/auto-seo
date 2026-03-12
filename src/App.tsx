@@ -94,6 +94,7 @@ const ContentBriefTemplates = lazy(() => import('@/pages/ContentBriefTemplates')
 const TopicalMapGenerator = lazy(() => import('@/pages/TopicalMapGenerator'));
 const SerpFeatureTracker = lazy(() => import('@/pages/SerpFeatureTracker'));
 const DuplicateContentChecker = lazy(() => import('@/pages/DuplicateContentChecker'));
+const MetaDescriptionBulk = lazy(() => import('@/pages/MetaDescriptionBulk'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -798,6 +799,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/meta-bulk"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><MetaDescriptionBulk /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
