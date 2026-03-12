@@ -23,6 +23,7 @@ import {
   Gauge,
   FileText,
   Swords,
+  BarChart3,
   LogOut,
   Bell,
   Check,
@@ -52,6 +53,7 @@ const navItems = [
   { label: 'Readability', path: '/readability', icon: BookText },
   { label: 'Social Preview', path: '/social', icon: Share2 },
   { label: 'Competitive', path: '/competitive', icon: Swords },
+  { label: 'Analytics', path: '/analytics', icon: BarChart3 },
   { label: 'Bulk Ops', path: '/bulk', icon: FolderKanban },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
