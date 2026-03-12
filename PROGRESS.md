@@ -431,10 +431,10 @@
 - [x] Export anchor text report
 
 ### Module 64: Cannibalization Detector
-- [ ] Input multiple URLs targeting same keywords
-- [ ] AI detection of keyword cannibalization
-- [ ] Consolidation recommendations
-- [ ] Before/after ranking impact estimates
+- [x] Input multiple URLs targeting same keywords
+- [x] AI detection of keyword cannibalization
+- [x] Consolidation recommendations
+- [x] Before/after ranking impact estimates
 
 ### Module 65: Featured Snippet Optimizer
 - [ ] Input target keyword + current content
