@@ -167,10 +167,10 @@
 - [x] Copy all social meta tags
 
 ### Module 30: Multi-Project Dashboard
-- [ ] Overview grid of all projects with health scores
-- [ ] Compare projects side-by-side
-- [ ] Aggregate stats across all projects
-- [ ] Project archiving
+- [x] Overview grid of all projects with health scores
+- [x] Compare projects side-by-side
+- [x] Aggregate stats across all projects
+- [x] Project archiving
 
 ---
 
@@ -208,5 +208,7 @@
 
 **Phase 3 COMPLETE — All 36/36 features built.**
 
-**Next up:** Module 30 — Multi-Project Dashboard
+**Phase 4 COMPLETE — All 24/24 features built.**
+
+**Next up:** Module 31 — UI Redesign — Navigation
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

@@ -32,6 +32,7 @@ const PageSpeed = lazy(() => import('@/pages/PageSpeed'));
 const SchemaGenerator = lazy(() => import('@/pages/SchemaGenerator'));
 const ReadabilityAnalyzer = lazy(() => import('@/pages/ReadabilityAnalyzer'));
 const SocialPreview = lazy(() => import('@/pages/SocialPreview'));
+const MultiProjectDashboard = lazy(() => import('@/pages/MultiProjectDashboard'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -235,6 +236,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentBrief /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/multi-dashboard"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><MultiProjectDashboard /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
