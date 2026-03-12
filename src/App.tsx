@@ -48,6 +48,7 @@ const Changelog = lazy(() => import('@/pages/Changelog'));
 const SearchConsole = lazy(() => import('@/pages/SearchConsole'));
 const CompetitorMonitoring = lazy(() => import('@/pages/CompetitorMonitoring'));
 const ContentAbTest = lazy(() => import('@/pages/ContentAbTest'));
+const LinkOutreach = lazy(() => import('@/pages/LinkOutreach'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -352,6 +353,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ReadabilityAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/outreach"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><LinkOutreach /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
