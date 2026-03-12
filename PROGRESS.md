@@ -53,10 +53,10 @@
 - [x] Shareable report link (public read-only page)
 
 ### Module 13: Meta Tag Generator
-- [ ] Input form (page title, description, keywords, page type)
-- [ ] OpenAI meta tag generation call
-- [ ] Google search preview
-- [ ] Copy tags as HTML snippet
+- [x] Input form (page title, description, keywords, page type)
+- [x] OpenAI meta tag generation call
+- [x] Google search preview
+- [x] Copy tags as HTML snippet
 
 ### Module 14: Internal Linking Suggestions
 - [ ] Input: paste article + existing pages list
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 13 — Meta Tag Generator
+**Next up:** Module 14 — Internal Linking Suggestions
 <!-- watchdog: 2026-03-13 03:06 — Phase 1: 27/27 done, Phase 2: 19/38, build: pass -->

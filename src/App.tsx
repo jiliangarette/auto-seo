@@ -15,6 +15,7 @@ import SiteAudit from '@/pages/SiteAudit';
 import ContentCalendar from '@/pages/ContentCalendar';
 import Reports from '@/pages/Reports';
 import SharedReport from '@/pages/SharedReport';
+import MetaTagGenerator from '@/pages/MetaTagGenerator';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -119,6 +120,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <Reports />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/meta-tags"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <MetaTagGenerator />
                   </AppLayout>
                 </ProtectedRoute>
               }

@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Audit', path: '/audit' },
   { label: 'Calendar', path: '/calendar' },
   { label: 'Reports', path: '/reports' },
+  { label: 'Meta Tags', path: '/meta-tags' },
 ];
 
 export default function Navbar() {
