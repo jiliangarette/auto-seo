@@ -1271,10 +1271,10 @@
 - [x] One-click generate content from calendar items
 
 ### Module 177: SEO Health Monitor
-- [ ] Automated weekly site health checks
-- [ ] Track score changes over time with trend visualization
-- [ ] Alert when critical issues are detected
-- [ ] Comparison dashboard showing improvement history
+- [x] Automated weekly site health checks
+- [x] Track score changes over time with trend visualization
+- [x] Alert when critical issues are detected
+- [x] Comparison dashboard showing improvement history
 
 ### Module 178: Keyword Gap Finder
 - [ ] Input your site and competitor for keyword gap analysis

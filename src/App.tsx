@@ -167,6 +167,7 @@ const SeoAlertSystem = lazy(() => import('@/pages/SeoAlertSystem'));
 const ContentRepurposingEngine = lazy(() => import('@/pages/ContentRepurposingEngine'));
 const SeoForecastingTool = lazy(() => import('@/pages/SeoForecastingTool'));
 const CompetitorBacklinkAnalyzer = lazy(() => import('@/pages/CompetitorBacklinkAnalyzer'));
+const SeoHealthMonitor = lazy(() => import('@/pages/SeoHealthMonitor'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1241,6 +1242,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><CompetitorBacklinkAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/health-monitor"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoHealthMonitor /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

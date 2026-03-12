@@ -184,6 +184,7 @@ const navItems = [
   { label: 'Repurpose', path: '/content-repurpose', icon: Share2 },
   { label: 'Forecast', path: '/seo-forecast', icon: BarChart3 },
   { label: 'Backlink Spy', path: '/backlink-analyzer', icon: Link2 },
+  { label: 'Health Monitor', path: '/health-monitor', icon: Gauge },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
