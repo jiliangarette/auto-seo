@@ -149,10 +149,10 @@
 - [x] Save speed audit history
 
 ### Module 27: Schema Markup Generator
-- [ ] Select schema type (Article, Product, FAQ, HowTo, LocalBusiness)
-- [ ] Form-based input for schema fields
-- [ ] Generate JSON-LD output
-- [ ] Validate and copy snippet
+- [x] Select schema type (Article, Product, FAQ, HowTo, LocalBusiness)
+- [x] Form-based input for schema fields
+- [x] Generate JSON-LD output
+- [x] Validate and copy snippet
 
 ### Module 28: Readability Analyzer
 - [ ] Paste content for analysis
@@ -208,5 +208,5 @@
 
 **Phase 3 COMPLETE — All 36/36 features built.**
 
-**Next up:** Module 27 — Schema Markup Generator
+**Next up:** Module 28 — Readability Analyzer
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
