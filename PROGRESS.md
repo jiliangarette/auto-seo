@@ -507,10 +507,10 @@
 - [x] Export outreach-ready prospect list
 
 ### Module 74: FAQ Schema Generator
-- [ ] Input topic or paste existing FAQ content
-- [ ] AI-generate relevant FAQ pairs
-- [ ] Generate FAQ schema JSON-LD
-- [ ] Preview in Google FAQ rich result format
+- [x] Input topic or paste existing FAQ content
+- [x] AI-generate relevant FAQ pairs
+- [x] Generate FAQ schema JSON-LD
+- [x] Preview in Google FAQ rich result format
 
 ### Module 75: Heading Structure Analyzer
 - [ ] Paste page HTML or content

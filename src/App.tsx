@@ -73,6 +73,7 @@ const LogFileAnalyzer = lazy(() => import('@/pages/LogFileAnalyzer'));
 const CoreWebVitals = lazy(() => import('@/pages/CoreWebVitals'));
 const ContentGapFinder = lazy(() => import('@/pages/ContentGapFinder'));
 const LinkIntersection = lazy(() => import('@/pages/LinkIntersection'));
+const FaqSchemaGenerator = lazy(() => import('@/pages/FaqSchemaGenerator'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -547,6 +548,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/faq-schema"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><FaqSchemaGenerator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
