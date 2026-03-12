@@ -87,6 +87,7 @@ const navItems = [
   { label: 'Freshness', path: '/freshness-planner', icon: CalendarDays },
   { label: 'E-E-A-T', path: '/eeat', icon: Shield },
   { label: 'Log Analyzer', path: '/log-analyzer', icon: FileText },
+  { label: 'Web Vitals', path: '/cwv', icon: Gauge },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -489,10 +489,10 @@
 ## Phase 13 — Advanced Optimization & Monitoring
 
 ### Module 71: Core Web Vitals Monitor
-- [ ] Input URL for CWV analysis
-- [ ] LCP, INP, CLS scoring with pass/fail status
-- [ ] Historical CWV trend tracking
-- [ ] AI-powered fix recommendations per metric
+- [x] Input URL for CWV analysis
+- [x] LCP, INP, CLS scoring with pass/fail status
+- [x] Historical CWV trend tracking
+- [x] AI-powered fix recommendations per metric
 
 ### Module 72: Content Gap Finder
 - [ ] Input your sitemap + competitor sitemaps

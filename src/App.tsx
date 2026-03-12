@@ -70,6 +70,7 @@ const RedirectChainChecker = lazy(() => import('@/pages/RedirectChainChecker'));
 const ContentFreshnessPlanner = lazy(() => import('@/pages/ContentFreshnessPlanner'));
 const EeatAnalyzer = lazy(() => import('@/pages/EeatAnalyzer'));
 const LogFileAnalyzer = lazy(() => import('@/pages/LogFileAnalyzer'));
+const CoreWebVitals = lazy(() => import('@/pages/CoreWebVitals'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -544,6 +545,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cwv"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><CoreWebVitals /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
