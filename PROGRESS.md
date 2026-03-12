@@ -59,10 +59,10 @@
 - [x] Copy tags as HTML snippet
 
 ### Module 14: Internal Linking Suggestions
-- [ ] Input: paste article + existing pages list
-- [ ] OpenAI internal linking suggestions call
-- [ ] Display suggestions with highlighted anchors
-- [ ] Copy updated content with links
+- [x] Input: paste article + existing pages list
+- [x] OpenAI internal linking suggestions call
+- [x] Display suggestions with highlighted anchors
+- [x] Copy updated content with links
 
 ### Module 15: Settings & Profile
 - [ ] Profile page (email, name)
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 14 — Internal Linking Suggestions
+**Next up:** Module 15 — Settings & Profile
 <!-- watchdog: 2026-03-13 03:06 — Phase 1: 27/27 done, Phase 2: 19/38, build: pass -->

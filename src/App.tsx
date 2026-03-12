@@ -16,6 +16,7 @@ import ContentCalendar from '@/pages/ContentCalendar';
 import Reports from '@/pages/Reports';
 import SharedReport from '@/pages/SharedReport';
 import MetaTagGenerator from '@/pages/MetaTagGenerator';
+import InternalLinks from '@/pages/InternalLinks';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -130,6 +131,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <MetaTagGenerator />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/internal-links"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <InternalLinks />
                   </AppLayout>
                 </ProtectedRoute>
               }

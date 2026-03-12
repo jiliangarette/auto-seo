@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'Calendar', path: '/calendar' },
   { label: 'Reports', path: '/reports' },
   { label: 'Meta Tags', path: '/meta-tags' },
+  { label: 'Links', path: '/internal-links' },
 ];
 
 export default function Navbar() {
