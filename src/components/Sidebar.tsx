@@ -122,6 +122,7 @@ const navItems = [
   { label: 'KW Map', path: '/cannibalization-map', icon: Swords },
   { label: 'Workflows', path: '/workflows', icon: Wand2 },
   { label: 'SERP Tracker', path: '/serp-tracker', icon: BarChart3 },
+  { label: 'Calendar AI', path: '/content-calendar-ai', icon: CalendarDays },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

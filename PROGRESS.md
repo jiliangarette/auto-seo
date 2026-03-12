@@ -757,10 +757,10 @@
 ## Phase 20 — Content Marketing & SEO Mastery
 
 ### Module 106: Content Calendar AI
-- [ ] Input content goals and target keywords
-- [ ] AI-generate 30-day content calendar
-- [ ] Content type mix recommendations (blog, video, social)
-- [ ] Export calendar as CSV
+- [x] Input content goals and target keywords
+- [x] AI-generate 30-day content calendar
+- [x] Content type mix recommendations (blog, video, social)
+- [x] Export calendar as CSV
 
 ### Module 107: SEO A/B Test Planner
 - [ ] Input page URL and test hypothesis
