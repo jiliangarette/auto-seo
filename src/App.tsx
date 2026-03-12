@@ -58,6 +58,7 @@ const Benchmarking = lazy(() => import('@/pages/Benchmarking'));
 const KeywordGap = lazy(() => import('@/pages/KeywordGap'));
 const ContentDecay = lazy(() => import('@/pages/ContentDecay'));
 const StructuredDataValidator = lazy(() => import('@/pages/StructuredDataValidator'));
+const ImageSeoOptimizer = lazy(() => import('@/pages/ImageSeoOptimizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -532,6 +533,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/image-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ImageSeoOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
