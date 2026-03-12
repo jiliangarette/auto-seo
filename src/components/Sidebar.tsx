@@ -179,6 +179,7 @@ const navItems = [
   { label: 'Video SEO', path: '/video-seo', icon: Eye },
   { label: 'Podcast SEO', path: '/podcast-seo', icon: BookText },
   { label: 'News SEO', path: '/news-seo', icon: FileText },
+  { label: 'Intent Classifier', path: '/intent-classifier', icon: Search },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -1203,16 +1203,16 @@
 - [x] Monthly ROI trend analysis with projections
 
 ### Module 167: Content Decay Detector
-- [ ] Input URLs to monitor for traffic decline
-- [ ] AI identifies content decay signals and causes
-- [ ] Refresh priority scoring with effort estimates
-- [ ] Before/after performance prediction
+- [x] Input URLs to monitor for traffic decline
+- [x] AI identifies content decay signals and causes
+- [x] Refresh priority scoring with effort estimates
+- [x] Before/after performance prediction
 
 ### Module 168: Search Intent Classifier
-- [ ] Input keywords for intent classification
-- [ ] AI categorizes informational, navigational, transactional, commercial
-- [ ] Content format recommendations per intent type
-- [ ] SERP feature targeting by intent
+- [x] Input keywords for intent classification
+- [x] AI categorizes informational, navigational, transactional, commercial
+- [x] Content format recommendations per intent type
+- [x] SERP feature targeting by intent
 
 ### Module 169: Brand SERP Manager
 - [ ] Input brand name for SERP analysis
