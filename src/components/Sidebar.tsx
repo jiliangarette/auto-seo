@@ -176,6 +176,7 @@ const navItems = [
   { label: 'Intel Hub', path: '/intel-hub', icon: Swords },
   { label: 'E-commerce SEO', path: '/ecommerce-seo', icon: Tags },
   { label: 'Local SEO', path: '/local-seo', icon: Search },
+  { label: 'Video SEO', path: '/video-seo', icon: Eye },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

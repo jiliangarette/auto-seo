@@ -159,6 +159,7 @@ const SeoApiRateChecker = lazy(() => import('@/pages/SeoApiRateChecker'));
 const CompetitiveIntelligenceHub = lazy(() => import('@/pages/CompetitiveIntelligenceHub'));
 const EcommerceSeoAnalyzer = lazy(() => import('@/pages/EcommerceSeoAnalyzer'));
 const LocalSeoOptimizer = lazy(() => import('@/pages/LocalSeoOptimizer'));
+const VideoSeoOptimizer = lazy(() => import('@/pages/VideoSeoOptimizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1153,6 +1154,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><LocalSeoOptimizer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/video-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><VideoSeoOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
