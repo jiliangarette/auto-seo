@@ -9,6 +9,8 @@ import {
   Tags, Link2, Settings2, BarChart3, Globe, Activity,
 } from 'lucide-react';
 import OnboardingModal from '@/components/OnboardingModal';
+import AnimatedNumber from '@/components/AnimatedNumber';
+import EmptyState from '@/components/EmptyState';
 import type { Analysis } from '@/types/database';
 
 interface ActivityItem {
@@ -152,15 +154,16 @@ export default function Dashboard() {
 
         {/* Stats Row */}
         <div className="grid gap-4 md:grid-cols-6">
-          <StatCard label="Projects" value={projects?.length ?? 0} />
-          <StatCard label="Keywords" value={keywordCount ?? 0} />
-          <StatCard label="Analyses" value={allAnalyses?.length ?? 0} />
-          <StatCard label="Backlinks" value={`${backlinkStats?.active ?? 0}/${backlinkStats?.total ?? 0}`} sub="active" />
-          <StatCard label="Audits" value={auditCount ?? 0} />
+          <StatCard label="Projects" value={projects?.length ?? 0} gradient="bg-gradient-to-br from-blue-500/30 to-cyan-500/30" />
+          <StatCard label="Keywords" value={keywordCount ?? 0} gradient="bg-gradient-to-br from-purple-500/30 to-pink-500/30" />
+          <StatCard label="Analyses" value={allAnalyses?.length ?? 0} gradient="bg-gradient-to-br from-amber-500/30 to-orange-500/30" />
+          <StatCard label="Backlinks" value={`${backlinkStats?.active ?? 0}/${backlinkStats?.total ?? 0}`} sub="active" gradient="bg-gradient-to-br from-green-500/30 to-emerald-500/30" />
+          <StatCard label="Audits" value={auditCount ?? 0} gradient="bg-gradient-to-br from-red-500/30 to-rose-500/30" />
           <StatCard
             label="Health Score"
             value={healthScore !== null ? `${healthScore}` : '—'}
             color={healthScore ? scoreColor(healthScore) : undefined}
+            gradient="bg-gradient-to-br from-indigo-500/30 to-violet-500/30"
           />
         </div>
 
@@ -199,7 +202,7 @@ export default function Dashboard() {
               {recentActivity && recentActivity.length > 0 ? (
                 <div className="space-y-2">
                   {recentActivity.map((item, i) => (
-                    <div key={i} className="flex items-center justify-between border-b border-border/30 pb-2 last:border-0">
+                    <div key={i} className={`flex items-center justify-between border-b border-border/30 pb-2 last:border-0 px-2 py-1.5 rounded transition-colors hover:bg-muted/50 ${i % 2 === 0 ? 'bg-muted/20' : ''}`}>
                       <div className="flex items-center gap-2">
                         <span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${
                           item.type === 'analysis' ? 'bg-blue-950/30 text-blue-400' :
@@ -217,7 +220,7 @@ export default function Dashboard() {
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-muted-foreground">No recent activity yet.</p>
+                <EmptyState icon={Activity} title="No activity yet" description="Start by creating a project and running your first analysis" actionLabel="Get Started" actionPath="/projects" />
               )}
             </CardContent>
           </Card>
@@ -234,7 +237,7 @@ export default function Dashboard() {
               {allAnalyses && allAnalyses.length > 0 ? (
                 <div className="space-y-2">
                   {allAnalyses.map((analysis) => (
-                    <div key={analysis.id} className="flex items-center justify-between border-b border-border/30 pb-2 last:border-0">
+                    <div key={analysis.id} className="flex items-center justify-between border-b border-border/30 pb-2 last:border-0 px-2 py-1.5 rounded transition-colors hover:bg-muted/50 even:bg-muted/20">
                       <div>
                         <p className="text-sm font-medium truncate max-w-[250px]">{analysis.url}</p>
                         <p className="text-xs text-muted-foreground">
@@ -248,7 +251,7 @@ export default function Dashboard() {
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-muted-foreground">No analyses yet.</p>
+                <EmptyState icon={Search} title="No analyses yet" description="Run your first SEO analysis to see results here" actionLabel="Analyze Content" actionPath="/analyzer" />
               )}
             </CardContent>
           </Card>
@@ -287,17 +290,24 @@ export default function Dashboard() {
   );
 }
 
-function StatCard({ label, value, sub, color }: { label: string; value: number | string; sub?: string; color?: string }) {
+function StatCard({ label, value, sub, color, gradient }: { label: string; value: number | string; sub?: string; color?: string; gradient?: string }) {
+  const numValue = typeof value === 'number' ? value : null;
   return (
-    <Card>
-      <CardHeader className="pb-1">
-        <CardDescription className="text-xs">{label}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p className={`text-2xl font-bold ${color ?? ''}`}>{value}</p>
-        {sub && <p className="text-[10px] text-muted-foreground">{sub}</p>}
-      </CardContent>
-    </Card>
+    <div className={`relative rounded-xl p-[1px] ${gradient ?? 'bg-border'}`}>
+      <Card className="rounded-xl border-0">
+        <CardHeader className="pb-1">
+          <CardDescription className="text-xs">{label}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {numValue !== null ? (
+            <AnimatedNumber value={numValue} className={`text-2xl font-bold ${color ?? ''}`} />
+          ) : (
+            <p className={`text-2xl font-bold ${color ?? ''}`}>{value}</p>
+          )}
+          {sub && <p className="text-[10px] text-muted-foreground">{sub}</p>}
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 
