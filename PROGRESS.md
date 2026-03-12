@@ -22,11 +22,11 @@
 - [x] Position tracking (manual entry in keyword table)
 
 ## Module 4: Content Analyzer
-- [ ] DB: `analyses` table + RLS
-- [ ] URL input / paste HTML
-- [ ] OpenAI SEO analysis call
-- [ ] Results display (score + suggestions)
-- [ ] Save to DB
+- [ ] [NEEDS-DB] DB: `analyses` table + RLS (SQL in SUPABASE.md)
+- [x] URL input / paste HTML (`src/pages/Analyzer.tsx`)
+- [x] OpenAI SEO analysis call (`src/lib/seo-analyzer.ts`)
+- [x] Results display — score + suggestions per category (`src/pages/Analyzer.tsx`)
+- [x] Save to DB (`src/hooks/useAnalyses.ts`)
 
 ## Module 5: Content Generator
 - [ ] Topic/keyword/tone input form
@@ -42,5 +42,5 @@
 
 ---
 
-**Next up:** Module 4 — Content Analyzer (OpenAI integration)
-<!-- watchdog: 2026-03-13 00:36 — 13/24 done, build: pass -->
+**Next up:** Module 5 — Content Generator
+<!-- watchdog: 2026-03-13 00:48 — 17/24 done, build: pass -->

@@ -6,6 +6,7 @@ import { LogOut } from 'lucide-react';
 const navLinks = [
   { label: 'Dashboard', path: '/' },
   { label: 'Projects', path: '/projects' },
+  { label: 'Analyzer', path: '/analyzer' },
 ];
 
 export default function Navbar() {

@@ -9,6 +9,7 @@ import Login from '@/pages/Login';
 import Signup from '@/pages/Signup';
 import Projects from '@/pages/Projects';
 import ProjectDetail from '@/pages/ProjectDetail';
+import Analyzer from '@/pages/Analyzer';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -63,6 +64,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <ProjectDetail />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/analyzer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <Analyzer />
                   </AppLayout>
                 </ProtectedRoute>
               }
