@@ -41,10 +41,10 @@
 - [x] Date picker for scheduling + unscheduled items list
 
 ### Module 11: Rank Tracking History
-- [ ] DB: `rank_history` table + RLS
-- [ ] Manual position check-in button per keyword
-- [ ] Position history chart (line chart)
-- [ ] Rank change indicators (up/down arrows with delta)
+- [x] DB: `rank_history` table + RLS
+- [x] Manual position check-in button per keyword
+- [x] Position history chart (line chart)
+- [x] Rank change indicators (up/down arrows with delta)
 
 ### Module 12: Reports & Export
 - [ ] DB: `reports` table + RLS
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 11 — Rank Tracking History
+**Next up:** Module 12 — Reports & Export
 <!-- watchdog: 2026-03-13 03:06 — Phase 1: 27/27 done, Phase 2: 19/38, build: pass -->

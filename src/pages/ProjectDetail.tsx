@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import KeywordTable from '@/components/KeywordTable';
 import CompetitorSection from '@/components/CompetitorSection';
 import BacklinkSection from '@/components/BacklinkSection';
+import RankTracker from '@/components/RankTracker';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export default function ProjectDetail() {
@@ -85,6 +86,8 @@ export default function ProjectDetail() {
         </div>
 
         <KeywordTable projectId={id!} />
+
+        <RankTracker projectId={id!} />
 
         <CompetitorSection projectId={id!} projectUrl={project.url} />
 

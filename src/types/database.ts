@@ -84,6 +84,16 @@ export interface ContentItem {
   created_at: string;
 }
 
+export interface RankHistory {
+  id: string;
+  keyword_id: string;
+  project_id: string;
+  user_id: string;
+  position: number;
+  checked_at: string;
+  created_at: string;
+}
+
 export interface CompetitorAnalysis {
   id: string;
   competitor_id: string;
