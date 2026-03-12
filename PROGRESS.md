@@ -137,10 +137,10 @@
 ## Phase 4 — Growth & Scale
 
 ### Module 25: AI Content Brief Generator
-- [ ] Input target keyword + audience
-- [ ] OpenAI content brief (outline, word count, competitor angles, questions)
-- [ ] Save briefs to content calendar items
-- [ ] Brief-to-draft workflow
+- [x] Input target keyword + audience
+- [x] OpenAI content brief (outline, word count, competitor angles, questions)
+- [x] Save briefs to content calendar items
+- [x] Brief-to-draft workflow
 
 ### Module 26: Page Speed Insights
 - [ ] URL input for performance analysis
@@ -208,5 +208,5 @@
 
 **Phase 3 COMPLETE — All 36/36 features built.**
 
-**Next up:** Module 25 — AI Content Brief Generator
+**Next up:** Module 26 — Page Speed Insights
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

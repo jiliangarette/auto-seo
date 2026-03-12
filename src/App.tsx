@@ -27,6 +27,7 @@ const Settings = lazy(() => import('@/pages/Settings'));
 const ContentOptimizer = lazy(() => import('@/pages/ContentOptimizer'));
 const SerpPreview = lazy(() => import('@/pages/SerpPreview'));
 const BulkOperations = lazy(() => import('@/pages/BulkOperations'));
+const ContentBrief = lazy(() => import('@/pages/ContentBrief'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -200,6 +201,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><Settings /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/brief"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentBrief /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
