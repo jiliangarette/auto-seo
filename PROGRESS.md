@@ -109,10 +109,10 @@
 - [x] Export all project data as ZIP
 
 ### Module 21: Notification System
-- [ ] Notification center (bell icon in navbar)
-- [ ] Track completed analyses, audits, reports
-- [ ] Notification badge count
-- [ ] Mark as read / clear all
+- [x] Notification center (bell icon in navbar)
+- [x] Track completed analyses, audits, reports
+- [x] Notification badge count
+- [x] Mark as read / clear all
 
 ### Module 22: Search & Filter
 - [ ] Global search bar in navbar
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 21 — Notification System
+**Next up:** Module 22 — Search & Filter
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
