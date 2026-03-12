@@ -790,4 +790,38 @@
 
 **All 20 Phases complete (Modules 1-110). 455/455 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-19: 435/435, Phase 20: 0/20, build: pass -->
+---
+
+## Phase 21 — Enterprise SEO & Advanced Analytics
+
+### Module 111: SEO ROI Dashboard
+- [ ] Input traffic, conversion rate, and revenue data
+- [ ] Calculate SEO ROI with cost-per-acquisition
+- [ ] Monthly trend visualization with projections
+- [ ] Export ROI report as formatted summary
+
+### Module 112: Content Decay Detector
+- [ ] Input URLs with historical traffic data
+- [ ] AI-detect content losing rankings over time
+- [ ] Priority refresh recommendations
+- [ ] Estimated traffic recovery projections
+
+### Module 113: SERP Volatility Monitor
+- [ ] Input keywords to monitor SERP stability
+- [ ] AI-analyze ranking fluctuation patterns
+- [ ] Algorithm update correlation alerts
+- [ ] Industry benchmark comparisons
+
+### Module 114: Entity SEO Optimizer
+- [ ] Input content for entity extraction
+- [ ] Map entities to Google Knowledge Graph
+- [ ] Entity relationship visualization
+- [ ] Entity optimization recommendations
+
+### Module 115: SEO Competitor Playbook
+- [ ] Input competitor domain for deep analysis
+- [ ] AI-generate competitor strategy breakdown
+- [ ] Identify gaps and counter-strategies
+- [ ] Actionable playbook with priority actions
+
+<!-- watchdog: 2026-03-13 — Phases 1-20: 455/455, Phase 21: 0/20, build: pass -->
