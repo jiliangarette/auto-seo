@@ -143,6 +143,7 @@ const KeywordCannibalizationDetector = lazy(() => import('@/pages/KeywordCanniba
 const ContentLocalizationPlanner = lazy(() => import('@/pages/ContentLocalizationPlanner'));
 const SeoComplianceChecker = lazy(() => import('@/pages/SeoComplianceChecker'));
 const SeoTaskPrioritizer = lazy(() => import('@/pages/SeoTaskPrioritizer'));
+const ContentSentimentAnalyzer = lazy(() => import('@/pages/ContentSentimentAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -977,6 +978,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoTaskPrioritizer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/sentiment"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentSentimentAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

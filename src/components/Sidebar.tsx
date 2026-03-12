@@ -160,6 +160,7 @@ const navItems = [
   { label: 'Localization', path: '/localization', icon: Share2 },
   { label: 'Compliance', path: '/compliance', icon: Check },
   { label: 'Task Priority', path: '/task-priority', icon: Tags },
+  { label: 'Sentiment', path: '/sentiment', icon: Sparkles },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
