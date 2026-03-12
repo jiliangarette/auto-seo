@@ -126,6 +126,7 @@ const navItems = [
   { label: 'A/B Test', path: '/seo-ab-test', icon: Swords },
   { label: 'Backlink Gap', path: '/backlink-gap', icon: Link2 },
   { label: 'Summarizer', path: '/content-summarizer', icon: FileText },
+  { label: 'Knowledge Base', path: '/seo-knowledge-base', icon: BookText },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
