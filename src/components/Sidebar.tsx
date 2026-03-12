@@ -117,6 +117,7 @@ const navItems = [
   { label: 'Link Audit', path: '/link-audit', icon: Link2 },
   { label: 'Content Length', path: '/content-length', icon: BarChart3 },
   { label: 'SEO Summary', path: '/seo-summary', icon: LayoutDashboard },
+  { label: 'Slug Optimizer', path: '/slug-optimizer', icon: Link2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
