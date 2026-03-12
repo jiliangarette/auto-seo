@@ -113,6 +113,7 @@ const SeoKnowledgeBase = lazy(() => import('@/pages/SeoKnowledgeBase'));
 const SeoRoiDashboard = lazy(() => import('@/pages/SeoRoiDashboard'));
 const ContentDecayDetector = lazy(() => import('@/pages/ContentDecayDetector'));
 const SerpVolatilityMonitor = lazy(() => import('@/pages/SerpVolatilityMonitor'));
+const EntitySeoOptimizer = lazy(() => import('@/pages/EntitySeoOptimizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -837,6 +838,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/entity-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><EntitySeoOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

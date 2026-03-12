@@ -130,6 +130,7 @@ const navItems = [
   { label: 'SEO ROI', path: '/seo-roi', icon: BarChart3 },
   { label: 'Decay Detector', path: '/content-decay-detector', icon: Clock },
   { label: 'SERP Volatility', path: '/serp-volatility', icon: Gauge },
+  { label: 'Entity SEO', path: '/entity-seo', icon: Tags },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
