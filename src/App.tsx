@@ -111,6 +111,7 @@ const BacklinkGapAnalyzer = lazy(() => import('@/pages/BacklinkGapAnalyzer'));
 const ContentSummarizer = lazy(() => import('@/pages/ContentSummarizer'));
 const SeoKnowledgeBase = lazy(() => import('@/pages/SeoKnowledgeBase'));
 const SeoRoiDashboard = lazy(() => import('@/pages/SeoRoiDashboard'));
+const ContentDecayDetector = lazy(() => import('@/pages/ContentDecayDetector'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -835,6 +836,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-decay-detector"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentDecayDetector /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

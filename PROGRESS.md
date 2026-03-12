@@ -801,10 +801,10 @@
 - [x] Export ROI report as formatted summary
 
 ### Module 112: Content Decay Detector
-- [ ] Input URLs with historical traffic data
-- [ ] AI-detect content losing rankings over time
-- [ ] Priority refresh recommendations
-- [ ] Estimated traffic recovery projections
+- [x] Input URLs with historical traffic data
+- [x] AI-detect content losing rankings over time
+- [x] Priority refresh recommendations
+- [x] Estimated traffic recovery projections
 
 ### Module 113: SERP Volatility Monitor
 - [ ] Input keywords to monitor SERP stability
