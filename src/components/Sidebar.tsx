@@ -100,6 +100,7 @@ const navItems = [
   { label: 'Local SEO', path: '/local-seo', icon: Search },
   { label: 'Broken Links', path: '/broken-links', icon: Link2 },
   { label: 'Pillars', path: '/content-pillars', icon: FileText },
+  { label: 'Content Tracker', path: '/competitor-content', icon: Eye },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
