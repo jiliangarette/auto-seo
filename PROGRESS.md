@@ -335,10 +335,10 @@
 ## Phase 9 — AI Power-Ups & Workflow
 
 ### Module 51: AI Keyword Research
-- [ ] Seed keyword input with AI expansion
-- [ ] Search volume and competition estimates
-- [ ] Long-tail keyword suggestions
-- [ ] Export keyword list to tracker
+- [x] Seed keyword input with AI expansion
+- [x] Search volume and competition estimates
+- [x] Long-tail keyword suggestions
+- [x] Export keyword list to tracker
 
 ### Module 52: Content Repurposer
 - [ ] Input blog post for repurposing

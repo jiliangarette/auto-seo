@@ -50,6 +50,7 @@ const CompetitorMonitoring = lazy(() => import('@/pages/CompetitorMonitoring'));
 const ContentAbTest = lazy(() => import('@/pages/ContentAbTest'));
 const LinkOutreach = lazy(() => import('@/pages/LinkOutreach'));
 const DashboardWidgets = lazy(() => import('@/pages/DashboardWidgets'));
+const AiKeywordResearch = lazy(() => import('@/pages/AiKeywordResearch'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -354,6 +355,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ReadabilityAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/keyword-research"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><AiKeywordResearch /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

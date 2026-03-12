@@ -66,6 +66,7 @@ const navItems = [
   { label: 'A/B Testing', path: '/ab-test', icon: BarChart3 },
   { label: 'Outreach', path: '/outreach', icon: Link2 },
   { label: 'Widgets', path: '/widgets', icon: LayoutGrid },
+  { label: 'Keyword Research', path: '/keyword-research', icon: Search },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
