@@ -679,10 +679,10 @@
 ## Phase 18 — SEO Intelligence & Automation Pro
 
 ### Module 96: Keyword Intent Classifier
-- [ ] Input keywords for intent classification
-- [ ] AI-classify as informational, navigational, commercial, transactional
-- [ ] Suggest content types per intent
-- [ ] Bulk classification with export
+- [x] Input keywords for intent classification
+- [x] AI-classify as informational, navigational, commercial, transactional
+- [x] Suggest content types per intent
+- [x] Bulk classification with export
 
 ### Module 97: Page Title Optimizer
 - [ ] Input existing page titles for optimization

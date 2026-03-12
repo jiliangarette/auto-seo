@@ -112,6 +112,7 @@ const navItems = [
   { label: 'SERP Features', path: '/serp-features', icon: Eye },
   { label: 'Duplicates', path: '/duplicate-checker', icon: Search },
   { label: 'Bulk Meta', path: '/meta-bulk', icon: Tags },
+  { label: 'Intent', path: '/keyword-intent', icon: Search },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

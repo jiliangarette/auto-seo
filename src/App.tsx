@@ -95,6 +95,7 @@ const TopicalMapGenerator = lazy(() => import('@/pages/TopicalMapGenerator'));
 const SerpFeatureTracker = lazy(() => import('@/pages/SerpFeatureTracker'));
 const DuplicateContentChecker = lazy(() => import('@/pages/DuplicateContentChecker'));
 const MetaDescriptionBulk = lazy(() => import('@/pages/MetaDescriptionBulk'));
+const KeywordIntentClassifier = lazy(() => import('@/pages/KeywordIntentClassifier'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -799,6 +800,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/keyword-intent"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><KeywordIntentClassifier /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
