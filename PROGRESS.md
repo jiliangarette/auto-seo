@@ -295,10 +295,10 @@
 ## Phase 8 — Enterprise & Integrations
 
 ### Module 46: Google Search Console Integration
-- [ ] OAuth2 connection flow for GSC
-- [ ] Import real keyword rankings from GSC
-- [ ] Click-through rate analysis dashboard
-- [ ] Search appearance report (rich results, AMP)
+- [x] OAuth2 connection flow for GSC
+- [x] Import real keyword rankings from GSC
+- [x] Click-through rate analysis dashboard
+- [x] Search appearance report (rich results, AMP)
 
 ### Module 47: Competitor Monitoring Alerts
 - [ ] Set up monitoring for competitor domains
