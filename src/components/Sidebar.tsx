@@ -76,6 +76,7 @@ const navItems = [
   { label: 'Content Decay', path: '/content-decay', icon: Clock },
   { label: 'Schema Validator', path: '/structured-data', icon: Code2 },
   { label: 'Image SEO', path: '/image-seo', icon: Eye },
+  { label: 'SEO Score', path: '/seo-score', icon: Gauge },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
