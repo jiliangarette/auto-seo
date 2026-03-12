@@ -1215,15 +1215,15 @@
 - [x] SERP feature targeting by intent
 
 ### Module 169: Brand SERP Manager
-- [ ] Input brand name for SERP analysis
-- [ ] AI audits brand presence across search results
-- [ ] Knowledge panel optimization recommendations
-- [ ] Brand sentiment in search results monitoring
+- [x] Input brand name for SERP analysis
+- [x] AI audits brand presence across search results
+- [x] Knowledge panel optimization recommendations
+- [x] Brand sentiment in search results monitoring
 
 ### Module 170: SEO Migration Planner
-- [ ] Input old and new URL structures for migration planning
-- [ ] AI generates redirect mapping and priority list
-- [ ] Pre-migration checklist with risk assessment
-- [ ] Post-migration monitoring plan and KPIs
+- [x] Input old and new URL structures for migration planning
+- [x] AI generates redirect mapping and priority list
+- [x] Pre-migration checklist with risk assessment
+- [x] Post-migration monitoring plan and KPIs
 
 <!-- watchdog: 2026-03-13 — Phases 1-31: 675/675, Phase 32: 0/20, build: pass -->
