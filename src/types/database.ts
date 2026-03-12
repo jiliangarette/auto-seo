@@ -40,6 +40,16 @@ export interface Competitor {
   created_at: string;
 }
 
+export interface Backlink {
+  id: string;
+  project_id: string;
+  source_url: string;
+  target_url: string;
+  anchor_text: string | null;
+  status: 'active' | 'broken' | 'pending';
+  discovered_at: string;
+}
+
 export interface CompetitorAnalysis {
   id: string;
   competitor_id: string;

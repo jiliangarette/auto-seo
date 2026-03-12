@@ -21,10 +21,10 @@
 - [x] Save competitor analysis to DB (`src/hooks/useCompetitors.ts`)
 
 ### Module 8: Backlink Tracker
-- [ ] DB: `backlinks` table + RLS
-- [ ] Manual backlink entry form
-- [ ] Backlink table with status (active/broken), sortable
-- [ ] Backlink summary stats on project detail
+- [x] DB: `backlinks` table + RLS (created via Supabase MCP)
+- [x] Manual backlink entry form (`src/components/BacklinkSection.tsx`)
+- [x] Backlink table with status (active/broken), sortable (`src/components/BacklinkSection.tsx`)
+- [x] Backlink summary stats on project detail (total/active/broken counts)
 
 ### Module 9: Site Audit Tool
 - [ ] DB: `audits` table + RLS
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 8 — Backlink Tracker
-<!-- watchdog: 2026-03-13 02:30 — Phase 1: 27/27 done, Phase 2: 5/38, build: pass -->
+**Next up:** Module 9 — Site Audit Tool
+<!-- watchdog: 2026-03-13 02:42 — Phase 1: 27/27 done, Phase 2: 9/38, build: pass -->
