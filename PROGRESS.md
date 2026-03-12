@@ -446,4 +446,38 @@
 
 **All 11 Phases complete (Modules 1-65). 275/275 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-11: 275/275, build: pass -->
+---
+
+## Phase 12 — Technical SEO & Content Strategy
+
+### Module 66: Robots.txt Analyzer
+- [ ] Paste or fetch robots.txt for analysis
+- [ ] Detect blocking issues (important pages blocked)
+- [ ] Crawl budget optimization suggestions
+- [ ] Generate optimized robots.txt
+
+### Module 67: Redirect Chain Checker
+- [ ] Input URLs to check for redirect chains
+- [ ] Detect chain length and redirect types (301/302)
+- [ ] Flag redirect loops and broken chains
+- [ ] Generate consolidated redirect map
+
+### Module 68: Content Freshness Planner
+- [ ] Input content inventory with dates
+- [ ] AI-prioritized update schedule
+- [ ] Seasonal content calendar suggestions
+- [ ] Freshness score per content piece
+
+### Module 69: E-E-A-T Analyzer
+- [ ] Input page URL + content for E-E-A-T scoring
+- [ ] Experience, Expertise, Authority, Trust breakdown
+- [ ] Improvement suggestions per E-E-A-T pillar
+- [ ] Author bio and credential recommendations
+
+### Module 70: Log File Analyzer
+- [ ] Paste server log entries for analysis
+- [ ] Crawl frequency by bot (Googlebot, Bingbot)
+- [ ] Identify crawl waste (404s, redirects, low-value)
+- [ ] Crawl budget allocation recommendations
+
+<!-- watchdog: 2026-03-13 — Phases 1-11: 275/275, Phase 12: 0/20, build: pass -->
