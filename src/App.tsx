@@ -75,6 +75,7 @@ const ContentGapFinder = lazy(() => import('@/pages/ContentGapFinder'));
 const LinkIntersection = lazy(() => import('@/pages/LinkIntersection'));
 const FaqSchemaGenerator = lazy(() => import('@/pages/FaqSchemaGenerator'));
 const HeadingAnalyzer = lazy(() => import('@/pages/HeadingAnalyzer'));
+const ParagraphRewriter = lazy(() => import('@/pages/ParagraphRewriter'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -549,6 +550,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/rewriter"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ParagraphRewriter /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

@@ -527,10 +527,10 @@
 ## Phase 14 — Content Intelligence & SEO Automation
 
 ### Module 76: Paragraph Rewriter
-- [ ] Input paragraph + target keyword
-- [ ] AI-generate multiple rewrite variants
-- [ ] SEO score comparison (before vs after)
-- [ ] One-click copy best variant
+- [x] Input paragraph + target keyword
+- [x] AI-generate multiple rewrite variants
+- [x] SEO score comparison (before vs after)
+- [x] One-click copy best variant
 
 ### Module 77: Title Tag Tester
 - [ ] Input multiple title tag variants
