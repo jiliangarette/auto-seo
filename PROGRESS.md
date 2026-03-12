@@ -598,4 +598,38 @@
 
 **All 15 Phases complete (Modules 1-85). 355/355 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-14: 335/335, Phase 15: 0/20, build: pass -->
+---
+
+## Phase 16 — SEO Workflows & Advanced Insights
+
+### Module 86: XML Sitemap Generator
+- [ ] Input page URLs with priorities and change frequencies
+- [ ] Generate valid XML sitemap output
+- [ ] Validate sitemap structure and limits
+- [ ] Copy or download sitemap file
+
+### Module 87: Canonical Tag Checker
+- [ ] Input multiple URLs to check canonical tags
+- [ ] Detect missing, self-referencing, and cross-domain canonicals
+- [ ] Flag conflicting canonical signals
+- [ ] Generate correct canonical tag recommendations
+
+### Module 88: Content Readability Grader
+- [ ] Input content for multi-metric readability analysis
+- [ ] Gunning Fog, Coleman-Liau, SMOG index scoring
+- [ ] Grade level and audience targeting recommendations
+- [ ] Sentence-level complexity highlighting
+
+### Module 89: Backlink Outreach Email Generator
+- [ ] Input target site and link context
+- [ ] AI-generate personalized outreach email variants
+- [ ] Subject line A/B testing suggestions
+- [ ] Follow-up email sequence generator
+
+### Module 90: SEO Audit Report Builder
+- [ ] Select audit categories to include
+- [ ] AI-generate comprehensive audit findings
+- [ ] Executive summary with priority actions
+- [ ] Export as formatted HTML report
+
+<!-- watchdog: 2026-03-13 — Phases 1-15: 355/355, Phase 16: 0/20, build: pass -->
