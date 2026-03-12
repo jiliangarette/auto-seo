@@ -113,6 +113,7 @@ const navItems = [
   { label: 'Duplicates', path: '/duplicate-checker', icon: Search },
   { label: 'Bulk Meta', path: '/meta-bulk', icon: Tags },
   { label: 'Intent', path: '/keyword-intent', icon: Search },
+  { label: 'Title Optimizer', path: '/title-optimizer', icon: Wand2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -685,10 +685,10 @@
 - [x] Bulk classification with export
 
 ### Module 97: Page Title Optimizer
-- [ ] Input existing page titles for optimization
-- [ ] AI-generate optimized title variants
-- [ ] Keyword placement and power word analysis
-- [ ] CTR prediction per variant
+- [x] Input existing page titles for optimization
+- [x] AI-generate optimized title variants
+- [x] Keyword placement and power word analysis
+- [x] CTR prediction per variant
 
 ### Module 98: Internal Link Audit
 - [ ] Input site URL for internal link analysis
