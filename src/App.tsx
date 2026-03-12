@@ -156,6 +156,7 @@ const MultiSiteSeoManager = lazy(() => import('@/pages/MultiSiteSeoManager'));
 const SeoChangeLogTracker = lazy(() => import('@/pages/SeoChangeLogTracker'));
 const ContentReadinessScorer = lazy(() => import('@/pages/ContentReadinessScorer'));
 const SeoApiRateChecker = lazy(() => import('@/pages/SeoApiRateChecker'));
+const CompetitiveIntelligenceHub = lazy(() => import('@/pages/CompetitiveIntelligenceHub'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1120,6 +1121,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoApiRateChecker /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/intel-hub"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><CompetitiveIntelligenceHub /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

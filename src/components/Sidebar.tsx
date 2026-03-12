@@ -173,6 +173,7 @@ const navItems = [
   { label: 'Change Log', path: '/change-log', icon: FileBarChart },
   { label: 'Readiness', path: '/readiness', icon: Check },
   { label: 'API Rates', path: '/api-rates', icon: Gauge },
+  { label: 'Intel Hub', path: '/intel-hub', icon: Swords },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
