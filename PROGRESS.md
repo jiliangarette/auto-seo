@@ -1226,4 +1226,38 @@
 - [x] Pre-migration checklist with risk assessment
 - [x] Post-migration monitoring plan and KPIs
 
-<!-- watchdog: 2026-03-13 — Phases 1-31: 675/675, Phase 32: 0/20, build: pass -->
+---
+
+## Phase 33: SEO Automation & Workflows (Modules 171–175)
+
+### Module 171: SEO Alert System
+- [x] Input alert rules for SEO metric thresholds
+- [x] AI monitors ranking drops, traffic changes, and crawl errors
+- [x] Alert priority classification with severity levels
+- [x] Recommended actions for each alert type
+
+### Module 172: Content Repurposing Engine
+- [ ] Input content for multi-format repurposing
+- [ ] AI generates social posts, email snippets, and infographic outlines
+- [ ] Platform-specific formatting recommendations
+- [ ] Repurposing calendar with scheduling suggestions
+
+### Module 173: Topical Map Generator
+- [ ] Input niche for comprehensive topical map creation
+- [ ] AI builds topic clusters with pillar and supporting content
+- [ ] Internal linking structure recommendations
+- [ ] Content gap identification within the topical map
+
+### Module 174: SEO Forecasting Tool
+- [ ] Input historical data for traffic and ranking forecasts
+- [ ] AI projects growth trajectories with confidence intervals
+- [ ] Scenario modeling for different strategies
+- [ ] Seasonal trend adjustments and predictions
+
+### Module 175: Competitor Backlink Analyzer
+- [ ] Input competitor URL for backlink profile analysis
+- [ ] AI evaluates link quality distribution and patterns
+- [ ] Link building opportunity identification
+- [ ] Outreach template generation for target sites
+
+<!-- watchdog: 2026-03-13 — Phases 1-32: 695/695, Phase 33: 0/20, build: pass -->

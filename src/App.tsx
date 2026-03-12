@@ -163,6 +163,7 @@ const VideoSeoOptimizer = lazy(() => import('@/pages/VideoSeoOptimizer'));
 const PodcastSeoPlanner = lazy(() => import('@/pages/PodcastSeoPlanner'));
 const NewsSeoOptimizer = lazy(() => import('@/pages/NewsSeoOptimizer'));
 const SearchIntentClassifier = lazy(() => import('@/pages/SearchIntentClassifier'));
+const SeoAlertSystem = lazy(() => import('@/pages/SeoAlertSystem'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1197,6 +1198,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SearchIntentClassifier /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-alerts"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoAlertSystem /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
