@@ -88,6 +88,7 @@ const navItems = [
   { label: 'E-E-A-T', path: '/eeat', icon: Shield },
   { label: 'Log Analyzer', path: '/log-analyzer', icon: FileText },
   { label: 'Web Vitals', path: '/cwv', icon: Gauge },
+  { label: 'Content Gaps', path: '/content-gaps', icon: Search },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -71,6 +71,7 @@ const ContentFreshnessPlanner = lazy(() => import('@/pages/ContentFreshnessPlann
 const EeatAnalyzer = lazy(() => import('@/pages/EeatAnalyzer'));
 const LogFileAnalyzer = lazy(() => import('@/pages/LogFileAnalyzer'));
 const CoreWebVitals = lazy(() => import('@/pages/CoreWebVitals'));
+const ContentGapFinder = lazy(() => import('@/pages/ContentGapFinder'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -545,6 +546,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-gaps"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentGapFinder /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

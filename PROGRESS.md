@@ -495,10 +495,10 @@
 - [x] AI-powered fix recommendations per metric
 
 ### Module 72: Content Gap Finder
-- [ ] Input your sitemap + competitor sitemaps
-- [ ] AI-detect missing content topics
-- [ ] Priority scoring by search volume potential
-- [ ] Generate content briefs for top gaps
+- [x] Input your sitemap + competitor sitemaps
+- [x] AI-detect missing content topics
+- [x] Priority scoring by search volume potential
+- [x] Generate content briefs for top gaps
 
 ### Module 73: Link Intersection Tool
 - [ ] Input multiple competitor domains
