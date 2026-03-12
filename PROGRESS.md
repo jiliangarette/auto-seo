@@ -97,10 +97,10 @@
 - [x] Optimization score with action items
 
 ### Module 19: SERP Preview Tool
-- [ ] Input URL + target keyword
-- [ ] Desktop + mobile SERP preview
-- [ ] Character count warnings for title/description
-- [ ] Rich snippet preview (FAQ, How-to, Review)
+- [x] Input URL + target keyword
+- [x] Desktop + mobile SERP preview
+- [x] Character count warnings for title/description
+- [x] Rich snippet preview (FAQ, How-to, Review)
 
 ### Module 20: Bulk Operations
 - [ ] Bulk keyword import from CSV
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 19 — SERP Preview Tool
+**Next up:** Module 20 — Bulk Operations
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

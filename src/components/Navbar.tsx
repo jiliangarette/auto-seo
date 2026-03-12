@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Audit', path: '/audit' },
   { label: 'Calendar', path: '/calendar' },
   { label: 'Reports', path: '/reports' },
+  { label: 'SERP', path: '/serp-preview' },
   { label: 'Optimizer', path: '/optimizer' },
   { label: 'Meta Tags', path: '/meta-tags' },
   { label: 'Links', path: '/internal-links' },
