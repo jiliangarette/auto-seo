@@ -85,6 +85,7 @@ const navItems = [
   { label: 'Robots.txt', path: '/robots-txt', icon: Shield },
   { label: 'Redirects', path: '/redirect-checker', icon: Link2 },
   { label: 'Freshness', path: '/freshness-planner', icon: CalendarDays },
+  { label: 'E-E-A-T', path: '/eeat', icon: Shield },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -68,6 +68,7 @@ const FeaturedSnippetOptimizer = lazy(() => import('@/pages/FeaturedSnippetOptim
 const RobotsTxtAnalyzer = lazy(() => import('@/pages/RobotsTxtAnalyzer'));
 const RedirectChainChecker = lazy(() => import('@/pages/RedirectChainChecker'));
 const ContentFreshnessPlanner = lazy(() => import('@/pages/ContentFreshnessPlanner'));
+const EeatAnalyzer = lazy(() => import('@/pages/EeatAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -542,6 +543,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/eeat"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><EeatAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
