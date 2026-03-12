@@ -145,6 +145,7 @@ const SeoComplianceChecker = lazy(() => import('@/pages/SeoComplianceChecker'));
 const SeoTaskPrioritizer = lazy(() => import('@/pages/SeoTaskPrioritizer'));
 const ContentSentimentAnalyzer = lazy(() => import('@/pages/ContentSentimentAnalyzer'));
 const BacklinkQualityScorer = lazy(() => import('@/pages/BacklinkQualityScorer'));
+const SeoRevenueCalculator = lazy(() => import('@/pages/SeoRevenueCalculator'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -999,6 +1000,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><BacklinkQualityScorer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/revenue-calc"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoRevenueCalculator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
