@@ -1,13 +1,27 @@
 import { useState } from 'react';
 import { useKeywords, useAddKeyword, useDeleteKeyword } from '@/hooks/useKeywords';
+import { estimateKeywordDifficulty, batchEstimateDifficulty } from '@/lib/keyword-difficulty';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Plus, Trash2, ArrowUpDown } from 'lucide-react';
+import { Plus, Trash2, ArrowUpDown, Zap, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 type SortField = 'keyword' | 'position' | 'search_volume' | 'created_at';
 type SortDir = 'asc' | 'desc';
+
+interface DifficultyInfo {
+  difficulty: 'easy' | 'medium' | 'hard';
+  score: number;
+  opportunityScore: number;
+  reasoning: string;
+}
+
+const difficultyColors = {
+  easy: 'bg-green-950/30 text-green-400',
+  medium: 'bg-yellow-950/30 text-yellow-400',
+  hard: 'bg-red-950/30 text-red-400',
+};
 
 export default function KeywordTable({ projectId }: { projectId: string }) {
   const { data: keywords, isLoading } = useKeywords(projectId);
@@ -20,6 +34,10 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
   const [volume, setVolume] = useState('');
   const [sortField, setSortField] = useState<SortField>('created_at');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
+
+  const [difficulties, setDifficulties] = useState<Record<string, DifficultyInfo>>({});
+  const [checkingId, setCheckingId] = useState<string | null>(null);
+  const [batchChecking, setBatchChecking] = useState(false);
 
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,6 +56,53 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
       setVolume('');
     } catch (err) {
       toast.error(err instanceof Error ? err.message : 'Failed to add keyword');
+    }
+  };
+
+  const checkDifficulty = async (kw: { id: string; keyword: string; search_volume: number | null }) => {
+    setCheckingId(kw.id);
+    try {
+      const result = await estimateKeywordDifficulty(kw.keyword, kw.search_volume);
+      setDifficulties((prev) => ({
+        ...prev,
+        [kw.id]: {
+          difficulty: result.difficulty,
+          score: result.score,
+          opportunityScore: result.opportunityScore,
+          reasoning: result.reasoning,
+        },
+      }));
+    } catch {
+      toast.error('Failed to check difficulty');
+    } finally {
+      setCheckingId(null);
+    }
+  };
+
+  const checkAllDifficulty = async () => {
+    if (!keywords?.length) return;
+    setBatchChecking(true);
+    try {
+      const results = await batchEstimateDifficulty(
+        keywords.map((kw) => ({ keyword: kw.keyword, searchVolume: kw.search_volume }))
+      );
+      const newDiffs: Record<string, DifficultyInfo> = {};
+      results.forEach((r, i) => {
+        if (keywords[i]) {
+          newDiffs[keywords[i].id] = {
+            difficulty: r.difficulty,
+            score: r.score,
+            opportunityScore: r.opportunityScore,
+            reasoning: r.reasoning,
+          };
+        }
+      });
+      setDifficulties((prev) => ({ ...prev, ...newDiffs }));
+      toast.success(`Checked ${results.length} keywords`);
+    } catch {
+      toast.error('Batch check failed');
+    } finally {
+      setBatchChecking(false);
     }
   };
 
@@ -65,12 +130,25 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
         <div className="flex items-center justify-between">
           <div>
             <CardTitle>Keywords</CardTitle>
-            <CardDescription>Track keyword rankings</CardDescription>
+            <CardDescription>Track keyword rankings & difficulty</CardDescription>
           </div>
-          <Button size="sm" onClick={() => setShowForm(!showForm)}>
-            <Plus className="size-4" />
-            Add
-          </Button>
+          <div className="flex gap-1">
+            {keywords && keywords.length > 0 && (
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={checkAllDifficulty}
+                disabled={batchChecking}
+              >
+                {batchChecking ? <Loader2 className="size-4 animate-spin" /> : <Zap className="size-4" />}
+                Check All
+              </Button>
+            )}
+            <Button size="sm" onClick={() => setShowForm(!showForm)}>
+              <Plus className="size-4" />
+              Add
+            </Button>
+          </div>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -127,26 +205,60 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
                       Volume <ArrowUpDown className="size-3" />
                     </button>
                   </th>
+                  <th className="pb-2">Difficulty</th>
+                  <th className="pb-2">Opportunity</th>
                   <th className="pb-2 w-10"></th>
                 </tr>
               </thead>
               <tbody>
-                {sorted.map((kw) => (
-                  <tr key={kw.id} className="border-b border-border/50">
-                    <td className="py-2 font-medium">{kw.keyword}</td>
-                    <td className="py-2">{kw.position ?? '—'}</td>
-                    <td className="py-2">{kw.search_volume ?? '—'}</td>
-                    <td className="py-2">
-                      <Button
-                        variant="ghost"
-                        size="icon-xs"
-                        onClick={() => deleteKeyword.mutate({ id: kw.id, projectId })}
-                      >
-                        <Trash2 className="size-3 text-destructive" />
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
+                {sorted.map((kw) => {
+                  const diff = difficulties[kw.id];
+                  return (
+                    <tr key={kw.id} className="border-b border-border/50">
+                      <td className="py-2 font-medium">{kw.keyword}</td>
+                      <td className="py-2">{kw.position ?? '—'}</td>
+                      <td className="py-2">{kw.search_volume ?? '—'}</td>
+                      <td className="py-2">
+                        {diff ? (
+                          <span
+                            className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${difficultyColors[diff.difficulty]}`}
+                            title={diff.reasoning}
+                          >
+                            {diff.difficulty} ({diff.score})
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => checkDifficulty(kw)}
+                            disabled={checkingId === kw.id}
+                            className="text-xs text-muted-foreground hover:text-foreground"
+                          >
+                            {checkingId === kw.id ? (
+                              <Loader2 className="size-3 animate-spin" />
+                            ) : (
+                              'Check'
+                            )}
+                          </button>
+                        )}
+                      </td>
+                      <td className="py-2">
+                        {diff ? (
+                          <span className="text-xs tabular-nums">{diff.opportunityScore}/100</span>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">—</span>
+                        )}
+                      </td>
+                      <td className="py-2">
+                        <Button
+                          variant="ghost"
+                          size="icon-xs"
+                          onClick={() => deleteKeyword.mutate({ id: kw.id, projectId })}
+                        >
+                          <Trash2 className="size-3 text-destructive" />
+                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

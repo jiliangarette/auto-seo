@@ -85,10 +85,10 @@
 - [x] Project health score (composite of SEO score, keyword count, backlink health)
 
 ### Module 17: Keyword Difficulty Estimator
-- [ ] OpenAI difficulty estimate per keyword (competition, DA needed, content quality)
-- [ ] Difficulty badge (easy/medium/hard) in keyword tracker
-- [ ] Batch difficulty check for all project keywords
-- [ ] Keyword opportunity score (volume vs difficulty ratio)
+- [x] OpenAI difficulty estimate per keyword (competition, DA needed, content quality)
+- [x] Difficulty badge (easy/medium/hard) in keyword tracker
+- [x] Batch difficulty check for all project keywords
+- [x] Keyword opportunity score (volume vs difficulty ratio)
 
 ### Module 18: Content Optimizer
 - [ ] Paste existing content + target keyword input
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 17 — Keyword Difficulty Estimator
+**Next up:** Module 18 — Content Optimizer
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
