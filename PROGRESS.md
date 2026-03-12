@@ -213,4 +213,76 @@
 **Phase 5 COMPLETE — All 20/20 features built.**
 
 **All 5 Phases complete (Modules 1-35). 155/155 features built.**
-<!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
+
+---
+
+## Phase 6 — Data Intelligence & Automation
+
+### Module 36: Keyword Clustering
+- [x] AI-powered keyword grouping by search intent
+- [x] Cluster visualization (grouped cards with shared topics)
+- [x] Auto-generate content pillars from clusters
+- [x] Export cluster map as JSON
+
+### Module 37: Automated Content Scoring
+- [ ] Score content against top-10 SERP competitors
+- [ ] Heading structure analysis (H1-H6 hierarchy check)
+- [ ] Keyword placement scoring (title, meta, first paragraph, headings)
+- [ ] Actionable improvement checklist per content piece
+
+### Module 38: Topic Authority Mapper
+- [ ] Map topical coverage across all content
+- [ ] Identify uncovered subtopics in your niche
+- [ ] Topical authority score per subject area
+- [ ] Recommended next articles to build authority
+
+### Module 39: Backlink Quality Analyzer
+- [ ] Score backlinks by domain metrics (estimated DA, relevance)
+- [ ] Flag toxic/spammy backlinks
+- [ ] Backlink acquisition opportunity suggestions
+- [ ] Disavow list generator
+
+### Module 40: AI Writing Assistant
+- [ ] In-editor real-time SEO suggestions while typing
+- [ ] Auto-suggest internal links as you write
+- [ ] Readability score live update
+- [ ] One-click rewrite suggestions for weak paragraphs
+
+---
+
+## Phase 7 — Premium Features & Integration
+
+### Module 41: Team Collaboration
+- [ ] Invite team members to projects (email invite)
+- [ ] Role-based permissions (admin, editor, viewer)
+- [ ] Activity log per project (who did what)
+- [ ] Comment threads on analyses and content
+
+### Module 42: Custom Reporting Templates
+- [ ] Drag-and-drop report builder (select sections)
+- [ ] White-label branding (custom logo, colors)
+- [ ] Scheduled report delivery (weekly/monthly email)
+- [ ] PDF export with charts
+
+### Module 43: API Playground
+- [ ] Interactive API endpoint tester
+- [ ] Generate API keys per project
+- [ ] Rate limiting dashboard
+- [ ] Webhook configuration for events
+
+### Module 44: Internationalization (i18n)
+- [ ] Multi-language SEO analysis (detect content language)
+- [ ] Hreflang tag generator
+- [ ] Region-specific SERP preview
+- [ ] Translation quality checker
+
+### Module 45: Changelog & Feature Announcements
+- [ ] In-app changelog feed
+- [ ] "What's new" notification badge
+- [ ] Feature request voting board
+- [ ] Release notes page
+
+---
+
+**Next up:** Module 37 — Automated Content Scoring
+<!-- watchdog: 2026-03-13 — Phases 1-5: 155/155, Phase 6-7: 0/40, build: pass -->

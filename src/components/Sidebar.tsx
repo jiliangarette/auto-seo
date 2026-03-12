@@ -54,6 +54,7 @@ const navItems = [
   { label: 'Social Preview', path: '/social', icon: Share2 },
   { label: 'Competitive', path: '/competitive', icon: Swords },
   { label: 'Analytics', path: '/analytics', icon: BarChart3 },
+  { label: 'Clustering', path: '/clustering', icon: LayoutGrid },
   { label: 'Bulk Ops', path: '/bulk', icon: FolderKanban },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
