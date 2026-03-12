@@ -833,10 +833,10 @@
 ## Phase 22 — SEO Intelligence & Content Mastery
 
 ### Module 116: Topical Authority Score
-- [ ] Input domain and niche topic
-- [ ] AI-calculate topical authority score (0-100)
-- [ ] Content coverage gap analysis per subtopic
-- [ ] Authority building roadmap with priorities
+- [x] Input domain and niche topic
+- [x] AI-calculate topical authority score (0-100)
+- [x] Content coverage gap analysis per subtopic
+- [x] Authority building roadmap with priorities
 
 ### Module 117: SEO Forecaster
 - [ ] Input current traffic and growth targets

@@ -132,6 +132,7 @@ const navItems = [
   { label: 'SERP Volatility', path: '/serp-volatility', icon: Gauge },
   { label: 'Entity SEO', path: '/entity-seo', icon: Tags },
   { label: 'Playbook', path: '/competitor-playbook', icon: Swords },
+  { label: 'Topic Authority', path: '/topical-authority-score', icon: Shield },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -115,6 +115,7 @@ const ContentDecayDetector = lazy(() => import('@/pages/ContentDecayDetector'));
 const SerpVolatilityMonitor = lazy(() => import('@/pages/SerpVolatilityMonitor'));
 const EntitySeoOptimizer = lazy(() => import('@/pages/EntitySeoOptimizer'));
 const SeoCompetitorPlaybook = lazy(() => import('@/pages/SeoCompetitorPlaybook'));
+const TopicalAuthorityScore = lazy(() => import('@/pages/TopicalAuthorityScore'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -839,6 +840,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/topical-authority-score"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><TopicalAuthorityScore /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
