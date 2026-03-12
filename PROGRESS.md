@@ -1190,6 +1190,40 @@
 - [x] Input article for news SEO optimization
 - [x] AI evaluates Google News and Discover eligibility
 - [x] Article structured data and AMP readiness
-- [ ] Breaking news and trending topic timing recommendations
+- [x] Breaking news and trending topic timing recommendations
 
-<!-- watchdog: 2026-03-13 — Phases 1-30: 655/655, Phase 31: 0/20, build: pass -->
+---
+
+## Phase 32: Advanced SEO Intelligence (Modules 166–170)
+
+### Module 166: SEO ROI Dashboard
+- [x] Input campaign data for ROI visualization
+- [x] AI calculates cost-per-click and conversion estimates
+- [x] Revenue attribution by keyword and channel
+- [x] Monthly ROI trend analysis with projections
+
+### Module 167: Content Decay Detector
+- [ ] Input URLs to monitor for traffic decline
+- [ ] AI identifies content decay signals and causes
+- [ ] Refresh priority scoring with effort estimates
+- [ ] Before/after performance prediction
+
+### Module 168: Search Intent Classifier
+- [ ] Input keywords for intent classification
+- [ ] AI categorizes informational, navigational, transactional, commercial
+- [ ] Content format recommendations per intent type
+- [ ] SERP feature targeting by intent
+
+### Module 169: Brand SERP Manager
+- [ ] Input brand name for SERP analysis
+- [ ] AI audits brand presence across search results
+- [ ] Knowledge panel optimization recommendations
+- [ ] Brand sentiment in search results monitoring
+
+### Module 170: SEO Migration Planner
+- [ ] Input old and new URL structures for migration planning
+- [ ] AI generates redirect mapping and priority list
+- [ ] Pre-migration checklist with risk assessment
+- [ ] Post-migration monitoring plan and KPIs
+
+<!-- watchdog: 2026-03-13 — Phases 1-31: 675/675, Phase 32: 0/20, build: pass -->
