@@ -79,10 +79,10 @@
 ## Phase 3 — Polish, UX & Advanced
 
 ### Module 16: Dashboard Overhaul
-- [ ] Real-time stats from DB (total keywords, avg score, total backlinks, active audits)
-- [ ] Recent activity feed (last 10 actions across all modules)
-- [ ] Quick-action cards linking to each tool
-- [ ] Project health score (composite of SEO score, keyword count, backlink health)
+- [x] Real-time stats from DB (total keywords, avg score, total backlinks, active audits)
+- [x] Recent activity feed (last 10 actions across all modules)
+- [x] Quick-action cards linking to each tool
+- [x] Project health score (composite of SEO score, keyword count, backlink health)
 
 ### Module 17: Keyword Difficulty Estimator
 - [ ] OpenAI difficulty estimate per keyword (competition, DA needed, content quality)
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 16 — Dashboard Overhaul
+**Next up:** Module 17 — Keyword Difficulty Estimator
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
