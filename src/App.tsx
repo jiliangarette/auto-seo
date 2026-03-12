@@ -1,28 +1,33 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/sonner';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { NotificationProvider } from '@/contexts/NotificationContext';
 import ProtectedRoute from '@/components/ProtectedRoute';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import Navbar from '@/components/Navbar';
-import Dashboard from '@/pages/Dashboard';
-import Login from '@/pages/Login';
-import Signup from '@/pages/Signup';
-import Projects from '@/pages/Projects';
-import ProjectDetail from '@/pages/ProjectDetail';
-import Analyzer from '@/pages/Analyzer';
-import Generator from '@/pages/Generator';
-import SiteAudit from '@/pages/SiteAudit';
-import ContentCalendar from '@/pages/ContentCalendar';
-import Reports from '@/pages/Reports';
-import SharedReport from '@/pages/SharedReport';
-import MetaTagGenerator from '@/pages/MetaTagGenerator';
-import InternalLinks from '@/pages/InternalLinks';
-import Settings from '@/pages/Settings';
-import ContentOptimizer from '@/pages/ContentOptimizer';
-import SerpPreview from '@/pages/SerpPreview';
-import BulkOperations from '@/pages/BulkOperations';
-import NotFound from '@/pages/NotFound';
+import { PageSkeleton } from '@/components/LoadingSkeleton';
+
+// Code-split all page routes
+const Dashboard = lazy(() => import('@/pages/Dashboard'));
+const Login = lazy(() => import('@/pages/Login'));
+const Signup = lazy(() => import('@/pages/Signup'));
+const Projects = lazy(() => import('@/pages/Projects'));
+const ProjectDetail = lazy(() => import('@/pages/ProjectDetail'));
+const Analyzer = lazy(() => import('@/pages/Analyzer'));
+const Generator = lazy(() => import('@/pages/Generator'));
+const SiteAudit = lazy(() => import('@/pages/SiteAudit'));
+const ContentCalendar = lazy(() => import('@/pages/ContentCalendar'));
+const Reports = lazy(() => import('@/pages/Reports'));
+const SharedReport = lazy(() => import('@/pages/SharedReport'));
+const MetaTagGenerator = lazy(() => import('@/pages/MetaTagGenerator'));
+const InternalLinks = lazy(() => import('@/pages/InternalLinks'));
+const Settings = lazy(() => import('@/pages/Settings'));
+const ContentOptimizer = lazy(() => import('@/pages/ContentOptimizer'));
+const SerpPreview = lazy(() => import('@/pages/SerpPreview'));
+const BulkOperations = lazy(() => import('@/pages/BulkOperations'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,10 +40,18 @@ const queryClient = new QueryClient({
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <ErrorBoundary>
       <Navbar />
       {children}
-    </>
+    </ErrorBoundary>
+  );
+}
+
+function LazyPage({ children }: { children: React.ReactNode }) {
+  return (
+    <Suspense fallback={<PageSkeleton />}>
+      {children}
+    </Suspense>
   );
 }
 
@@ -49,14 +62,14 @@ export default function App() {
         <NotificationProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<LazyPage><Login /></LazyPage>} />
+            <Route path="/signup" element={<LazyPage><Signup /></LazyPage>} />
             <Route
               path="/"
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <Dashboard />
+                    <LazyPage><Dashboard /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -66,7 +79,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <Projects />
+                    <LazyPage><Projects /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -76,7 +89,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <ProjectDetail />
+                    <LazyPage><ProjectDetail /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -86,7 +99,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <Analyzer />
+                    <LazyPage><Analyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -96,7 +109,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <Generator />
+                    <LazyPage><Generator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -106,7 +119,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <SiteAudit />
+                    <LazyPage><SiteAudit /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -116,7 +129,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <ContentCalendar />
+                    <LazyPage><ContentCalendar /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -126,7 +139,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <Reports />
+                    <LazyPage><Reports /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -136,7 +149,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <MetaTagGenerator />
+                    <LazyPage><MetaTagGenerator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -146,7 +159,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <BulkOperations />
+                    <LazyPage><BulkOperations /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -156,7 +169,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <SerpPreview />
+                    <LazyPage><SerpPreview /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -166,7 +179,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <ContentOptimizer />
+                    <LazyPage><ContentOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -176,7 +189,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <InternalLinks />
+                    <LazyPage><InternalLinks /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
@@ -186,13 +199,13 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <AppLayout>
-                    <Settings />
+                    <LazyPage><Settings /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
             />
-            <Route path="/report/:token" element={<SharedReport />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/report/:token" element={<LazyPage><SharedReport /></LazyPage>} />
+            <Route path="*" element={<LazyPage><NotFound /></LazyPage>} />
           </Routes>
         </BrowserRouter>
         <Toaster />
