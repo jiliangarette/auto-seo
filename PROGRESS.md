@@ -775,10 +775,10 @@
 - [x] Export prioritized outreach list
 
 ### Module 109: Content Summarizer
-- [ ] Input long-form content for summarization
-- [ ] AI-generate executive summary, key points, TL;DR
-- [ ] Social media snippet versions
-- [ ] Copy summaries in multiple formats
+- [x] Input long-form content for summarization
+- [x] AI-generate executive summary, key points, TL;DR
+- [x] Social media snippet versions
+- [x] Copy summaries in multiple formats
 
 ### Module 110: SEO Knowledge Base
 - [ ] Searchable glossary of SEO terms

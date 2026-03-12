@@ -125,6 +125,7 @@ const navItems = [
   { label: 'Calendar AI', path: '/content-calendar-ai', icon: CalendarDays },
   { label: 'A/B Test', path: '/seo-ab-test', icon: Swords },
   { label: 'Backlink Gap', path: '/backlink-gap', icon: Link2 },
+  { label: 'Summarizer', path: '/content-summarizer', icon: FileText },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

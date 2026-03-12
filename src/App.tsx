@@ -108,6 +108,7 @@ const CompetitorSerpTracker = lazy(() => import('@/pages/CompetitorSerpTracker')
 const ContentCalendarAi = lazy(() => import('@/pages/ContentCalendarAi'));
 const SeoAbTestPlanner = lazy(() => import('@/pages/SeoAbTestPlanner'));
 const BacklinkGapAnalyzer = lazy(() => import('@/pages/BacklinkGapAnalyzer'));
+const ContentSummarizer = lazy(() => import('@/pages/ContentSummarizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -832,6 +833,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-summarizer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentSummarizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
