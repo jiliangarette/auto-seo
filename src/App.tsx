@@ -122,6 +122,7 @@ const SeoMigrationPlanner = lazy(() => import('@/pages/SeoMigrationPlanner'));
 const KeywordClusteringPro = lazy(() => import('@/pages/KeywordClusteringPro'));
 const ContentAuditScorer = lazy(() => import('@/pages/ContentAuditScorer'));
 const AnchorTextPlanner = lazy(() => import('@/pages/AnchorTextPlanner'));
+const SeoExperimentLog = lazy(() => import('@/pages/SeoExperimentLog'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -846,6 +847,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-experiment-log"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoExperimentLog /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

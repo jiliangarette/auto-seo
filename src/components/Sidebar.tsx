@@ -139,6 +139,7 @@ const navItems = [
   { label: 'Cluster Pro', path: '/keyword-clustering-pro', icon: Tags },
   { label: 'Audit Scorer', path: '/content-audit-scorer', icon: FileBarChart },
   { label: 'Anchor Plan', path: '/anchor-text-planner', icon: Link2 },
+  { label: 'Experiments', path: '/seo-experiment-log', icon: FileText },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
