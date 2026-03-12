@@ -1,16 +1,21 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProjects } from '@/hooks/useProjects';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import {
-  Search, Sparkles, FolderOpen, Shield, Calendar, FileText,
-  Tags, Link2, Settings2, BarChart3, Globe, Activity,
+  Search, Sparkles, Shield, Calendar,
+  Tags, BarChart3, Globe, Activity, Zap, Loader2,
+  CheckCircle2, Circle, ArrowRight, Wand2,
 } from 'lucide-react';
 import OnboardingModal from '@/components/OnboardingModal';
 import AnimatedNumber from '@/components/AnimatedNumber';
 import EmptyState from '@/components/EmptyState';
+import { auditSite } from '@/lib/site-auditor';
 import type { Analysis } from '@/types/database';
 
 interface ActivityItem {
@@ -25,6 +30,10 @@ export default function Dashboard() {
   const { user } = useAuth();
   const { data: projects } = useProjects();
   const projectIds = projects?.map((p) => p.id) ?? [];
+
+  const [quickUrl, setQuickUrl] = useState('');
+  const [analyzing, setAnalyzing] = useState(false);
+  const [quickResult, setQuickResult] = useState<{ score: number; critical: number; warning: number; info: number } | null>(null);
 
   const { data: allAnalyses } = useQuery({
     queryKey: ['all-analyses', user?.id],
@@ -92,17 +101,14 @@ export default function Dashboard() {
     queryFn: async () => {
       if (!projectIds.length) return [];
       const items: ActivityItem[] = [];
-
       const [analyses, audits, content] = await Promise.all([
         supabase.from('analyses').select('url, created_at').in('project_id', projectIds).order('created_at', { ascending: false }).limit(4),
         supabase.from('audits').select('url, created_at').in('project_id', projectIds).order('created_at', { ascending: false }).limit(3),
         supabase.from('content_items').select('title, created_at').in('project_id', projectIds).order('created_at', { ascending: false }).limit(3),
       ]);
-
       analyses.data?.forEach((a) => items.push({ type: 'analysis', label: 'Analysis', detail: a.url, date: a.created_at }));
       audits.data?.forEach((a) => items.push({ type: 'audit', label: 'Audit', detail: a.url, date: a.created_at }));
       content.data?.forEach((c) => items.push({ type: 'content', label: 'Content', detail: c.title, date: c.created_at }));
-
       return items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 10);
     },
     enabled: !!projects?.length,
@@ -112,7 +118,6 @@ export default function Dashboard() {
     ? Math.round(allAnalyses.reduce((sum, a) => sum + (a.score ?? 0), 0) / allAnalyses.length)
     : null;
 
-  // Project health: composite of avg score, keyword density, backlink ratio
   const healthScore = (() => {
     let score = 0;
     let factors = 0;
@@ -125,74 +130,190 @@ export default function Dashboard() {
     return factors > 0 ? Math.round(score / factors) : null;
   })();
 
-  const scoreColor = (score: number) => {
-    if (score >= 80) return 'text-green-400';
-    if (score >= 50) return 'text-yellow-400';
-    return 'text-red-400';
+  const scoreColor = (score: number) => score >= 80 ? 'text-emerald-400' : score >= 50 ? 'text-amber-400' : 'text-red-400';
+
+  // Getting started checklist
+  const hasProjects = (projects?.length ?? 0) > 0;
+  const hasAnalyses = (allAnalyses?.length ?? 0) > 0;
+  const hasAudits = (auditCount ?? 0) > 0;
+  const hasKeywords = (keywordCount ?? 0) > 0;
+  const checklist = [
+    { done: hasProjects, label: 'Create your first project', action: '/projects' },
+    { done: hasAudits, label: 'Run a site audit', action: '/audit' },
+    { done: hasAnalyses, label: 'Analyze your content', action: '/analyzer' },
+    { done: hasKeywords, label: 'Track keywords', action: '/projects' },
+  ];
+  const completedSteps = checklist.filter(c => c.done).length;
+  const showChecklist = completedSteps < checklist.length;
+
+  const handleQuickAnalyze = async () => {
+    if (!quickUrl.trim()) return;
+    setAnalyzing(true);
+    setQuickResult(null);
+    try {
+      const result = await auditSite(quickUrl.trim());
+      setQuickResult({
+        score: result.summary.score,
+        critical: result.summary.critical,
+        warning: result.summary.warning,
+        info: result.summary.info,
+      });
+    } catch {
+      setQuickResult(null);
+    } finally {
+      setAnalyzing(false);
+    }
   };
 
   const quickActions = [
-    { icon: FolderOpen, label: 'New Project', desc: 'Add a website to track', path: '/projects' },
-    { icon: Search, label: 'Run Analysis', desc: 'Analyze content for SEO', path: '/analyzer' },
-    { icon: Sparkles, label: 'Generate Content', desc: 'AI-powered SEO writing', path: '/generator' },
-    { icon: Shield, label: 'Site Audit', desc: 'Technical SEO check', path: '/audit' },
-    { icon: Calendar, label: 'Content Calendar', desc: 'Plan & schedule', path: '/calendar' },
-    { icon: FileText, label: 'Reports', desc: 'Generate & export', path: '/reports' },
-    { icon: Tags, label: 'Meta Tags', desc: 'Generate meta tags', path: '/meta-tags' },
-    { icon: Link2, label: 'Internal Links', desc: 'Link suggestions', path: '/internal-links' },
-    { icon: Settings2, label: 'Settings', desc: 'Profile & preferences', path: '/settings' },
+    { icon: Shield, label: 'Site Audit', desc: 'Full SEO checkup of your website', path: '/audit', gradient: 'from-emerald-500/15 to-cyan-500/15', border: 'border-emerald-500/20', iconColor: 'text-emerald-400' },
+    { icon: Sparkles, label: 'Generate Content', desc: 'AI writes SEO articles for you', path: '/generator', gradient: 'from-violet-500/15 to-fuchsia-500/15', border: 'border-violet-500/20', iconColor: 'text-violet-400' },
+    { icon: Zap, label: 'Speed Check', desc: 'Find what slows your site down', path: '/speed-analyzer', gradient: 'from-amber-500/15 to-orange-500/15', border: 'border-amber-500/20', iconColor: 'text-amber-400' },
+    { icon: Tags, label: 'Meta Optimizer', desc: 'Improve your titles & descriptions', path: '/meta-optimizer', gradient: 'from-purple-500/15 to-pink-500/15', border: 'border-purple-500/20', iconColor: 'text-purple-400' },
+    { icon: Search, label: 'Keyword Gap', desc: 'Find keywords you\'re missing', path: '/keyword-gap', gradient: 'from-blue-500/15 to-indigo-500/15', border: 'border-blue-500/20', iconColor: 'text-blue-400' },
+    { icon: Calendar, label: 'Content Calendar', desc: 'AI plans your content schedule', path: '/calendar', gradient: 'from-rose-500/15 to-pink-500/15', border: 'border-rose-500/20', iconColor: 'text-rose-400' },
   ];
 
   return (
-    <div className="min-h-screen bg-background p-8">
+    <div className="min-h-screen bg-background p-4 md:p-8">
       <OnboardingModal />
-      <div className="mx-auto max-w-6xl space-y-8">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground">AI-powered SEO optimization platform</p>
+      <div className="mx-auto max-w-6xl space-y-6">
+        {/* Hero Section */}
+        <div className="flex items-end justify-between">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight">
+              Welcome back{user?.email ? `, ${user.email.split('@')[0]}` : ''}
+            </h1>
+            <p className="text-sm text-muted-foreground mt-0.5">Here's how your SEO is doing</p>
+          </div>
+          {healthScore !== null && (
+            <div className="text-right">
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Overall Health</p>
+              <p className={`text-3xl font-bold ${scoreColor(healthScore)}`}>{healthScore}</p>
+            </div>
+          )}
         </div>
 
+        {/* Quick Analyze — enter URL once */}
+        <Card className="border-border/30 bg-gradient-to-r from-violet-500/5 via-transparent to-emerald-500/5 shadow-xl shadow-black/5">
+          <CardContent className="pt-5 pb-5">
+            <div className="flex items-center gap-2 mb-3">
+              <Wand2 className="size-4 text-violet-400" />
+              <p className="text-sm font-medium">Quick Analyze — enter your website URL</p>
+            </div>
+            <div className="flex gap-2">
+              <div className="relative flex-1">
+                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <Input
+                  value={quickUrl}
+                  onChange={(e) => setQuickUrl(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleQuickAnalyze()}
+                  placeholder="e.g., mybusiness.com"
+                  className="pl-10 bg-background/60 border-border/30 h-11"
+                />
+              </div>
+              <Button
+                onClick={handleQuickAnalyze}
+                disabled={analyzing}
+                className="h-11 px-6 bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl"
+              >
+                {analyzing ? <Loader2 className="size-4 animate-spin" /> : <Zap className="size-4" />}
+                {analyzing ? 'Scanning...' : 'Analyze'}
+              </Button>
+            </div>
+            {quickResult && (
+              <div className="flex items-center gap-4 mt-3 pt-3 border-t border-border/20">
+                <div className="flex items-center gap-2">
+                  <span className={`text-2xl font-bold ${scoreColor(quickResult.score)}`}>{quickResult.score}</span>
+                  <span className="text-xs text-muted-foreground">/100</span>
+                </div>
+                <div className="flex gap-3 text-xs">
+                  <span className="text-red-400">{quickResult.critical} critical</span>
+                  <span className="text-amber-400">{quickResult.warning} warnings</span>
+                  <span className="text-sky-400">{quickResult.info} info</span>
+                </div>
+                <div className="ml-auto flex gap-2">
+                  <Button size="sm" variant="outline" className="h-7 text-xs border-border/30" onClick={() => navigate(`/audit?url=${encodeURIComponent(quickUrl)}`)}>
+                    Full Audit <ArrowRight className="size-3 ml-1" />
+                  </Button>
+                  <Button size="sm" variant="outline" className="h-7 text-xs border-border/30" onClick={() => navigate(`/generator`)}>
+                    Generate Content <ArrowRight className="size-3 ml-1" />
+                  </Button>
+                </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
         {/* Stats Row */}
-        <div className="grid gap-4 md:grid-cols-6">
-          <StatCard label="Projects" value={projects?.length ?? 0} gradient="bg-gradient-to-br from-blue-500/30 to-cyan-500/30" />
-          <StatCard label="Keywords" value={keywordCount ?? 0} gradient="bg-gradient-to-br from-purple-500/30 to-pink-500/30" />
-          <StatCard label="Analyses" value={allAnalyses?.length ?? 0} gradient="bg-gradient-to-br from-amber-500/30 to-orange-500/30" />
-          <StatCard label="Backlinks" value={`${backlinkStats?.active ?? 0}/${backlinkStats?.total ?? 0}`} sub="active" gradient="bg-gradient-to-br from-green-500/30 to-emerald-500/30" />
-          <StatCard label="Audits" value={auditCount ?? 0} gradient="bg-gradient-to-br from-red-500/30 to-rose-500/30" />
-          <StatCard
-            label="Health Score"
-            value={healthScore !== null ? `${healthScore}` : '—'}
-            color={healthScore ? scoreColor(healthScore) : undefined}
-            gradient="bg-gradient-to-br from-indigo-500/30 to-violet-500/30"
-          />
+        <div className="grid gap-3 grid-cols-2 md:grid-cols-5">
+          <StatCard label="Projects" value={projects?.length ?? 0} gradient="from-blue-500/20 to-cyan-500/20" />
+          <StatCard label="Keywords" value={keywordCount ?? 0} gradient="from-purple-500/20 to-pink-500/20" />
+          <StatCard label="Analyses" value={allAnalyses?.length ?? 0} gradient="from-amber-500/20 to-orange-500/20" />
+          <StatCard label="Backlinks" value={`${backlinkStats?.active ?? 0}/${backlinkStats?.total ?? 0}`} sub="active" gradient="from-green-500/20 to-emerald-500/20" />
+          <StatCard label="Audits" value={auditCount ?? 0} gradient="from-red-500/20 to-rose-500/20" />
         </div>
+
+        {/* Getting Started Checklist */}
+        {showChecklist && (
+          <Card className="border-border/30 bg-card/40">
+            <CardContent className="pt-5 pb-5">
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-sm font-medium">Getting Started</p>
+                <span className="text-[10px] text-muted-foreground">{completedSteps}/{checklist.length} complete</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-muted/20 mb-4 overflow-hidden">
+                <div className="h-full rounded-full bg-gradient-to-r from-violet-500 to-emerald-500 transition-all" style={{ width: `${(completedSteps / checklist.length) * 100}%` }} />
+              </div>
+              <div className="grid gap-2 md:grid-cols-2">
+                {checklist.map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => !item.done && navigate(item.action)}
+                    className={`flex items-center gap-2.5 rounded-lg border p-3 text-left transition-all text-sm ${
+                      item.done
+                        ? 'border-emerald-500/20 bg-emerald-500/5 text-emerald-400'
+                        : 'border-border/30 hover:border-violet-500/30 hover:bg-violet-500/5 text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {item.done ? <CheckCircle2 className="size-4 text-emerald-400 shrink-0" /> : <Circle className="size-4 shrink-0" />}
+                    <span className={item.done ? 'line-through opacity-60' : ''}>{item.label}</span>
+                    {!item.done && <ArrowRight className="size-3 ml-auto opacity-40" />}
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Quick Actions */}
         <div>
-          <h2 className="mb-3 text-sm font-medium text-muted-foreground">Quick Actions</h2>
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-3">
-            {quickActions.map((action) => (
-              <Card
-                key={action.path}
-                className="cursor-pointer transition-all hover:bg-muted/50 hover:shadow-md"
-                onClick={() => navigate(action.path)}
-              >
-                <CardContent className="flex items-center gap-3 py-4">
-                  <action.icon className="size-6 text-muted-foreground" />
-                  <div>
-                    <h3 className="text-sm font-semibold">{action.label}</h3>
-                    <p className="text-xs text-muted-foreground">{action.desc}</p>
+          <h2 className="mb-3 text-sm font-medium text-muted-foreground">What would you like to do?</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {quickActions.map((action) => {
+              const Icon = action.icon;
+              return (
+                <button
+                  key={action.path}
+                  onClick={() => navigate(action.path)}
+                  className={`group relative text-left rounded-2xl border ${action.border} bg-gradient-to-br ${action.gradient} p-4 transition-all hover:shadow-lg hover:scale-[1.01]`}
+                >
+                  <div className={`inline-flex items-center justify-center size-9 rounded-xl bg-background/60 mb-2`}>
+                    <Icon className={`size-4 ${action.iconColor}`} />
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <p className="text-sm font-semibold">{action.label}</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">{action.desc}</p>
+                  <ArrowRight className="absolute top-4 right-4 size-3.5 text-muted-foreground/30 group-hover:text-foreground/50 transition-colors" />
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           {/* Recent Activity */}
-          <Card>
-            <CardHeader>
+          <Card className="border-border/30 bg-card/40">
+            <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-sm">
                 <Activity className="size-4" />
                 Recent Activity
@@ -200,34 +321,34 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               {recentActivity && recentActivity.length > 0 ? (
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {recentActivity.map((item, i) => (
-                    <div key={i} className={`flex items-center justify-between border-b border-border/30 pb-2 last:border-0 px-2 py-1.5 rounded transition-colors hover:bg-muted/50 ${i % 2 === 0 ? 'bg-muted/20' : ''}`}>
+                    <div key={i} className="flex items-center justify-between rounded-lg p-2 hover:bg-muted/30 transition-colors">
                       <div className="flex items-center gap-2">
-                        <span className={`rounded px-1.5 py-0.5 text-[10px] font-medium ${
-                          item.type === 'analysis' ? 'bg-blue-950/30 text-blue-400' :
-                          item.type === 'audit' ? 'bg-red-950/30 text-red-400' :
-                          'bg-green-950/30 text-green-400'
+                        <span className={`rounded px-1.5 py-0.5 text-[9px] font-medium ${
+                          item.type === 'analysis' ? 'bg-blue-500/10 text-blue-400' :
+                          item.type === 'audit' ? 'bg-red-500/10 text-red-400' :
+                          'bg-green-500/10 text-green-400'
                         }`}>
                           {item.label}
                         </span>
-                        <span className="truncate text-sm max-w-[200px]">{item.detail}</span>
+                        <span className="truncate text-xs max-w-[200px]">{item.detail}</span>
                       </div>
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">
+                      <span className="text-[10px] text-muted-foreground whitespace-nowrap">
                         {timeAgo(item.date)}
                       </span>
                     </div>
                   ))}
                 </div>
               ) : (
-                <EmptyState icon={Activity} title="No activity yet" description="Start by creating a project and running your first analysis" actionLabel="Get Started" actionPath="/projects" />
+                <EmptyState icon={Activity} title="No activity yet" description="Start by creating a project" actionLabel="Get Started" actionPath="/projects" />
               )}
             </CardContent>
           </Card>
 
           {/* Recent Analyses */}
-          <Card>
-            <CardHeader>
+          <Card className="border-border/30 bg-card/40">
+            <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-sm">
                 <BarChart3 className="size-4" />
                 Recent Analyses
@@ -235,14 +356,12 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               {allAnalyses && allAnalyses.length > 0 ? (
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {allAnalyses.map((analysis) => (
-                    <div key={analysis.id} className="flex items-center justify-between border-b border-border/30 pb-2 last:border-0 px-2 py-1.5 rounded transition-colors hover:bg-muted/50 even:bg-muted/20">
+                    <div key={analysis.id} className="flex items-center justify-between rounded-lg p-2 hover:bg-muted/30 transition-colors">
                       <div>
-                        <p className="text-sm font-medium truncate max-w-[250px]">{analysis.url}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {new Date(analysis.created_at).toLocaleDateString()}
-                        </p>
+                        <p className="text-xs font-medium truncate max-w-[220px]">{analysis.url}</p>
+                        <p className="text-[10px] text-muted-foreground">{new Date(analysis.created_at).toLocaleDateString()}</p>
                       </div>
                       <span className={`text-lg font-bold ${scoreColor(analysis.score ?? 0)}`}>
                         {analysis.score ?? '—'}
@@ -251,21 +370,21 @@ export default function Dashboard() {
                   ))}
                 </div>
               ) : (
-                <EmptyState icon={Search} title="No analyses yet" description="Run your first SEO analysis to see results here" actionLabel="Analyze Content" actionPath="/analyzer" />
+                <EmptyState icon={Search} title="No analyses yet" description="Run your first SEO analysis" actionLabel="Analyze" actionPath="/analyzer" />
               )}
             </CardContent>
           </Card>
         </div>
 
-        {/* Project Health Overview */}
+        {/* Projects */}
         {projects && projects.length > 0 && (
-          <Card>
-            <CardHeader>
+          <Card className="border-border/30 bg-card/40">
+            <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2 text-sm">
                 <Globe className="size-4" />
-                Projects
+                Your Projects
               </CardTitle>
-              <CardDescription>Click a project to view details</CardDescription>
+              <CardDescription className="text-xs">Click to view details</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -273,12 +392,10 @@ export default function Dashboard() {
                   <button
                     key={project.id}
                     onClick={() => navigate(`/projects/${project.id}`)}
-                    className="rounded-lg border border-border/50 p-3 text-left transition-colors hover:bg-muted/50"
+                    className="rounded-xl border border-border/30 p-3 text-left transition-all hover:bg-muted/30 hover:border-border/50"
                   >
                     <p className="font-medium text-sm">{project.name}</p>
-                    {project.url && (
-                      <p className="text-xs text-muted-foreground truncate">{project.url}</p>
-                    )}
+                    {project.url && <p className="text-[11px] text-muted-foreground truncate">{project.url}</p>}
                   </button>
                 ))}
               </div>
@@ -293,21 +410,18 @@ export default function Dashboard() {
 function StatCard({ label, value, sub, color, gradient }: { label: string; value: number | string; sub?: string; color?: string; gradient?: string }) {
   const numValue = typeof value === 'number' ? value : null;
   return (
-    <div className={`relative rounded-xl p-[1px] ${gradient ?? 'bg-border'}`}>
-      <Card className="rounded-xl border-0">
-        <CardHeader className="pb-1">
-          <CardDescription className="text-xs">{label}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          {numValue !== null ? (
-            <AnimatedNumber value={numValue} className={`text-2xl font-bold ${color ?? ''}`} />
-          ) : (
-            <p className={`text-2xl font-bold ${color ?? ''}`}>{value}</p>
-          )}
-          {sub && <p className="text-[10px] text-muted-foreground">{sub}</p>}
-        </CardContent>
-      </Card>
-    </div>
+    <Card className="border-border/30 bg-card/40 overflow-hidden">
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradient ?? ''} opacity-30`} />
+      <CardContent className="relative pt-4 pb-4">
+        <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{label}</p>
+        {numValue !== null ? (
+          <AnimatedNumber value={numValue} className={`text-2xl font-bold ${color ?? ''}`} />
+        ) : (
+          <p className={`text-2xl font-bold ${color ?? ''}`}>{value}</p>
+        )}
+        {sub && <p className="text-[10px] text-muted-foreground">{sub}</p>}
+      </CardContent>
+    </Card>
   );
 }
 
@@ -317,6 +431,5 @@ function timeAgo(dateStr: string): string {
   if (mins < 60) return `${mins}m ago`;
   const hours = Math.floor(mins / 60);
   if (hours < 24) return `${hours}h ago`;
-  const days = Math.floor(hours / 24);
-  return `${days}d ago`;
+  return `${Math.floor(hours / 24)}d ago`;
 }
