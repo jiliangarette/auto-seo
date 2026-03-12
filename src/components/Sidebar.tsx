@@ -137,6 +137,7 @@ const navItems = [
   { label: 'Intent Mapper', path: '/search-intent-mapper', icon: Search },
   { label: 'Migration', path: '/seo-migration', icon: Code2 },
   { label: 'Cluster Pro', path: '/keyword-clustering-pro', icon: Tags },
+  { label: 'Audit Scorer', path: '/content-audit-scorer', icon: FileBarChart },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -120,6 +120,7 @@ const SeoForecaster = lazy(() => import('@/pages/SeoForecaster'));
 const SearchIntentMapper = lazy(() => import('@/pages/SearchIntentMapper'));
 const SeoMigrationPlanner = lazy(() => import('@/pages/SeoMigrationPlanner'));
 const KeywordClusteringPro = lazy(() => import('@/pages/KeywordClusteringPro'));
+const ContentAuditScorer = lazy(() => import('@/pages/ContentAuditScorer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -844,6 +845,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-audit-scorer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentAuditScorer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

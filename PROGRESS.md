@@ -877,10 +877,10 @@
 - [x] Export cluster-to-page assignment map
 
 ### Module 122: Content Audit Scorer
-- [ ] Input sitemap or URL list for content audit
-- [ ] Score each page on SEO health, freshness, engagement
-- [ ] Action tags: keep, update, merge, delete
-- [ ] Export audit spreadsheet with recommendations
+- [x] Input sitemap or URL list for content audit
+- [x] Score each page on SEO health, freshness, engagement
+- [x] Action tags: keep, update, merge, delete
+- [x] Export audit spreadsheet with recommendations
 
 ### Module 123: Anchor Text Planner
 - [ ] Input target pages and desired anchor text profile
