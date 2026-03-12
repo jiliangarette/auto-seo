@@ -571,10 +571,10 @@
 - [x] Local citation opportunity finder
 
 ### Module 82: Broken Link Finder
-- [ ] Input URLs or sitemap for broken link scan
-- [ ] Detect 404s, timeouts, and server errors
-- [ ] Categorize by internal vs external
-- [ ] Generate fix/redirect recommendations
+- [x] Input URLs or sitemap for broken link scan
+- [x] Detect 404s, timeouts, and server errors
+- [x] Categorize by internal vs external
+- [x] Generate fix/redirect recommendations
 
 ### Module 83: Content Pillar Planner
 - [ ] Input core topic for pillar strategy
