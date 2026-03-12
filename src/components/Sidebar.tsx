@@ -61,6 +61,7 @@ const navItems = [
   { label: 'API Playground', path: '/api-playground', icon: Code2 },
   { label: 'i18n', path: '/i18n', icon: LayoutGrid },
   { label: 'Team', path: '/team', icon: Users },
+  { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
 
