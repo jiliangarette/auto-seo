@@ -175,6 +175,7 @@ const navItems = [
   { label: 'API Rates', path: '/api-rates', icon: Gauge },
   { label: 'Intel Hub', path: '/intel-hub', icon: Swords },
   { label: 'E-commerce SEO', path: '/ecommerce-seo', icon: Tags },
+  { label: 'Local SEO', path: '/local-seo', icon: Search },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

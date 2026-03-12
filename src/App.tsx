@@ -158,6 +158,7 @@ const ContentReadinessScorer = lazy(() => import('@/pages/ContentReadinessScorer
 const SeoApiRateChecker = lazy(() => import('@/pages/SeoApiRateChecker'));
 const CompetitiveIntelligenceHub = lazy(() => import('@/pages/CompetitiveIntelligenceHub'));
 const EcommerceSeoAnalyzer = lazy(() => import('@/pages/EcommerceSeoAnalyzer'));
+const LocalSeoOptimizer = lazy(() => import('@/pages/LocalSeoOptimizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1142,6 +1143,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><EcommerceSeoAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/local-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><LocalSeoOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
