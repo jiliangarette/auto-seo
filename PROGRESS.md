@@ -408,4 +408,38 @@
 
 **All 10 Phases complete (Modules 1-60). 255/255 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-10: 255/255, build: pass -->
+---
+
+## Phase 11 — Conversion & Content Intelligence
+
+### Module 61: CTA Optimizer
+- [ ] Input page content with existing CTAs
+- [ ] AI-powered CTA effectiveness scoring
+- [ ] Generate optimized CTA variants
+- [ ] A/B test CTA copy suggestions
+
+### Module 62: Content ROI Calculator
+- [ ] Input content metrics (traffic, conversions, cost)
+- [ ] Calculate ROI per content piece
+- [ ] Rank content by performance efficiency
+- [ ] Generate investment recommendations
+
+### Module 63: Anchor Text Analyzer
+- [ ] Analyze anchor text distribution across backlinks
+- [ ] Flag over-optimized anchor text ratios
+- [ ] Suggest diversification strategies
+- [ ] Export anchor text report
+
+### Module 64: Cannibalization Detector
+- [ ] Input multiple URLs targeting same keywords
+- [ ] AI detection of keyword cannibalization
+- [ ] Consolidation recommendations
+- [ ] Before/after ranking impact estimates
+
+### Module 65: Featured Snippet Optimizer
+- [ ] Input target keyword + current content
+- [ ] Analyze current snippet holders
+- [ ] AI-generate snippet-optimized content blocks
+- [ ] Format suggestions (paragraph, list, table)
+
+<!-- watchdog: 2026-03-13 — Phases 1-10: 255/255, Phase 11: 0/20, build: pass -->
