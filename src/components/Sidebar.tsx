@@ -97,6 +97,7 @@ const navItems = [
   { label: 'Density', path: '/keyword-density', icon: BarChart3 },
   { label: 'Backlink Spy', path: '/backlink-spy', icon: Eye },
   { label: 'SEO Tasks', path: '/seo-tasks', icon: FolderKanban },
+  { label: 'Local SEO', path: '/local-seo', icon: Search },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

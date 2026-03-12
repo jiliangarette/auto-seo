@@ -80,6 +80,7 @@ const TitleTagTester = lazy(() => import('@/pages/TitleTagTester'));
 const KeywordDensityChecker = lazy(() => import('@/pages/KeywordDensityChecker'));
 const CompetitorBacklinkSpy = lazy(() => import('@/pages/CompetitorBacklinkSpy'));
 const SeoTaskManager = lazy(() => import('@/pages/SeoTaskManager'));
+const LocalSeoChecker = lazy(() => import('@/pages/LocalSeoChecker'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -784,6 +785,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/local-seo"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><LocalSeoChecker /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

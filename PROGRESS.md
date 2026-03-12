@@ -565,10 +565,10 @@
 ## Phase 15 — Local SEO & Advanced Link Building
 
 ### Module 81: Local SEO Checker
-- [ ] Input business name + location
-- [ ] NAP consistency analysis (Name, Address, Phone)
-- [ ] Google Business Profile optimization tips
-- [ ] Local citation opportunity finder
+- [x] Input business name + location
+- [x] NAP consistency analysis (Name, Address, Phone)
+- [x] Google Business Profile optimization tips
+- [x] Local citation opportunity finder
 
 ### Module 82: Broken Link Finder
 - [ ] Input URLs or sitemap for broken link scan
