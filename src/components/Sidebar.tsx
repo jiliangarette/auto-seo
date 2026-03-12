@@ -151,6 +151,7 @@ const navItems = [
   { label: 'Velocity', path: '/content-velocity', icon: Gauge },
   { label: 'Penalty Check', path: '/penalty-checker', icon: Shield },
   { label: 'Brand SERP', path: '/brand-serp', icon: Eye },
+  { label: 'SEO Widgets', path: '/seo-widgets', icon: LayoutGrid },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
