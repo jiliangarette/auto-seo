@@ -114,6 +114,7 @@ const SeoRoiDashboard = lazy(() => import('@/pages/SeoRoiDashboard'));
 const ContentDecayDetector = lazy(() => import('@/pages/ContentDecayDetector'));
 const SerpVolatilityMonitor = lazy(() => import('@/pages/SerpVolatilityMonitor'));
 const EntitySeoOptimizer = lazy(() => import('@/pages/EntitySeoOptimizer'));
+const SeoCompetitorPlaybook = lazy(() => import('@/pages/SeoCompetitorPlaybook'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -838,6 +839,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/competitor-playbook"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoCompetitorPlaybook /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
