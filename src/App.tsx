@@ -152,6 +152,7 @@ const SeoContentFunnelBuilder = lazy(() => import('@/pages/SeoContentFunnelBuild
 const PageRankFlowAnalyzer = lazy(() => import('@/pages/PageRankFlowAnalyzer'));
 const SeoContentTemplates = lazy(() => import('@/pages/SeoContentTemplates'));
 const SearchFeatureOptimizer = lazy(() => import('@/pages/SearchFeatureOptimizer'));
+const MultiSiteSeoManager = lazy(() => import('@/pages/MultiSiteSeoManager'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1076,6 +1077,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SearchFeatureOptimizer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/multi-site"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><MultiSiteSeoManager /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
