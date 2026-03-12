@@ -86,6 +86,7 @@ const ContentPillarPlanner = lazy(() => import('@/pages/ContentPillarPlanner'));
 const CompetitorContentTracker = lazy(() => import('@/pages/CompetitorContentTracker'));
 const SeoChecklistGenerator = lazy(() => import('@/pages/SeoChecklistGenerator'));
 const XmlSitemapGenerator = lazy(() => import('@/pages/XmlSitemapGenerator'));
+const CanonicalTagChecker = lazy(() => import('@/pages/CanonicalTagChecker'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -790,6 +791,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/canonical-checker"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><CanonicalTagChecker /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

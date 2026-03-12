@@ -103,6 +103,7 @@ const navItems = [
   { label: 'Content Tracker', path: '/competitor-content', icon: Eye },
   { label: 'SEO Checklist', path: '/seo-checklist', icon: Shield },
   { label: 'XML Sitemap', path: '/xml-sitemap', icon: Code2 },
+  { label: 'Canonicals', path: '/canonical-checker', icon: Tags },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

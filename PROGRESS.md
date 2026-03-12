@@ -609,10 +609,10 @@
 - [x] Copy or download sitemap file
 
 ### Module 87: Canonical Tag Checker
-- [ ] Input multiple URLs to check canonical tags
-- [ ] Detect missing, self-referencing, and cross-domain canonicals
-- [ ] Flag conflicting canonical signals
-- [ ] Generate correct canonical tag recommendations
+- [x] Input multiple URLs to check canonical tags
+- [x] Detect missing, self-referencing, and cross-domain canonicals
+- [x] Flag conflicting canonical signals
+- [x] Generate correct canonical tag recommendations
 
 ### Module 88: Content Readability Grader
 - [ ] Input content for multi-metric readability analysis
