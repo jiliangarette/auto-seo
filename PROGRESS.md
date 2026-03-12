@@ -463,10 +463,10 @@
 - [x] Generate consolidated redirect map
 
 ### Module 68: Content Freshness Planner
-- [ ] Input content inventory with dates
-- [ ] AI-prioritized update schedule
-- [ ] Seasonal content calendar suggestions
-- [ ] Freshness score per content piece
+- [x] Input content inventory with dates
+- [x] AI-prioritized update schedule
+- [x] Seasonal content calendar suggestions
+- [x] Freshness score per content piece
 
 ### Module 69: E-E-A-T Analyzer
 - [ ] Input page URL + content for E-E-A-T scoring

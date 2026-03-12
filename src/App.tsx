@@ -67,6 +67,7 @@ const CannibalizationDetector = lazy(() => import('@/pages/CannibalizationDetect
 const FeaturedSnippetOptimizer = lazy(() => import('@/pages/FeaturedSnippetOptimizer'));
 const RobotsTxtAnalyzer = lazy(() => import('@/pages/RobotsTxtAnalyzer'));
 const RedirectChainChecker = lazy(() => import('@/pages/RedirectChainChecker'));
+const ContentFreshnessPlanner = lazy(() => import('@/pages/ContentFreshnessPlanner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -541,6 +542,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/freshness-planner"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentFreshnessPlanner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
