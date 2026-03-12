@@ -168,6 +168,9 @@ const ContentRepurposingEngine = lazy(() => import('@/pages/ContentRepurposingEn
 const SeoForecastingTool = lazy(() => import('@/pages/SeoForecastingTool'));
 const CompetitorBacklinkAnalyzer = lazy(() => import('@/pages/CompetitorBacklinkAnalyzer'));
 const SeoHealthMonitor = lazy(() => import('@/pages/SeoHealthMonitor'));
+const KeywordGapFinder = lazy(() => import('@/pages/KeywordGapFinder'));
+const AiMetaTagOptimizer = lazy(() => import('@/pages/AiMetaTagOptimizer'));
+const SiteSpeedAnalyzer = lazy(() => import('@/pages/SiteSpeedAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1252,6 +1255,36 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoHealthMonitor /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/keyword-gap"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><KeywordGapFinder /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/meta-optimizer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><AiMetaTagOptimizer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/speed-analyzer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SiteSpeedAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

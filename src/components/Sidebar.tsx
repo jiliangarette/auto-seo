@@ -25,6 +25,7 @@ import {
   FileText,
   Swords,
   BarChart3,
+  Zap,
   LogOut,
   Bell,
   Check,
@@ -185,6 +186,9 @@ const navItems = [
   { label: 'Forecast', path: '/seo-forecast', icon: BarChart3 },
   { label: 'Backlink Spy', path: '/backlink-analyzer', icon: Link2 },
   { label: 'Health Monitor', path: '/health-monitor', icon: Gauge },
+  { label: 'Keyword Gap', path: '/keyword-gap', icon: Search },
+  { label: 'Meta Optimizer', path: '/meta-optimizer', icon: Tags },
+  { label: 'Speed Analyzer', path: '/speed-analyzer', icon: Zap },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
