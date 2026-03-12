@@ -47,10 +47,10 @@
 - [x] Rank change indicators (up/down arrows with delta)
 
 ### Module 12: Reports & Export
-- [ ] DB: `reports` table + RLS
-- [ ] Generate project SEO report (HTML)
-- [ ] Export keywords/analyses as CSV
-- [ ] Shareable report link (public read-only page)
+- [x] DB: `reports` table + RLS
+- [x] Generate project SEO report (HTML)
+- [x] Export keywords/analyses as CSV
+- [x] Shareable report link (public read-only page)
 
 ### Module 13: Meta Tag Generator
 - [ ] Input form (page title, description, keywords, page type)
@@ -72,5 +72,5 @@
 
 ---
 
-**Next up:** Module 12 — Reports & Export
+**Next up:** Module 13 — Meta Tag Generator
 <!-- watchdog: 2026-03-13 03:06 — Phase 1: 27/27 done, Phase 2: 19/38, build: pass -->

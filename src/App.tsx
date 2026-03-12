@@ -13,6 +13,8 @@ import Analyzer from '@/pages/Analyzer';
 import Generator from '@/pages/Generator';
 import SiteAudit from '@/pages/SiteAudit';
 import ContentCalendar from '@/pages/ContentCalendar';
+import Reports from '@/pages/Reports';
+import SharedReport from '@/pages/SharedReport';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -111,6 +113,17 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/reports"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <Reports />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/report/:token" element={<SharedReport />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

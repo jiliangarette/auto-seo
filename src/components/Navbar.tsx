@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'Generator', path: '/generator' },
   { label: 'Audit', path: '/audit' },
   { label: 'Calendar', path: '/calendar' },
+  { label: 'Reports', path: '/reports' },
 ];
 
 export default function Navbar() {

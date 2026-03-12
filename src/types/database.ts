@@ -84,6 +84,17 @@ export interface ContentItem {
   created_at: string;
 }
 
+export interface Report {
+  id: string;
+  project_id: string;
+  user_id: string;
+  title: string;
+  html_content: string;
+  share_token: string;
+  is_public: boolean;
+  created_at: string;
+}
+
 export interface RankHistory {
   id: string;
   keyword_id: string;
