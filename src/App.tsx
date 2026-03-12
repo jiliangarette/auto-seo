@@ -110,6 +110,7 @@ const SeoAbTestPlanner = lazy(() => import('@/pages/SeoAbTestPlanner'));
 const BacklinkGapAnalyzer = lazy(() => import('@/pages/BacklinkGapAnalyzer'));
 const ContentSummarizer = lazy(() => import('@/pages/ContentSummarizer'));
 const SeoKnowledgeBase = lazy(() => import('@/pages/SeoKnowledgeBase'));
+const SeoRoiDashboard = lazy(() => import('@/pages/SeoRoiDashboard'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -834,6 +835,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-roi"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoRoiDashboard /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
