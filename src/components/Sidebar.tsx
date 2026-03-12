@@ -157,6 +157,7 @@ const navItems = [
   { label: 'Freshness', path: '/content-freshness', icon: Clock },
   { label: 'Split Tests', path: '/split-tests', icon: Swords },
   { label: 'Cannibalization', path: '/cannibalization', icon: Search },
+  { label: 'Localization', path: '/localization', icon: Share2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -140,6 +140,7 @@ const SeoTrendAnalyzer = lazy(() => import('@/pages/SeoTrendAnalyzer'));
 const ContentFreshnessMonitor = lazy(() => import('@/pages/ContentFreshnessMonitor'));
 const SeoSplitTestRunner = lazy(() => import('@/pages/SeoSplitTestRunner'));
 const KeywordCannibalizationDetector = lazy(() => import('@/pages/KeywordCannibalizationDetector'));
+const ContentLocalizationPlanner = lazy(() => import('@/pages/ContentLocalizationPlanner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -944,6 +945,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><KeywordCannibalizationDetector /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/localization"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentLocalizationPlanner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
