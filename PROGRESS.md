@@ -177,10 +177,10 @@
 ## Phase 5 — Enhanced UI & Research
 
 ### Module 31: UI Redesign — Navigation
-- [ ] Collapsible sidebar navigation (replace top navbar)
-- [ ] Icon + label nav items with active state indicators
-- [ ] Mobile hamburger menu with slide-out drawer
-- [ ] Breadcrumb trail on all pages
+- [x] Collapsible sidebar navigation (replace top navbar)
+- [x] Icon + label nav items with active state indicators
+- [x] Mobile hamburger menu with slide-out drawer
+- [x] Breadcrumb trail on all pages
 
 ### Module 32: UI Redesign — Cards & Data Display
 - [ ] Animated stat cards with count-up numbers on dashboard
@@ -210,5 +210,5 @@
 
 **Phase 4 COMPLETE — All 24/24 features built.**
 
-**Next up:** Module 31 — UI Redesign — Navigation
+**Next up:** Module 32 — UI Redesign — Cards & Data Display
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

@@ -6,7 +6,7 @@ import { AuthProvider } from '@/contexts/AuthContext';
 import { NotificationProvider } from '@/contexts/NotificationContext';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import Navbar from '@/components/Navbar';
+import Sidebar from '@/components/Sidebar';
 import { PageSkeleton } from '@/components/LoadingSkeleton';
 
 // Code-split all page routes
@@ -47,8 +47,9 @@ const queryClient = new QueryClient({
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <ErrorBoundary>
-      <Navbar />
-      {children}
+      <Sidebar>
+        {children}
+      </Sidebar>
     </ErrorBoundary>
   );
 }
