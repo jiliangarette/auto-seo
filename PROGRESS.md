@@ -457,10 +457,10 @@
 - [x] Generate optimized robots.txt
 
 ### Module 67: Redirect Chain Checker
-- [ ] Input URLs to check for redirect chains
-- [ ] Detect chain length and redirect types (301/302)
-- [ ] Flag redirect loops and broken chains
-- [ ] Generate consolidated redirect map
+- [x] Input URLs to check for redirect chains
+- [x] Detect chain length and redirect types (301/302)
+- [x] Flag redirect loops and broken chains
+- [x] Generate consolidated redirect map
 
 ### Module 68: Content Freshness Planner
 - [ ] Input content inventory with dates

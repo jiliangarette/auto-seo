@@ -66,6 +66,7 @@ const AnchorTextAnalyzer = lazy(() => import('@/pages/AnchorTextAnalyzer'));
 const CannibalizationDetector = lazy(() => import('@/pages/CannibalizationDetector'));
 const FeaturedSnippetOptimizer = lazy(() => import('@/pages/FeaturedSnippetOptimizer'));
 const RobotsTxtAnalyzer = lazy(() => import('@/pages/RobotsTxtAnalyzer'));
+const RedirectChainChecker = lazy(() => import('@/pages/RedirectChainChecker'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -540,6 +541,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/redirect-checker"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><RedirectChainChecker /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
