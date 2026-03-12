@@ -143,10 +143,10 @@
 - [x] Brief-to-draft workflow
 
 ### Module 26: Page Speed Insights
-- [ ] URL input for performance analysis
-- [ ] OpenAI-simulated Core Web Vitals scoring
-- [ ] Actionable performance recommendations
-- [ ] Save speed audit history
+- [x] URL input for performance analysis
+- [x] OpenAI-simulated Core Web Vitals scoring (LCP, FID, CLS, TTFB with gauge)
+- [x] Actionable performance recommendations with priority
+- [x] Save speed audit history
 
 ### Module 27: Schema Markup Generator
 - [ ] Select schema type (Article, Product, FAQ, HowTo, LocalBusiness)
@@ -208,5 +208,5 @@
 
 **Phase 3 COMPLETE — All 36/36 features built.**
 
-**Next up:** Module 26 — Page Speed Insights
+**Next up:** Module 27 — Schema Markup Generator
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
