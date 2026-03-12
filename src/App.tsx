@@ -148,6 +148,7 @@ const BacklinkQualityScorer = lazy(() => import('@/pages/BacklinkQualityScorer')
 const SeoRevenueCalculator = lazy(() => import('@/pages/SeoRevenueCalculator'));
 const ContentDistributionPlanner = lazy(() => import('@/pages/ContentDistributionPlanner'));
 const OrganicCtrOptimizer = lazy(() => import('@/pages/OrganicCtrOptimizer'));
+const SeoContentFunnelBuilder = lazy(() => import('@/pages/SeoContentFunnelBuilder'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1032,6 +1033,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><OrganicCtrOptimizer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-funnel"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoContentFunnelBuilder /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
