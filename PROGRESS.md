@@ -1299,10 +1299,10 @@
 ## Phase 35: SaaS Polish & UX Enhancement
 
 ### Module 181: Audit Page — Show Real Proof
-- [ ] Display fetched HTML snippets as evidence (show actual title tag found, actual meta found)
-- [ ] Show screenshot-style SERP preview of how the site appears in Google
-- [ ] Add "What We Scanned" section showing raw data extracted from the site
-- [ ] Progress indicator during fetch showing each check being performed live
+- [x] Display fetched HTML snippets as evidence (show actual title tag found, actual meta found)
+- [x] Show screenshot-style SERP preview of how the site appears in Google
+- [x] Add "What We Scanned" section showing raw data extracted from the site
+- [x] Progress indicator during fetch showing each check being performed live
 
 ### Module 182: Generator — Smart Defaults & UX
 - [ ] Auto-suggest example topics based on popular niches when topic field is empty

@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import {
   Shield, AlertTriangle, AlertCircle, Info, Save, Globe,
   FileText, Image, Clock, Code2, Search, Loader2, Check, X,
+  ExternalLink, Hash, Link2, Eye,
 } from 'lucide-react';
 
 const severityConfig = {
@@ -49,6 +50,19 @@ function StatusBadge({ ok, label }: { ok: boolean; label: string }) {
   );
 }
 
+const scanSteps = [
+  'Connecting to server...',
+  'Checking SSL certificate...',
+  'Downloading HTML...',
+  'Parsing meta tags...',
+  'Scanning headings & structure...',
+  'Checking images & alt text...',
+  'Counting links...',
+  'Looking for structured data...',
+  'Checking sitemap.xml...',
+  'Running AI analysis...',
+];
+
 export default function SiteAudit() {
   const [searchParams] = useSearchParams();
   const preselectedProject = searchParams.get('project') ?? '';
@@ -60,10 +74,22 @@ export default function SiteAudit() {
   const [result, setResult] = useState<SiteAuditResult | null>(null);
   const [selectedProject, setSelectedProject] = useState(preselectedProject);
   const [filter, setFilter] = useState<'all' | 'critical' | 'warning' | 'info'>('all');
+  const [scanStep, setScanStep] = useState(0);
+  const [showRawData, setShowRawData] = useState(false);
 
   const handleAudit = async () => {
     if (!url.trim()) { toast.error('Enter a URL to audit'); return; }
     setLoading(true);
+    setScanStep(0);
+
+    // Animate through scan steps
+    const interval = setInterval(() => {
+      setScanStep(prev => {
+        if (prev < scanSteps.length - 1) return prev + 1;
+        return prev;
+      });
+    }, 1200);
+
     try {
       const audit = await auditSite(url.trim());
       setResult(audit);
@@ -71,6 +97,7 @@ export default function SiteAudit() {
     } catch (err) {
       toast.error(err instanceof Error ? err.message : 'Audit failed — check the URL and try again');
     } finally {
+      clearInterval(interval);
       setLoading(false);
     }
   };
@@ -96,7 +123,7 @@ export default function SiteAudit() {
   const d = result?.siteData;
 
   return (
-    <div className="min-h-screen bg-background p-6 md:p-8">
+    <div className="min-h-screen bg-background p-4 md:p-8">
       <div className="mx-auto max-w-5xl space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -105,12 +132,12 @@ export default function SiteAudit() {
           </div>
           <div>
             <h1 className="text-xl font-semibold tracking-tight">Site Audit</h1>
-            <p className="text-xs text-muted-foreground">Live technical SEO analysis — fetches real site data</p>
+            <p className="text-xs text-muted-foreground">Live technical SEO analysis — fetches and scans your actual website</p>
           </div>
         </div>
 
         {/* URL Input */}
-        <Card className="border-border/40 bg-card/50 backdrop-blur-sm">
+        <Card className="border-border/30 bg-card/40 backdrop-blur-sm shadow-xl shadow-black/5">
           <CardContent className="pt-5 pb-5">
             <div className="flex gap-2">
               <div className="relative flex-1">
@@ -120,38 +147,52 @@ export default function SiteAudit() {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleAudit()}
-                  className="pl-9 bg-background/50 border-border/40 h-10"
+                  className="pl-9 bg-background/60 border-border/30 h-11"
                 />
               </div>
-              <Button onClick={handleAudit} disabled={loading} className="h-10 px-5 bg-gradient-to-r from-emerald-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 border-0 text-white">
+              <Button onClick={handleAudit} disabled={loading} className="h-11 px-6 bg-gradient-to-r from-emerald-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 border-0 text-white rounded-xl">
                 {loading ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />}
-                {loading ? 'Analyzing...' : 'Run Audit'}
+                {loading ? 'Scanning...' : 'Run Audit'}
               </Button>
             </div>
           </CardContent>
         </Card>
 
-        {/* Loading */}
+        {/* Loading with live scan steps */}
         {loading && (
-          <div className="flex flex-col items-center justify-center py-16 gap-4">
-            <div className="relative">
-              <div className="size-16 rounded-full border-2 border-emerald-500/20 animate-ping absolute inset-0" />
-              <div className="size-16 rounded-full border-2 border-t-emerald-400 border-r-sky-400 border-b-transparent border-l-transparent animate-spin flex items-center justify-center">
-                <Shield className="size-6 text-emerald-400" />
+          <Card className="border-border/30 bg-card/40">
+            <CardContent className="pt-6 pb-6">
+              <div className="flex flex-col items-center gap-5">
+                <div className="relative">
+                  <div className="size-16 rounded-full border-2 border-emerald-500/20 animate-ping absolute inset-0" />
+                  <div className="size-16 rounded-full border-2 border-t-emerald-400 border-r-sky-400 border-b-transparent border-l-transparent animate-spin flex items-center justify-center">
+                    <Shield className="size-6 text-emerald-400" />
+                  </div>
+                </div>
+                <div className="w-full max-w-sm space-y-2">
+                  {scanSteps.map((step, i) => (
+                    <div key={i} className={`flex items-center gap-2 text-xs transition-all duration-300 ${i < scanStep ? 'text-emerald-400' : i === scanStep ? 'text-foreground' : 'text-muted-foreground/30'}`}>
+                      {i < scanStep ? (
+                        <Check className="size-3.5 text-emerald-400" />
+                      ) : i === scanStep ? (
+                        <Loader2 className="size-3.5 animate-spin" />
+                      ) : (
+                        <div className="size-3.5 rounded-full border border-muted-foreground/20" />
+                      )}
+                      {step}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="text-center">
-              <p className="text-sm font-medium">Fetching & analyzing site...</p>
-              <p className="text-xs text-muted-foreground mt-1">Checking SSL, meta tags, structure, performance</p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         )}
 
         {result && d && (
           <>
             {/* Score + Quick Stats */}
             <div className="grid gap-4 md:grid-cols-[auto_1fr]">
-              <Card className="border-border/40 bg-card/50">
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="flex flex-col items-center justify-center pt-6 pb-6 px-8">
                   <ScoreRing score={result.summary.score} />
                   <p className="text-xs text-muted-foreground mt-2">SEO Score</p>
@@ -186,7 +227,7 @@ export default function SiteAudit() {
                     </div>
                   </CardContent>
                 </Card>
-                <Card className="border-border/40 bg-card/50">
+                <Card className="border-border/30 bg-card/40">
                   <CardContent className="flex items-center gap-3 pt-4 pb-4 px-4">
                     <Clock className="size-5 text-muted-foreground shrink-0" />
                     <div>
@@ -198,16 +239,55 @@ export default function SiteAudit() {
               </div>
             </div>
 
-            {/* Live Site Data */}
-            <Card className="border-border/40 bg-card/50">
-              <CardHeader className="pb-3">
+            {/* SERP Preview — how site appears in Google */}
+            <Card className="border-border/30 bg-card/40">
+              <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
-                  <Globe className="size-4 text-muted-foreground" />
-                  Live Site Data
-                  <span className="text-[10px] font-normal text-muted-foreground ml-auto">{d.finalUrl}</span>
+                  <Eye className="size-4 text-muted-foreground" />
+                  Google Search Preview
                 </CardTitle>
               </CardHeader>
+              <CardContent>
+                <div className="rounded-xl border border-border/20 bg-white dark:bg-[#202124] p-5 max-w-2xl">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="size-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                      <Globe className="size-3 text-blue-400" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] text-[#4d5156] dark:text-[#bdc1c6]">{d.finalUrl}</p>
+                    </div>
+                  </div>
+                  <p className="text-lg text-[#1a0dab] dark:text-[#8ab4f8] hover:underline cursor-pointer leading-snug">
+                    {d.title || '(No title tag found)'}
+                  </p>
+                  <p className="text-[13px] text-[#4d5156] dark:text-[#bdc1c6] mt-1 leading-relaxed">
+                    {d.metaDescription || '(No meta description found — Google will auto-generate one from your page content)'}
+                  </p>
+                </div>
+                <div className="flex gap-3 mt-3 text-[10px] text-muted-foreground">
+                  <span>Title: <span className={d.title.length > 0 && d.title.length <= 60 ? 'text-emerald-400' : 'text-amber-400'}>{d.title.length} chars</span></span>
+                  <span>Description: <span className={d.metaDescription.length > 0 && d.metaDescription.length <= 160 ? 'text-emerald-400' : 'text-amber-400'}>{d.metaDescription.length} chars</span></span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* What We Scanned — PROOF section */}
+            <Card className="border-border/30 bg-card/40">
+              <CardHeader className="pb-2">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-sm flex items-center gap-2">
+                    <Search className="size-4 text-emerald-400" />
+                    What We Found on Your Site
+                    <span className="text-[10px] font-normal text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">Real Data</span>
+                  </CardTitle>
+                  <a href={d.finalUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition-colors">
+                    <ExternalLink className="size-3" />
+                    Visit Site
+                  </a>
+                </div>
+              </CardHeader>
               <CardContent className="space-y-4">
+                {/* Status badges */}
                 <div className="flex flex-wrap gap-2">
                   <StatusBadge ok={d.isHttps} label="HTTPS" />
                   <StatusBadge ok={!!d.title} label="Title Tag" />
@@ -221,21 +301,92 @@ export default function SiteAudit() {
                   <StatusBadge ok={d.hasCharset} label="Charset" />
                 </div>
 
+                {/* Extracted evidence */}
+                <div className="space-y-3">
+                  {/* Title tag evidence */}
+                  <div className="rounded-lg border border-border/20 p-3 bg-background/30">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <Hash className="size-3 text-blue-400" />
+                      <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Title Tag Found</span>
+                    </div>
+                    <code className="text-xs text-blue-400 bg-blue-500/5 px-2 py-1 rounded block">
+                      &lt;title&gt;{d.title || '(empty)'}&lt;/title&gt;
+                    </code>
+                  </div>
+
+                  {/* Meta description evidence */}
+                  <div className="rounded-lg border border-border/20 p-3 bg-background/30">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <FileText className="size-3 text-violet-400" />
+                      <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Meta Description Found</span>
+                    </div>
+                    <code className="text-xs text-violet-400 bg-violet-500/5 px-2 py-1 rounded block break-all">
+                      &lt;meta name=&quot;description&quot; content=&quot;{d.metaDescription || '(not found)'}&quot;&gt;
+                    </code>
+                  </div>
+
+                  {/* Headings evidence */}
+                  {d.h1Tags.length > 0 && (
+                    <div className="rounded-lg border border-border/20 p-3 bg-background/30">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <Hash className="size-3 text-emerald-400" />
+                        <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">H1 Tags Found ({d.h1Tags.length})</span>
+                      </div>
+                      <div className="space-y-1">
+                        {d.h1Tags.map((h, i) => (
+                          <code key={i} className="text-xs text-emerald-400 bg-emerald-500/5 px-2 py-1 rounded block">
+                            &lt;h1&gt;{h}&lt;/h1&gt;
+                          </code>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Canonical evidence */}
+                  {d.hasCanonical && (
+                    <div className="rounded-lg border border-border/20 p-3 bg-background/30">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <Link2 className="size-3 text-amber-400" />
+                        <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Canonical URL</span>
+                      </div>
+                      <code className="text-xs text-amber-400 bg-amber-500/5 px-2 py-1 rounded block break-all">
+                        &lt;link rel=&quot;canonical&quot; href=&quot;{d.canonicalUrl}&quot;&gt;
+                      </code>
+                    </div>
+                  )}
+
+                  {/* Schema types */}
+                  {d.structuredDataTypes.length > 0 && (
+                    <div className="rounded-lg border border-border/20 p-3 bg-background/30">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <Code2 className="size-3 text-orange-400" />
+                        <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">Structured Data (JSON-LD)</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {d.structuredDataTypes.map((t, i) => (
+                          <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Data grid */}
                 <div className="grid gap-3 md:grid-cols-3">
-                  <div className="rounded-lg border border-border/30 p-3 bg-background/30">
+                  <div className="rounded-lg border border-border/20 p-3 bg-background/30">
                     <div className="flex items-center gap-2 mb-2">
                       <FileText className="size-3.5 text-muted-foreground" />
                       <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Content</span>
                     </div>
                     <div className="space-y-1.5 text-xs">
-                      <div className="flex justify-between"><span className="text-muted-foreground">Title</span><span className="font-medium truncate max-w-[180px]" title={d.title}>{d.title || '—'}</span></div>
                       <div className="flex justify-between"><span className="text-muted-foreground">Word count</span><span className="font-medium">{d.wordCount.toLocaleString()}</span></div>
                       <div className="flex justify-between"><span className="text-muted-foreground">H1 tags</span><span className="font-medium">{d.h1Tags.length}</span></div>
                       <div className="flex justify-between"><span className="text-muted-foreground">H2 tags</span><span className="font-medium">{d.h2Tags.length}</span></div>
+                      <div className="flex justify-between"><span className="text-muted-foreground">H3 tags</span><span className="font-medium">{d.h3Tags.length}</span></div>
                     </div>
                   </div>
 
-                  <div className="rounded-lg border border-border/30 p-3 bg-background/30">
+                  <div className="rounded-lg border border-border/20 p-3 bg-background/30">
                     <div className="flex items-center gap-2 mb-2">
                       <Image className="size-3.5 text-muted-foreground" />
                       <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Media & Links</span>
@@ -248,7 +399,7 @@ export default function SiteAudit() {
                     </div>
                   </div>
 
-                  <div className="rounded-lg border border-border/30 p-3 bg-background/30">
+                  <div className="rounded-lg border border-border/20 p-3 bg-background/30">
                     <div className="flex items-center gap-2 mb-2">
                       <Code2 className="size-3.5 text-muted-foreground" />
                       <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Technical</span>
@@ -262,21 +413,24 @@ export default function SiteAudit() {
                   </div>
                 </div>
 
-                {d.structuredDataTypes.length > 0 && (
-                  <div>
-                    <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Schema Types: </span>
-                    <div className="inline-flex flex-wrap gap-1 ml-1">
-                      {d.structuredDataTypes.map((t, i) => (
-                        <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400">{t}</span>
-                      ))}
-                    </div>
-                  </div>
+                {/* Toggle raw data */}
+                <button
+                  onClick={() => setShowRawData(!showRawData)}
+                  className="text-[11px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                >
+                  <Code2 className="size-3" />
+                  {showRawData ? 'Hide' : 'Show'} raw scan data
+                </button>
+                {showRawData && (
+                  <pre className="text-[10px] text-muted-foreground bg-muted/10 rounded-lg p-4 border border-border/20 overflow-x-auto max-h-[400px] overflow-y-auto font-mono">
+                    {JSON.stringify(d, null, 2)}
+                  </pre>
                 )}
               </CardContent>
             </Card>
 
             {/* Issues */}
-            <Card className="border-border/40 bg-card/50">
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Issues ({filtered.length})</CardTitle>
@@ -322,10 +476,10 @@ export default function SiteAudit() {
             </Card>
 
             {/* Save */}
-            <Card className="border-border/40 bg-card/50">
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="flex items-center gap-3 pt-5 pb-5">
                 <select
-                  className="flex-1 rounded-lg border border-border/40 bg-background/50 px-3 py-2 text-sm"
+                  className="flex-1 rounded-xl border border-border/30 bg-background/60 px-3 py-2.5 text-sm"
                   value={selectedProject}
                   onChange={(e) => setSelectedProject(e.target.value)}
                 >
@@ -334,9 +488,9 @@ export default function SiteAudit() {
                     <option key={p.id} value={p.id}>{p.name}</option>
                   ))}
                 </select>
-                <Button onClick={handleSave} disabled={!selectedProject || saveAudit.isPending} variant="outline" className="border-border/40">
+                <Button onClick={handleSave} disabled={!selectedProject || saveAudit.isPending} variant="outline" className="border-border/30 rounded-xl">
                   <Save className="size-4" />
-                  {saveAudit.isPending ? 'Saving...' : 'Save'}
+                  {saveAudit.isPending ? 'Saving...' : 'Save Audit'}
                 </Button>
               </CardContent>
             </Card>
