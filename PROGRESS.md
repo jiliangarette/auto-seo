@@ -35,12 +35,12 @@
 - [x] Copy/export — clipboard copy (`src/pages/Generator.tsx`)
 
 ## Module 6: Dashboard
-- [ ] Project selector
-- [ ] Stats cards
-- [ ] Recent analyses
-- [ ] Quick actions
+- [x] Project selector (projects data drives dashboard)
+- [x] Stats cards — projects, keywords, analyses, avg SEO score
+- [x] Recent analyses list with scores
+- [x] Quick actions — new project, run analysis, generate content
 
 ---
 
-**Next up:** Module 6 — Dashboard (real data)
-<!-- watchdog: 2026-03-13 01:00 — 21/24 done, build: pass -->
+**All frontend modules complete!** Remaining: DB tables need to be created in Supabase (see SUPABASE.md).
+<!-- watchdog: 2026-03-13 01:12 — 24/24 frontend done, 3 [NEEDS-DB], build: pass -->
