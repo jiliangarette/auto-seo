@@ -91,7 +91,7 @@ export default function CompetitorMonitoring() {
     try {
       const domains = competitors.map((c) => c.domain).join(', ');
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a competitor monitoring tool. Return JSON only.' },
           { role: 'user', content: `Simulate a weekly competitor content scan for these domains: ${domains}

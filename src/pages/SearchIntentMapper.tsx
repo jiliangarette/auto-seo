@@ -42,7 +42,7 @@ export default function SearchIntentMapper() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a search intent classification expert. Return JSON only.' },
           { role: 'user', content: `Map search intent and funnel stages for these keywords:\n${keywords}\n\nReturn JSON:\n{\n  "summary": "intent mapping overview",\n  "keywords": [\n    {\n      "keyword": "keyword",\n      "intent": "informational"|"navigational"|"commercial"|"transactional",\n      "funnelStage": "TOFU"|"MOFU"|"BOFU",\n      "contentFormat": "suggested content format (e.g., blog guide, comparison page, product page)",\n      "priority": number(1-10)\n    }\n  ],\n  "funnelDistribution": [\n    { "stage": "TOFU (Top of Funnel)", "count": number, "percentage": number },\n    { "stage": "MOFU (Middle of Funnel)", "count": number, "percentage": number },\n    { "stage": "BOFU (Bottom of Funnel)", "count": number, "percentage": number }\n  ]\n}\n\nClassify each keyword and suggest the optimal content format.` },

@@ -84,7 +84,7 @@ export default function Internationalization() {
     setDetecting(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'Detect the language of the content. Return JSON only.' },
           { role: 'user', content: `Detect language and provide SEO suggestions for multi-language optimization:\n\n${contentInput.slice(0, 2000)}\n\nReturn: { "detectedLanguage": "language name", "confidence": 0-100, "suggestions": ["suggestion1", "suggestion2", "suggestion3"] }` },
@@ -138,7 +138,7 @@ export default function Internationalization() {
     setSerpLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'Generate region-specific SERP previews. Return JSON only.' },
           { role: 'user', content: `Generate SERP previews for "${serpKeyword}" targeting URL "${serpUrl}" for these regions: US, UK, Germany, France, Japan.\n\nReturn JSON array: [{ "region": "region name", "title": "localized title tag", "description": "localized meta description", "url": "display URL" }]` },
@@ -162,7 +162,7 @@ export default function Internationalization() {
     try {
       const langName = regions.find((r) => r.lang === translateLang)?.name ?? translateLang;
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a translation quality checker. Return JSON only.' },
           { role: 'user', content: `Check this ${langName} content for translation quality issues:\n\n${translateContent.slice(0, 2000)}\n\nReturn JSON array: [{ "type": "grammar"|"fluency"|"seo"|"cultural", "text": "issue description", "severity": "low"|"medium"|"high" }]` },

@@ -40,7 +40,7 @@ export default function ContentDecayDetector() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content performance analyst. Return JSON only.' },
           { role: 'user', content: `Analyze content decay for these URLs:\n${urls}\n\nReturn JSON:\n{\n  "summary": "content decay analysis overview",\n  "items": [\n    {\n      "url": "page URL",\n      "title": "page title",\n      "decayRate": number (percentage decline),\n      "peakTraffic": number (monthly visits at peak),\n      "currentTraffic": number (current monthly visits),\n      "priority": "critical"|"high"|"medium"|"low",\n      "recommendation": "specific refresh action",\n      "estimatedRecovery": number (percentage of lost traffic recoverable)\n    }\n  ],\n  "totalTrafficLost": number,\n  "recoverableTraffic": number\n}\n\nAnalyze each URL and generate realistic decay metrics and refresh recommendations.` },

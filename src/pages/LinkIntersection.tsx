@@ -47,7 +47,7 @@ export default function LinkIntersection() {
     try {
       const compList = competitors.split('\n').map((c) => c.trim()).filter(Boolean);
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a link building and backlink intersection expert. Return JSON only.' },
           { role: 'user', content: `Find link intersection opportunities:

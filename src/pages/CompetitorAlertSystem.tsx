@@ -45,7 +45,7 @@ export default function CompetitorAlertSystem() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a competitive intelligence SEO analyst. Return JSON only.' },
           { role: 'user', content: `Generate competitor alerts for:\nCompetitors: ${competitors}\nKeywords to watch: ${keywords || 'auto-detect relevant keywords'}\n\nReturn JSON:\n{\n  "summary": "competitor monitoring overview",\n  "alerts": [\n    {\n      "type": "new_content"|"ranking_change"|"new_backlink"|"technical",\n      "competitor": "domain.com",\n      "title": "alert title",\n      "details": "what happened",\n      "priority": "high"|"medium"|"low",\n      "actionRequired": "what you should do"\n    }\n  ],\n  "weeklyDigest": "comprehensive weekly summary of all competitor activity",\n  "competitorActivity": [\n    { "domain": "competitor.com", "newPages": number, "rankingChanges": number, "newBacklinks": number }\n  ]\n}\n\nGenerate 8-12 realistic alerts across all types and competitors.` },

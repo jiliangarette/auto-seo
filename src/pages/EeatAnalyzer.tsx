@@ -49,7 +49,7 @@ export default function EeatAnalyzer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a Google E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze this content for E-E-A-T signals:

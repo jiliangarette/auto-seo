@@ -34,7 +34,7 @@ export default function BulkPageAnalyzer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a bulk SEO analysis expert. Return JSON only.' },
           { role: 'user', content: `Perform batch SEO analysis on these URLs:\n${urls}\n\nReturn JSON:\n{\n  "summary": "batch analysis overview",\n  "pages": [\n    {\n      "url": "page URL",\n      "title": "page title",\n      "titleScore": number(0-100),\n      "metaScore": number(0-100),\n      "headingScore": number(0-100),\n      "contentScore": number(0-100),\n      "overallScore": number(0-100),\n      "issues": ["issue 1", "issue 2"]\n    }\n  ],\n  "averageScore": number\n}\n\nAnalyze each URL with realistic scores and specific issues found.` },

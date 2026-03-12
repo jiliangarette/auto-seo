@@ -39,7 +39,7 @@ export default function ContentAuditScorer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content audit expert. Return JSON only.' },
           { role: 'user', content: `Perform a content audit on these URLs:\n${urls}\n\nReturn JSON:\n{\n  "summary": "audit overview",\n  "pages": [\n    {\n      "url": "page URL",\n      "title": "page title",\n      "seoScore": number(0-100),\n      "freshnessScore": number(0-100),\n      "engagementScore": number(0-100),\n      "overallScore": number(0-100),\n      "action": "keep"|"update"|"merge"|"delete",\n      "recommendation": "specific recommendation"\n    }\n  ],\n  "actionSummary": [\n    { "action": "Keep", "count": number },\n    { "action": "Update", "count": number },\n    { "action": "Merge", "count": number },\n    { "action": "Delete", "count": number }\n  ]\n}\n\nScore each page and assign an action tag with specific recommendations.` },

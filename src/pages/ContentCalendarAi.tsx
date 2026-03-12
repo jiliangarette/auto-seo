@@ -42,7 +42,7 @@ export default function ContentCalendarAi() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content marketing strategist. Return JSON only.' },
           { role: 'user', content: `Generate a 30-day content calendar:\nGoals: ${goals}\nKeywords: ${keywords || 'general'}\n\nReturn JSON:\n{\n  "month": "Month Year",\n  "items": [\n    { "day": 1, "date": "2026-04-01", "title": "content title", "type": "blog"|"video"|"social"|"email"|"infographic"|"podcast", "keyword": "target keyword", "notes": "brief notes" }\n  ],\n  "typeMix": [\n    { "type": "Blog Posts", "count": number, "percentage": number }\n  ],\n  "summary": "calendar strategy overview"\n}\n\nGenerate 15-20 content items spread across 30 days with a balanced type mix.` },

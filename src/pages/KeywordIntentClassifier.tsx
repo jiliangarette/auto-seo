@@ -36,7 +36,7 @@ export default function KeywordIntentClassifier() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a search intent analysis expert. Return JSON only.' },
           { role: 'user', content: `Classify the search intent for these keywords:\n${input}\n\nReturn JSON:\n{\n  "keywords": [\n    { "keyword": "keyword", "intent": "informational"|"navigational"|"commercial"|"transactional", "confidence": number(0-100), "suggestedContentType": "blog post, guide, product page, etc.", "reasoning": "why this intent" }\n  ],\n  "intentDistribution": [\n    { "intent": "informational", "count": number, "percentage": number }\n  ],\n  "summary": "overview"\n}` },

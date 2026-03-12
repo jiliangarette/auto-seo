@@ -18,7 +18,7 @@ export async function generateContentBrief(
   audience: string
 ): Promise<ContentBrief> {
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'gpt-5-nano',
     messages: [
       {
         role: 'system',

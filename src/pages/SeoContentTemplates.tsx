@@ -35,7 +35,7 @@ export default function SeoContentTemplates() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO content template expert. Return JSON only.' },
           { role: 'user', content: `Generate SEO content templates:\nKeyword: ${keyword}\nNiche: ${niche}\n\nReturn JSON:\n{\n  "keyword": "${keyword}",\n  "niche": "${niche}",\n  "summary": "template library overview",\n  "templates": [\n    {\n      "name": "template name",\n      "type": "how-to|listicle|comparison|guide|review|case-study",\n      "seoScore": number(0-100),\n      "structure": ["H1: ...", "Intro paragraph", "H2: ...", "Content section", "H2: ...", "FAQ section", "Conclusion + CTA"],\n      "preview": "first 2-3 sentences of generated content",\n      "bestFor": "when to use this template"\n    }\n  ],\n  "customizations": [\n    { "section": "section name", "suggestion": "how to customize" }\n  ]\n}\n\nGenerate 5 templates and 4 customization tips.` },

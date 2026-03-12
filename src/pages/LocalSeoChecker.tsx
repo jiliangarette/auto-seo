@@ -53,7 +53,7 @@ export default function LocalSeoChecker() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a local SEO expert. Return JSON only.' },
           { role: 'user', content: `Analyze local SEO for:

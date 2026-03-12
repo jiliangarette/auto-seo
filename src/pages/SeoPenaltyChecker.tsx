@@ -46,7 +46,7 @@ export default function SeoPenaltyChecker() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO penalty detection expert. Return JSON only.' },
           { role: 'user', content: `Check for SEO penalties:\nDomain: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "riskLevel": "safe"|"at_risk"|"likely_penalized",\n  "riskScore": number(0-100),\n  "summary": "penalty risk assessment",\n  "signals": [\n    { "type": "signal type", "severity": "high"|"medium"|"low", "description": "what was detected", "evidence": "supporting evidence" }\n  ],\n  "recoveryPlan": [\n    { "step": number, "action": "recovery action", "timeline": "expected duration", "priority": "critical"|"high"|"medium" }\n  ],\n  "trafficImpact": "estimated traffic impact if penalized"\n}\n\nGenerate 5-7 penalty signals and a 4-6 step recovery plan.` },

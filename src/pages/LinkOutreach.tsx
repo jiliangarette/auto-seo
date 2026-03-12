@@ -87,7 +87,7 @@ export default function LinkOutreach() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'Generate outreach email templates for link building. Return JSON only.' },
           { role: 'user', content: `Generate 4 outreach email templates for link building in the "${niche}" niche${yourSiteUrl ? ` for ${yourSiteUrl}` : ''}.

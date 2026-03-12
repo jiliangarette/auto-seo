@@ -77,7 +77,7 @@ export default function SiteSpeedAnalyzer() {
       }
 
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a web performance expert. Analyze site speed data and provide optimization recommendations. Return JSON only.' },
           { role: 'user', content: `Analyze performance for:\n\n${siteData}\n\nReturn JSON:\n{"url":"${url}","performanceScore":0-100,"loadTime":"Xms","pageSize":"XKB","requestCount":number,"summary":"brief","issues":[{"issue":"name","category":"category","impact":"high/medium/low","priority":1-10,"currentEstimate":"current","afterEstimate":"after fix","recommendation":"specific fix","effort":"easy/medium/hard"}],"coreWebVitals":[{"metric":"LCP/FID/CLS/FCP/TTFB","value":"value","rating":"good/needs-improvement/poor","target":"target value"}]}\n\nGenerate 6-8 issues sorted by priority and 5 Core Web Vitals. Base on real data found.` },

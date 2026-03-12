@@ -30,7 +30,7 @@ export default function ParagraphRewriter() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO content rewriting expert. Return JSON only.' },
           { role: 'user', content: `Rewrite this paragraph for SEO:

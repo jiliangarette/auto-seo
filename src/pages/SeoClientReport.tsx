@@ -34,7 +34,7 @@ export default function SeoClientReport() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO reporting expert who creates executive-level client reports. Return JSON only.' },
           { role: 'user', content: `Generate an SEO client report:\nClient: ${client}\nDomain: ${domain || 'client-domain.com'}\nPeriod: ${period || 'Last 30 days'}\n\nReturn JSON:\n{\n  "clientName": "${client}",\n  "domain": "${domain || 'client-domain.com'}",\n  "period": "${period || 'Last 30 days'}",\n  "executiveSummary": "2-3 sentence executive summary of SEO performance",\n  "sections": [\n    {\n      "title": "section name",\n      "content": "section narrative",\n      "metrics": [{ "label": "metric name", "value": "current value", "change": "+X% vs last period" }]\n    }\n  ],\n  "recommendations": ["recommendation 1", "recommendation 2", "recommendation 3"],\n  "htmlReport": "complete formatted HTML report string"\n}\n\nInclude sections for: Organic Traffic, Keyword Rankings, Backlink Profile, Technical Health, Content Performance. Generate 3-4 metrics per section.` },

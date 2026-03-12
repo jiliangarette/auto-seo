@@ -52,7 +52,7 @@ export default function AiMetaTagOptimizer() {
       }
 
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a meta tag optimization expert. Analyze current meta tags and generate better A/B variations. Return JSON only.' },
           { role: 'user', content: `Optimize meta tags for this page:\n\n${siteData}\n\nReturn JSON:\n{"url":"${targetUrl}","currentTitle":"current title","currentDescription":"current meta","currentScore":0-100,"issues":["issue1"],"variations":[{"title":"optimized title 50-60ch","description":"optimized desc 150-160ch","predictedCtr":0-100,"reasoning":"why better"}],"bestPick":0}\n\nGenerate 3 variations. Score the current tags honestly based on real data.` },

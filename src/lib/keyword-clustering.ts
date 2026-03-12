@@ -15,7 +15,7 @@ export interface ClusterResult {
 
 export async function clusterKeywords(keywords: string[]): Promise<ClusterResult> {
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'gpt-5-nano',
     messages: [
       {
         role: 'system',

@@ -33,7 +33,7 @@ export default function PodcastSeoPlanner() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a podcast SEO expert. Return JSON only.' },
           { role: 'user', content: `Plan podcast SEO:\nTopic: ${topic}\nNiche: ${niche}\n\nReturn JSON:\n{\n  "topic": "${topic}",\n  "summary": "podcast SEO strategy overview",\n  "episodes": [\n    { "title": "SEO-optimized episode title", "keyword": "target keyword", "description": "episode description", "searchVolume": "keyword volume" }\n  ],\n  "showNotesTemplate": "SEO-optimized show notes template with placeholders",\n  "distributionStrategy": [\n    { "platform": "platform name", "action": "what to do", "tip": "SEO tip for this platform" }\n  ],\n  "discoveryTips": ["tip 1", "tip 2"]\n}\n\nGenerate 6 episodes, 5 distribution platforms, and 4 discovery tips.` },

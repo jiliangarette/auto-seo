@@ -38,7 +38,7 @@ export default function PageTitleOptimizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a title tag optimization expert. Return JSON only.' },
           { role: 'user', content: `Optimize this page title:\nTitle: ${title}\nTarget keyword: ${keyword || 'none specified'}\n\nReturn JSON:\n{\n  "originalTitle": "${title}",\n  "keyword": "${keyword || 'none'}",\n  "variants": [\n    { "title": "optimized title variant", "charCount": number, "keywordPlacement": "front"|"middle"|"end", "powerWords": ["word1", "word2"], "predictedCtr": number(0-100) }\n  ],\n  "analysis": {\n    "keywordPresent": boolean,\n    "charCount": number,\n    "hasPowerWords": boolean,\n    "hasNumbers": boolean\n  },\n  "summary": "optimization overview"\n}\n\nGenerate 5-6 optimized variants. Keep titles under 60 characters. Use power words and numbers where appropriate.` },

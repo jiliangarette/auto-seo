@@ -40,7 +40,7 @@ export default function SeoBudgetAllocator() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO budget planning expert. Return JSON only.' },
           { role: 'user', content: `Allocate SEO budget:\nTotal budget: $${budget}/month\nGoals: ${goals || 'increase organic traffic and rankings'}\nTimeline: ${timeline || '6 months'}\n\nReturn JSON:\n{\n  "summary": "budget allocation strategy",\n  "totalBudget": ${parseInt(budget) || 5000},\n  "categories": [\n    { "category": "Content Creation", "allocation": number, "percentage": number, "roi": "expected ROI description", "activities": ["activity 1", "activity 2"] }\n  ],\n  "monthlyPlan": [\n    { "month": "Month 1", "spend": number, "milestone": "what to achieve" }\n  ],\n  "expectedOutcome": "projected results after timeline"\n}\n\nAllocate across content, link building, technical SEO, tools, and other relevant categories. Generate 6-month plan.` },

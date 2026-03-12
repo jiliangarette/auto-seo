@@ -46,7 +46,7 @@ export default function AiKeywordResearch() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO keyword research expert. Return JSON only.' },
           { role: 'user', content: `Research keywords for seed: "${seedKeyword}"${niche ? ` in the "${niche}" niche` : ''}.

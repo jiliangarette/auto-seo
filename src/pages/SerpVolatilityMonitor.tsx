@@ -37,7 +37,7 @@ export default function SerpVolatilityMonitor() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a SERP volatility analyst. Return JSON only.' },
           { role: 'user', content: `Monitor SERP volatility for:\n${keywords}\n\nReturn JSON:\n{\n  "summary": "volatility analysis overview",\n  "overallScore": number(0-100, higher = more volatile),\n  "keywords": [\n    {\n      "keyword": "keyword",\n      "volatilityScore": number(0-100),\n      "positionSwings": number,\n      "trend": "stable"|"volatile"|"highly_volatile",\n      "topMovers": [{ "domain": "domain.com", "change": number }]\n    }\n  ],\n  "alerts": [\n    { "message": "alert description", "severity": "info"|"warning"|"critical" }\n  ],\n  "benchmarks": [\n    { "industry": "industry name", "avgVolatility": number }\n  ]\n}\n\nAnalyze each keyword and generate realistic volatility data with algorithm update correlations.` },

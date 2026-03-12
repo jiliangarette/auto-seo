@@ -41,7 +41,7 @@ export default function KeywordCannibalizationMap() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a keyword cannibalization expert. Return JSON only.' },
           { role: 'user', content: `Analyze keyword cannibalization for:\n${input}\n\nReturn JSON:\n{\n  "pages": [\n    { "page": "page URL or title", "keywords": ["kw1", "kw2"], "primaryKeyword": "main keyword" }\n  ],\n  "overlaps": [\n    { "keyword": "overlapping keyword", "pages": ["page1", "page2"], "severity": "critical"|"warning"|"ok", "action": "what to do" }\n  ],\n  "plan": ["step 1", "step 2"],\n  "summary": "overview"\n}\n\nGenerate 6-8 page mappings, 5-7 overlap detections with mix of severities, and 4-5 plan steps.` },

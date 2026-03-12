@@ -90,7 +90,7 @@ export default function SearchConsole() {
     try {
       const topKeywords = rankings.slice(0, 10).map((r) => `${r.keyword}: pos ${r.position}, CTR ${r.ctr}%, clicks ${r.clicks}`).join('\n');
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a CTR optimization expert. Return JSON only.' },
           { role: 'user', content: `Analyze CTR data for ${siteUrl}:\n\n${topKeywords}\n\nReturn: { "averageCtr": number, "topPerformers": ["keyword1"], "underPerformers": ["keyword1"], "recommendations": ["rec1", "rec2", "rec3"] }` },

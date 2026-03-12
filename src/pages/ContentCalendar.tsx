@@ -120,7 +120,7 @@ export default function ContentCalendar() {
       const daysInMonth = new Date(year, month + 1, 0).getDate();
 
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO content strategist. Return JSON only.' },
           {

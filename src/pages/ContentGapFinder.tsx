@@ -48,7 +48,7 @@ export default function ContentGapFinder() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content gap analysis expert. Return JSON only.' },
           { role: 'user', content: `Find content gaps:

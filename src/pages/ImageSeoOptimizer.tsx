@@ -73,7 +73,7 @@ export default function ImageSeoOptimizer() {
       }));
 
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an image SEO optimization expert. Return JSON only.' },
           { role: 'user', content: `Analyze these images for SEO optimization:

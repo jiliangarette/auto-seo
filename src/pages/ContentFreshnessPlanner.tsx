@@ -61,7 +61,7 @@ export default function ContentFreshnessPlanner() {
       });
 
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content freshness and editorial calendar expert. Return JSON only.' },
           { role: 'user', content: `Create a content freshness plan:

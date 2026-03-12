@@ -43,7 +43,7 @@ export default function KeywordGapFinder() {
     try {
       const [yourCtx, compCtx] = await Promise.all([fetchSiteContext(yourSite), fetchSiteContext(competitor)]);
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO keyword gap analyst. Compare two sites and find keywords the competitor targets that the user\'s site misses. Return JSON only.' },
           { role: 'user', content: `Find keyword gaps between these two sites.\n\nYOUR SITE:\n${yourCtx}\n\nCOMPETITOR:\n${compCtx}\n\nReturn JSON:\n{"yourSite":"${yourSite}","competitor":"${competitor}","summary":"brief analysis","gaps":[{"keyword":"keyword","volume":"estimated monthly searches","difficulty":"easy/medium/hard","opportunityScore":0-100,"competitorPosition":"how competitor uses it","suggestedContent":"what to write"}],"quickWins":[{"keyword":"keyword","reason":"why easy","action":"specific action"}]}\n\nGenerate 10 gaps and 3 quick wins. Base analysis on actual content found.` },

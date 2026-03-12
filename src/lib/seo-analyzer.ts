@@ -31,7 +31,7 @@ Return ONLY valid JSON, no markdown or explanation.`;
 
 export async function analyzeSEO(content: string, url: string): Promise<SEOAnalysisResult> {
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'gpt-5-nano',
     messages: [
       { role: 'system', content: SYSTEM_PROMPT },
       { role: 'user', content: `Analyze the following webpage content from ${url}:\n\n${content.slice(0, 8000)}` },

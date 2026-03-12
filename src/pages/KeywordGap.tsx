@@ -43,7 +43,7 @@ export default function KeywordGap() {
     try {
       const compList = competitors.split('\n').map((c) => c.trim()).filter(Boolean);
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO keyword gap analysis expert. Return JSON only.' },
           { role: 'user', content: `Perform keyword gap analysis:

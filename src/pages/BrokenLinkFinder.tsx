@@ -46,7 +46,7 @@ export default function BrokenLinkFinder() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a technical SEO expert. Return JSON only.' },
           { role: 'user', content: `Analyze this URL/sitemap for broken links:\n${url}\n\nReturn JSON:\n{\n  "totalLinks": number,\n  "brokenCount": number,\n  "links": [\n    { "url": "https://example.com/broken", "status": "404"|"timeout"|"server-error"|"redirect-loop"|"ok", "type": "internal"|"external", "foundOn": "page where link was found", "fix": "recommendation" }\n  ],\n  "summary": "overview"\n}\n\nGenerate 12-15 realistic link results with a mix of broken and ok statuses. Include 4-6 broken links with detailed fix recommendations.` },

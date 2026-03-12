@@ -36,7 +36,7 @@ export default function SeoChecklistGenerator() {
     setChecked(new Set());
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO expert. Return JSON only.' },
           { role: 'user', content: `Generate a comprehensive SEO checklist for a "${pageType}" page.\n\nReturn JSON:\n{\n  "pageType": "${pageType}",\n  "items": [\n    { "task": "Add unique meta title under 60 chars", "category": "On-Page", "priority": "critical"|"important"|"nice-to-have" }\n  ],\n  "summary": "checklist overview"\n}\n\nGenerate 18-22 checklist items across categories: On-Page, Technical, Content, Links, UX. Mix priorities realistically.` },

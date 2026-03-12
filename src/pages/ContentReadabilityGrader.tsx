@@ -38,7 +38,7 @@ export default function ContentReadabilityGrader() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a readability analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze readability of this content:\n\n${content.slice(0, 3000)}\n\nReturn JSON:\n{\n  "overallGrade": "A"|"B"|"C"|"D"|"F",\n  "gradeLevel": number (school grade level),\n  "targetAudience": "description",\n  "scores": [\n    { "name": "Flesch-Kincaid", "score": number, "grade": "Easy|Medium|Hard", "description": "brief explanation" },\n    { "name": "Gunning Fog", "score": number, "grade": "Easy|Medium|Hard", "description": "brief" },\n    { "name": "Coleman-Liau", "score": number, "grade": "Easy|Medium|Hard", "description": "brief" },\n    { "name": "SMOG Index", "score": number, "grade": "Easy|Medium|Hard", "description": "brief" }\n  ],\n  "complexSentences": [\n    { "text": "the complex sentence", "reason": "why it's complex", "suggestion": "simplified version" }\n  ],\n  "recommendations": ["tip 1", "tip 2"],\n  "summary": "overview"\n}\n\nIdentify 3-5 complex sentences and provide 4-6 recommendations.` },

@@ -40,7 +40,7 @@ export default function ContentToneAnalyzer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content tone analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze the tone of this content:\n\n${content.slice(0, 3000)}\n\nReturn JSON:\n{\n  "primaryTone": "formal"|"casual"|"persuasive"|"informative"|"authoritative"|"friendly"|"neutral"|"urgent",\n  "audienceAlignment": number(0-100),\n  "tones": [\n    { "tone": "tone name", "score": number(0-100), "description": "how this tone manifests" }\n  ],\n  "adjustments": [\n    { "current": "current phrasing example", "suggestion": "adjusted version", "reason": "why change" }\n  ],\n  "summary": "tone analysis overview"\n}\n\nAnalyze 5-6 tone dimensions and provide 3-4 adjustment suggestions.` },

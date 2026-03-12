@@ -53,7 +53,7 @@ export default function LogFileAnalyzer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a server log file analysis expert for SEO crawl optimization. Return JSON only.' },
           { role: 'user', content: `Analyze these server log entries for SEO crawl insights:

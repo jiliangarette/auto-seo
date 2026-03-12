@@ -212,7 +212,7 @@ export async function auditSite(url: string): Promise<SiteAuditResult> {
   const siteData = await fetchSiteData(url);
 
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'gpt-5-nano',
     messages: [
       { role: 'system', content: SYSTEM_PROMPT },
       {

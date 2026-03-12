@@ -38,7 +38,7 @@ export default function UrlSlugOptimizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a URL optimization expert. Return JSON only.' },
           { role: 'user', content: `Generate SEO-friendly URL slugs for these page titles:\n${input}\n\nReturn JSON:\n{\n  "slugs": [\n    { "title": "page title", "originalSlug": "auto-generated-from-title", "optimizedSlug": "seo-friendly-slug", "keywordIncluded": boolean, "charCount": number, "status": "optimal"|"too-long"|"missing-keyword"|"has-stopwords", "reasoning": "why this slug is better" }\n  ],\n  "tips": ["general URL slug tip 1", "tip 2"],\n  "summary": "overview"\n}\n\nKeep slugs under 60 chars, remove stop words, include primary keywords. Generate both original and optimized versions.` },

@@ -23,7 +23,7 @@ export default function ContentSummarizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content summarization expert. Return JSON only.' },
           { role: 'user', content: `Summarize this content:\n\n${content.slice(0, 4000)}\n\nReturn JSON:\n{\n  "executive": "2-3 sentence executive summary",\n  "keyPoints": ["point 1", "point 2", "point 3", "point 4", "point 5"],\n  "tldr": "one sentence TL;DR",\n  "social": {\n    "twitter": "280 char max tweet version",\n    "linkedin": "short linkedin post version",\n    "facebook": "casual facebook post version"\n  },\n  "wordCount": { "original": number, "summary": number }\n}` },

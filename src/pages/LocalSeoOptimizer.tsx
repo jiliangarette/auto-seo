@@ -46,7 +46,7 @@ export default function LocalSeoOptimizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a local SEO expert. Return JSON only.' },
           { role: 'user', content: `Optimize local SEO:\nBusiness: ${business}\nLocation: ${location}\n\nReturn JSON:\n{\n  "business": "${business}",\n  "location": "${location}",\n  "summary": "local SEO overview",\n  "localScore": number(0-100),\n  "gbpChecks": [\n    { "area": "GBP section", "status": "optimized"|"needs_work"|"missing", "suggestion": "what to do" }\n  ],\n  "citations": [\n    { "platform": "citation platform", "issue": "consistency issue", "fix": "how to fix" }\n  ],\n  "reviewStrategy": [\n    { "action": "review action", "template": "response template" }\n  ],\n  "localKeywords": [\n    { "keyword": "local keyword", "intent": "search intent", "volume": "estimated volume" }\n  ]\n}\n\nGenerate 6 GBP checks, 4 citation issues, 3 review strategies, and 5 local keywords.` },

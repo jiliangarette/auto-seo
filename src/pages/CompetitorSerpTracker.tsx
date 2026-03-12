@@ -29,7 +29,7 @@ export default function CompetitorSerpTracker() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a SERP tracking expert. Return JSON only.' },
           { role: 'user', content: `Track competitor SERP positions for:\nKeywords:\n${keywords}\nCompetitors:\n${competitors || 'auto-detect top competitors'}\n\nReturn JSON:\n{\n  "keywords": [\n    {\n      "keyword": "keyword",\n      "yourPosition": number|null,\n      "competitors": [\n        { "domain": "competitor.com", "position": number(1-100), "change": number (positive=up, negative=down) }\n      ]\n    }\n  ],\n  "competitorDomains": ["competitor1.com", "competitor2.com"],\n  "alerts": [\n    { "keyword": "keyword", "competitor": "domain", "change": "moved up 5 positions" }\n  ],\n  "summary": "overview"\n}\n\nTrack 3-4 competitor domains across all keywords. Generate 3-4 alerts for significant changes.` },

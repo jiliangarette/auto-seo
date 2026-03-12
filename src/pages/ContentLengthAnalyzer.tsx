@@ -39,7 +39,7 @@ export default function ContentLengthAnalyzer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content strategy expert. Return JSON only.' },
           { role: 'user', content: `Analyze content length for:\n${input}\nTarget keyword: ${keyword || 'general'}\n\nReturn JSON:\n{\n  "analyses": [\n    { "url": "page url or label", "wordCount": number, "competitorAvg": number, "optimalRange": "1500-2000 words", "status": "optimal"|"too-short"|"too-long", "depthScore": number(0-100), "recommendation": "what to do" }\n  ],\n  "overallRecommendation": "general advice",\n  "summary": "overview"\n}\n\nGenerate 6-8 content analyses with realistic word counts and competitor comparisons.` },

@@ -36,7 +36,7 @@ export default function ContentVelocityCalc() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content operations strategist. Return JSON only.' },
           { role: 'user', content: `Calculate content velocity:\nCurrent rate: ${currentRate} posts/month\nTraffic goal: ${trafficGoal || '50000'} monthly visits\nBudget: $${budget || '5000'}/month\n\nReturn JSON:\n{\n  "summary": "velocity analysis",\n  "currentRate": ${parseInt(currentRate) || 4},\n  "targetTraffic": ${parseInt(trafficGoal) || 50000},\n  "scenarios": [\n    { "name": "Conservative", "postsPerMonth": number, "estimatedTraffic": number, "timeToGoal": "X months", "writersNeeded": number, "monthlyCost": number },\n    { "name": "Moderate", "postsPerMonth": number, "estimatedTraffic": number, "timeToGoal": "X months", "writersNeeded": number, "monthlyCost": number },\n    { "name": "Aggressive", "postsPerMonth": number, "estimatedTraffic": number, "timeToGoal": "X months", "writersNeeded": number, "monthlyCost": number }\n  ],\n  "resources": [{ "role": "role name", "count": number, "costPerMonth": number }],\n  "timeline": [{ "month": "Month 1", "content": number, "projectedTraffic": number }]\n}\n\nGenerate 3 scenarios and a 6-month timeline.` },

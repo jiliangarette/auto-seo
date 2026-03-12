@@ -34,7 +34,7 @@ export default function ContentDistributionPlanner() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content distribution and multi-channel marketing expert. Return JSON only.' },
           { role: 'user', content: `Plan content distribution:\nContent: ${content}\nTarget Audience: ${audience}\n\nReturn JSON:\n{\n  "content": "${content}",\n  "summary": "distribution strategy overview",\n  "channels": [\n    { "platform": "platform name", "contentFormat": "post type", "adaptation": "how to adapt for this platform", "bestTime": "optimal posting time", "hashtags": ["tag1", "tag2"], "expectedReach": "estimated reach" }\n  ],\n  "schedule": [\n    { "day": "Day 1|Day 2|etc", "platform": "platform", "action": "what to post" }\n  ],\n  "trackingMetrics": [\n    { "metric": "metric name", "tool": "tracking tool", "target": "target value" }\n  ]\n}\n\nGenerate 6 channel plans, 7-day posting schedule, and 4 tracking metrics.` },

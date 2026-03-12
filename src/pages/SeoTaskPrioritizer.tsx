@@ -55,7 +55,7 @@ export default function SeoTaskPrioritizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO task prioritization expert. Return JSON only.' },
           { role: 'user', content: `Prioritize SEO tasks:\nGoal: ${goal}\nTasks: ${tasks}\n\nReturn JSON:\n{\n  "goal": "${goal}",\n  "summary": "prioritization overview",\n  "tasks": [\n    { "task": "task name", "impact": number(1-10), "effort": number(1-10), "urgency": "immediate"|"this_week"|"this_month"|"next_quarter", "quadrant": "do_first"|"schedule"|"delegate"|"eliminate", "score": number(0-100), "reasoning": "why this priority" }\n  ],\n  "sprintPlan": [\n    { "week": number, "tasks": ["task 1", "task 2"], "goal": "sprint goal" }\n  ],\n  "quickWins": ["quick win 1", "quick win 2", "quick win 3"]\n}\n\nGenerate 8 prioritized tasks, 3 weekly sprints, and 3 quick wins.` },

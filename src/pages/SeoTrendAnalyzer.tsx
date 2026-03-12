@@ -45,7 +45,7 @@ export default function SeoTrendAnalyzer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO trend analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze SEO trends for niche: ${niche}\n\nReturn JSON:\n{\n  "niche": "${niche}",\n  "summary": "trend analysis overview",\n  "trends": [\n    { "topic": "trend topic", "momentum": "rising"|"stable"|"declining", "opportunity": "high"|"medium"|"low", "description": "trend details", "actionItem": "what to do" }\n  ],\n  "seasonalPatterns": [\n    { "period": "time period", "trend": "what happens", "recommendation": "how to capitalize" }\n  ],\n  "competitorComparison": [\n    { "competitor": "competitor name", "trendAdoption": "how they use this trend", "gap": "your opportunity" }\n  ],\n  "predictions": ["prediction 1", "prediction 2", "prediction 3"]\n}\n\nGenerate 6 trends, 4 seasonal patterns, 3 competitor comparisons, and 4 predictions.` },

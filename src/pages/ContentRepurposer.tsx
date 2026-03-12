@@ -35,7 +35,7 @@ export default function ContentRepurposer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content repurposing expert. Transform blog posts into other formats. Return JSON only.' },
           { role: 'user', content: `Repurpose this blog post into multiple formats:

@@ -38,7 +38,7 @@ export default function SerpFeatureTracker() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a SERP analysis expert. Return JSON only.' },
           { role: 'user', content: `Track SERP features for these keywords:\n${keywords}\n\nReturn JSON:\n{\n  "keywords": [\n    {\n      "keyword": "keyword",\n      "features": [\n        { "type": "Featured Snippet"|"People Also Ask"|"Local Pack"|"Image Pack"|"Video"|"Knowledge Panel"|"Sitelinks"|"Reviews", "present": boolean, "yourSite": boolean, "opportunity": "high"|"medium"|"low"|"none" }\n      ]\n    }\n  ],\n  "featureSummary": [\n    { "type": "Featured Snippet", "count": number, "opportunities": number }\n  ],\n  "summary": "overview"\n}\n\nFor each keyword, check 6-8 SERP feature types. Generate realistic data with a mix of present/absent features.` },

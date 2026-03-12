@@ -45,7 +45,7 @@ export default function RichSnippetTester() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a structured data and rich snippet expert. Return JSON only.' },
           { role: 'user', content: `Validate this structured data markup and preview rich snippets:\n\n${markup.slice(0, 4000)}\n\nReturn JSON:\n{\n  "summary": "validation overview",\n  "markupType": "JSON-LD"|"Microdata"|"RDFa",\n  "schemaTypes": ["Article", "FAQ", etc],\n  "valid": boolean,\n  "issues": [\n    { "severity": "error"|"warning"|"info", "field": "field name", "message": "issue description", "fix": "how to fix" }\n  ],\n  "preview": {\n    "title": "how title appears in Google",\n    "url": "displayed URL",\n    "description": "meta description text",\n    "richFeatures": ["FAQ dropdown", "Star rating", etc]\n  },\n  "fixedMarkup": "corrected version of the markup"\n}\n\nIf the input doesn't look like structured data, generate sample JSON-LD for the detected content type and validate that instead.` },

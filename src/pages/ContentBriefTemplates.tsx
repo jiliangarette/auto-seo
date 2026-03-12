@@ -42,7 +42,7 @@ export default function ContentBriefTemplates() {
       const template = defaultTemplates.find((t) => t.name === selectedTemplate);
       const sections = [...(template?.sections ?? []), ...customSections];
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content strategist. Return JSON only.' },
           { role: 'user', content: `Generate a content brief for:\nTemplate: ${selectedTemplate}\nTopic: ${topic}\nSections to fill: ${sections.join(', ')}\n\nReturn JSON:\n{\n  "sections": [\n    { "heading": "section name", "content": "detailed content for this section" }\n  ]\n}\n\nFill each section with detailed, actionable content relevant to the topic.` },

@@ -31,7 +31,7 @@ export default function SeoAbTestPlanner() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO A/B testing expert. Return JSON only.' },
           { role: 'user', content: `Create an SEO A/B test plan:\nPage URL: ${url}\nHypothesis: ${hypothesis || 'Improve organic CTR'}\n\nReturn JSON:\n{\n  "hypothesis": "refined hypothesis statement",\n  "variants": [\n    { "label": "Control (A)", "title": "current title", "metaDescription": "current meta", "changes": "no changes" },\n    { "label": "Variant B", "title": "optimized title", "metaDescription": "optimized meta", "changes": "what changed and why" },\n    { "label": "Variant C", "title": "another option", "metaDescription": "another meta", "changes": "what changed and why" }\n  ],\n  "calculator": { "sampleSize": number, "duration": "estimated test duration", "confidenceLevel": "95%" },\n  "template": "markdown template for documenting test results"\n}` },

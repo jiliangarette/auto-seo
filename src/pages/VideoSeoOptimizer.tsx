@@ -27,7 +27,7 @@ export default function VideoSeoOptimizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a video SEO expert. Return JSON only.' },
           { role: 'user', content: `Optimize video SEO for: ${topic}\n\nReturn JSON:\n{\n  "topic": "${topic}",\n  "summary": "video SEO overview",\n  "titles": [\n    { "title": "optimized title", "ctrPotential": number(0-100) }\n  ],\n  "description": "SEO-optimized video description (200-300 words)",\n  "tags": ["tag1", "tag2", "tag3"],\n  "thumbnailTips": ["tip 1", "tip 2"],\n  "engagementTips": ["engagement tip 1", "tip 2"],\n  "schema": "VideoObject schema markup as JSON-LD string"\n}\n\nGenerate 4 title options, 15 tags, 4 thumbnail tips, and 4 engagement tips.` },

@@ -40,7 +40,7 @@ export default function TitleTagTester() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a title tag CTR optimization expert. Return JSON only.' },
           { role: 'user', content: `Compare these title tag variants:

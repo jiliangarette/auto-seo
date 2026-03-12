@@ -35,7 +35,7 @@ export default function ContentLocalizationPlanner() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content localization and international SEO expert. Return JSON only.' },
           { role: 'user', content: `Plan content localization:\nContent/Topic: ${content}\nTarget Markets: ${markets}\n\nReturn JSON:\n{\n  "sourceContent": "${content}",\n  "summary": "localization strategy overview",\n  "markets": [\n    {\n      "locale": "en-US|de-DE|ja-JP|etc",\n      "language": "language name",\n      "searchEngine": "primary search engine",\n      "keywordAdaptations": [{ "original": "english keyword", "localized": "translated keyword", "searchVolume": "estimated volume" }],\n      "culturalNotes": ["cultural adaptation note"],\n      "hreflangTag": "hreflang tag value",\n      "priority": "high"|"medium"|"low"\n    }\n  ],\n  "implementationGuide": ["step 1", "step 2"],\n  "estimatedReach": "total estimated reach across markets"\n}\n\nGenerate plans for 4 markets with 3 keyword adaptations each.` },

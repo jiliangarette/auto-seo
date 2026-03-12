@@ -50,7 +50,7 @@ export default function SeoMigrationPlanner() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO migration specialist. Return JSON only.' },
           { role: 'user', content: `Create an SEO migration plan:\nOld URLs:\n${oldUrls}\nNew URLs:\n${newUrls || 'auto-suggest new structure'}\n\nReturn JSON:\n{\n  "summary": "migration plan overview",\n  "redirects": [\n    { "oldUrl": "/old-path", "newUrl": "/new-path", "type": "301"|"302", "priority": "critical"|"high"|"medium"|"low" }\n  ],\n  "risks": [\n    { "risk": "risk description", "impact": "high"|"medium"|"low", "mitigation": "how to mitigate" }\n  ],\n  "checklist": [\n    { "phase": "pre"|"during"|"post", "task": "task description", "critical": boolean }\n  ],\n  "estimatedTrafficImpact": "expected traffic impact description"\n}\n\nGenerate comprehensive redirect mappings, 4-5 risks, and 12-15 checklist items across all phases.` },

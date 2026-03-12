@@ -45,7 +45,7 @@ export default function WritingAssistant() {
     try {
       const pages = existingPages.split('\n').map((p) => p.trim()).filter(Boolean);
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           {
             role: 'system',

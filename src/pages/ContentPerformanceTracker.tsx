@@ -39,7 +39,7 @@ export default function ContentPerformanceTracker() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content performance analyst. Return JSON only.' },
           { role: 'user', content: `Track content performance for:\n${urls}\n\nReturn JSON:\n{\n  "summary": "performance overview",\n  "content": [\n    {\n      "url": "URL",\n      "title": "page title",\n      "traffic": number,\n      "ranking": number,\n      "conversions": number,\n      "trend": "up"|"stable"|"down",\n      "category": "top"|"average"|"underperforming",\n      "optimization": "specific improvement suggestion"\n    }\n  ],\n  "insights": ["insight 1", "insight 2"],\n  "priorities": [\n    { "url": "URL", "action": "what to do", "expectedImpact": "projected improvement" }\n  ]\n}` },

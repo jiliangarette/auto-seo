@@ -61,7 +61,7 @@ export default function ContentDecay() {
     setRefreshing(item.id);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content refresh expert. Return JSON only.' },
           { role: 'user', content: `This content is ${item.ageMonths} months old and traffic has changed ${item.trafficChange}%:

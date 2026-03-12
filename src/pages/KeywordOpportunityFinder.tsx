@@ -33,7 +33,7 @@ export default function KeywordOpportunityFinder() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a keyword research expert. Return JSON only.' },
           { role: 'user', content: `Find untapped keyword opportunities:\nSeed keywords: ${seeds}\nNiche: ${niche || 'auto-detect'}\n\nReturn JSON:\n{\n  "summary": "opportunity analysis overview",\n  "opportunities": [\n    {\n      "keyword": "keyword phrase",\n      "volume": "estimated monthly volume range",\n      "difficulty": number(1-100),\n      "opportunityScore": number(1-100, higher = better opportunity),\n      "intent": "informational|commercial|transactional",\n      "suggestedContent": "content type to target this keyword"\n    }\n  ],\n  "quickWins": ["low difficulty, high opportunity keywords"],\n  "longTail": ["long tail opportunities with high intent"]\n}\n\nGenerate 15-20 keyword opportunities sorted by opportunity score. Include a mix of difficulty levels.` },

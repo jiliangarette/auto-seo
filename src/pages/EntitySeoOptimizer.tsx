@@ -38,7 +38,7 @@ export default function EntitySeoOptimizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an entity SEO expert specializing in Knowledge Graph optimization. Return JSON only.' },
           { role: 'user', content: `Extract and analyze entities for SEO:\n\n${content.slice(0, 4000)}\n\nReturn JSON:\n{\n  "summary": "entity analysis overview",\n  "entities": [\n    { "name": "entity name", "type": "Person|Organization|Place|Product|Concept|Event", "knowledgeGraphMatch": boolean, "salience": number(0-1), "mentions": number, "optimization": "how to better optimize for this entity" }\n  ],\n  "relationships": [\n    { "from": "entity1", "to": "entity2", "relation": "relationship type" }\n  ],\n  "recommendations": ["recommendation 1", "recommendation 2"],\n  "entityScore": number(0-100)\n}\n\nExtract 8-12 entities and 5-8 relationships.` },

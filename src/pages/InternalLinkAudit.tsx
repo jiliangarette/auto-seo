@@ -45,7 +45,7 @@ export default function InternalLinkAudit() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an internal linking expert. Return JSON only.' },
           { role: 'user', content: `Audit internal linking for: ${url}\n\nReturn JSON:\n{\n  "totalPages": number,\n  "orphanPages": [\n    { "url": "page url", "title": "page title", "suggestedLinks": ["page to link from 1", "page 2"] }\n  ],\n  "linkEquity": [\n    { "page": "page url or title", "internalLinksIn": number, "internalLinksOut": number, "equityScore": number(0-100), "status": "well-linked"|"under-linked"|"over-linked"|"orphan" }\n  ],\n  "improvementPlan": ["step 1", "step 2"],\n  "summary": "overview"\n}\n\nGenerate 3-4 orphan pages, 10-12 link equity entries, and 5-6 improvement steps.` },

@@ -56,7 +56,7 @@ export default function CannibalizationDetector() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a keyword cannibalization detection expert. Return JSON only.' },
           { role: 'user', content: `Detect keyword cannibalization between these URLs:

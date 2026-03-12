@@ -16,7 +16,7 @@ export async function estimateKeywordDifficulty(
   searchVolume?: number | null
 ): Promise<DifficultyResult> {
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'gpt-5-nano',
     messages: [
       {
         role: 'system',
@@ -50,7 +50,7 @@ export async function batchEstimateDifficulty(
   keywords: { keyword: string; searchVolume?: number | null }[]
 ): Promise<DifficultyResult[]> {
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'gpt-5-nano',
     messages: [
       {
         role: 'system',

@@ -59,7 +59,7 @@ export default function SeoKnowledgeBase() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO expert. Give concise, practical answers about SEO concepts, best practices, and strategies. Use bullet points where helpful. Keep answers under 200 words.' },
           { role: 'user', content: aiQuery },

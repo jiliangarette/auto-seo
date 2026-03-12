@@ -80,7 +80,7 @@ export default function ContentAbTest() {
     try {
       const variantList = valid.map((v, i) => `Variant ${String.fromCharCode(65 + i)}:\nTitle: ${v.title}\nDescription: ${v.description || '(none)'}`).join('\n\n');
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a CTR prediction expert for SEO. Predict click-through rates for title/description variants. Return JSON only.' },
           { role: 'user', content: `Target keyword: "${keyword}"

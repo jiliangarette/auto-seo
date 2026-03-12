@@ -39,7 +39,7 @@ export default function SearchFeatureOptimizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a SERP features optimization expert. Return JSON only.' },
           { role: 'user', content: `Analyze SERP features for: ${keyword}\n\nReturn JSON:\n{\n  "keyword": "${keyword}",\n  "summary": "SERP features overview",\n  "features": [\n    {\n      "feature": "Featured Snippet|People Also Ask|Rich Results|Image Pack|Video Carousel|Knowledge Panel|Local Pack|Top Stories",\n      "available": boolean,\n      "currentOwner": "who currently owns this feature",\n      "difficulty": "easy"|"medium"|"hard",\n      "contentFormat": "required content format",\n      "implementationSteps": ["step 1", "step 2", "step 3"]\n    }\n  ],\n  "competitorOwnership": [\n    { "competitor": "competitor name", "features": ["feature 1", "feature 2"] }\n  ],\n  "recommendations": ["rec 1", "rec 2", "rec 3"]\n}\n\nGenerate 6 SERP features, 3 competitors, and 4 recommendations.` },

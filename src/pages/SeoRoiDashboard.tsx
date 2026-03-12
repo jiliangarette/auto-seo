@@ -26,7 +26,7 @@ export default function SeoRoiDashboard() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO ROI analyst. Return JSON only.' },
           { role: 'user', content: `Analyze SEO ROI:\nCampaign: ${campaign}\nMonthly Budget: ${budget}\n\nReturn JSON:\n{\n  "campaign": "${campaign}",\n  "summary": "ROI analysis overview",\n  "cpcEstimates": [\n    { "keyword": "keyword", "cpc": "$X.XX", "monthlyClicks": number, "cost": "$X" }\n  ],\n  "channelAttribution": [\n    { "channel": "channel name", "revenue": "$X", "roi": "X%", "share": number(0-100) }\n  ],\n  "monthlyTrends": [\n    { "month": "Month", "spend": "$X", "revenue": "$X", "roi": "X%" }\n  ],\n  "projections": [\n    { "metric": "metric name", "current": "value", "projected": "value", "change": "+X%" }\n  ]\n}\n\nGenerate 6 keywords, 4 channels, 6 months of trends, and 4 projections.` },

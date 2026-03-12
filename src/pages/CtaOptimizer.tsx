@@ -41,7 +41,7 @@ export default function CtaOptimizer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a CTA optimization expert specializing in conversion rate optimization. Return JSON only.' },
           { role: 'user', content: `Analyze and optimize this CTA:

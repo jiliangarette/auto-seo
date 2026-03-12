@@ -36,7 +36,7 @@ export default function HreflangTagGenerator() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an international SEO and hreflang expert. Return JSON only.' },
           { role: 'user', content: `Generate hreflang tags for these pages:\n${pages}\n\nReturn JSON:\n{\n  "summary": "hreflang implementation overview",\n  "tags": [\n    { "url": "https://example.com/en/page", "hreflang": "en-us", "language": "English", "region": "United States" }\n  ],\n  "htmlOutput": "complete HTML <link> tags for <head>",\n  "xmlOutput": "complete XML sitemap hreflang entries",\n  "validationIssues": [\n    { "type": "error"|"warning", "message": "issue description" }\n  ]\n}\n\nGenerate correct bidirectional hreflang references including x-default. Validate all references are bidirectional.` },

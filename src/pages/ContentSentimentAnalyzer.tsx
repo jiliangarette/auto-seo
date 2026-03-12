@@ -38,7 +38,7 @@ export default function ContentSentimentAnalyzer() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are a content sentiment and emotional analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze content sentiment:\n\n${content}\n\nReturn JSON:\n{\n  "overallSentiment": "positive"|"neutral"|"negative",\n  "overallScore": number(-100 to 100),\n  "summary": "sentiment overview",\n  "emotionalTone": "detected emotional tone",\n  "paragraphs": [\n    { "text": "first 50 chars of paragraph...", "sentiment": "positive"|"neutral"|"negative", "emotion": "detected emotion", "engagementScore": number(0-100) }\n  ],\n  "adjustments": [\n    { "current": "current phrasing", "suggested": "improved phrasing", "reason": "why this change" }\n  ],\n  "audienceMatch": "how well the tone matches typical reader expectations"\n}\n\nAnalyze each paragraph (or create 4-5 segments if short). Provide 3 tone adjustments.` },

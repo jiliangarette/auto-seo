@@ -34,7 +34,7 @@ export default function MetaDescriptionBulk() {
     setLoading(true);
     try {
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-nano',
         messages: [
           { role: 'system', content: 'You are an SEO copywriter. Return JSON only.' },
           { role: 'user', content: `Generate unique meta descriptions for these pages:\n${input}\n\nReturn JSON:\n{\n  "descriptions": [\n    { "title": "page title", "url": "page url", "description": "meta description (aim for 150-160 chars)", "charCount": number, "status": "optimal"|"too-short"|"too-long" }\n  ],\n  "summary": "overview"\n}\n\nEach description should be unique, include a call-to-action, and be between 150-160 characters. Mark as optimal (150-160), too-short (<150), or too-long (>160).` },
