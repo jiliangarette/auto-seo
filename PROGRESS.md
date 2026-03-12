@@ -560,4 +560,38 @@
 
 **All 14 Phases complete (Modules 1-80). 335/335 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-14: 335/335, build: pass -->
+---
+
+## Phase 15 — Local SEO & Advanced Link Building
+
+### Module 81: Local SEO Checker
+- [ ] Input business name + location
+- [ ] NAP consistency analysis (Name, Address, Phone)
+- [ ] Google Business Profile optimization tips
+- [ ] Local citation opportunity finder
+
+### Module 82: Broken Link Finder
+- [ ] Input URLs or sitemap for broken link scan
+- [ ] Detect 404s, timeouts, and server errors
+- [ ] Categorize by internal vs external
+- [ ] Generate fix/redirect recommendations
+
+### Module 83: Content Pillar Planner
+- [ ] Input core topic for pillar strategy
+- [ ] AI-generate pillar page + cluster topics
+- [ ] Internal linking map between pieces
+- [ ] Content production timeline
+
+### Module 84: Competitor Content Tracker
+- [ ] Monitor competitor publishing frequency
+- [ ] Track new pages and content updates
+- [ ] Content type distribution analysis
+- [ ] Trending topic alerts
+
+### Module 85: SEO Checklist Generator
+- [ ] Select page type (blog, product, landing)
+- [ ] Generate customized SEO checklist
+- [ ] Interactive checkbox completion tracking
+- [ ] Export checklist as markdown
+
+<!-- watchdog: 2026-03-13 — Phases 1-14: 335/335, Phase 15: 0/20, build: pass -->
