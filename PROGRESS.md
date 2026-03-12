@@ -636,4 +636,38 @@
 
 **All 16 Phases complete (Modules 1-90). 375/375 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-16: 375/375, build: pass -->
+---
+
+## Phase 17 — Content Operations & Link Intelligence
+
+### Module 91: Content Brief Templates
+- [ ] Select from pre-built brief templates (blog, pillar, product)
+- [ ] Customize template fields and sections
+- [ ] AI-populate brief from topic keyword
+- [ ] Save and reuse custom templates
+
+### Module 92: Topical Map Generator
+- [ ] Input seed topic for topical map
+- [ ] AI-generate hierarchical topic clusters
+- [ ] Visualize topic relationships as tree structure
+- [ ] Export topical map as JSON
+
+### Module 93: SERP Feature Tracker
+- [ ] Input keywords to track SERP features
+- [ ] Detect featured snippets, PAA, local packs, images
+- [ ] Opportunity scoring per SERP feature type
+- [ ] Historical feature presence tracking
+
+### Module 94: Duplicate Content Checker
+- [ ] Input multiple URLs or paste content blocks
+- [ ] AI-detect similarity percentage between pages
+- [ ] Flag near-duplicate and exact-duplicate content
+- [ ] Consolidation and canonical recommendations
+
+### Module 95: Meta Description Bulk Generator
+- [ ] Input page titles and URLs in bulk
+- [ ] AI-generate unique meta descriptions per page
+- [ ] Character count validation (155-160 chars)
+- [ ] Copy all as CSV or HTML snippets
+
+<!-- watchdog: 2026-03-13 — Phases 1-16: 375/375, Phase 17: 0/20, build: pass -->
