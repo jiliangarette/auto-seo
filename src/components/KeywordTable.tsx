@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useKeywords, useAddKeyword, useDeleteKeyword } from '@/hooks/useKeywords';
+import { useKeywords, useAddKeyword, useUpdateKeyword, useDeleteKeyword } from '@/hooks/useKeywords';
+import { useConfirm } from '@/components/ConfirmDialog';
 import { estimateKeywordDifficulty, batchEstimateDifficulty } from '@/lib/keyword-difficulty';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,7 +27,11 @@ const difficultyColors = {
 export default function KeywordTable({ projectId }: { projectId: string }) {
   const { data: keywords, isLoading } = useKeywords(projectId);
   const addKeyword = useAddKeyword();
+  const updateKeyword = useUpdateKeyword();
   const deleteKeyword = useDeleteKeyword();
+  const { confirm, dialog: confirmDialog } = useConfirm();
+  const [editingCell, setEditingCell] = useState<{ id: string; field: 'position' | 'search_volume' } | null>(null);
+  const [editValue, setEditValue] = useState('');
 
   const [showForm, setShowForm] = useState(false);
   const [keyword, setKeyword] = useState('');
@@ -109,6 +114,35 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
     } finally {
       setBatchChecking(false);
     }
+  };
+
+  const startEdit = (id: string, field: 'position' | 'search_volume', currentValue: number | null) => {
+    setEditingCell({ id, field });
+    setEditValue(currentValue?.toString() ?? '');
+  };
+
+  const saveEdit = async () => {
+    if (!editingCell) return;
+    const val = editValue ? parseInt(editValue) : null;
+    try {
+      await updateKeyword.mutateAsync({
+        id: editingCell.id,
+        projectId,
+        ...(editingCell.field === 'position' ? { position: val ?? undefined } : { searchVolume: val ?? undefined }),
+      });
+    } catch {
+      toast.error('Failed to update');
+    }
+    setEditingCell(null);
+  };
+
+  const handleDelete = async (id: string, name: string) => {
+    const ok = await confirm({
+      title: 'Delete keyword?',
+      description: `Remove "${name}" from this project. This cannot be undone.`,
+      confirmLabel: 'Delete',
+    });
+    if (ok) deleteKeyword.mutate({ id, projectId });
   };
 
   const toggleSort = (field: SortField) => {
@@ -251,8 +285,48 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
                   return (
                     <tr key={kw.id} className="border-b border-border/50">
                       <td className="py-2 font-medium">{kw.keyword}</td>
-                      <td className="py-2">{kw.position ?? '—'}</td>
-                      <td className="py-2">{kw.search_volume ?? '—'}</td>
+                      <td className="py-2">
+                        {editingCell?.id === kw.id && editingCell.field === 'position' ? (
+                          <input
+                            type="number"
+                            className="w-16 rounded border border-primary bg-background px-1.5 py-0.5 text-sm"
+                            value={editValue}
+                            onChange={(e) => setEditValue(e.target.value)}
+                            onBlur={saveEdit}
+                            onKeyDown={(e) => e.key === 'Enter' && saveEdit()}
+                            autoFocus
+                          />
+                        ) : (
+                          <span
+                            className="cursor-pointer rounded px-1 py-0.5 hover:bg-muted transition-colors"
+                            onClick={() => startEdit(kw.id, 'position', kw.position)}
+                            title="Click to edit"
+                          >
+                            {kw.position ?? '—'}
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-2">
+                        {editingCell?.id === kw.id && editingCell.field === 'search_volume' ? (
+                          <input
+                            type="number"
+                            className="w-20 rounded border border-primary bg-background px-1.5 py-0.5 text-sm"
+                            value={editValue}
+                            onChange={(e) => setEditValue(e.target.value)}
+                            onBlur={saveEdit}
+                            onKeyDown={(e) => e.key === 'Enter' && saveEdit()}
+                            autoFocus
+                          />
+                        ) : (
+                          <span
+                            className="cursor-pointer rounded px-1 py-0.5 hover:bg-muted transition-colors"
+                            onClick={() => startEdit(kw.id, 'search_volume', kw.search_volume)}
+                            title="Click to edit"
+                          >
+                            {kw.search_volume ?? '—'}
+                          </span>
+                        )}
+                      </td>
                       <td className="py-2">
                         {diff ? (
                           <span
@@ -286,7 +360,7 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
                         <Button
                           variant="ghost"
                           size="icon-xs"
-                          onClick={() => deleteKeyword.mutate({ id: kw.id, projectId })}
+                          onClick={() => handleDelete(kw.id, kw.keyword)}
                         >
                           <Trash2 className="size-3 text-destructive" />
                         </Button>
@@ -299,6 +373,7 @@ export default function KeywordTable({ projectId }: { projectId: string }) {
           </div>
         )}
       </CardContent>
+      {confirmDialog}
     </Card>
   );
 }

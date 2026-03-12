@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { Shield, AlertTriangle, AlertCircle, Info, Save } from 'lucide-react';
+import StepIndicator from '@/components/StepIndicator';
 
 const severityConfig = {
   critical: { icon: AlertCircle, color: 'text-red-400', bg: 'bg-red-950/20', border: 'border-red-900/30' },
@@ -69,6 +70,7 @@ export default function SiteAudit() {
   };
 
   const filtered = result?.issues.filter((i) => filter === 'all' || i.severity === filter) ?? [];
+  const auditStep = result ? 2 : loading ? 1 : 0;
 
   return (
     <div className="min-h-screen bg-background p-8">
@@ -80,6 +82,8 @@ export default function SiteAudit() {
           </h1>
           <p className="text-muted-foreground">Comprehensive technical SEO audit</p>
         </div>
+
+        <StepIndicator steps={['Enter URL', 'Analyzing', 'Review & Save']} current={auditStep} />
 
         <Card>
           <CardHeader>
