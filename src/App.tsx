@@ -97,6 +97,7 @@ const DuplicateContentChecker = lazy(() => import('@/pages/DuplicateContentCheck
 const MetaDescriptionBulk = lazy(() => import('@/pages/MetaDescriptionBulk'));
 const KeywordIntentClassifier = lazy(() => import('@/pages/KeywordIntentClassifier'));
 const PageTitleOptimizer = lazy(() => import('@/pages/PageTitleOptimizer'));
+const InternalLinkAudit = lazy(() => import('@/pages/InternalLinkAudit'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -801,6 +802,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/link-audit"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><InternalLinkAudit /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
