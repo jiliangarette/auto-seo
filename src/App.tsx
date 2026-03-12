@@ -117,6 +117,7 @@ const EntitySeoOptimizer = lazy(() => import('@/pages/EntitySeoOptimizer'));
 const SeoCompetitorPlaybook = lazy(() => import('@/pages/SeoCompetitorPlaybook'));
 const TopicalAuthorityScore = lazy(() => import('@/pages/TopicalAuthorityScore'));
 const SeoForecaster = lazy(() => import('@/pages/SeoForecaster'));
+const SearchIntentMapper = lazy(() => import('@/pages/SearchIntentMapper'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -841,6 +842,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/search-intent-mapper"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SearchIntentMapper /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

@@ -845,16 +845,16 @@
 - [x] Required content and link velocity estimates
 
 ### Module 118: Content Repurposer
-- [ ] Input existing content for repurposing
-- [ ] AI-generate multiple format versions (blog to video script, infographic outline, podcast notes)
-- [ ] Platform-optimized adaptations
-- [ ] Distribution calendar suggestions
+- [x] Input existing content for repurposing
+- [x] AI-generate multiple format versions (blog to video script, infographic outline, podcast notes)
+- [x] Platform-optimized adaptations
+- [x] Distribution calendar suggestions
 
 ### Module 119: Search Intent Mapper
-- [ ] Input keyword list for intent mapping
-- [ ] Map keywords to funnel stages (TOFU, MOFU, BOFU)
-- [ ] Suggest optimal content formats per stage
-- [ ] Visual funnel with keyword distribution
+- [x] Input keyword list for intent mapping
+- [x] Map keywords to funnel stages (TOFU, MOFU, BOFU)
+- [x] Suggest optimal content formats per stage
+- [x] Visual funnel with keyword distribution
 
 ### Module 120: SEO Migration Planner
 - [ ] Input old and new URL structures
