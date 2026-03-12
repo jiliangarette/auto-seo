@@ -106,6 +106,7 @@ const KeywordCannibalizationMap = lazy(() => import('@/pages/KeywordCannibalizat
 const SeoWorkflowAutomator = lazy(() => import('@/pages/SeoWorkflowAutomator'));
 const CompetitorSerpTracker = lazy(() => import('@/pages/CompetitorSerpTracker'));
 const ContentCalendarAi = lazy(() => import('@/pages/ContentCalendarAi'));
+const SeoAbTestPlanner = lazy(() => import('@/pages/SeoAbTestPlanner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -830,6 +831,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-ab-test"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoAbTestPlanner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

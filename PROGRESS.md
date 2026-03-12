@@ -763,10 +763,10 @@
 - [x] Export calendar as CSV
 
 ### Module 107: SEO A/B Test Planner
-- [ ] Input page URL and test hypothesis
-- [ ] AI-generate test variants (title, meta, content)
-- [ ] Statistical significance calculator
-- [ ] Test result documentation template
+- [x] Input page URL and test hypothesis
+- [x] AI-generate test variants (title, meta, content)
+- [x] Statistical significance calculator
+- [x] Test result documentation template
 
 ### Module 108: Backlink Gap Analyzer
 - [ ] Input your domain + competitor domains

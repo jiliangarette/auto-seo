@@ -123,6 +123,7 @@ const navItems = [
   { label: 'Workflows', path: '/workflows', icon: Wand2 },
   { label: 'SERP Tracker', path: '/serp-tracker', icon: BarChart3 },
   { label: 'Calendar AI', path: '/content-calendar-ai', icon: CalendarDays },
+  { label: 'A/B Test', path: '/seo-ab-test', icon: Swords },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
