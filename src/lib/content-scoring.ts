@@ -51,7 +51,6 @@ Return JSON:
 - checklist: [{ item, passed (bool), priority (high/medium/low) }] — 8-12 actionable items`,
       },
     ],
-    temperature: 0.5,
   });
 
   const raw = response.choices[0].message.content ?? '{}';

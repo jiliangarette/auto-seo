@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { openai } from '@/integrations/openai/client';
+import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -39,9 +40,9 @@ export default function AiMetaTagOptimizer() {
       const u = targetUrl.startsWith('http') ? targetUrl : `https://${targetUrl}`;
       let siteData = '';
       try {
-        const res = await fetch(u, { signal: AbortSignal.timeout(10000) });
-        const html = await res.text();
-        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const { html, ok } = await fetchSiteHtml(u);
+        if (!ok) throw new Error('fetch failed');
+        const doc = parseHtml(html);
         const title = doc.querySelector('title')?.textContent?.trim() ?? '';
         const meta = doc.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
         const h1s = Array.from(doc.querySelectorAll('h1')).map(e => e.textContent?.trim()).filter(Boolean);
@@ -57,7 +58,6 @@ export default function AiMetaTagOptimizer() {
           { role: 'system', content: 'You are a meta tag optimization expert. Analyze current meta tags and generate better A/B variations. Return JSON only.' },
           { role: 'user', content: `Optimize meta tags for this page:\n\n${siteData}\n\nReturn JSON:\n{"url":"${targetUrl}","currentTitle":"current title","currentDescription":"current meta","currentScore":0-100,"issues":["issue1"],"variations":[{"title":"optimized title 50-60ch","description":"optimized desc 150-160ch","predictedCtr":0-100,"reasoning":"why better"}],"bestPick":0}\n\nGenerate 3 variations. Score the current tags honestly based on real data.` },
         ],
-        temperature: 0.4,
         response_format: { type: 'json_object' },
       });
       setResult(JSON.parse(response.choices[0].message.content ?? '{}'));

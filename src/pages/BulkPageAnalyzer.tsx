@@ -39,7 +39,6 @@ export default function BulkPageAnalyzer() {
           { role: 'system', content: 'You are a bulk SEO analysis expert. Return JSON only.' },
           { role: 'user', content: `Perform batch SEO analysis on these URLs:\n${urls}\n\nReturn JSON:\n{\n  "summary": "batch analysis overview",\n  "pages": [\n    {\n      "url": "page URL",\n      "title": "page title",\n      "titleScore": number(0-100),\n      "metaScore": number(0-100),\n      "headingScore": number(0-100),\n      "contentScore": number(0-100),\n      "overallScore": number(0-100),\n      "issues": ["issue 1", "issue 2"]\n    }\n  ],\n  "averageScore": number\n}\n\nAnalyze each URL with realistic scores and specific issues found.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -40,7 +40,6 @@ export default function EcommerceSeoAnalyzer() {
           { role: 'system', content: 'You are an e-commerce SEO expert. Return JSON only.' },
           { role: 'user', content: `Analyze e-commerce SEO for: ${url}\n\nReturn JSON:\n{\n  "url": "${url}",\n  "summary": "e-commerce SEO overview",\n  "overallScore": number(0-100),\n  "productChecks": [\n    { "check": "check name", "status": "pass"|"warning"|"fail", "details": "what was found", "fix": "how to fix" }\n  ],\n  "categoryOptimizations": [\n    { "category": "category page type", "suggestion": "optimization suggestion" }\n  ],\n  "merchantReadiness": [\n    { "requirement": "merchant center requirement", "status": "ready|partial|missing", "action": "what to do" }\n  ],\n  "recommendations": ["rec 1", "rec 2"]\n}\n\nGenerate 8 product checks, 4 category optimizations, 4 merchant requirements, and 4 recommendations.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

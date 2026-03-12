@@ -35,7 +35,6 @@ export default function KeywordClusteringPro() {
           { role: 'system', content: 'You are a keyword clustering expert. Return JSON only.' },
           { role: 'user', content: `Cluster these keywords by semantic similarity and intent:\n${keywords}\n\nReturn JSON:\n{\n  "summary": "clustering overview",\n  "clusters": [\n    {\n      "clusterName": "cluster topic name",\n      "intent": "informational|commercial|transactional",\n      "keywords": ["kw1", "kw2", "kw3"],\n      "suggestedPage": "page type to target this cluster",\n      "searchVolume": "estimated combined volume range"\n    }\n  ],\n  "totalKeywords": number,\n  "totalClusters": number\n}\n\nGroup semantically related keywords together. Create 5-10 clusters depending on keyword diversity.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -79,7 +79,6 @@ Return JSON:
   "suggestions": ["suggestion1", "suggestion2"]
 }` },
         ],
-        temperature: 0.3,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

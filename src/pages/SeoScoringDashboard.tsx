@@ -88,7 +88,6 @@ Return JSON:
 
 Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

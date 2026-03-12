@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { openai } from '@/integrations/openai/client';
+import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,9 +18,9 @@ interface GapResult {
 async function fetchSiteContext(url: string): Promise<string> {
   const u = url.startsWith('http') ? url : `https://${url}`;
   try {
-    const res = await fetch(u, { signal: AbortSignal.timeout(10000) });
-    const html = await res.text();
-    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const { html, ok } = await fetchSiteHtml(u);
+    if (!ok) throw new Error('fetch failed');
+    const doc = parseHtml(html);
     const title = doc.querySelector('title')?.textContent?.trim() ?? '';
     const meta = doc.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
     const h1s = Array.from(doc.querySelectorAll('h1')).map(e => e.textContent?.trim()).filter(Boolean).slice(0, 5);
@@ -48,7 +49,6 @@ export default function KeywordGapFinder() {
           { role: 'system', content: 'You are an SEO keyword gap analyst. Compare two sites and find keywords the competitor targets that the user\'s site misses. Return JSON only.' },
           { role: 'user', content: `Find keyword gaps between these two sites.\n\nYOUR SITE:\n${yourCtx}\n\nCOMPETITOR:\n${compCtx}\n\nReturn JSON:\n{"yourSite":"${yourSite}","competitor":"${competitor}","summary":"brief analysis","gaps":[{"keyword":"keyword","volume":"estimated monthly searches","difficulty":"easy/medium/hard","opportunityScore":0-100,"competitorPosition":"how competitor uses it","suggestedContent":"what to write"}],"quickWins":[{"keyword":"keyword","reason":"why easy","action":"specific action"}]}\n\nGenerate 10 gaps and 3 quick wins. Base analysis on actual content found.` },
         ],
-        temperature: 0.3,
         response_format: { type: 'json_object' },
       });
       setResult(JSON.parse(response.choices[0].message.content ?? '{}'));

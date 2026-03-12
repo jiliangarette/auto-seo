@@ -50,7 +50,6 @@ export default function SeoTrendAnalyzer() {
           { role: 'system', content: 'You are an SEO trend analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze SEO trends for niche: ${niche}\n\nReturn JSON:\n{\n  "niche": "${niche}",\n  "summary": "trend analysis overview",\n  "trends": [\n    { "topic": "trend topic", "momentum": "rising"|"stable"|"declining", "opportunity": "high"|"medium"|"low", "description": "trend details", "actionItem": "what to do" }\n  ],\n  "seasonalPatterns": [\n    { "period": "time period", "trend": "what happens", "recommendation": "how to capitalize" }\n  ],\n  "competitorComparison": [\n    { "competitor": "competitor name", "trendAdoption": "how they use this trend", "gap": "your opportunity" }\n  ],\n  "predictions": ["prediction 1", "prediction 2", "prediction 3"]\n}\n\nGenerate 6 trends, 4 seasonal patterns, 3 competitor comparisons, and 4 predictions.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

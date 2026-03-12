@@ -49,7 +49,6 @@ export default function BacklinkQualityScorer() {
           { role: 'system', content: 'You are a backlink quality analysis expert. Return JSON only.' },
           { role: 'user', content: `Score backlink profile for: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "backlink profile overview",\n  "totalBacklinks": number,\n  "averageQuality": number(0-100),\n  "backlinks": [\n    { "url": "backlink source URL", "domain": "source domain", "authorityScore": number(0-100), "relevanceScore": number(0-100), "overallQuality": "excellent"|"good"|"moderate"|"toxic", "anchorText": "anchor text used", "followType": "dofollow"|"nofollow", "recommendation": "keep|monitor|disavow" }\n  ],\n  "toxicLinks": [\n    { "url": "toxic link URL", "reason": "why it's toxic", "action": "recommended action" }\n  ],\n  "acquisitionPriority": [\n    { "source": "target site", "type": "guest post|resource|broken link", "difficulty": "easy|medium|hard" }\n  ]\n}\n\nGenerate 8 backlinks, 2 toxic links, and 4 acquisition targets.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

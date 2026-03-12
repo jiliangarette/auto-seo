@@ -64,7 +64,6 @@ export default function TopicalMapGenerator() {
           { role: 'system', content: 'You are a topical authority expert. Return JSON only.' },
           { role: 'user', content: `Generate a topical map for: "${seed}"\n\nReturn JSON:\n{\n  "seedTopic": "${seed}",\n  "rootNode": {\n    "topic": "Main Topic",\n    "keyword": "primary keyword",\n    "searchVolume": "10K-50K",\n    "children": [\n      {\n        "topic": "Subtopic 1",\n        "keyword": "subtopic keyword",\n        "searchVolume": "1K-5K",\n        "children": [\n          { "topic": "Sub-subtopic", "keyword": "long-tail keyword", "searchVolume": "100-500", "children": [] }\n        ]\n      }\n    ]\n  },\n  "totalTopics": number,\n  "summary": "topical map overview"\n}\n\nGenerate a 3-level deep hierarchy with 4-5 main subtopics, each having 2-3 sub-subtopics. Total 20-25 topics.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

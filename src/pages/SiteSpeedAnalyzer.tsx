@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { openai } from '@/integrations/openai/client';
+import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -58,10 +59,10 @@ export default function SiteSpeedAnalyzer() {
       let siteData = '';
       try {
         const start = performance.now();
-        const res = await fetch(u, { signal: AbortSignal.timeout(15000) });
-        const html = await res.text();
+        const { html, ok } = await fetchSiteHtml(u);
+        if (!ok) throw new Error('fetch failed');
         const loadMs = Math.round(performance.now() - start);
-        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const doc = parseHtml(html);
         const cssCount = doc.querySelectorAll('link[rel="stylesheet"]').length;
         const jsCount = doc.querySelectorAll('script[src]').length;
         const inlineJs = doc.querySelectorAll('script:not([src])').length;
@@ -82,7 +83,6 @@ export default function SiteSpeedAnalyzer() {
           { role: 'system', content: 'You are a web performance expert. Analyze site speed data and provide optimization recommendations. Return JSON only.' },
           { role: 'user', content: `Analyze performance for:\n\n${siteData}\n\nReturn JSON:\n{"url":"${url}","performanceScore":0-100,"loadTime":"Xms","pageSize":"XKB","requestCount":number,"summary":"brief","issues":[{"issue":"name","category":"category","impact":"high/medium/low","priority":1-10,"currentEstimate":"current","afterEstimate":"after fix","recommendation":"specific fix","effort":"easy/medium/hard"}],"coreWebVitals":[{"metric":"LCP/FID/CLS/FCP/TTFB","value":"value","rating":"good/needs-improvement/poor","target":"target value"}]}\n\nGenerate 6-8 issues sorted by priority and 5 Core Web Vitals. Base on real data found.` },
         ],
-        temperature: 0.3,
         response_format: { type: 'json_object' },
       });
       setResult(JSON.parse(response.choices[0].message.content ?? '{}'));

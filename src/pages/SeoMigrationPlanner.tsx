@@ -55,7 +55,6 @@ export default function SeoMigrationPlanner() {
           { role: 'system', content: 'You are an SEO migration specialist. Return JSON only.' },
           { role: 'user', content: `Create an SEO migration plan:\nOld URLs:\n${oldUrls}\nNew URLs:\n${newUrls || 'auto-suggest new structure'}\n\nReturn JSON:\n{\n  "summary": "migration plan overview",\n  "redirects": [\n    { "oldUrl": "/old-path", "newUrl": "/new-path", "type": "301"|"302", "priority": "critical"|"high"|"medium"|"low" }\n  ],\n  "risks": [\n    { "risk": "risk description", "impact": "high"|"medium"|"low", "mitigation": "how to mitigate" }\n  ],\n  "checklist": [\n    { "phase": "pre"|"during"|"post", "task": "task description", "critical": boolean }\n  ],\n  "estimatedTrafficImpact": "expected traffic impact description"\n}\n\nGenerate comprehensive redirect mappings, 4-5 risks, and 12-15 checklist items across all phases.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

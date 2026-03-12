@@ -36,7 +36,6 @@ export default function SeoAbTestPlanner() {
           { role: 'system', content: 'You are an SEO A/B testing expert. Return JSON only.' },
           { role: 'user', content: `Create an SEO A/B test plan:\nPage URL: ${url}\nHypothesis: ${hypothesis || 'Improve organic CTR'}\n\nReturn JSON:\n{\n  "hypothesis": "refined hypothesis statement",\n  "variants": [\n    { "label": "Control (A)", "title": "current title", "metaDescription": "current meta", "changes": "no changes" },\n    { "label": "Variant B", "title": "optimized title", "metaDescription": "optimized meta", "changes": "what changed and why" },\n    { "label": "Variant C", "title": "another option", "metaDescription": "another meta", "changes": "what changed and why" }\n  ],\n  "calculator": { "sampleSize": number, "duration": "estimated test duration", "confidenceLevel": "95%" },\n  "template": "markdown template for documenting test results"\n}` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

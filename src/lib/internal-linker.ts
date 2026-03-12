@@ -37,7 +37,6 @@ Return JSON with:
 - updatedContent: the full article with internal links added as HTML <a> tags pointing to the target pages`,
       },
     ],
-    temperature: 0.7,
   });
 
   const text = response.choices[0].message.content ?? '{}';

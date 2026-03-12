@@ -48,7 +48,6 @@ export async function analyzeCompetitor(
         content: `Compare these two websites from an SEO perspective:\n\nYour site: ${yourUrl}\nCompetitor: ${competitorName} (${competitorUrl})\n\nAnalyze their likely SEO strategies, content approaches, and competitive positioning.`,
       },
     ],
-    temperature: 0.3,
     response_format: { type: 'json_object' },
   });
 

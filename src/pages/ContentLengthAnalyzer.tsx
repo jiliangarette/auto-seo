@@ -44,7 +44,6 @@ export default function ContentLengthAnalyzer() {
           { role: 'system', content: 'You are a content strategy expert. Return JSON only.' },
           { role: 'user', content: `Analyze content length for:\n${input}\nTarget keyword: ${keyword || 'general'}\n\nReturn JSON:\n{\n  "analyses": [\n    { "url": "page url or label", "wordCount": number, "competitorAvg": number, "optimalRange": "1500-2000 words", "status": "optimal"|"too-short"|"too-long", "depthScore": number(0-100), "recommendation": "what to do" }\n  ],\n  "overallRecommendation": "general advice",\n  "summary": "overview"\n}\n\nGenerate 6-8 content analyses with realistic word counts and competitor comparisons.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

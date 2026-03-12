@@ -44,7 +44,6 @@ export default function TopicalAuthorityScore() {
           { role: 'system', content: 'You are a topical authority SEO expert. Return JSON only.' },
           { role: 'user', content: `Calculate topical authority score:\nDomain: ${domain || 'not specified'}\nTopic: ${topic}\n\nReturn JSON:\n{\n  "domain": "${domain || 'your-site.com'}",\n  "topic": "${topic}",\n  "authorityScore": number(0-100),\n  "summary": "topical authority analysis",\n  "subtopicGaps": [\n    { "subtopic": "subtopic name", "coverage": number(0-100), "priority": "high"|"medium"|"low", "suggestedContent": "content to create" }\n  ],\n  "roadmap": [\n    { "phase": "Phase 1: Foundation", "actions": ["action 1", "action 2"], "expectedImpact": "impact description" }\n  ]\n}\n\nGenerate 8-10 subtopic gaps and 3-4 roadmap phases.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

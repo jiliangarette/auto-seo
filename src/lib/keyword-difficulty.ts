@@ -38,7 +38,6 @@ Return JSON:
 - reasoning: 1-2 sentence explanation`,
       },
     ],
-    temperature: 0.7,
   });
 
   const text = response.choices[0].message.content ?? '{}';
@@ -66,7 +65,6 @@ Return a JSON array where each item has:
 - keyword, difficulty ("easy"/"medium"/"hard"), score (1-100), competition, domainAuthorityNeeded, contentQualityRequired, opportunityScore (1-100), reasoning`,
       },
     ],
-    temperature: 0.7,
   });
 
   const text = response.choices[0].message.content ?? '[]';

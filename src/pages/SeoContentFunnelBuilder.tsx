@@ -50,7 +50,6 @@ export default function SeoContentFunnelBuilder() {
           { role: 'system', content: 'You are a content funnel strategy expert. Return JSON only.' },
           { role: 'user', content: `Build content funnel:\nNiche: ${niche}\nProduct/Service: ${product}\n\nReturn JSON:\n{\n  "niche": "${niche}",\n  "summary": "funnel strategy overview",\n  "stages": [\n    {\n      "stage": "TOFU"|"MOFU"|"BOFU",\n      "label": "Top of Funnel|Middle of Funnel|Bottom of Funnel",\n      "intent": "user intent at this stage",\n      "contentIdeas": [\n        { "title": "content title", "format": "blog|guide|comparison|case study|landing page", "keyword": "target keyword", "searchVolume": "estimated volume" }\n      ],\n      "conversionGoal": "what you want users to do"\n    }\n  ],\n  "conversionPath": ["step 1 in conversion journey", "step 2"],\n  "optimizations": ["optimization tip 1", "tip 2"]\n}\n\nGenerate 3 funnel stages with 3 content ideas each, 4 conversion path steps, and 3 optimizations.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

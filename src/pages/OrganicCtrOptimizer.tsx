@@ -42,7 +42,6 @@ export default function OrganicCtrOptimizer() {
           { role: 'system', content: 'You are an organic CTR optimization expert. Return JSON only.' },
           { role: 'user', content: `Optimize organic CTR:\nKeyword: ${keyword}\nSERP Position: ${position}\nCurrent CTR: ${currentCtr || 'unknown'}%\n\nReturn JSON:\n{\n  "keyword": "${keyword}",\n  "position": ${position},\n  "currentCtr": number,\n  "industryCtr": number,\n  "gap": "CTR gap description",\n  "summary": "CTR optimization overview",\n  "titleVariants": [\n    { "title": "optimized title", "predictedCtr": number, "improvement": "+X%", "technique": "technique used" }\n  ],\n  "descriptionSuggestions": [\n    { "description": "meta description", "predictedCtr": number }\n  ],\n  "projections": [\n    { "scenario": "scenario name", "ctrIncrease": "+X%", "additionalClicks": "X clicks/month" }\n  ]\n}\n\nGenerate 4 title variants, 3 descriptions, and 3 projections.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

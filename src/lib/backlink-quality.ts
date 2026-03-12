@@ -50,7 +50,6 @@ Return JSON:
 - opportunities: [{ type, description, difficulty (easy/medium/hard), expectedImpact (high/medium/low) }] — 5 backlink acquisition opportunities`,
       },
     ],
-    temperature: 0.5,
   });
 
   const raw = response.choices[0].message.content ?? '{}';

@@ -44,7 +44,6 @@ export default function BacklinkGapAnalyzer() {
           { role: 'system', content: 'You are a backlink analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze backlink gaps:\nYour domain: ${domain}\nCompetitor domains: ${competitors || 'auto-detect top 3 competitors'}\n\nReturn JSON:\n{\n  "yourDomain": "${domain}",\n  "competitors": ["comp1.com", "comp2.com"],\n  "prospects": [\n    { "domain": "prospect.com", "authority": number(1-100), "linksToCompetitors": number, "relevance": "why this site is relevant", "outreachDifficulty": "easy"|"medium"|"hard" }\n  ],\n  "summary": "gap analysis overview",\n  "totalGaps": number\n}\n\nGenerate 10-15 realistic prospect domains that would link to competitors in this niche but not to the user's domain.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

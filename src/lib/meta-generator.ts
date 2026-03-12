@@ -48,7 +48,6 @@ Return JSON with these fields:
 - htmlSnippet (complete HTML meta tags block ready to paste)`,
       },
     ],
-    temperature: 0.7,
   });
 
   const text = response.choices[0].message.content ?? '{}';

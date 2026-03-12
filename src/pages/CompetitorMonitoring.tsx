@@ -104,7 +104,6 @@ Return JSON:
 
 Generate 2-3 alerts per domain and realistic scan data.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

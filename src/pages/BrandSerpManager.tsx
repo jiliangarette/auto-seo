@@ -46,7 +46,6 @@ export default function BrandSerpManager() {
           { role: 'system', content: 'You are a brand SERP optimization expert. Return JSON only.' },
           { role: 'user', content: `Audit branded SERP for: ${brand}\n\nReturn JSON:\n{\n  "brand": "${brand}",\n  "summary": "brand SERP audit overview",\n  "overallSentiment": "mostly positive|mixed|concerning",\n  "ownedPercentage": number,\n  "results": [\n    { "position": number, "title": "result title", "url": "url", "type": "website|social|review|news|directory|competitor", "sentiment": "positive"|"neutral"|"negative", "owned": boolean }\n  ],\n  "negativeResults": [\n    { "url": "negative result URL", "issue": "what's wrong", "action": "how to address" }\n  ],\n  "optimizationPlan": ["step 1", "step 2", "step 3"]\n}\n\nGenerate 10 SERP results for the brand query. Include a mix of owned and unowned results.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -1,4 +1,5 @@
 import { openai } from '@/integrations/openai/client';
+import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import type { AuditIssue } from '@/types/database';
 
 export interface SiteAuditResult {
@@ -52,17 +53,13 @@ async function fetchSiteData(inputUrl: string): Promise<SiteData> {
   const normalizedUrl = inputUrl.startsWith('http') ? inputUrl : `https://${inputUrl}`;
   const startTime = performance.now();
 
-  const response = await fetch(normalizedUrl, {
-    redirect: 'follow',
-    signal: AbortSignal.timeout(15000),
-  });
+  const { html, finalUrl, ok } = await fetchSiteHtml(normalizedUrl);
+  if (!ok || !html) throw new Error(`Could not fetch ${normalizedUrl} — the site may be blocking requests`);
 
   const loadTimeMs = Math.round(performance.now() - startTime);
-  const html = await response.text();
   const contentLength = html.length;
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
+  const doc = parseHtml(html);
 
   const title = doc.querySelector('title')?.textContent?.trim() ?? '';
   const metaDesc = doc.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
@@ -78,7 +75,7 @@ async function fetchSiteData(inputUrl: string): Promise<SiteData> {
   const allLinks = doc.querySelectorAll('a[href]');
   let internalLinks = 0;
   let externalLinks = 0;
-  const urlObj = new URL(response.url);
+  const urlObj = new URL(finalUrl);
   allLinks.forEach(link => {
     const href = link.getAttribute('href') ?? '';
     if (href.startsWith('/') || href.startsWith('#') || href.includes(urlObj.hostname)) {
@@ -136,17 +133,17 @@ async function fetchSiteData(inputUrl: string): Promise<SiteData> {
   let hasSitemap = false;
   try {
     const sitemapUrl = `${urlObj.origin}/sitemap.xml`;
-    const sitemapRes = await fetch(sitemapUrl, { signal: AbortSignal.timeout(5000) });
-    hasSitemap = sitemapRes.ok && (await sitemapRes.text()).includes('<urlset');
+    const sitemapResult = await fetchSiteHtml(sitemapUrl);
+    hasSitemap = sitemapResult.ok && sitemapResult.html.includes('<urlset');
   } catch { /* sitemap not found */ }
 
   return {
     url: normalizedUrl,
-    finalUrl: response.url,
-    statusCode: response.status,
+    finalUrl,
+    statusCode: 200,
     loadTimeMs,
     contentLength,
-    isHttps: response.url.startsWith('https'),
+    isHttps: finalUrl.startsWith('https'),
     title,
     metaDescription: metaDesc,
     h1Tags,
@@ -220,7 +217,6 @@ export async function auditSite(url: string): Promise<SiteAuditResult> {
         content: `Analyze this REAL site data and provide an accurate SEO audit:\n\n${JSON.stringify(siteData, null, 2)}`,
       },
     ],
-    temperature: 0.2,
     response_format: { type: 'json_object' },
   });
 

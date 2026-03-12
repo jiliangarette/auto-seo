@@ -74,7 +74,6 @@ Return JSON:
   "tips": ["optimization tip 1", "tip 2", ...]
 }` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -38,7 +38,6 @@ export default function SeoForecaster() {
           { role: 'system', content: 'You are an SEO growth forecasting expert. Return JSON only.' },
           { role: 'user', content: `Generate 12-month SEO traffic forecast:\nCurrent monthly traffic: ${traffic}\nGrowth target: ${target || '2x current'}\nNiche: ${niche || 'general'}\n\nReturn JSON:\n{\n  "summary": "forecast overview",\n  "currentTraffic": ${parseInt(traffic) || 5000},\n  "forecasts": [\n    { "month": "Month 1", "conservative": number, "moderate": number, "aggressive": number }\n  ],\n  "requirements": { "contentPerMonth": number, "backlinksPerMonth": number, "technicalFixes": number },\n  "milestones": [\n    { "target": "milestone description", "scenario": "conservative|moderate|aggressive", "eta": "Month X" }\n  ]\n}\n\nGenerate 12 months of forecasts and 3-4 milestones.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

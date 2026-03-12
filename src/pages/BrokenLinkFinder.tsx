@@ -51,7 +51,6 @@ export default function BrokenLinkFinder() {
           { role: 'system', content: 'You are a technical SEO expert. Return JSON only.' },
           { role: 'user', content: `Analyze this URL/sitemap for broken links:\n${url}\n\nReturn JSON:\n{\n  "totalLinks": number,\n  "brokenCount": number,\n  "links": [\n    { "url": "https://example.com/broken", "status": "404"|"timeout"|"server-error"|"redirect-loop"|"ok", "type": "internal"|"external", "foundOn": "page where link was found", "fix": "recommendation" }\n  ],\n  "summary": "overview"\n}\n\nGenerate 12-15 realistic link results with a mix of broken and ok statuses. Include 4-6 broken links with detailed fix recommendations.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

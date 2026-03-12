@@ -97,7 +97,6 @@ Predict CTR for each variant. Return JSON:
   "reasoning": "Why this variant wins"
 }` },
         ],
-        temperature: 0.4,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

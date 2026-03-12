@@ -1,4 +1,5 @@
 import { openai } from '@/integrations/openai/client';
+import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 
 export interface GeneratedContent {
   title: string;
@@ -25,10 +26,9 @@ export interface GenerateOptions {
 async function extractSiteContext(url: string): Promise<string> {
   const normalizedUrl = url.startsWith('http') ? url : `https://${url}`;
   try {
-    const res = await fetch(normalizedUrl, { signal: AbortSignal.timeout(10000) });
-    const html = await res.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+    const { html, ok } = await fetchSiteHtml(normalizedUrl);
+    if (!ok || !html) return `Site: ${normalizedUrl} (could not fetch — generate based on URL context)`;
+    const doc = parseHtml(html);
 
     const title = doc.querySelector('title')?.textContent?.trim() ?? '';
     const metaDesc = doc.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
@@ -85,7 +85,6 @@ Guidelines:
       },
       { role: 'user', content: userPrompt },
     ],
-    temperature: 0.7,
     response_format: { type: 'json_object' },
   });
 

@@ -38,7 +38,6 @@ Return JSON with:
 - optimizedContent: the full content rewritten with improvements applied`,
       },
     ],
-    temperature: 0.7,
   });
 
   const text = response.choices[0].message.content ?? '{}';

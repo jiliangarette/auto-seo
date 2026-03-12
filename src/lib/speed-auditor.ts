@@ -36,7 +36,6 @@ Return JSON:
 - recommendations: [{ priority ("high"/"medium"/"low"), category, action, impact }] — 5-8 items`,
       },
     ],
-    temperature: 0.7,
   });
 
   const text = response.choices[0].message.content ?? '{}';

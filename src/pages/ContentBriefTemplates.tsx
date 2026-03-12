@@ -47,7 +47,6 @@ export default function ContentBriefTemplates() {
           { role: 'system', content: 'You are a content strategist. Return JSON only.' },
           { role: 'user', content: `Generate a content brief for:\nTemplate: ${selectedTemplate}\nTopic: ${topic}\nSections to fill: ${sections.join(', ')}\n\nReturn JSON:\n{\n  "sections": [\n    { "heading": "section name", "content": "detailed content for this section" }\n  ]\n}\n\nFill each section with detailed, actionable content relevant to the topic.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -48,7 +48,6 @@ export default function CompetitiveIntelligenceHub() {
           { role: 'system', content: 'You are a competitive intelligence and SEO strategy expert. Return JSON only.' },
           { role: 'user', content: `Competitive intelligence analysis:\nYour Domain: ${domain}\nCompetitors: ${competitors}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "competitive intelligence overview",\n  "competitors": [\n    { "name": "competitor", "strengths": ["str1", "str2"], "weaknesses": ["weak1"], "topStrategy": "their main strategy", "estimatedTraffic": "monthly estimate", "contentFrequency": "posts per month" }\n  ],\n  "marketShare": [\n    { "category": "keyword category", "yourShare": number(0-100), "topCompetitor": "competitor name", "competitorShare": number(0-100), "opportunity": "market opportunity" }\n  ],\n  "advantages": [\n    { "advantage": "your competitive advantage", "howToExploit": "how to capitalize" }\n  ],\n  "actionPlan": ["action 1", "action 2", "action 3"]\n}\n\nGenerate profiles for each competitor, 4 market share categories, 3 advantages, and 5 action items.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

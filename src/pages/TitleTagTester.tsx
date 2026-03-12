@@ -58,7 +58,6 @@ Return JSON:
   "reasoning": "why the winner is best"
 }` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

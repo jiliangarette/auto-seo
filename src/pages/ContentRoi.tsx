@@ -88,7 +88,6 @@ Return JSON:
 
 Rank by ROI descending. Provide 4-6 actionable recommendations.` },
         ],
-        temperature: 0.4,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

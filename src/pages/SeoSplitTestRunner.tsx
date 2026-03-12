@@ -42,7 +42,6 @@ export default function SeoSplitTestRunner() {
           { role: 'system', content: 'You are an SEO A/B testing expert. Return JSON only.' },
           { role: 'user', content: `Run SEO split test:\nKeyword: ${keyword}\nVariant A title: ${variantA}\nVariant B title: ${variantB}\n\nReturn JSON:\n{\n  "keyword": "${keyword}",\n  "summary": "test analysis overview",\n  "variants": [\n    { "label": "A"|"B", "title": "the title", "description": "auto-generated meta description for this title", "predictedCtr": number(0-15), "strengths": ["str1", "str2"], "weaknesses": ["weak1"] }\n  ],\n  "winner": "A"|"B",\n  "confidence": number(0-100),\n  "statisticalSignificance": "explanation of statistical significance",\n  "recommendations": ["rec 1", "rec 2", "rec 3"]\n}` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

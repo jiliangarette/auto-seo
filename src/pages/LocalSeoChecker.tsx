@@ -76,7 +76,6 @@ Return JSON:
 
 Generate 6-8 NAP checks, 5-7 GBP tips, and 8-10 citation opportunities.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

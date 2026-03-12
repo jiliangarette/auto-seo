@@ -44,7 +44,6 @@ Return JSON:
 Identify 5-10 topic areas within the niche.`,
       },
     ],
-    temperature: 0.5,
   });
 
   const raw = response.choices[0].message.content ?? '{}';

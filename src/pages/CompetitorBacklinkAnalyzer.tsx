@@ -31,7 +31,6 @@ export default function CompetitorBacklinkAnalyzer() {
           { role: 'system', content: 'You are a backlink analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze competitor backlink profile:\nCompetitor: ${competitor}\nYour site: ${yourSite || 'not provided'}\n\nReturn JSON:\n{\n  "competitor": "${competitor}",\n  "summary": "backlink analysis overview",\n  "distribution": [\n    { "type": "link type", "count": number, "quality": "high/medium/low", "percentage": number }\n  ],\n  "opportunities": [\n    { "site": "target site", "da": number, "relevance": "high/medium/low", "difficulty": "easy/medium/hard", "approach": "how to get the link" }\n  ],\n  "patterns": [\n    { "pattern": "pattern name", "frequency": "how common", "impact": "SEO impact" }\n  ],\n  "outreachTemplates": [\n    { "targetType": "type of site", "subject": "email subject", "body": "email body" }\n  ]\n}\n\nGenerate 5 link types, 6 opportunities, 4 patterns, and 3 outreach templates.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

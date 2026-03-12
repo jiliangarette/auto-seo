@@ -51,7 +51,6 @@ export default function SeoComplianceChecker() {
           { role: 'system', content: 'You are an SEO compliance and web standards expert. Return JSON only.' },
           { role: 'user', content: `Run SEO compliance audit for: ${url}\n\nReturn JSON:\n{\n  "url": "${url}",\n  "overallScore": number(0-100),\n  "summary": "compliance overview",\n  "items": [\n    { "category": "Technical SEO|Content|Accessibility|Performance|Security", "check": "check name", "status": "pass"|"warning"|"fail", "description": "what was checked", "fix": "how to fix if not passing", "priority": "critical"|"high"|"medium"|"low" }\n  ],\n  "coreWebVitals": [\n    { "metric": "LCP|FID|CLS|INP|TTFB", "status": "good"|"needs_improvement"|"poor", "value": "metric value" }\n  ],\n  "fixPriorities": ["priority fix 1", "priority fix 2", "priority fix 3"]\n}\n\nGenerate 10 compliance checks across categories and 5 Core Web Vitals.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -72,7 +72,6 @@ export default function CompetitorContentTracker() {
           { role: 'system', content: 'You are a competitive intelligence expert. Return JSON only.' },
           { role: 'user', content: `Track content activity for competitor domain: ${domain}\n\nReturn JSON:\n{\n  "competitor": "domain",\n  "publishingFrequency": "e.g. 3 posts/week",\n  "totalPagesTracked": number,\n  "pages": [\n    { "title": "Page title", "url": "full url", "publishDate": "2026-03-10", "contentType": "blog"|"landing"|"product"|"resource"|"news", "status": "new"|"updated"|"unchanged", "wordCount": number }\n  ],\n  "distribution": [\n    { "type": "Blog Posts", "count": number, "percentage": number }\n  ],\n  "trendingTopics": [\n    { "topic": "topic name", "frequency": number, "trend": "rising"|"stable"|"declining" }\n  ],\n  "summary": "overview"\n}\n\nGenerate 10-12 tracked pages, 4-5 distribution items, and 6-8 trending topics.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

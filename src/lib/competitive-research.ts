@@ -66,7 +66,6 @@ Return JSON with:
 - positioning: [{ competitor, contentQuality (0-100), technicalSeo (0-100), contentVolume (0-100), backlinks (0-100), overallScore (0-100) }] — include "You" as first entry`,
       },
     ],
-    temperature: 0.5,
   });
 
   const raw = response.choices[0].message.content ?? '{}';

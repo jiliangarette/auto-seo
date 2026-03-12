@@ -63,7 +63,6 @@ export default function SeoAuditReportBuilder() {
           { role: 'system', content: 'You are a senior SEO auditor. Return JSON only.' },
           { role: 'user', content: `Generate a comprehensive SEO audit report for: ${url}\nCategories to audit: ${cats}\n\nReturn JSON:\n{\n  "url": "${url}",\n  "overallScore": number(0-100),\n  "executiveSummary": "2-3 sentence summary",\n  "priorityActions": ["action 1", "action 2", ...],\n  "findings": [\n    { "category": "Technical SEO", "issue": "description", "severity": "critical"|"warning"|"info", "impact": "business impact", "fix": "how to fix" }\n  ],\n  "categoryScores": [\n    { "category": "Technical SEO", "score": number(0-100) }\n  ]\n}\n\nGenerate 4-5 priority actions, 12-15 findings across selected categories, and scores for each category.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

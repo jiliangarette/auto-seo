@@ -46,7 +46,6 @@ export default function KeywordCannibalizationDetector() {
           { role: 'system', content: 'You are a keyword cannibalization expert. Return JSON only.' },
           { role: 'user', content: `Detect keyword cannibalization for: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "cannibalization audit overview",\n  "totalIssues": number,\n  "estimatedTrafficLoss": "estimated monthly traffic loss",\n  "issues": [\n    {\n      "keyword": "cannibalized keyword",\n      "pages": [{ "url": "page url", "title": "page title", "currentRank": number }],\n      "severity": "critical"|"high"|"medium"|"low",\n      "trafficLoss": "estimated loss for this keyword",\n      "mergeStrategy": "how to consolidate",\n      "primaryPage": "which page should be primary"\n    }\n  ],\n  "recommendations": ["rec 1", "rec 2", "rec 3"]\n}\n\nGenerate 5 cannibalization issues, each with 2-3 competing pages.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

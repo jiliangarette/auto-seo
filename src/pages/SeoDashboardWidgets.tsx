@@ -42,7 +42,6 @@ export default function SeoDashboardWidgets() {
           { role: 'system', content: 'You are an SEO dashboard design expert. Return JSON only.' },
           { role: 'user', content: `Generate an SEO dashboard widget layout for: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "dashboard overview",\n  "widgets": [\n    { "id": "w1", "title": "widget title", "type": "metric"|"chart"|"list"|"action", "value": "display value", "description": "what this shows", "trend": "up"|"down"|"stable", "priority": "high"|"medium"|"low" }\n  ],\n  "quickActions": [\n    { "label": "action name", "description": "what it does" }\n  ],\n  "layout": "recommended layout description"\n}\n\nGenerate 8 widgets covering: organic traffic, keyword rankings, backlinks, page speed, content score, crawl errors, top pages, and competitor gap.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -47,7 +47,6 @@ export default function ContentCalendarAi() {
           { role: 'system', content: 'You are a content marketing strategist. Return JSON only.' },
           { role: 'user', content: `Generate a 30-day content calendar:\nGoals: ${goals}\nKeywords: ${keywords || 'general'}\n\nReturn JSON:\n{\n  "month": "Month Year",\n  "items": [\n    { "day": 1, "date": "2026-04-01", "title": "content title", "type": "blog"|"video"|"social"|"email"|"infographic"|"podcast", "keyword": "target keyword", "notes": "brief notes" }\n  ],\n  "typeMix": [\n    { "type": "Blog Posts", "count": number, "percentage": number }\n  ],\n  "summary": "calendar strategy overview"\n}\n\nGenerate 15-20 content items spread across 30 days with a balanced type mix.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

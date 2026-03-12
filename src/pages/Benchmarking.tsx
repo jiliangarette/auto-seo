@@ -71,7 +71,6 @@ Return JSON array of metrics:
 
 Include these metrics: Domain Authority, Page Speed Score, Organic Keywords, Monthly Traffic, Backlinks, Content Score, Average Position, CTR, Bounce Rate, Pages Indexed` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '[]';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

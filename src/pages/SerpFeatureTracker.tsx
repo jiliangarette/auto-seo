@@ -43,7 +43,6 @@ export default function SerpFeatureTracker() {
           { role: 'system', content: 'You are a SERP analysis expert. Return JSON only.' },
           { role: 'user', content: `Track SERP features for these keywords:\n${keywords}\n\nReturn JSON:\n{\n  "keywords": [\n    {\n      "keyword": "keyword",\n      "features": [\n        { "type": "Featured Snippet"|"People Also Ask"|"Local Pack"|"Image Pack"|"Video"|"Knowledge Panel"|"Sitelinks"|"Reviews", "present": boolean, "yourSite": boolean, "opportunity": "high"|"medium"|"low"|"none" }\n      ]\n    }\n  ],\n  "featureSummary": [\n    { "type": "Featured Snippet", "count": number, "opportunities": number }\n  ],\n  "summary": "overview"\n}\n\nFor each keyword, check 6-8 SERP feature types. Generate realistic data with a mix of present/absent features.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -47,7 +47,6 @@ export default function SeoCompetitorPlaybook() {
           { role: 'system', content: 'You are a competitive SEO strategist. Return JSON only.' },
           { role: 'user', content: `Generate an SEO competitor playbook:\nCompetitor: ${domain}\nYour domain: ${yourDomain || 'not specified'}\n\nReturn JSON:\n{\n  "competitor": "${domain}",\n  "summary": "competitor strategy overview",\n  "strengths": ["strength 1", "strength 2", "strength 3"],\n  "weaknesses": ["weakness 1", "weakness 2", "weakness 3"],\n  "strategies": [\n    {\n      "area": "Content|Technical|Links|Local|Brand",\n      "competitorApproach": "what they do",\n      "gap": "opportunity you can exploit",\n      "counterStrategy": "specific action to take",\n      "priority": "high"|"medium"|"low",\n      "effort": "low"|"medium"|"high"\n    }\n  ],\n  "quickWins": ["quick win 1", "quick win 2", "quick win 3"],\n  "longTermPlays": ["long term strategy 1", "long term strategy 2"]\n}\n\nGenerate 6-8 strategies across different SEO areas.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

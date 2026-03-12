@@ -41,7 +41,6 @@ export default function MultiSiteSeoManager() {
           { role: 'system', content: 'You are a multi-site SEO management expert. Return JSON only.' },
           { role: 'user', content: `Analyze multi-site SEO:\nDomains: ${domains}\n\nReturn JSON:\n{\n  "summary": "multi-site overview",\n  "sites": [\n    { "domain": "domain.com", "seoScore": number(0-100), "organicTraffic": "monthly estimate", "topKeywords": number, "backlinks": number, "issues": number, "trend": "up"|"down"|"stable" }\n  ],\n  "benchmarks": [\n    { "metric": "metric name", "best": "best performing", "worst": "worst performing", "average": "average value" }\n  ],\n  "crossDomainOpportunities": ["opportunity 1", "opportunity 2"],\n  "priorityActions": [\n    { "domain": "domain.com", "action": "what to do", "impact": "expected impact" }\n  ]\n}\n\nGenerate metrics for each domain, 4 benchmarks, 3 opportunities, and 4 priority actions.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

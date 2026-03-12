@@ -31,7 +31,6 @@ export default function SeoForecastingTool() {
           { role: 'system', content: 'You are an SEO forecasting analyst. Return JSON only.' },
           { role: 'user', content: `Forecast SEO growth:\nSite: ${site}\nCurrent monthly traffic: ${currentTraffic || 'unknown'}\n\nReturn JSON:\n{\n  "site": "${site}",\n  "summary": "forecast overview",\n  "growth": [\n    { "month": "Month Year", "traffic": number, "ranking": number, "confidence": number(0-100) }\n  ],\n  "scenarios": [\n    { "name": "scenario name", "description": "what this involves", "projectedTraffic": "traffic estimate", "probability": "likelihood %" }\n  ],\n  "seasonal": [\n    { "quarter": "Q1/Q2/Q3/Q4", "trend": "up/down/stable", "adjustment": "% change", "tip": "what to do" }\n  ],\n  "milestones": [\n    { "milestone": "goal", "timeline": "when achievable", "requirement": "what's needed" }\n  ]\n}\n\nGenerate 6 months of growth data, 3 scenarios, 4 quarterly trends, and 4 milestones.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

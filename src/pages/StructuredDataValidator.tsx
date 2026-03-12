@@ -83,7 +83,6 @@ Return JSON:
   "fixedJsonLd": "corrected and complete JSON-LD string with all recommended properties added"
 }` },
         ],
-        temperature: 0.3,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

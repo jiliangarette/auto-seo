@@ -48,7 +48,6 @@ export default function SeoRevenueCalculator() {
           { role: 'system', content: 'You are an SEO revenue projection expert. Return JSON only.' },
           { role: 'user', content: `Calculate SEO revenue projections:\nMonthly Traffic: ${traffic}\nConversion Rate: ${convRate}%\nAverage Order Value: $${aov}\n\nReturn JSON:\n{\n  "summary": "revenue projection overview",\n  "currentRevenue": "current monthly revenue estimate",\n  "projectedRevenue": "projected monthly revenue after SEO improvements",\n  "scenarios": [\n    { "name": "Conservative|Moderate|Aggressive", "trafficIncrease": "% increase", "conversionLift": "% lift", "projectedRevenue": "monthly revenue", "roi": "expected ROI", "timeline": "time to achieve" }\n  ],\n  "monthlyGrowth": [\n    { "month": "Month 1", "traffic": "traffic estimate", "revenue": "monthly revenue", "cumulative": "cumulative revenue" }\n  ],\n  "recommendations": ["rec 1", "rec 2", "rec 3"]\n}\n\nGenerate 3 scenarios, 6 months of growth projections, and 4 recommendations.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

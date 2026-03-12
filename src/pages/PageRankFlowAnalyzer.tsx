@@ -40,7 +40,6 @@ export default function PageRankFlowAnalyzer() {
           { role: 'system', content: 'You are an internal linking and PageRank flow expert. Return JSON only.' },
           { role: 'user', content: `Analyze PageRank flow for: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "PageRank flow analysis overview",\n  "overallHealth": number(0-100),\n  "pages": [\n    { "url": "page URL", "pageRankScore": number(0-10), "internalLinks": number, "externalLinks": number, "linkEquity": "high"|"medium"|"low", "issue": "any PageRank flow issue" }\n  ],\n  "bottlenecks": [\n    { "page": "bottleneck page", "issue": "what's blocking flow", "fix": "how to fix" }\n  ],\n  "consolidationTargets": [\n    { "page": "page to consolidate", "reason": "why consolidate", "action": "what to do" }\n  ],\n  "optimizations": ["optimization 1", "optimization 2"]\n}\n\nGenerate 8 pages, 3 bottlenecks, 3 consolidation targets, and 4 optimizations.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

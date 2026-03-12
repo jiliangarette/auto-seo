@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { openai } from '@/integrations/openai/client';
+import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -47,11 +48,10 @@ export default function SeoHealthMonitor() {
       const url = site.startsWith('http') ? site : `https://${site}`;
       let siteContext = '';
       try {
-        const res = await fetch(url, { signal: AbortSignal.timeout(12000) });
-        const html = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const isHttps = res.url.startsWith('https');
+        const { html, ok } = await fetchSiteHtml(url);
+        if (!ok) throw new Error('fetch failed');
+        const doc = parseHtml(html);
+        const isHttps = url.startsWith('https');
         const title = doc.querySelector('title')?.textContent?.trim() ?? '';
         const meta = doc.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
         const hasViewport = !!doc.querySelector('meta[name="viewport"]');
@@ -71,7 +71,6 @@ export default function SeoHealthMonitor() {
           { role: 'system', content: 'You are an SEO health monitor. Analyze REAL site data provided. Do NOT contradict the data. Return JSON only.' },
           { role: 'user', content: `Monitor SEO health for: ${site}\n\n${siteContext}\n\nReturn JSON:\n{\n  "site": "${site}",\n  "overallScore": number(0-100),\n  "summary": "health overview",\n  "checks": [{ "check": "check name", "status": "pass/warning/fail", "score": number(0-100), "detail": "specifics" }],\n  "trends": [{ "period": "time period", "score": number, "change": "+/-X%", "highlight": "what changed" }],\n  "alerts": [{ "type": "type", "severity": "critical/warning/info", "message": "alert", "action": "fix" }],\n  "improvements": [{ "area": "area", "current": "now", "target": "goal", "effort": "easy/medium/hard", "impact": "high/medium/low" }]\n}\n\nGenerate 8 checks, 4 trend periods, 3 alerts, and 5 improvements. Only report issues supported by the data.` },
         ],
-        temperature: 0.3,
         response_format: { type: 'json_object' },
       });
       const text = response.choices[0].message.content ?? '{}';

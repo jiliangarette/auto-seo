@@ -81,7 +81,6 @@ Return JSON:
 
 Generate realistic analysis with 3-4 bots and 4-6 waste categories.` },
         ],
-        temperature: 0.4,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

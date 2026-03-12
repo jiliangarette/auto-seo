@@ -46,7 +46,6 @@ Return JSON:
 
 Generate 10 top linking domains and 5 content types. Provide 5-7 replication strategies.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

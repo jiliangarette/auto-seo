@@ -69,7 +69,6 @@ ${pages.length ? '- 2-3 internal link suggestions (where to add links to existin
 - 2-3 rewrite suggestions for weak paragraphs (include paragraph number and rewritten version)`,
           },
         ],
-        temperature: 0.5,
       });
 
       const raw = response.choices[0].message.content ?? '[]';

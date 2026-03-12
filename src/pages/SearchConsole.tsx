@@ -95,7 +95,6 @@ export default function SearchConsole() {
           { role: 'system', content: 'You are a CTR optimization expert. Return JSON only.' },
           { role: 'user', content: `Analyze CTR data for ${siteUrl}:\n\n${topKeywords}\n\nReturn: { "averageCtr": number, "topPerformers": ["keyword1"], "underPerformers": ["keyword1"], "recommendations": ["rec1", "rec2", "rec3"] }` },
         ],
-        temperature: 0.4,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

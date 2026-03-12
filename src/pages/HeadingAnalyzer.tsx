@@ -73,7 +73,6 @@ Return JSON:
   "suggestedStructure": "H1: Title\\n  H2: Section 1\\n    H3: Subsection\\n  H2: Section 2"
 }` },
         ],
-        temperature: 0.3,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

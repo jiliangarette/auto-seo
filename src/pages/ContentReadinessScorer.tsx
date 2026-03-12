@@ -40,7 +40,6 @@ export default function ContentReadinessScorer() {
           { role: 'system', content: 'You are a content quality and SEO readiness expert. Return JSON only.' },
           { role: 'user', content: `Score content readiness for publication:\n\n${content}\n\nReturn JSON:\n{\n  "title": "detected or suggested title",\n  "readinessScore": number(0-100),\n  "verdict": "ready"|"needs_work"|"not_ready",\n  "summary": "readiness assessment",\n  "checklist": [\n    { "check": "check name", "status": "pass"|"warning"|"fail", "details": "what was found", "fix": "how to fix if not passing" }\n  ],\n  "finalOptimizations": ["final tweak 1", "final tweak 2"]\n}\n\nCheck 10 items: title tag, meta description, heading structure, keyword density, internal links, image alt tags, readability, content length, CTA presence, schema markup readiness.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

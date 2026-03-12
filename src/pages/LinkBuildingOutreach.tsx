@@ -47,7 +47,6 @@ export default function LinkBuildingOutreach() {
           { role: 'system', content: 'You are a link building outreach expert. Return JSON only.' },
           { role: 'user', content: `Generate link building outreach campaign for:\nDomain: ${domain}\nNiche: ${niche}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "niche": "${niche}",\n  "summary": "campaign overview",\n  "targets": [\n    { "site": "target site", "contactType": "blogger|editor|webmaster", "relevanceScore": number(1-10), "emailTemplate": "personalized outreach email", "subjectLine": "email subject", "status": "pending" }\n  ],\n  "campaignTips": ["tip 1", "tip 2"],\n  "successMetrics": [\n    { "metric": "metric name", "benchmark": "expected value" }\n  ]\n}\n\nGenerate 5 outreach targets with personalized emails, 4 tips, and 3 success metrics.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

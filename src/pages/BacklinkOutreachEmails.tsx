@@ -43,7 +43,6 @@ export default function BacklinkOutreachEmails() {
           { role: 'system', content: 'You are a link building outreach expert. Return JSON only.' },
           { role: 'user', content: `Generate outreach emails for backlink request:\nTarget site: ${targetSite}\nYour site: ${yourSite || 'mysite.com'}\nContext: ${context || 'General link building'}\n\nReturn JSON:\n{\n  "targetSite": "${targetSite}",\n  "variants": [\n    { "subject": "email subject", "body": "email body with \\n for line breaks", "tone": "friendly"|"professional"|"casual" }\n  ],\n  "subjectTests": [\n    { "subject": "subject line variant", "predictedOpenRate": number(0-100) }\n  ],\n  "followUps": [\n    { "day": number, "subject": "follow-up subject", "body": "follow-up body" }\n  ],\n  "summary": "outreach strategy overview"\n}\n\nGenerate 3 email variants with different tones, 5 subject line A/B tests, and 2 follow-up emails.` },
         ],
-        temperature: 0.7,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

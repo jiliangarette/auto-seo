@@ -43,7 +43,6 @@ export default function DuplicateContentChecker() {
           { role: 'system', content: 'You are a content duplication expert. Return JSON only.' },
           { role: 'user', content: `Check for duplicate content across these pages/content:\n${input.slice(0, 3000)}\n\nReturn JSON:\n{\n  "totalChecked": number,\n  "duplicatesFound": number,\n  "pairs": [\n    { "pageA": "URL or content label", "pageB": "URL or content label", "similarity": number(0-100), "type": "exact"|"near-duplicate"|"similar"|"unique", "recommendation": "what to do" }\n  ],\n  "recommendations": ["general tip 1", "tip 2"],\n  "summary": "overview"\n}\n\nGenerate 8-10 comparison pairs with realistic similarity scores. Include a mix of exact, near-duplicate, similar, and unique results.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

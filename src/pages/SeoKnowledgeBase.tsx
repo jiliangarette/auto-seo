@@ -64,7 +64,6 @@ export default function SeoKnowledgeBase() {
           { role: 'system', content: 'You are an SEO expert. Give concise, practical answers about SEO concepts, best practices, and strategies. Use bullet points where helpful. Keep answers under 200 words.' },
           { role: 'user', content: aiQuery },
         ],
-        temperature: 0.5,
       });
       setAiAnswer(response.choices[0].message.content ?? 'No answer generated.');
       toast.success('Answer generated');

@@ -34,7 +34,6 @@ Return JSON:
 Group related keywords together. Aim for 3-8 clusters.`,
       },
     ],
-    temperature: 0.5,
   });
 
   const raw = response.choices[0].message.content ?? '{}';

@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useContentItems, useCreateContentItem, useDeleteContentItem, useUpdateContentItem } from '@/hooks/useContentItems';
 import { useProjects } from '@/hooks/useProjects';
 import { openai } from '@/integrations/openai/client';
+import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -102,10 +103,9 @@ export default function ContentCalendar() {
       if (aiUrl.trim()) {
         try {
           const url = aiUrl.startsWith('http') ? aiUrl : `https://${aiUrl}`;
-          const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
-          const html = await res.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
+          const { html, ok } = await fetchSiteHtml(url);
+          if (!ok) throw new Error('fetch failed');
+          const doc = parseHtml(html);
           const siteTitle = doc.querySelector('title')?.textContent?.trim() ?? '';
           const metaDesc = doc.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
           const h1s = Array.from(doc.querySelectorAll('h1')).map(el => el.textContent?.trim()).filter(Boolean).slice(0, 5);
@@ -128,7 +128,6 @@ export default function ContentCalendar() {
             content: `Generate a content calendar for ${monthName}.\n${siteContext ? `Site context:\n${siteContext}` : `Niche: ${aiNiche}`}\n\nReturn JSON:\n{\n  "items": [\n    {\n      "title": "article title",\n      "topic": "content topic",\n      "keywords": "keyword1, keyword2",\n      "day": number(1-${daysInMonth})\n    }\n  ]\n}\n\nGenerate 8-12 content items spread across the month. Focus on high-impact SEO topics relevant to the site/niche. Schedule 2-3 posts per week. Pick the best publishing days (Tue, Wed, Thu are ideal).`,
           },
         ],
-        temperature: 0.7,
         response_format: { type: 'json_object' },
       });
 

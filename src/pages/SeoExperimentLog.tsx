@@ -46,7 +46,6 @@ export default function SeoExperimentLog() {
           { role: 'system', content: 'You are an SEO experimentation expert. Return JSON only.' },
           { role: 'user', content: `Design an SEO experiment and generate sample log entries:\nHypothesis: ${hypothesis}\nContext: ${context || 'general website'}\n\nReturn JSON:\n{\n  "experiments": [\n    {\n      "id": number,\n      "hypothesis": "experiment hypothesis",\n      "variables": "what was changed",\n      "status": "running"|"completed"|"inconclusive",\n      "beforeMetric": "metric before change",\n      "afterMetric": "metric after change",\n      "insight": "key learning from experiment",\n      "date": "2026-MM-DD"\n    }\n  ],\n  "insights": ["cross-experiment insight 1", "insight 2"],\n  "summary": "experiment log overview"\n}\n\nGenerate the requested experiment plus 4-5 related example experiments with realistic before/after metrics.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -67,7 +67,6 @@ Return JSON:
 - overallLevel: "easy", "moderate", or "difficult"`,
       },
     ],
-    temperature: 0.5,
   });
 
   const raw = response.choices[0].message.content ?? '{}';

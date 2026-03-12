@@ -46,7 +46,6 @@ export default function ContentFreshnessMonitor() {
           { role: 'system', content: 'You are a content freshness analysis expert. Return JSON only.' },
           { role: 'user', content: `Analyze content freshness for: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "freshness overview",\n  "overallFreshness": number(0-100),\n  "items": [\n    { "url": "page URL", "title": "page title", "ageStatus": "fresh"|"aging"|"stale"|"outdated", "lastUpdated": "estimated date", "relevanceScore": number(0-100), "refreshPriority": "critical"|"high"|"medium"|"low", "recommendation": "what to update" }\n  ],\n  "schedule": [\n    { "period": "this week|this month|next quarter", "action": "what to do", "pages": number }\n  ]\n}\n\nGenerate 8 content items and 3 schedule entries.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -62,7 +62,6 @@ Return JSON:
 
 Generate 5 CTA variants with different approaches (urgency, value prop, social proof, etc.).` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

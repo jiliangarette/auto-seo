@@ -44,7 +44,6 @@ export default function SeoApiRateChecker() {
           { role: 'system', content: 'You are an API performance and crawl budget expert. Return JSON only.' },
           { role: 'user', content: `Analyze API rate limits and crawl budget for: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "API rate analysis overview",\n  "overallEfficiency": number(0-100),\n  "endpoints": [\n    { "endpoint": "API endpoint path", "responseTime": "avg response time", "rateLimit": "current rate limit", "crawlBudgetImpact": "low"|"medium"|"high", "recommendation": "optimization tip" }\n  ],\n  "rateLimitRecommendations": ["recommendation 1", "recommendation 2"],\n  "performanceOptimizations": [\n    { "area": "optimization area", "current": "current state", "optimized": "target state", "benefit": "expected benefit" }\n  ]\n}\n\nGenerate 6 endpoints, 4 rate limit recommendations, and 4 performance optimizations.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

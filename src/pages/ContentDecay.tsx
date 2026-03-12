@@ -73,7 +73,6 @@ Generate refresh suggestions. Return JSON:
 
 Include specific, actionable suggestions like updating stats, adding new sections, refreshing examples, etc.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

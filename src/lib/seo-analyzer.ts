@@ -36,7 +36,6 @@ export async function analyzeSEO(content: string, url: string): Promise<SEOAnaly
       { role: 'system', content: SYSTEM_PROMPT },
       { role: 'user', content: `Analyze the following webpage content from ${url}:\n\n${content.slice(0, 8000)}` },
     ],
-    temperature: 0.3,
     response_format: { type: 'json_object' },
   });
 

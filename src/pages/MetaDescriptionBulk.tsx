@@ -39,7 +39,6 @@ export default function MetaDescriptionBulk() {
           { role: 'system', content: 'You are an SEO copywriter. Return JSON only.' },
           { role: 'user', content: `Generate unique meta descriptions for these pages:\n${input}\n\nReturn JSON:\n{\n  "descriptions": [\n    { "title": "page title", "url": "page url", "description": "meta description (aim for 150-160 chars)", "charCount": number, "status": "optimal"|"too-short"|"too-long" }\n  ],\n  "summary": "overview"\n}\n\nEach description should be unique, include a call-to-action, and be between 150-160 characters. Mark as optimal (150-160), too-short (<150), or too-long (>160).` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

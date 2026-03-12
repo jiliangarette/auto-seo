@@ -51,7 +51,6 @@ export default function SeoChangeLogTracker() {
           { role: 'system', content: 'You are an SEO change tracking and impact analysis expert. Return JSON only.' },
           { role: 'user', content: `Track SEO changes for: ${domain}\n\nReturn JSON:\n{\n  "domain": "${domain}",\n  "summary": "change log overview",\n  "changes": [\n    { "date": "2026-MM-DD", "change": "what changed", "category": "technical"|"content"|"backlinks"|"structure", "trafficImpact": "positive"|"neutral"|"negative", "impactDetails": "traffic impact description", "rollbackRecommended": boolean }\n  ],\n  "correlations": [\n    { "change": "change name", "impact": "correlated impact", "confidence": "high|medium|low" }\n  ],\n  "rollbackCandidates": [\n    { "change": "change to rollback", "reason": "why rollback", "action": "how to rollback" }\n  ]\n}\n\nGenerate 8 change entries over the last 2 months, 3 correlations, and 2 rollback candidates.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

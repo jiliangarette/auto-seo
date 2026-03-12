@@ -28,7 +28,6 @@ export default function ContentSummarizer() {
           { role: 'system', content: 'You are a content summarization expert. Return JSON only.' },
           { role: 'user', content: `Summarize this content:\n\n${content.slice(0, 4000)}\n\nReturn JSON:\n{\n  "executive": "2-3 sentence executive summary",\n  "keyPoints": ["point 1", "point 2", "point 3", "point 4", "point 5"],\n  "tldr": "one sentence TL;DR",\n  "social": {\n    "twitter": "280 char max tweet version",\n    "linkedin": "short linkedin post version",\n    "facebook": "casual facebook post version"\n  },\n  "wordCount": { "original": number, "summary": number }\n}` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

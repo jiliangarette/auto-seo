@@ -31,7 +31,6 @@ export default function NewsSeoOptimizer() {
           { role: 'system', content: 'You are a news SEO expert. Return JSON only.' },
           { role: 'user', content: `Optimize news article SEO:\nHeadline: ${headline}\n\nReturn JSON:\n{\n  "headline": "${headline}",\n  "summary": "news SEO analysis overview",\n  "googleNewsEligibility": [\n    { "criterion": "criterion name", "status": "pass/fail/warning", "recommendation": "what to do" }\n  ],\n  "discoverEligibility": [\n    { "factor": "factor name", "score": number(0-100), "tip": "improvement tip" }\n  ],\n  "structuredData": "NewsArticle schema markup as JSON-LD string",\n  "ampReadiness": [\n    { "check": "check name", "passed": true/false, "fix": "how to fix if not passed" }\n  ],\n  "headlineVariations": [\n    { "headline": "SEO-optimized headline variation", "clickRate": number(0-100) }\n  ]\n}\n\nGenerate 5 Google News criteria, 4 Discover factors, 5 AMP checks, and 5 headline variations.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

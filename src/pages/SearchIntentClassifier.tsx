@@ -30,7 +30,6 @@ export default function SearchIntentClassifier() {
           { role: 'system', content: 'You are a search intent classification expert. Return JSON only.' },
           { role: 'user', content: `Classify search intent for keywords: ${keywords}\n\nReturn JSON:\n{\n  "keyword": "${keywords}",\n  "summary": "intent classification overview",\n  "classifications": [\n    { "keyword": "keyword phrase", "intent": "informational/navigational/transactional/commercial", "confidence": number(0-100), "reasoning": "why this intent" }\n  ],\n  "contentFormats": [\n    { "intent": "intent type", "formats": ["format1", "format2"], "bestFormat": "recommended format" }\n  ],\n  "serpFeatures": [\n    { "intent": "intent type", "features": ["featured snippet", "PAA"], "targetStrategy": "how to target" }\n  ],\n  "recommendations": ["recommendation 1", "recommendation 2"]\n}\n\nClassify 6 keyword variations, provide 4 content format mappings, 4 SERP feature targets, and 4 recommendations.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

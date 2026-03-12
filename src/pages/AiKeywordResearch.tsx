@@ -65,7 +65,6 @@ Generate 15-20 keyword suggestions including both short-tail and long-tail varia
 Include 5 related topics and 5 "People Also Ask" questions.
 Estimates should be realistic.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

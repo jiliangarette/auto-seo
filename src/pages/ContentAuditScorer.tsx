@@ -44,7 +44,6 @@ export default function ContentAuditScorer() {
           { role: 'system', content: 'You are a content audit expert. Return JSON only.' },
           { role: 'user', content: `Perform a content audit on these URLs:\n${urls}\n\nReturn JSON:\n{\n  "summary": "audit overview",\n  "pages": [\n    {\n      "url": "page URL",\n      "title": "page title",\n      "seoScore": number(0-100),\n      "freshnessScore": number(0-100),\n      "engagementScore": number(0-100),\n      "overallScore": number(0-100),\n      "action": "keep"|"update"|"merge"|"delete",\n      "recommendation": "specific recommendation"\n    }\n  ],\n  "actionSummary": [\n    { "action": "Keep", "count": number },\n    { "action": "Update", "count": number },\n    { "action": "Merge", "count": number },\n    { "action": "Delete", "count": number }\n  ]\n}\n\nScore each page and assign an action tag with specific recommendations.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

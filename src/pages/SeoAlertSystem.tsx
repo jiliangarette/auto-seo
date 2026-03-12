@@ -30,7 +30,6 @@ export default function SeoAlertSystem() {
           { role: 'system', content: 'You are an SEO monitoring expert. Return JSON only.' },
           { role: 'user', content: `Generate SEO alerts for: ${site}\n\nReturn JSON:\n{\n  "site": "${site}",\n  "summary": "alert system overview",\n  "alerts": [\n    { "metric": "metric name", "severity": "critical/warning/info", "current": "current value", "threshold": "threshold value", "change": "change description" }\n  ],\n  "rankingDrops": [\n    { "keyword": "keyword", "previousRank": number, "currentRank": number, "change": number, "page": "affected page" }\n  ],\n  "crawlErrors": [\n    { "url": "url path", "errorType": "error type", "severity": "high/medium/low", "fix": "how to fix" }\n  ],\n  "actions": [\n    { "alert": "alert name", "priority": "urgent/high/medium/low", "action": "recommended action", "deadline": "suggested timeframe" }\n  ]\n}\n\nGenerate 5 alerts, 5 ranking drops, 4 crawl errors, and 5 actions.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

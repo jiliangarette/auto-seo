@@ -43,7 +43,6 @@ export default function UrlSlugOptimizer() {
           { role: 'system', content: 'You are a URL optimization expert. Return JSON only.' },
           { role: 'user', content: `Generate SEO-friendly URL slugs for these page titles:\n${input}\n\nReturn JSON:\n{\n  "slugs": [\n    { "title": "page title", "originalSlug": "auto-generated-from-title", "optimizedSlug": "seo-friendly-slug", "keywordIncluded": boolean, "charCount": number, "status": "optimal"|"too-long"|"missing-keyword"|"has-stopwords", "reasoning": "why this slug is better" }\n  ],\n  "tips": ["general URL slug tip 1", "tip 2"],\n  "summary": "overview"\n}\n\nKeep slugs under 60 chars, remove stop words, include primary keywords. Generate both original and optimized versions.` },
         ],
-        temperature: 0.4,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

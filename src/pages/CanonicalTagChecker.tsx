@@ -53,7 +53,6 @@ export default function CanonicalTagChecker() {
           { role: 'system', content: 'You are a technical SEO expert. Return JSON only.' },
           { role: 'user', content: `Check canonical tags for these URLs:\n${urls}\n\nReturn JSON:\n{\n  "totalChecked": number,\n  "issueCount": number,\n  "issues": [\n    { "url": "page url", "canonical": "canonical value or 'none'", "status": "correct"|"missing"|"self-referencing"|"cross-domain"|"conflicting"|"mismatch", "recommendation": "what to do" }\n  ],\n  "recommendations": ["general tip 1", "tip 2"],\n  "summary": "overview"\n}\n\nGenerate 8-10 URL checks with a realistic mix of statuses. Include 3-4 correct, and various issue types.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

@@ -64,7 +64,6 @@ Return JSON:
 
 Generate 15-20 pages with realistic URLs based on the domain. Include 2-3 orphaned pages, 1-2 broken URLs.` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

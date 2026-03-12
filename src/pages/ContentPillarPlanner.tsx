@@ -59,7 +59,6 @@ export default function ContentPillarPlanner() {
           { role: 'system', content: 'You are a content strategy expert. Return JSON only.' },
           { role: 'user', content: `Create a content pillar strategy for:\nCore Topic: ${topic}\nNiche: ${niche || 'General'}\n\nReturn JSON:\n{\n  "pillarTitle": "Pillar page title",\n  "pillarKeyword": "main keyword",\n  "pillarOutline": ["Section 1", "Section 2", ...],\n  "clusterTopics": [\n    { "title": "Cluster article title", "keyword": "target keyword", "type": "how-to"|"listicle"|"guide"|"comparison"|"case-study", "priority": "high"|"medium"|"low" }\n  ],\n  "internalLinks": [\n    { "from": "article title", "to": "article title", "anchorText": "link text" }\n  ],\n  "timeline": [\n    { "week": 1, "task": "Write pillar page" }\n  ],\n  "summary": "strategy overview"\n}\n\nGenerate 6-8 pillar outline sections, 8-10 cluster topics, 6-8 internal links, and a 6-week timeline.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

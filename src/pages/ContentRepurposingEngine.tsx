@@ -30,7 +30,6 @@ export default function ContentRepurposingEngine() {
           { role: 'system', content: 'You are a content repurposing expert. Return JSON only.' },
           { role: 'user', content: `Repurpose this content for multiple formats:\n${content}\n\nReturn JSON:\n{\n  "content": "original content title/topic",\n  "summary": "repurposing strategy overview",\n  "socialPosts": [\n    { "platform": "platform name", "post": "adapted post text", "hashtags": ["tag1"], "bestTime": "optimal posting time" }\n  ],\n  "emailSnippets": [\n    { "subject": "email subject", "preview": "preview text", "body": "email body excerpt" }\n  ],\n  "infographicOutline": [\n    { "section": "section title", "dataPoint": "key data", "visual": "visual suggestion" }\n  ],\n  "calendar": [\n    { "day": "Day 1", "platform": "platform", "format": "content format", "content": "what to post" }\n  ]\n}\n\nGenerate 5 social posts, 3 email snippets, 4 infographic sections, and 7 calendar entries.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

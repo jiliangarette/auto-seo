@@ -43,7 +43,6 @@ Return JSON:
 - callToAction: suggested CTA`,
       },
     ],
-    temperature: 0.7,
   });
 
   const text = response.choices[0].message.content ?? '{}';

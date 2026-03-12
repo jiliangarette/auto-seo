@@ -44,7 +44,6 @@ export default function AnchorTextPlanner() {
           { role: 'system', content: 'You are a link building and anchor text expert. Return JSON only.' },
           { role: 'user', content: `Plan anchor text profile for:\nTarget page: ${targetUrl}\nPrimary keyword: ${keyword || 'auto-detect'}\nBrand name: ${brand || 'auto-detect'}\n\nReturn JSON:\n{\n  "targetPage": "${targetUrl}",\n  "summary": "anchor text strategy overview",\n  "distribution": [\n    { "type": "Exact Match", "percentage": number, "count": number },\n    { "type": "Branded", "percentage": number, "count": number },\n    { "type": "Generic", "percentage": number, "count": number },\n    { "type": "Naked URL", "percentage": number, "count": number },\n    { "type": "Partial Match", "percentage": number, "count": number }\n  ],\n  "suggestions": [\n    { "text": "anchor text", "type": "exact_match"|"branded"|"generic"|"naked_url"|"partial_match", "usage": "context for using this anchor" }\n  ]\n}\n\nGenerate 15-20 diverse anchor text suggestions with a natural distribution.` },
         ],
-        temperature: 0.6,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();

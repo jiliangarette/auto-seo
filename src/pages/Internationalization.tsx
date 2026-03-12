@@ -89,7 +89,6 @@ export default function Internationalization() {
           { role: 'system', content: 'Detect the language of the content. Return JSON only.' },
           { role: 'user', content: `Detect language and provide SEO suggestions for multi-language optimization:\n\n${contentInput.slice(0, 2000)}\n\nReturn: { "detectedLanguage": "language name", "confidence": 0-100, "suggestions": ["suggestion1", "suggestion2", "suggestion3"] }` },
         ],
-        temperature: 0.3,
       });
       const raw = response.choices[0].message.content ?? '{}';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
@@ -143,7 +142,6 @@ export default function Internationalization() {
           { role: 'system', content: 'Generate region-specific SERP previews. Return JSON only.' },
           { role: 'user', content: `Generate SERP previews for "${serpKeyword}" targeting URL "${serpUrl}" for these regions: US, UK, Germany, France, Japan.\n\nReturn JSON array: [{ "region": "region name", "title": "localized title tag", "description": "localized meta description", "url": "display URL" }]` },
         ],
-        temperature: 0.5,
       });
       const raw = response.choices[0].message.content ?? '[]';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
@@ -167,7 +165,6 @@ export default function Internationalization() {
           { role: 'system', content: 'You are a translation quality checker. Return JSON only.' },
           { role: 'user', content: `Check this ${langName} content for translation quality issues:\n\n${translateContent.slice(0, 2000)}\n\nReturn JSON array: [{ "type": "grammar"|"fluency"|"seo"|"cultural", "text": "issue description", "severity": "low"|"medium"|"high" }]` },
         ],
-        temperature: 0.4,
       });
       const raw = response.choices[0].message.content ?? '[]';
       const cleaned = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
