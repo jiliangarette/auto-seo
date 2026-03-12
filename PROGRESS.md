@@ -161,10 +161,10 @@
 - [x] OpenAI simplification suggestions
 
 ### Module 29: Social Media Preview
-- [ ] Input URL + title + description + image
-- [ ] Preview cards for Facebook, Twitter/X, LinkedIn
-- [ ] OG tag generator with live preview
-- [ ] Copy all social meta tags
+- [x] Input URL + title + description + image
+- [x] Preview cards for Facebook, Twitter/X, LinkedIn
+- [x] OG tag generator with live preview
+- [x] Copy all social meta tags
 
 ### Module 30: Multi-Project Dashboard
 - [ ] Overview grid of all projects with health scores
@@ -208,5 +208,5 @@
 
 **Phase 3 COMPLETE — All 36/36 features built.**
 
-**Next up:** Module 29 — Social Media Preview
+**Next up:** Module 30 — Multi-Project Dashboard
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

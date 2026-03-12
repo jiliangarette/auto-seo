@@ -31,6 +31,7 @@ const ContentBrief = lazy(() => import('@/pages/ContentBrief'));
 const PageSpeed = lazy(() => import('@/pages/PageSpeed'));
 const SchemaGenerator = lazy(() => import('@/pages/SchemaGenerator'));
 const ReadabilityAnalyzer = lazy(() => import('@/pages/ReadabilityAnalyzer'));
+const SocialPreview = lazy(() => import('@/pages/SocialPreview'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -234,6 +235,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentBrief /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/social"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SocialPreview /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
