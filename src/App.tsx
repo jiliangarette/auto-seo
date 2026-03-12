@@ -98,6 +98,7 @@ const MetaDescriptionBulk = lazy(() => import('@/pages/MetaDescriptionBulk'));
 const KeywordIntentClassifier = lazy(() => import('@/pages/KeywordIntentClassifier'));
 const PageTitleOptimizer = lazy(() => import('@/pages/PageTitleOptimizer'));
 const InternalLinkAudit = lazy(() => import('@/pages/InternalLinkAudit'));
+const ContentLengthAnalyzer = lazy(() => import('@/pages/ContentLengthAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -802,6 +803,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-length"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentLengthAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
