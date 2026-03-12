@@ -69,6 +69,7 @@ const navItems = [
   { label: 'Keyword Research', path: '/keyword-research', icon: Search },
   { label: 'Repurposer', path: '/repurpose', icon: Share2 },
   { label: 'Audit Schedule', path: '/audit-scheduler', icon: Shield },
+  { label: 'Sitemap', path: '/sitemap', icon: FolderKanban },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
