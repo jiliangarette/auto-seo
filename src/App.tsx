@@ -150,6 +150,7 @@ const ContentDistributionPlanner = lazy(() => import('@/pages/ContentDistributio
 const OrganicCtrOptimizer = lazy(() => import('@/pages/OrganicCtrOptimizer'));
 const SeoContentFunnelBuilder = lazy(() => import('@/pages/SeoContentFunnelBuilder'));
 const PageRankFlowAnalyzer = lazy(() => import('@/pages/PageRankFlowAnalyzer'));
+const SeoContentTemplates = lazy(() => import('@/pages/SeoContentTemplates'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1054,6 +1055,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><PageRankFlowAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-templates"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoContentTemplates /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
