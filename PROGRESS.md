@@ -121,10 +121,10 @@
 - [x] Search audit issues by category/severity
 
 ### Module 23: Onboarding Flow
-- [ ] First-login welcome modal with setup wizard
-- [ ] Create first project step
-- [ ] Add first keyword + run first analysis steps
-- [ ] Setup checklist on dashboard
+- [x] First-login welcome modal with setup wizard
+- [x] Create first project step
+- [x] Add first keyword + run first analysis steps
+- [x] Setup checklist on dashboard
 
 ### Module 24: Performance & Code Quality
 - [ ] Code-split routes with React.lazy + Suspense
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 23 — Onboarding Flow
+**Next up:** Module 24 — Performance & Code Quality
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

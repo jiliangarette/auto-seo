@@ -8,6 +8,7 @@ import {
   Search, Sparkles, FolderOpen, Shield, Calendar, FileText,
   Tags, Link2, Settings2, BarChart3, Globe, Activity,
 } from 'lucide-react';
+import OnboardingModal from '@/components/OnboardingModal';
 import type { Analysis } from '@/types/database';
 
 interface ActivityItem {
@@ -142,6 +143,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background p-8">
+      <OnboardingModal />
       <div className="mx-auto max-w-6xl space-y-8">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
