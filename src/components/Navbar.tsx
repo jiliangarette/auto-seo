@@ -1,11 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
 
+const navLinks = [
+  { label: 'Dashboard', path: '/' },
+  { label: 'Projects', path: '/projects' },
+];
+
 export default function Navbar() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSignOut = async () => {
     await signOut();
@@ -15,9 +21,23 @@ export default function Navbar() {
   return (
     <nav className="border-b border-border bg-background px-6 py-3">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <button onClick={() => navigate('/')} className="text-lg font-bold text-foreground">
-          Auto-SEO
-        </button>
+        <div className="flex items-center gap-6">
+          <button onClick={() => navigate('/')} className="text-lg font-bold text-foreground">
+            Auto-SEO
+          </button>
+          <div className="flex gap-1">
+            {navLinks.map((link) => (
+              <Button
+                key={link.path}
+                variant={location.pathname === link.path ? 'secondary' : 'ghost'}
+                size="sm"
+                onClick={() => navigate(link.path)}
+              >
+                {link.label}
+              </Button>
+            ))}
+          </div>
+        </div>
         <div className="flex items-center gap-4">
           <span className="text-sm text-muted-foreground">{user?.email}</span>
           <Button variant="ghost" size="sm" onClick={handleSignOut}>

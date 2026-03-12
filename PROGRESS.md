@@ -10,10 +10,10 @@
 - [x] Auth navbar (`src/components/Navbar.tsx`)
 
 ## Module 2: Projects
-- [ ] DB: `projects` table + RLS
-- [ ] Create project form
-- [ ] Projects list page
-- [ ] Project detail page
+- [ ] [NEEDS-DB] DB: `projects` table + RLS (SQL in SUPABASE.md)
+- [x] Create project form (`src/pages/Projects.tsx`)
+- [x] Projects list page (`src/pages/Projects.tsx`)
+- [x] Project detail page (`src/pages/ProjectDetail.tsx`)
 
 ## Module 3: Keyword Tracker
 - [ ] DB: `keywords` table + RLS
@@ -42,5 +42,5 @@
 
 ---
 
-**Next up:** Module 2 — Projects (DB tables + CRUD pages)
-<!-- watchdog: 2026-03-13 00:12 — 7/24 done, build: pass -->
+**Next up:** Module 3 — Keyword Tracker
+<!-- watchdog: 2026-03-13 00:24 — 10/24 done, build: pass -->

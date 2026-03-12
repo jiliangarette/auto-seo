@@ -7,6 +7,8 @@ import Navbar from '@/components/Navbar';
 import Dashboard from '@/pages/Dashboard';
 import Login from '@/pages/Login';
 import Signup from '@/pages/Signup';
+import Projects from '@/pages/Projects';
+import ProjectDetail from '@/pages/ProjectDetail';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -41,6 +43,26 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <Dashboard />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <Projects />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/projects/:id"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <ProjectDetail />
                   </AppLayout>
                 </ProtectedRoute>
               }
