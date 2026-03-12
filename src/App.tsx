@@ -129,6 +129,7 @@ const HreflangTagGenerator = lazy(() => import('@/pages/HreflangTagGenerator'));
 const ContentPerformanceTracker = lazy(() => import('@/pages/ContentPerformanceTracker'));
 const SeoBudgetAllocator = lazy(() => import('@/pages/SeoBudgetAllocator'));
 const CompetitorAlertSystem = lazy(() => import('@/pages/CompetitorAlertSystem'));
+const SeoClientReport = lazy(() => import('@/pages/SeoClientReport'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -853,6 +854,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/client-report"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoClientReport /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
