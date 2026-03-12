@@ -29,10 +29,10 @@
 - [x] Save to DB (`src/hooks/useAnalyses.ts`)
 
 ## Module 5: Content Generator
-- [ ] Topic/keyword/tone input form
-- [ ] OpenAI content generation call
-- [ ] Preview with SEO score
-- [ ] Copy/export
+- [x] Topic/keyword/tone input form (`src/pages/Generator.tsx`)
+- [x] OpenAI content generation call (`src/lib/content-generator.ts`)
+- [x] Preview with SEO score (`src/pages/Generator.tsx`)
+- [x] Copy/export — clipboard copy (`src/pages/Generator.tsx`)
 
 ## Module 6: Dashboard
 - [ ] Project selector
@@ -42,5 +42,5 @@
 
 ---
 
-**Next up:** Module 5 — Content Generator
-<!-- watchdog: 2026-03-13 00:48 — 17/24 done, build: pass -->
+**Next up:** Module 6 — Dashboard (real data)
+<!-- watchdog: 2026-03-13 01:00 — 21/24 done, build: pass -->

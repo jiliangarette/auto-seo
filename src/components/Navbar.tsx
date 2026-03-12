@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'Dashboard', path: '/' },
   { label: 'Projects', path: '/projects' },
   { label: 'Analyzer', path: '/analyzer' },
+  { label: 'Generator', path: '/generator' },
 ];
 
 export default function Navbar() {
