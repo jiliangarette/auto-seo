@@ -154,6 +154,7 @@ const SeoContentTemplates = lazy(() => import('@/pages/SeoContentTemplates'));
 const SearchFeatureOptimizer = lazy(() => import('@/pages/SearchFeatureOptimizer'));
 const MultiSiteSeoManager = lazy(() => import('@/pages/MultiSiteSeoManager'));
 const SeoChangeLogTracker = lazy(() => import('@/pages/SeoChangeLogTracker'));
+const ContentReadinessScorer = lazy(() => import('@/pages/ContentReadinessScorer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1098,6 +1099,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoChangeLogTracker /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/readiness"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentReadinessScorer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

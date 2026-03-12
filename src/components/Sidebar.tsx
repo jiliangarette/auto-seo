@@ -171,6 +171,7 @@ const navItems = [
   { label: 'SERP Features', path: '/serp-features', icon: Sparkles },
   { label: 'Multi-Site', path: '/multi-site', icon: LayoutGrid },
   { label: 'Change Log', path: '/change-log', icon: FileBarChart },
+  { label: 'Readiness', path: '/readiness', icon: Check },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
