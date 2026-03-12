@@ -103,10 +103,10 @@
 - [x] Rich snippet preview (FAQ, How-to, Review)
 
 ### Module 20: Bulk Operations
-- [ ] Bulk keyword import from CSV
-- [ ] Bulk content item creation from CSV
-- [ ] Bulk backlink import from CSV
-- [ ] Export all project data as ZIP
+- [x] Bulk keyword import from CSV
+- [x] Bulk content item creation from CSV
+- [x] Bulk backlink import from CSV
+- [x] Export all project data as ZIP
 
 ### Module 21: Notification System
 - [ ] Notification center (bell icon in navbar)
@@ -206,5 +206,5 @@
 - [ ] SEO health score timeline
 - [ ] Weekly/monthly progress email-style summary page
 
-**Next up:** Module 20 — Bulk Operations
+**Next up:** Module 21 — Notification System
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->

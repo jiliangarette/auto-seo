@@ -20,6 +20,7 @@ import InternalLinks from '@/pages/InternalLinks';
 import Settings from '@/pages/Settings';
 import ContentOptimizer from '@/pages/ContentOptimizer';
 import SerpPreview from '@/pages/SerpPreview';
+import BulkOperations from '@/pages/BulkOperations';
 import NotFound from '@/pages/NotFound';
 
 const queryClient = new QueryClient({
@@ -134,6 +135,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <MetaTagGenerator />
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/bulk"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <BulkOperations />
                   </AppLayout>
                 </ProtectedRoute>
               }
