@@ -603,10 +603,10 @@
 ## Phase 16 — SEO Workflows & Advanced Insights
 
 ### Module 86: XML Sitemap Generator
-- [ ] Input page URLs with priorities and change frequencies
-- [ ] Generate valid XML sitemap output
-- [ ] Validate sitemap structure and limits
-- [ ] Copy or download sitemap file
+- [x] Input page URLs with priorities and change frequencies
+- [x] Generate valid XML sitemap output
+- [x] Validate sitemap structure and limits
+- [x] Copy or download sitemap file
 
 ### Module 87: Canonical Tag Checker
 - [ ] Input multiple URLs to check canonical tags
