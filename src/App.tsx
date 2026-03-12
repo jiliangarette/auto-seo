@@ -138,6 +138,7 @@ const SeoDashboardWidgets = lazy(() => import('@/pages/SeoDashboardWidgets'));
 const LinkBuildingOutreach = lazy(() => import('@/pages/LinkBuildingOutreach'));
 const SeoTrendAnalyzer = lazy(() => import('@/pages/SeoTrendAnalyzer'));
 const ContentFreshnessMonitor = lazy(() => import('@/pages/ContentFreshnessMonitor'));
+const SeoSplitTestRunner = lazy(() => import('@/pages/SeoSplitTestRunner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -922,6 +923,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentFreshnessMonitor /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/split-tests"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoSplitTestRunner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

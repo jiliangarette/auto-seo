@@ -155,6 +155,7 @@ const navItems = [
   { label: 'Link Outreach', path: '/link-outreach', icon: Link2 },
   { label: 'SEO Trends', path: '/seo-trends', icon: BarChart3 },
   { label: 'Freshness', path: '/content-freshness', icon: Clock },
+  { label: 'Split Tests', path: '/split-tests', icon: Swords },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
