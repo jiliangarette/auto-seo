@@ -74,6 +74,7 @@ const navItems = [
   { label: 'Benchmarking', path: '/benchmarking', icon: Gauge },
   { label: 'Keyword Gap', path: '/keyword-gap', icon: Swords },
   { label: 'Content Decay', path: '/content-decay', icon: Clock },
+  { label: 'Schema Validator', path: '/structured-data', icon: Code2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

@@ -387,10 +387,10 @@
 - [x] Content lifecycle status badges (fresh/aging/stale)
 
 ### Module 58: Structured Data Validator
-- [ ] Paste JSON-LD for validation
-- [ ] Property completeness checker per schema type
-- [ ] Google Rich Results eligibility check
-- [ ] Fix suggestions with corrected JSON-LD output
+- [x] Paste JSON-LD for validation
+- [x] Property completeness checker per schema type
+- [x] Google Rich Results eligibility check
+- [x] Fix suggestions with corrected JSON-LD output
 
 ### Module 59: Image SEO Optimizer
 - [ ] Input image URLs for analysis
