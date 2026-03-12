@@ -942,4 +942,38 @@
 
 **All 24 Phases complete (Modules 1-130). 535/535 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-23: 515/515, Phase 24: 0/20, build: pass -->
+---
+
+## Phase 25 — SEO Automation & Reporting Pro
+
+### Module 131: SEO Client Report Generator
+- [ ] Input client name, domain, and reporting period
+- [ ] AI-generate executive-level SEO report
+- [ ] Include traffic, rankings, backlinks, and technical health
+- [ ] Export as formatted HTML report
+
+### Module 132: Keyword Opportunity Finder
+- [ ] Input seed keywords and niche
+- [ ] AI-discover untapped keyword opportunities
+- [ ] Difficulty vs volume opportunity scoring
+- [ ] Export prioritized keyword list
+
+### Module 133: Content Velocity Calculator
+- [ ] Input current publishing rate and traffic goals
+- [ ] Calculate required content velocity for targets
+- [ ] Resource planning (writers, editors, budget)
+- [ ] Timeline projections at different velocities
+
+### Module 134: SEO Penalty Checker
+- [ ] Input domain for penalty risk analysis
+- [ ] AI-detect manual action and algorithmic penalty signals
+- [ ] Recovery action plan with timelines
+- [ ] Before/after traffic impact estimates
+
+### Module 135: Brand SERP Manager
+- [ ] Input brand name for branded SERP analysis
+- [ ] Audit Google results for brand queries
+- [ ] Identify negative or missing brand results
+- [ ] Optimization plan for brand SERP domination
+
+<!-- watchdog: 2026-03-13 — Phases 1-24: 535/535, Phase 25: 0/20, build: pass -->
