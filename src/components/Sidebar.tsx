@@ -105,6 +105,7 @@ const navItems = [
   { label: 'XML Sitemap', path: '/xml-sitemap', icon: Code2 },
   { label: 'Canonicals', path: '/canonical-checker', icon: Tags },
   { label: 'Grader', path: '/readability-grader', icon: BookText },
+  { label: 'Outreach Email', path: '/outreach-emails', icon: Share2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
