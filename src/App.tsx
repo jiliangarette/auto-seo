@@ -30,6 +30,7 @@ const BulkOperations = lazy(() => import('@/pages/BulkOperations'));
 const ContentBrief = lazy(() => import('@/pages/ContentBrief'));
 const PageSpeed = lazy(() => import('@/pages/PageSpeed'));
 const SchemaGenerator = lazy(() => import('@/pages/SchemaGenerator'));
+const ReadabilityAnalyzer = lazy(() => import('@/pages/ReadabilityAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -233,6 +234,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentBrief /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/readability"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ReadabilityAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

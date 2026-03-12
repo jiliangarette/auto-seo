@@ -155,10 +155,10 @@
 - [x] Validate and copy snippet
 
 ### Module 28: Readability Analyzer
-- [ ] Paste content for analysis
-- [ ] Flesch-Kincaid score, sentence/paragraph metrics
-- [ ] Highlight complex sentences
-- [ ] OpenAI simplification suggestions
+- [x] Paste content for analysis
+- [x] Flesch-Kincaid score, sentence/paragraph metrics
+- [x] Highlight complex sentences
+- [x] OpenAI simplification suggestions
 
 ### Module 29: Social Media Preview
 - [ ] Input URL + title + description + image
@@ -208,5 +208,5 @@
 
 **Phase 3 COMPLETE — All 36/36 features built.**
 
-**Next up:** Module 28 — Readability Analyzer
+**Next up:** Module 29 — Social Media Preview
 <!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
