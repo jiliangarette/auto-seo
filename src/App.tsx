@@ -99,6 +99,7 @@ const KeywordIntentClassifier = lazy(() => import('@/pages/KeywordIntentClassifi
 const PageTitleOptimizer = lazy(() => import('@/pages/PageTitleOptimizer'));
 const InternalLinkAudit = lazy(() => import('@/pages/InternalLinkAudit'));
 const ContentLengthAnalyzer = lazy(() => import('@/pages/ContentLengthAnalyzer'));
+const SeoDashboardSummary = lazy(() => import('@/pages/SeoDashboardSummary'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -803,6 +804,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-summary"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoDashboardSummary /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
