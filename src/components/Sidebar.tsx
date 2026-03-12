@@ -142,6 +142,7 @@ const navItems = [
   { label: 'Experiments', path: '/seo-experiment-log', icon: FileText },
   { label: 'Snippets', path: '/rich-snippet-tester', icon: Code2 },
   { label: 'Bulk Analyzer', path: '/bulk-page-analyzer', icon: LayoutGrid },
+  { label: 'Hreflang', path: '/hreflang-generator', icon: LayoutGrid },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

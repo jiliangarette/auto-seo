@@ -915,10 +915,10 @@
 - [x] Export full analysis as CSV
 
 ### Module 127: Hreflang Tag Generator
-- [ ] Input page URLs with language/region targets
-- [ ] Generate correct hreflang tag sets
-- [ ] Validate bidirectional hreflang references
-- [ ] Export as HTML head tags or XML sitemap entries
+- [x] Input page URLs with language/region targets
+- [x] Generate correct hreflang tag sets
+- [x] Validate bidirectional hreflang references
+- [x] Export as HTML head tags or XML sitemap entries
 
 ### Module 128: Content Performance Tracker
 - [ ] Input content URLs with KPIs (traffic, rankings, conversions)

@@ -125,6 +125,7 @@ const AnchorTextPlanner = lazy(() => import('@/pages/AnchorTextPlanner'));
 const SeoExperimentLog = lazy(() => import('@/pages/SeoExperimentLog'));
 const RichSnippetTester = lazy(() => import('@/pages/RichSnippetTester'));
 const BulkPageAnalyzer = lazy(() => import('@/pages/BulkPageAnalyzer'));
+const HreflangTagGenerator = lazy(() => import('@/pages/HreflangTagGenerator'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -849,6 +850,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/hreflang-generator"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><HreflangTagGenerator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
