@@ -40,6 +40,7 @@ const ContentScoring = lazy(() => import('@/pages/ContentScoring'));
 const TopicAuthority = lazy(() => import('@/pages/TopicAuthority'));
 const BacklinkQuality = lazy(() => import('@/pages/BacklinkQuality'));
 const WritingAssistant = lazy(() => import('@/pages/WritingAssistant'));
+const TeamCollaboration = lazy(() => import('@/pages/TeamCollaboration'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -344,6 +345,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ReadabilityAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/team"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><TeamCollaboration /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

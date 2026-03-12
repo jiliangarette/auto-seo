@@ -253,10 +253,10 @@
 ## Phase 7 — Premium Features & Integration
 
 ### Module 41: Team Collaboration
-- [ ] Invite team members to projects (email invite)
-- [ ] Role-based permissions (admin, editor, viewer)
-- [ ] Activity log per project (who did what)
-- [ ] Comment threads on analyses and content
+- [x] Invite team members to projects (email invite)
+- [x] Role-based permissions (admin, editor, viewer)
+- [x] Activity log per project (who did what)
+- [x] Comment threads on analyses and content
 
 ### Module 42: Custom Reporting Templates
 - [ ] Drag-and-drop report builder (select sections)

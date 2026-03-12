@@ -32,6 +32,7 @@ import {
   ChevronRight,
   Menu,
   X,
+  Users,
 } from 'lucide-react';
 
 const navItems = [
@@ -56,6 +57,7 @@ const navItems = [
   { label: 'Analytics', path: '/analytics', icon: BarChart3 },
   { label: 'Clustering', path: '/clustering', icon: LayoutGrid },
   { label: 'Bulk Ops', path: '/bulk', icon: FolderKanban },
+  { label: 'Team', path: '/team', icon: Users },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
 
