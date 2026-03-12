@@ -102,6 +102,7 @@ const ContentLengthAnalyzer = lazy(() => import('@/pages/ContentLengthAnalyzer')
 const SeoDashboardSummary = lazy(() => import('@/pages/SeoDashboardSummary'));
 const UrlSlugOptimizer = lazy(() => import('@/pages/UrlSlugOptimizer'));
 const ContentToneAnalyzer = lazy(() => import('@/pages/ContentToneAnalyzer'));
+const KeywordCannibalizationMap = lazy(() => import('@/pages/KeywordCannibalizationMap'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -806,6 +807,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cannibalization-map"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><KeywordCannibalizationMap /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

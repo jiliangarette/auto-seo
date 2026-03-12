@@ -731,10 +731,10 @@
 - [x] Tone adjustment suggestions
 
 ### Module 103: Keyword Cannibalization Map
-- [ ] Input site pages and target keywords
-- [ ] Visual map of keyword-to-page assignments
-- [ ] Detect overlapping keyword targets
-- [ ] Consolidation and differentiation plan
+- [x] Input site pages and target keywords
+- [x] Visual map of keyword-to-page assignments
+- [x] Detect overlapping keyword targets
+- [x] Consolidation and differentiation plan
 
 ### Module 104: SEO Workflow Automator
 - [ ] Create multi-step SEO workflows
