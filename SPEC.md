@@ -92,8 +92,110 @@ Phase 2 tables (build as needed):
 
 RLS: All tables filtered by `auth.uid() = user_id` (or via project ownership).
 
+## Modules — Phase 3 (Polish, UX & Advanced)
+
+### 16. Dashboard Overhaul
+- Real-time stats from DB (total keywords, avg score, total backlinks, active audits)
+- Recent activity feed (last 10 actions across all modules)
+- Quick-action cards linking to each tool
+- Project health score (composite of SEO score, keyword count, backlink health)
+
+### 17. Keyword Difficulty Estimator
+- OpenAI call: estimate ranking difficulty for a keyword (competition, domain authority needed, content quality required)
+- Difficulty badge (easy/medium/hard) per keyword in tracker
+- Batch difficulty check for all project keywords
+- Keyword opportunity score (volume vs difficulty ratio)
+
+### 18. Content Optimizer
+- Paste existing content + target keyword
+- OpenAI call: suggest improvements (keyword density, readability, heading structure, word count)
+- Before/after comparison view
+- Optimization score with specific action items
+
+### 19. SERP Preview Tool
+- Input: URL + target keyword
+- Generate realistic SERP preview (desktop + mobile)
+- Show character count warnings for title/description
+- Rich snippet preview (FAQ, How-to, Review stars)
+
+### 20. Bulk Operations
+- Bulk keyword import from CSV
+- Bulk content item creation from CSV
+- Bulk backlink import
+- Export all project data as ZIP (CSV files for each entity)
+
+### 21. Notification System
+- Toast-based notification center (bell icon in navbar)
+- Track completed analyses, audits, reports
+- Notification badge count
+- Mark as read / clear all
+
+### 22. Search & Filter
+- Global search bar in navbar (search across keywords, projects, content items)
+- Advanced filters on keyword table (position range, volume range)
+- Filter content calendar by status
+- Search audit issues by category/severity
+
+### 23. Onboarding Flow
+- First-login welcome modal with setup wizard
+- Create first project step
+- Add first keyword step
+- Run first analysis step
+- Progress indicator (setup checklist on dashboard)
+
+### 24. Performance & Code Quality
+- Code-split routes with React.lazy + Suspense
+- Loading skeletons for all data-fetching components
+- Error boundaries with retry buttons
+- Optimistic updates on mutations (instant UI feedback)
+
+## Modules — Phase 4 (Growth & Scale)
+
+### 25. AI Content Brief Generator
+- Input: target keyword + audience
+- OpenAI call: generate full content brief (outline, word count target, competitor angles, questions to answer)
+- Save briefs to content calendar items
+- Brief-to-draft workflow
+
+### 26. Page Speed Insights Integration
+- Input: URL to analyze
+- OpenAI-simulated performance scoring (Core Web Vitals suggestions)
+- Actionable performance recommendations
+- Save speed audit history
+
+### 27. Schema Markup Generator
+- Select schema type (Article, Product, FAQ, HowTo, LocalBusiness, etc.)
+- Form-based input for schema fields
+- Generate JSON-LD output
+- Validate and copy snippet
+
+### 28. Readability Analyzer
+- Paste content for analysis
+- Calculate Flesch-Kincaid score, sentence length, paragraph length
+- Highlight complex sentences
+- Suggest simplifications via OpenAI
+
+### 29. Social Media Preview
+- Input: URL + title + description + image
+- Preview cards for Facebook, Twitter/X, LinkedIn
+- OG tag generator with live preview
+- Copy all social meta tags
+
+### 30. Multi-Project Dashboard
+- Overview grid of all projects with health scores
+- Compare projects side-by-side
+- Aggregate stats across all projects
+- Project archiving
+
 ## Design Direction
 - Dark theme by default
 - Clean, minimal dashboard aesthetic
 - Card-based layouts
 - No flashy gradients — professional and focused
+
+## Autonomous Loop Rules
+When all tasks in PROGRESS.md are complete:
+1. Read SPEC.md for the next unchecked phase
+2. Add new phase items to PROGRESS.md
+3. Continue building
+This ensures the loop never idles — there's always more to build.

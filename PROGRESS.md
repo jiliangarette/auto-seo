@@ -73,4 +73,138 @@
 ---
 
 **Phase 2 COMPLETE — All 38/38 features built.**
-<!-- watchdog: 2026-03-13 03:06 — Phase 1: 27/27 done, Phase 2: 19/38, build: pass -->
+
+---
+
+## Phase 3 — Polish, UX & Advanced
+
+### Module 16: Dashboard Overhaul
+- [ ] Real-time stats from DB (total keywords, avg score, total backlinks, active audits)
+- [ ] Recent activity feed (last 10 actions across all modules)
+- [ ] Quick-action cards linking to each tool
+- [ ] Project health score (composite of SEO score, keyword count, backlink health)
+
+### Module 17: Keyword Difficulty Estimator
+- [ ] OpenAI difficulty estimate per keyword (competition, DA needed, content quality)
+- [ ] Difficulty badge (easy/medium/hard) in keyword tracker
+- [ ] Batch difficulty check for all project keywords
+- [ ] Keyword opportunity score (volume vs difficulty ratio)
+
+### Module 18: Content Optimizer
+- [ ] Paste existing content + target keyword input
+- [ ] OpenAI optimization suggestions (density, readability, headings, word count)
+- [ ] Before/after comparison view
+- [ ] Optimization score with action items
+
+### Module 19: SERP Preview Tool
+- [ ] Input URL + target keyword
+- [ ] Desktop + mobile SERP preview
+- [ ] Character count warnings for title/description
+- [ ] Rich snippet preview (FAQ, How-to, Review)
+
+### Module 20: Bulk Operations
+- [ ] Bulk keyword import from CSV
+- [ ] Bulk content item creation from CSV
+- [ ] Bulk backlink import from CSV
+- [ ] Export all project data as ZIP
+
+### Module 21: Notification System
+- [ ] Notification center (bell icon in navbar)
+- [ ] Track completed analyses, audits, reports
+- [ ] Notification badge count
+- [ ] Mark as read / clear all
+
+### Module 22: Search & Filter
+- [ ] Global search bar in navbar
+- [ ] Advanced filters on keyword table (position range, volume range)
+- [ ] Filter content calendar by status
+- [ ] Search audit issues by category/severity
+
+### Module 23: Onboarding Flow
+- [ ] First-login welcome modal with setup wizard
+- [ ] Create first project step
+- [ ] Add first keyword + run first analysis steps
+- [ ] Setup checklist on dashboard
+
+### Module 24: Performance & Code Quality
+- [ ] Code-split routes with React.lazy + Suspense
+- [ ] Loading skeletons for all data-fetching pages
+- [ ] Error boundaries with retry buttons
+- [ ] Optimistic updates on mutations
+
+---
+
+## Phase 4 — Growth & Scale
+
+### Module 25: AI Content Brief Generator
+- [ ] Input target keyword + audience
+- [ ] OpenAI content brief (outline, word count, competitor angles, questions)
+- [ ] Save briefs to content calendar items
+- [ ] Brief-to-draft workflow
+
+### Module 26: Page Speed Insights
+- [ ] URL input for performance analysis
+- [ ] OpenAI-simulated Core Web Vitals scoring
+- [ ] Actionable performance recommendations
+- [ ] Save speed audit history
+
+### Module 27: Schema Markup Generator
+- [ ] Select schema type (Article, Product, FAQ, HowTo, LocalBusiness)
+- [ ] Form-based input for schema fields
+- [ ] Generate JSON-LD output
+- [ ] Validate and copy snippet
+
+### Module 28: Readability Analyzer
+- [ ] Paste content for analysis
+- [ ] Flesch-Kincaid score, sentence/paragraph metrics
+- [ ] Highlight complex sentences
+- [ ] OpenAI simplification suggestions
+
+### Module 29: Social Media Preview
+- [ ] Input URL + title + description + image
+- [ ] Preview cards for Facebook, Twitter/X, LinkedIn
+- [ ] OG tag generator with live preview
+- [ ] Copy all social meta tags
+
+### Module 30: Multi-Project Dashboard
+- [ ] Overview grid of all projects with health scores
+- [ ] Compare projects side-by-side
+- [ ] Aggregate stats across all projects
+- [ ] Project archiving
+
+---
+
+## Phase 5 — Enhanced UI & Research
+
+### Module 31: UI Redesign — Navigation
+- [ ] Collapsible sidebar navigation (replace top navbar)
+- [ ] Icon + label nav items with active state indicators
+- [ ] Mobile hamburger menu with slide-out drawer
+- [ ] Breadcrumb trail on all pages
+
+### Module 32: UI Redesign — Cards & Data Display
+- [ ] Animated stat cards with count-up numbers on dashboard
+- [ ] Gradient accent borders on cards (subtle, professional)
+- [ ] Data tables with row hover effects, zebra striping
+- [ ] Empty states with illustrations and CTAs
+
+### Module 33: UI Redesign — Forms & Interactions
+- [ ] Multi-step forms with progress indicator (audit, generator)
+- [ ] Inline editing on keyword table (click to edit position/volume)
+- [ ] Confirmation modals with animations for destructive actions
+- [ ] Drag-and-drop content calendar items between dates
+
+### Module 34: Competitive Research Dashboard
+- [ ] Competitor SERP overlap analysis (shared keywords)
+- [ ] Content gap finder (keywords competitors rank for, you don't)
+- [ ] Competitor content frequency tracking
+- [ ] Competitive positioning matrix chart
+
+### Module 35: Advanced Analytics
+- [ ] Keyword ranking trends over time (multi-keyword chart)
+- [ ] Content performance correlation (score vs rank improvement)
+- [ ] SEO health score timeline
+- [ ] Weekly/monthly progress email-style summary page
+
+**Next up:** Module 16 — Dashboard Overhaul
+<!-- watchdog: 2026-03-13 — Phase 1: 27/27, Phase 2: 38/38, Phase 3-5: 0/80, build: pass -->
