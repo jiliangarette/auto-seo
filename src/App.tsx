@@ -135,6 +135,7 @@ const ContentVelocityCalc = lazy(() => import('@/pages/ContentVelocityCalc'));
 const SeoPenaltyChecker = lazy(() => import('@/pages/SeoPenaltyChecker'));
 const BrandSerpManager = lazy(() => import('@/pages/BrandSerpManager'));
 const SeoDashboardWidgets = lazy(() => import('@/pages/SeoDashboardWidgets'));
+const LinkBuildingOutreach = lazy(() => import('@/pages/LinkBuildingOutreach'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -889,6 +890,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoDashboardWidgets /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/link-outreach"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><LinkBuildingOutreach /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
