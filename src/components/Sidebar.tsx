@@ -163,6 +163,7 @@ const navItems = [
   { label: 'Sentiment', path: '/sentiment', icon: Sparkles },
   { label: 'Link Scorer', path: '/link-scorer', icon: Link2 },
   { label: 'Revenue Calc', path: '/revenue-calc', icon: Gauge },
+  { label: 'Distribution', path: '/distribution', icon: Share2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
