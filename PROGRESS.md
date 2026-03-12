@@ -484,4 +484,38 @@
 
 **All 12 Phases complete (Modules 1-70). 295/295 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-12: 295/295, build: pass -->
+---
+
+## Phase 13 — Advanced Optimization & Monitoring
+
+### Module 71: Core Web Vitals Monitor
+- [ ] Input URL for CWV analysis
+- [ ] LCP, INP, CLS scoring with pass/fail status
+- [ ] Historical CWV trend tracking
+- [ ] AI-powered fix recommendations per metric
+
+### Module 72: Content Gap Finder
+- [ ] Input your sitemap + competitor sitemaps
+- [ ] AI-detect missing content topics
+- [ ] Priority scoring by search volume potential
+- [ ] Generate content briefs for top gaps
+
+### Module 73: Link Intersection Tool
+- [ ] Input multiple competitor domains
+- [ ] Find sites linking to competitors but not you
+- [ ] Domain authority estimation per prospect
+- [ ] Export outreach-ready prospect list
+
+### Module 74: FAQ Schema Generator
+- [ ] Input topic or paste existing FAQ content
+- [ ] AI-generate relevant FAQ pairs
+- [ ] Generate FAQ schema JSON-LD
+- [ ] Preview in Google FAQ rich result format
+
+### Module 75: Heading Structure Analyzer
+- [ ] Paste page HTML or content
+- [ ] Validate H1-H6 hierarchy
+- [ ] Detect missing headings, skipped levels
+- [ ] Suggest optimized heading structure
+
+<!-- watchdog: 2026-03-13 — Phases 1-12: 295/295, Phase 13: 0/20, build: pass -->
