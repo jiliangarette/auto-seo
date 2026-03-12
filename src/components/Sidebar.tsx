@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useNotifications } from '@/contexts/NotificationContext';
 import GlobalSearch from '@/components/GlobalSearch';
 import {
+  Clock,
   LayoutDashboard,
   FolderKanban,
   Search,
@@ -72,6 +73,7 @@ const navItems = [
   { label: 'Sitemap', path: '/sitemap', icon: FolderKanban },
   { label: 'Benchmarking', path: '/benchmarking', icon: Gauge },
   { label: 'Keyword Gap', path: '/keyword-gap', icon: Swords },
+  { label: 'Content Decay', path: '/content-decay', icon: Clock },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

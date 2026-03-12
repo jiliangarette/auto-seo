@@ -381,10 +381,10 @@
 - [x] Export gap analysis report
 
 ### Module 57: Content Decay Detector
-- [ ] Track content age and performance over time
-- [ ] Flag declining content (traffic/ranking drops)
-- [ ] AI refresh suggestions for stale content
-- [ ] Content lifecycle status badges (fresh/aging/stale)
+- [x] Track content age and performance over time
+- [x] Flag declining content (traffic/ranking drops)
+- [x] AI refresh suggestions for stale content
+- [x] Content lifecycle status badges (fresh/aging/stale)
 
 ### Module 58: Structured Data Validator
 - [ ] Paste JSON-LD for validation

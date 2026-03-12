@@ -56,6 +56,7 @@ const AuditScheduler = lazy(() => import('@/pages/AuditScheduler'));
 const SitemapAnalyzer = lazy(() => import('@/pages/SitemapAnalyzer'));
 const Benchmarking = lazy(() => import('@/pages/Benchmarking'));
 const KeywordGap = lazy(() => import('@/pages/KeywordGap'));
+const ContentDecay = lazy(() => import('@/pages/ContentDecay'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -520,6 +521,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><TeamCollaboration /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-decay"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentDecay /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
