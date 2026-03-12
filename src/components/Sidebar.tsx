@@ -63,6 +63,7 @@ const navItems = [
   { label: 'Team', path: '/team', icon: Users },
   { label: 'Search Console', path: '/search-console', icon: Search },
   { label: 'Monitoring', path: '/competitor-monitoring', icon: Eye },
+  { label: 'A/B Testing', path: '/ab-test', icon: BarChart3 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
