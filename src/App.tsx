@@ -69,6 +69,7 @@ const RobotsTxtAnalyzer = lazy(() => import('@/pages/RobotsTxtAnalyzer'));
 const RedirectChainChecker = lazy(() => import('@/pages/RedirectChainChecker'));
 const ContentFreshnessPlanner = lazy(() => import('@/pages/ContentFreshnessPlanner'));
 const EeatAnalyzer = lazy(() => import('@/pages/EeatAnalyzer'));
+const LogFileAnalyzer = lazy(() => import('@/pages/LogFileAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -543,6 +544,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><StructuredDataValidator /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/log-analyzer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><LogFileAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
