@@ -124,6 +124,7 @@ const ContentAuditScorer = lazy(() => import('@/pages/ContentAuditScorer'));
 const AnchorTextPlanner = lazy(() => import('@/pages/AnchorTextPlanner'));
 const SeoExperimentLog = lazy(() => import('@/pages/SeoExperimentLog'));
 const RichSnippetTester = lazy(() => import('@/pages/RichSnippetTester'));
+const BulkPageAnalyzer = lazy(() => import('@/pages/BulkPageAnalyzer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -848,6 +849,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/bulk-page-analyzer"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><BulkPageAnalyzer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
