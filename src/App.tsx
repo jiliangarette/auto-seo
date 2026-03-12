@@ -123,6 +123,7 @@ const KeywordClusteringPro = lazy(() => import('@/pages/KeywordClusteringPro'));
 const ContentAuditScorer = lazy(() => import('@/pages/ContentAuditScorer'));
 const AnchorTextPlanner = lazy(() => import('@/pages/AnchorTextPlanner'));
 const SeoExperimentLog = lazy(() => import('@/pages/SeoExperimentLog'));
+const RichSnippetTester = lazy(() => import('@/pages/RichSnippetTester'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -847,6 +848,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/rich-snippet-tester"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><RichSnippetTester /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

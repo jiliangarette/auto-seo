@@ -140,6 +140,7 @@ const navItems = [
   { label: 'Audit Scorer', path: '/content-audit-scorer', icon: FileBarChart },
   { label: 'Anchor Plan', path: '/anchor-text-planner', icon: Link2 },
   { label: 'Experiments', path: '/seo-experiment-log', icon: FileText },
+  { label: 'Snippets', path: '/rich-snippet-tester', icon: Code2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
