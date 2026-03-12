@@ -79,6 +79,7 @@ const navItems = [
   { label: 'SEO Score', path: '/seo-score', icon: Gauge },
   { label: 'CTA Optimizer', path: '/cta-optimizer', icon: LayoutDashboard },
   { label: 'Content ROI', path: '/content-roi', icon: BarChart3 },
+  { label: 'Anchor Text', path: '/anchor-text', icon: Link2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
