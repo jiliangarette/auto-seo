@@ -52,6 +52,7 @@ const LinkOutreach = lazy(() => import('@/pages/LinkOutreach'));
 const DashboardWidgets = lazy(() => import('@/pages/DashboardWidgets'));
 const AiKeywordResearch = lazy(() => import('@/pages/AiKeywordResearch'));
 const ContentRepurposer = lazy(() => import('@/pages/ContentRepurposer'));
+const AuditScheduler = lazy(() => import('@/pages/AuditScheduler'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -356,6 +357,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ReadabilityAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/audit-scheduler"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><AuditScheduler /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
