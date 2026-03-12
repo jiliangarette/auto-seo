@@ -133,6 +133,7 @@ const SeoClientReport = lazy(() => import('@/pages/SeoClientReport'));
 const KeywordOpportunityFinder = lazy(() => import('@/pages/KeywordOpportunityFinder'));
 const ContentVelocityCalc = lazy(() => import('@/pages/ContentVelocityCalc'));
 const SeoPenaltyChecker = lazy(() => import('@/pages/SeoPenaltyChecker'));
+const BrandSerpManager = lazy(() => import('@/pages/BrandSerpManager'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -867,6 +868,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoPenaltyChecker /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/brand-serp"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><BrandSerpManager /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
