@@ -70,6 +70,7 @@ const navItems = [
   { label: 'Repurposer', path: '/repurpose', icon: Share2 },
   { label: 'Audit Schedule', path: '/audit-scheduler', icon: Shield },
   { label: 'Sitemap', path: '/sitemap', icon: FolderKanban },
+  { label: 'Benchmarking', path: '/benchmarking', icon: Gauge },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
