@@ -133,6 +133,7 @@ const navItems = [
   { label: 'Entity SEO', path: '/entity-seo', icon: Tags },
   { label: 'Playbook', path: '/competitor-playbook', icon: Swords },
   { label: 'Topic Authority', path: '/topical-authority-score', icon: Shield },
+  { label: 'Forecaster', path: '/seo-forecaster', icon: BarChart3 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

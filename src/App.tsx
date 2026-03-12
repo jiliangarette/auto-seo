@@ -116,6 +116,7 @@ const SerpVolatilityMonitor = lazy(() => import('@/pages/SerpVolatilityMonitor')
 const EntitySeoOptimizer = lazy(() => import('@/pages/EntitySeoOptimizer'));
 const SeoCompetitorPlaybook = lazy(() => import('@/pages/SeoCompetitorPlaybook'));
 const TopicalAuthorityScore = lazy(() => import('@/pages/TopicalAuthorityScore'));
+const SeoForecaster = lazy(() => import('@/pages/SeoForecaster'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -840,6 +841,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-forecaster"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoForecaster /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
