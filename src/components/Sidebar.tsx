@@ -148,6 +148,7 @@ const navItems = [
   { label: 'Alerts', path: '/competitor-alerts', icon: Bell },
   { label: 'Client Report', path: '/client-report', icon: FileBarChart },
   { label: 'KW Finder', path: '/keyword-opportunities', icon: Search },
+  { label: 'Velocity', path: '/content-velocity', icon: Gauge },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
