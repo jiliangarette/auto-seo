@@ -103,6 +103,7 @@ const SeoDashboardSummary = lazy(() => import('@/pages/SeoDashboardSummary'));
 const UrlSlugOptimizer = lazy(() => import('@/pages/UrlSlugOptimizer'));
 const ContentToneAnalyzer = lazy(() => import('@/pages/ContentToneAnalyzer'));
 const KeywordCannibalizationMap = lazy(() => import('@/pages/KeywordCannibalizationMap'));
+const SeoWorkflowAutomator = lazy(() => import('@/pages/SeoWorkflowAutomator'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -807,6 +808,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentDecay /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/workflows"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoWorkflowAutomator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
