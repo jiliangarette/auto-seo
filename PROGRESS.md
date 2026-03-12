@@ -225,10 +225,10 @@
 - [x] Export cluster map as JSON
 
 ### Module 37: Automated Content Scoring
-- [ ] Score content against top-10 SERP competitors
-- [ ] Heading structure analysis (H1-H6 hierarchy check)
-- [ ] Keyword placement scoring (title, meta, first paragraph, headings)
-- [ ] Actionable improvement checklist per content piece
+- [x] Score content against top-10 SERP competitors
+- [x] Heading structure analysis (H1-H6 hierarchy check)
+- [x] Keyword placement scoring (title, meta, first paragraph, headings)
+- [x] Actionable improvement checklist per content piece
 
 ### Module 38: Topic Authority Mapper
 - [ ] Map topical coverage across all content
@@ -284,5 +284,5 @@
 
 ---
 
-**Next up:** Module 37 — Automated Content Scoring
+**Next up:** Module 38 — Topic Authority Mapper
 <!-- watchdog: 2026-03-13 — Phases 1-5: 155/155, Phase 6-7: 0/40, build: pass -->

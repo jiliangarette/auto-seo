@@ -36,6 +36,7 @@ const MultiProjectDashboard = lazy(() => import('@/pages/MultiProjectDashboard')
 const CompetitiveResearch = lazy(() => import('@/pages/CompetitiveResearch'));
 const Analytics = lazy(() => import('@/pages/Analytics'));
 const KeywordClustering = lazy(() => import('@/pages/KeywordClustering'));
+const ContentScoring = lazy(() => import('@/pages/ContentScoring'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -240,6 +241,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentBrief /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-scoring"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentScoring /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
