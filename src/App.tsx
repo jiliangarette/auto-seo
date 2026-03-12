@@ -118,6 +118,7 @@ const SeoCompetitorPlaybook = lazy(() => import('@/pages/SeoCompetitorPlaybook')
 const TopicalAuthorityScore = lazy(() => import('@/pages/TopicalAuthorityScore'));
 const SeoForecaster = lazy(() => import('@/pages/SeoForecaster'));
 const SearchIntentMapper = lazy(() => import('@/pages/SearchIntentMapper'));
+const SeoMigrationPlanner = lazy(() => import('@/pages/SeoMigrationPlanner'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -842,6 +843,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-migration"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoMigrationPlanner /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
