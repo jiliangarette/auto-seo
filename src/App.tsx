@@ -155,6 +155,7 @@ const SearchFeatureOptimizer = lazy(() => import('@/pages/SearchFeatureOptimizer
 const MultiSiteSeoManager = lazy(() => import('@/pages/MultiSiteSeoManager'));
 const SeoChangeLogTracker = lazy(() => import('@/pages/SeoChangeLogTracker'));
 const ContentReadinessScorer = lazy(() => import('@/pages/ContentReadinessScorer'));
+const SeoApiRateChecker = lazy(() => import('@/pages/SeoApiRateChecker'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1109,6 +1110,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentReadinessScorer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/api-rates"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoApiRateChecker /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
