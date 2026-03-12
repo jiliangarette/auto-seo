@@ -341,10 +341,10 @@
 - [x] Export keyword list to tracker
 
 ### Module 52: Content Repurposer
-- [ ] Input blog post for repurposing
-- [ ] AI-generate social media posts from content
-- [ ] Generate email newsletter version
-- [ ] Create video script outline
+- [x] Input blog post for repurposing
+- [x] AI-generate social media posts from content
+- [x] Generate email newsletter version
+- [x] Create video script outline
 
 ### Module 53: SEO Audit Scheduler
 - [ ] Schedule recurring audits per project
