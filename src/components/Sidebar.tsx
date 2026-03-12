@@ -144,6 +144,7 @@ const navItems = [
   { label: 'Bulk Analyzer', path: '/bulk-page-analyzer', icon: LayoutGrid },
   { label: 'Hreflang', path: '/hreflang-generator', icon: LayoutGrid },
   { label: 'Performance', path: '/content-performance', icon: BarChart3 },
+  { label: 'Budget', path: '/seo-budget', icon: Gauge },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

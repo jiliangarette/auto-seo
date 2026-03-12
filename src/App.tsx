@@ -127,6 +127,7 @@ const RichSnippetTester = lazy(() => import('@/pages/RichSnippetTester'));
 const BulkPageAnalyzer = lazy(() => import('@/pages/BulkPageAnalyzer'));
 const HreflangTagGenerator = lazy(() => import('@/pages/HreflangTagGenerator'));
 const ContentPerformanceTracker = lazy(() => import('@/pages/ContentPerformanceTracker'));
+const SeoBudgetAllocator = lazy(() => import('@/pages/SeoBudgetAllocator'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -851,6 +852,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><ContentCalendarAi /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/seo-budget"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoBudgetAllocator /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
