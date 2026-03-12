@@ -62,6 +62,7 @@ const navItems = [
   { label: 'i18n', path: '/i18n', icon: LayoutGrid },
   { label: 'Team', path: '/team', icon: Users },
   { label: 'Search Console', path: '/search-console', icon: Search },
+  { label: 'Monitoring', path: '/competitor-monitoring', icon: Eye },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
