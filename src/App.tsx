@@ -139,6 +139,7 @@ const LinkBuildingOutreach = lazy(() => import('@/pages/LinkBuildingOutreach'));
 const SeoTrendAnalyzer = lazy(() => import('@/pages/SeoTrendAnalyzer'));
 const ContentFreshnessMonitor = lazy(() => import('@/pages/ContentFreshnessMonitor'));
 const SeoSplitTestRunner = lazy(() => import('@/pages/SeoSplitTestRunner'));
+const KeywordCannibalizationDetector = lazy(() => import('@/pages/KeywordCannibalizationDetector'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -933,6 +934,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoSplitTestRunner /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cannibalization"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><KeywordCannibalizationDetector /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
