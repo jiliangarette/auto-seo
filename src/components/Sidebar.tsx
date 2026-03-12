@@ -183,6 +183,7 @@ const navItems = [
   { label: 'SEO Alerts', path: '/seo-alerts', icon: Bell },
   { label: 'Repurpose', path: '/content-repurpose', icon: Share2 },
   { label: 'Forecast', path: '/seo-forecast', icon: BarChart3 },
+  { label: 'Backlink Spy', path: '/backlink-analyzer', icon: Link2 },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
