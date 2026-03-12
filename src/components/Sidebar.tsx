@@ -57,6 +57,7 @@ const navItems = [
   { label: 'Analytics', path: '/analytics', icon: BarChart3 },
   { label: 'Clustering', path: '/clustering', icon: LayoutGrid },
   { label: 'Bulk Ops', path: '/bulk', icon: FolderKanban },
+  { label: 'Report Builder', path: '/report-builder', icon: FileBarChart },
   { label: 'Team', path: '/team', icon: Users },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

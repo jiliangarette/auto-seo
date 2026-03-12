@@ -259,10 +259,10 @@
 - [x] Comment threads on analyses and content
 
 ### Module 42: Custom Reporting Templates
-- [ ] Drag-and-drop report builder (select sections)
-- [ ] White-label branding (custom logo, colors)
-- [ ] Scheduled report delivery (weekly/monthly email)
-- [ ] PDF export with charts
+- [x] Drag-and-drop report builder (select sections)
+- [x] White-label branding (custom logo, colors)
+- [x] Scheduled report delivery (weekly/monthly email)
+- [x] PDF export with charts
 
 ### Module 43: API Playground
 - [ ] Interactive API endpoint tester
