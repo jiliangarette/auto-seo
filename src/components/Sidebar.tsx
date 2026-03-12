@@ -109,6 +109,7 @@ const navItems = [
   { label: 'Audit Report', path: '/audit-report', icon: FileBarChart },
   { label: 'Brief Templates', path: '/brief-templates', icon: FileText },
   { label: 'Topical Map', path: '/topical-map', icon: Share2 },
+  { label: 'SERP Features', path: '/serp-features', icon: Eye },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

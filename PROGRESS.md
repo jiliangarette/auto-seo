@@ -653,10 +653,10 @@
 - [x] Export topical map as JSON
 
 ### Module 93: SERP Feature Tracker
-- [ ] Input keywords to track SERP features
-- [ ] Detect featured snippets, PAA, local packs, images
-- [ ] Opportunity scoring per SERP feature type
-- [ ] Historical feature presence tracking
+- [x] Input keywords to track SERP features
+- [x] Detect featured snippets, PAA, local packs, images
+- [x] Opportunity scoring per SERP feature type
+- [x] Historical feature presence tracking
 
 ### Module 94: Duplicate Content Checker
 - [ ] Input multiple URLs or paste content blocks
