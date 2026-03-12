@@ -533,10 +533,10 @@
 - [x] One-click copy best variant
 
 ### Module 77: Title Tag Tester
-- [ ] Input multiple title tag variants
-- [ ] AI-predicted CTR for each variant
-- [ ] SERP preview comparison
-- [ ] Winner recommendation with reasoning
+- [x] Input multiple title tag variants
+- [x] AI-predicted CTR for each variant
+- [x] SERP preview comparison
+- [x] Winner recommendation with reasoning
 
 ### Module 78: Keyword Density Checker
 - [ ] Paste content + target keywords

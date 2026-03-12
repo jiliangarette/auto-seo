@@ -93,6 +93,7 @@ const navItems = [
   { label: 'FAQ Schema', path: '/faq-schema', icon: Code2 },
   { label: 'Headings', path: '/heading-analyzer', icon: FileText },
   { label: 'Rewriter', path: '/rewriter', icon: Wand2 },
+  { label: 'Title Tester', path: '/title-tester', icon: Tags },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
