@@ -153,6 +153,7 @@ const PageRankFlowAnalyzer = lazy(() => import('@/pages/PageRankFlowAnalyzer'));
 const SeoContentTemplates = lazy(() => import('@/pages/SeoContentTemplates'));
 const SearchFeatureOptimizer = lazy(() => import('@/pages/SearchFeatureOptimizer'));
 const MultiSiteSeoManager = lazy(() => import('@/pages/MultiSiteSeoManager'));
+const SeoChangeLogTracker = lazy(() => import('@/pages/SeoChangeLogTracker'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1087,6 +1088,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><MultiSiteSeoManager /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/change-log"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SeoChangeLogTracker /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
