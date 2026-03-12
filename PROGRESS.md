@@ -752,4 +752,38 @@
 
 **All 19 Phases complete (Modules 1-105). 435/435 features built.**
 
-<!-- watchdog: 2026-03-13 — Phases 1-19: 435/435, build: pass -->
+---
+
+## Phase 20 — Content Marketing & SEO Mastery
+
+### Module 106: Content Calendar AI
+- [ ] Input content goals and target keywords
+- [ ] AI-generate 30-day content calendar
+- [ ] Content type mix recommendations (blog, video, social)
+- [ ] Export calendar as CSV
+
+### Module 107: SEO A/B Test Planner
+- [ ] Input page URL and test hypothesis
+- [ ] AI-generate test variants (title, meta, content)
+- [ ] Statistical significance calculator
+- [ ] Test result documentation template
+
+### Module 108: Backlink Gap Analyzer
+- [ ] Input your domain + competitor domains
+- [ ] Find domains linking to competitors but not you
+- [ ] Quality scoring per prospect domain
+- [ ] Export prioritized outreach list
+
+### Module 109: Content Summarizer
+- [ ] Input long-form content for summarization
+- [ ] AI-generate executive summary, key points, TL;DR
+- [ ] Social media snippet versions
+- [ ] Copy summaries in multiple formats
+
+### Module 110: SEO Knowledge Base
+- [ ] Searchable glossary of SEO terms
+- [ ] Interactive SEO concept explanations
+- [ ] Best practice guides per topic
+- [ ] Quick reference cards for common tasks
+
+<!-- watchdog: 2026-03-13 — Phases 1-19: 435/435, Phase 20: 0/20, build: pass -->
