@@ -154,6 +154,7 @@ const navItems = [
   { label: 'SEO Widgets', path: '/seo-widgets', icon: LayoutGrid },
   { label: 'Link Outreach', path: '/link-outreach', icon: Link2 },
   { label: 'SEO Trends', path: '/seo-trends', icon: BarChart3 },
+  { label: 'Freshness', path: '/content-freshness', icon: Clock },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];

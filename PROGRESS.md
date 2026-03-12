@@ -1014,4 +1014,38 @@
 
 **Phase 26 complete — 20/20 features built (Modules 136-140)**
 
-<!-- watchdog: 2026-03-13 — Phases 1-26: 575/575, build: pass -->
+---
+
+## Phase 27: SEO Content Intelligence & Automation (Modules 141-145)
+
+### Module 141: Content Freshness Monitor
+- [x] Input URLs to monitor for content staleness
+- [x] AI evaluates content age and relevance decay
+- [x] Priority refresh recommendations with impact scores
+- [x] Content update scheduling suggestions
+
+### Module 142: SEO Split Test Runner
+- [ ] Define A/B test variants for meta titles and descriptions
+- [ ] AI predicts CTR impact for each variant
+- [ ] Statistical significance calculator for test results
+- [ ] Winner recommendation with confidence intervals
+
+### Module 143: Keyword Cannibalization Detector
+- [ ] Input domain to scan for keyword cannibalization
+- [ ] AI identifies pages competing for same keywords
+- [ ] Consolidation recommendations with merge strategies
+- [ ] Impact analysis for each cannibalization issue
+
+### Module 144: Content Localization Planner
+- [ ] Input content and target markets for localization
+- [ ] AI generates locale-specific SEO recommendations
+- [ ] Cultural adaptation suggestions for each market
+- [ ] Hreflang and geo-targeting implementation guide
+
+### Module 145: SEO Compliance Checker
+- [ ] Input URL for SEO compliance audit
+- [ ] Check against Google guidelines and best practices
+- [ ] Accessibility and Core Web Vitals compliance
+- [ ] Compliance report with fix priority rankings
+
+<!-- watchdog: 2026-03-13 — Phases 1-26: 575/575, Phase 27: 0/20, build: pass -->

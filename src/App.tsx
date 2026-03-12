@@ -137,6 +137,7 @@ const BrandSerpManager = lazy(() => import('@/pages/BrandSerpManager'));
 const SeoDashboardWidgets = lazy(() => import('@/pages/SeoDashboardWidgets'));
 const LinkBuildingOutreach = lazy(() => import('@/pages/LinkBuildingOutreach'));
 const SeoTrendAnalyzer = lazy(() => import('@/pages/SeoTrendAnalyzer'));
+const ContentFreshnessMonitor = lazy(() => import('@/pages/ContentFreshnessMonitor'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -911,6 +912,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoTrendAnalyzer /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-freshness"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><ContentFreshnessMonitor /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }
