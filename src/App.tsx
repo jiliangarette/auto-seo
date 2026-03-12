@@ -151,6 +151,7 @@ const OrganicCtrOptimizer = lazy(() => import('@/pages/OrganicCtrOptimizer'));
 const SeoContentFunnelBuilder = lazy(() => import('@/pages/SeoContentFunnelBuilder'));
 const PageRankFlowAnalyzer = lazy(() => import('@/pages/PageRankFlowAnalyzer'));
 const SeoContentTemplates = lazy(() => import('@/pages/SeoContentTemplates'));
+const SearchFeatureOptimizer = lazy(() => import('@/pages/SearchFeatureOptimizer'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -1065,6 +1066,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><SeoContentTemplates /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/serp-features"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><SearchFeatureOptimizer /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

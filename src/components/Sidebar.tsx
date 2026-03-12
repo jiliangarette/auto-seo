@@ -168,6 +168,7 @@ const navItems = [
   { label: 'Content Funnel', path: '/content-funnel', icon: FileText },
   { label: 'PageRank Flow', path: '/pagerank-flow', icon: Code2 },
   { label: 'Templates', path: '/content-templates', icon: BookText },
+  { label: 'SERP Features', path: '/serp-features', icon: Sparkles },
   { label: 'Changelog', path: '/changelog', icon: BarChart3 },
   { label: 'Settings', path: '/settings', icon: Settings },
 ];
