@@ -157,8 +157,8 @@ export default function SchemaGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Code2 className="size-6" />
@@ -167,7 +167,7 @@ export default function SchemaGenerator() {
           <p className="text-muted-foreground">Generate JSON-LD structured data for rich search results</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm">Schema Type</CardTitle>
           </CardHeader>
@@ -187,11 +187,12 @@ export default function SchemaGenerator() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm">{schemaType} Fields</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {fields.map((field) => (
               <div key={field.key}>
                 <label className="mb-1 block text-xs text-muted-foreground">
@@ -204,10 +205,11 @@ export default function SchemaGenerator() {
                 />
               </div>
             ))}
+            </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-sm">Generated JSON-LD</CardTitle>
@@ -225,7 +227,7 @@ export default function SchemaGenerator() {
         </Card>
 
         {/* Validation hints */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-4">
             <p className="text-xs text-muted-foreground">
               Paste this snippet in your page's {'<head>'} tag. Validate at{' '}

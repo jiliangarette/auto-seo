@@ -47,8 +47,8 @@ export default function InternalLinks() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Link2 className="size-6" />
@@ -57,7 +57,7 @@ export default function InternalLinks() {
           <p className="text-muted-foreground">Get AI suggestions for internal links in your content</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -108,7 +108,7 @@ export default function InternalLinks() {
         {result && (
           <>
             {result.suggestions.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <CardTitle className="text-sm">
                     Suggestions ({result.suggestions.length})
@@ -133,7 +133,7 @@ export default function InternalLinks() {
             )}
 
             {result.updatedContent && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm">Updated Content with Links</CardTitle>

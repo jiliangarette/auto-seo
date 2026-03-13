@@ -155,15 +155,15 @@ Generate 2-3 alerts per domain and realistic scan data.` },
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
               <Radar className="size-6" />
               Competitor Monitoring
             </h1>
-            <p className="text-muted-foreground">Track competitor content changes and ranking movements</p>
+            <p className="text-sm text-muted-foreground mt-0.5">Track competitor content changes and ranking movements</p>
           </div>
           <Button onClick={runScan} disabled={scanning || competitors.length === 0}>
             {scanning ? <Loader2 className="size-4 animate-spin" /> : <Radar className="size-4" />}
@@ -192,7 +192,7 @@ Generate 2-3 alerts per domain and realistic scan data.` },
         {/* Monitor Tab */}
         {activeTab === 'monitor' && (
           <div className="space-y-4">
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-6">
                 <div className="flex gap-2">
                   <Input
@@ -211,7 +211,7 @@ Generate 2-3 alerts per domain and realistic scan data.` },
             </Card>
 
             {competitors.length === 0 ? (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-6 text-center">
                   <Radar className="size-8 mx-auto text-muted-foreground mb-2" />
                   <p className="text-sm text-muted-foreground">No competitors being monitored. Add domains above.</p>
@@ -220,7 +220,7 @@ Generate 2-3 alerts per domain and realistic scan data.` },
             ) : (
               <div className="space-y-2">
                 {competitors.map((c) => (
-                  <Card key={c.id}>
+                  <Card key={c.id} className="border-border/30 bg-card/40">
                     <CardContent className="pt-4">
                       <div className="flex items-center justify-between">
                         <div>
@@ -268,7 +268,7 @@ Generate 2-3 alerts per domain and realistic scan data.` },
         {activeTab === 'alerts' && (
           <div className="space-y-2">
             {alerts.length === 0 ? (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-6 text-center">
                   <Bell className="size-8 mx-auto text-muted-foreground mb-2" />
                   <p className="text-sm text-muted-foreground">No alerts yet. Run a scan to detect changes.</p>
@@ -279,7 +279,7 @@ Generate 2-3 alerts per domain and realistic scan data.` },
                 const config = severityConfig[alert.severity];
                 const Icon = config.icon;
                 return (
-                  <Card key={alert.id}>
+                  <Card key={alert.id} className="border-border/30 bg-card/40">
                     <CardContent className="pt-4">
                       <div className="flex items-start gap-3">
                         <div className={`rounded-full p-1.5 ${config.bg}`}>
@@ -312,7 +312,7 @@ Generate 2-3 alerts per domain and realistic scan data.` },
         {activeTab === 'scans' && (
           <div className="space-y-3">
             {scans.length === 0 ? (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-6 text-center">
                   <Radar className="size-8 mx-auto text-muted-foreground mb-2" />
                   <p className="text-sm text-muted-foreground">No scan data yet. Run a scan first.</p>
@@ -320,7 +320,7 @@ Generate 2-3 alerts per domain and realistic scan data.` },
               </Card>
             ) : (
               scans.map((scan) => (
-                <Card key={scan.domain}>
+                <Card key={scan.domain} className="border-border/30 bg-card/40">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-mono">{scan.domain}</CardTitle>
                   </CardHeader>

@@ -47,17 +47,17 @@ export default function CompetitiveResearch() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Swords className="size-6" />
             Competitive Research
           </h1>
-          <p className="text-muted-foreground">Analyze competitor strategies, find content gaps, and track positioning</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Analyze competitor strategies, find content gaps, and track positioning</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm">Setup</CardTitle>
           </CardHeader>
@@ -89,7 +89,7 @@ export default function CompetitiveResearch() {
         {result && (
           <>
             {/* SERP Overlap */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Target className="size-4" />
@@ -141,7 +141,7 @@ export default function CompetitiveResearch() {
             </Card>
 
             {/* Content Gaps */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm flex items-center gap-2">
                   <TrendingUp className="size-4" />
@@ -173,7 +173,7 @@ export default function CompetitiveResearch() {
             </Card>
 
             {/* Content Frequency */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm flex items-center gap-2">
                   <BarChart3 className="size-4" />
@@ -203,7 +203,7 @@ export default function CompetitiveResearch() {
             </Card>
 
             {/* Positioning Matrix */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm">Competitive Positioning Matrix</CardTitle>
               </CardHeader>

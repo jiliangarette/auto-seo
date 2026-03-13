@@ -41,8 +41,8 @@ export default function ReadabilityAnalyzer() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <BookText className="size-6" />
@@ -51,7 +51,7 @@ export default function ReadabilityAnalyzer() {
           <p className="text-muted-foreground">Check reading level and get simplification suggestions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm min-h-[200px] resize-y"
@@ -75,26 +75,26 @@ export default function ReadabilityAnalyzer() {
 
         {/* Real-time local metrics */}
         {metrics && (
-          <div className="grid gap-4 md:grid-cols-4">
-            <Card>
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-4 text-center">
                 <p className={`text-2xl font-bold ${scoreColor(metrics.fleschScore)}`}>{metrics.fleschScore}</p>
                 <p className="text-xs text-muted-foreground">Flesch Score</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-4 text-center">
                 <p className="text-2xl font-bold">{metrics.gradeLevel}</p>
                 <p className="text-xs text-muted-foreground">Grade Level</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-4 text-center">
                 <p className="text-2xl font-bold">{metrics.avgSentenceLength}</p>
                 <p className="text-xs text-muted-foreground">Avg Words/Sentence</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-4 text-center">
                 <p className="text-2xl font-bold">{metrics.avgParagraphLength}</p>
                 <p className="text-xs text-muted-foreground">Avg Words/Paragraph</p>
@@ -106,7 +106,7 @@ export default function ReadabilityAnalyzer() {
         {/* AI results */}
         {aiResult && (
           <>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <div className="flex items-center gap-2">
                   <CardTitle className="text-sm">Overall</CardTitle>
@@ -118,7 +118,7 @@ export default function ReadabilityAnalyzer() {
             </Card>
 
             {aiResult.complexSentences.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <CardTitle className="text-sm">Complex Sentences</CardTitle>
                 </CardHeader>
@@ -134,7 +134,7 @@ export default function ReadabilityAnalyzer() {
             )}
 
             {aiResult.simplifications.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <CardTitle className="text-sm">Simplification Suggestions</CardTitle>
                 </CardHeader>

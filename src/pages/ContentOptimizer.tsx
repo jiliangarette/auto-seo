@@ -3,7 +3,7 @@ import { optimizeContent } from '@/lib/content-optimizer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Wand2, Loader2, Copy, ArrowRight } from 'lucide-react';
+import { Wand2, Loader2, Copy, ArrowRight, Globe } from 'lucide-react';
 import { toast } from 'sonner';
 
 type Result = Awaited<ReturnType<typeof optimizeContent>>;
@@ -43,8 +43,8 @@ export default function ContentOptimizer() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Wand2 className="size-6" />
@@ -53,15 +53,19 @@ export default function ContentOptimizer() {
           <p className="text-muted-foreground">Paste content + target keyword for AI optimization suggestions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6">
             <form onSubmit={handleOptimize} className="space-y-3">
-              <Input
-                placeholder="Target keyword"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-                required
-              />
+              <div className="relative">
+                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <Input
+                  placeholder="Target keyword"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
+                  required
+                  className="pl-10 bg-background/60 border-border/30 h-11"
+                />
+              </div>
               <textarea
                 className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm min-h-[180px] resize-y"
                 placeholder="Paste your content here..."
@@ -80,8 +84,8 @@ export default function ContentOptimizer() {
         {result && (
           <>
             {/* Score + Metrics */}
-            <div className="grid gap-4 md:grid-cols-4">
-              <Card>
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-3xl font-bold ${scoreColor(result.overallScore)}`}>
                     {result.overallScore}
@@ -89,7 +93,7 @@ export default function ContentOptimizer() {
                   <p className="text-xs text-muted-foreground">Overall Score</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-lg font-bold">{result.keywordDensity.current}%</p>
                   <p className="text-xs text-muted-foreground">
@@ -98,7 +102,7 @@ export default function ContentOptimizer() {
                   <p className="text-[10px] text-muted-foreground">{result.keywordDensity.status}</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-lg font-bold ${scoreColor(result.readability.score)}`}>
                     {result.readability.score}
@@ -107,7 +111,7 @@ export default function ContentOptimizer() {
                   <p className="text-[10px] text-muted-foreground">{result.readability.level}</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-lg font-bold">{result.wordCount.current}</p>
                   <p className="text-xs text-muted-foreground">
@@ -119,7 +123,7 @@ export default function ContentOptimizer() {
             </div>
 
             {/* Action Items */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm">Action Items</CardTitle>
               </CardHeader>
@@ -136,7 +140,7 @@ export default function ContentOptimizer() {
             </Card>
 
             {/* Before/After Toggle */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">

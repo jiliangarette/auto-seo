@@ -54,17 +54,17 @@ export default function KeywordDensityChecker() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Hash className="size-6" />
             Keyword Density Checker
           </h1>
-          <p className="text-muted-foreground">Check keyword density and optimization levels</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Check keyword density and optimization levels</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Target Keywords (one per line)</label>
@@ -92,14 +92,14 @@ export default function KeywordDensityChecker() {
 
         {results.length > 0 && (
           <>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-4 text-center">
                 <p className="text-2xl font-bold">{wordCount.toLocaleString()}</p>
                 <p className="text-[10px] text-muted-foreground">Total Words</p>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Density Results</CardTitle>
               </CardHeader>
@@ -138,7 +138,7 @@ export default function KeywordDensityChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Recommended Density Ranges</CardTitle>
               </CardHeader>

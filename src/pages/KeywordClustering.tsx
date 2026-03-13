@@ -58,17 +58,17 @@ export default function KeywordClustering() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Layers className="size-6" />
             Keyword Clustering
           </h1>
-          <p className="text-muted-foreground">Group keywords by search intent and auto-generate content pillars</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Group keywords by search intent and auto-generate content pillars</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm min-h-[160px] resize-y"
@@ -101,9 +101,9 @@ export default function KeywordClustering() {
               </Button>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {result.clusters.map((cluster, i) => (
-                <Card key={i} className={`border ${intentColors[cluster.intent].split(' ')[2]}`}>
+                <Card key={i} className={`border border-border/30 bg-card/40 ${intentColors[cluster.intent].split(' ')[2]}`}>
                   <CardHeader className="pb-2">
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-sm">{cluster.name}</CardTitle>
@@ -139,7 +139,7 @@ export default function KeywordClustering() {
             </div>
 
             {result.unclustered.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <CardTitle className="text-sm">Unclustered Keywords ({result.unclustered.length})</CardTitle>
                 </CardHeader>

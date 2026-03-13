@@ -3,7 +3,7 @@ import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Search } from 'lucide-react';
+import { Globe, Loader2, Search } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface CannibalizationIssue {
@@ -59,19 +59,22 @@ export default function KeywordCannibalizationDetector() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Search className="size-6" />
             Keyword Cannibalization Detector
           </h1>
-          <p className="text-muted-foreground">Find pages competing for the same keywords</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Find pages competing for the same keywords</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
-            <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain to scan (e.g., example.com)" />
+            <div className="relative">
+              <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+              <Input className="pl-9" value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain to scan (e.g., example.com)" />
+            </div>
             <Button onClick={detect} disabled={loading}>
               {loading ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />}
               Detect Cannibalization
@@ -81,7 +84,7 @@ export default function KeywordCannibalizationDetector() {
 
         {result && (
           <>
-            <Card className="border-primary/20">
+            <Card className="border-primary/20 bg-card/40">
               <CardContent className="pt-4">
                 <div className="flex items-center justify-between">
                   <div>
@@ -96,7 +99,7 @@ export default function KeywordCannibalizationDetector() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Cannibalization Issues</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-3">
@@ -125,7 +128,7 @@ export default function KeywordCannibalizationDetector() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Recommendations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

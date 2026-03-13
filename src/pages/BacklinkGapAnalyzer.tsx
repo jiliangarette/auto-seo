@@ -67,17 +67,17 @@ export default function BacklinkGapAnalyzer() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Link2 className="size-6" />
             Backlink Gap Analyzer
           </h1>
-          <p className="text-muted-foreground">Find domains linking to competitors but not you</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Find domains linking to competitors but not you</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Your domain (e.g., yourdomain.com)" />
             <textarea
@@ -95,7 +95,7 @@ export default function BacklinkGapAnalyzer() {
 
         {result && (
           <>
-            <Card className="border-primary/20">
+            <Card className="border-border/30 bg-card/40 border-primary/20">
               <CardContent className="pt-4">
                 <div className="flex items-center justify-between">
                   <div>
@@ -109,7 +109,7 @@ export default function BacklinkGapAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Prospect Domains ({result.prospects.length})</CardTitle>
               </CardHeader>

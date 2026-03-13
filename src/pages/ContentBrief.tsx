@@ -4,7 +4,7 @@ import { generateContentBrief } from '@/lib/brief-generator';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Loader2, ArrowRight, Copy } from 'lucide-react';
+import { BookOpen, Loader2, ArrowRight, Copy, Globe } from 'lucide-react';
 import { toast } from 'sonner';
 
 type Brief = Awaited<ReturnType<typeof generateContentBrief>>;
@@ -54,8 +54,8 @@ export default function ContentBrief() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <BookOpen className="size-6" />
@@ -64,11 +64,17 @@ export default function ContentBrief() {
           <p className="text-muted-foreground">AI-generated content briefs with outline, competitor angles, and questions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6">
             <form onSubmit={handleGenerate} className="space-y-3">
-              <Input placeholder="Target keyword" value={keyword} onChange={(e) => setKeyword(e.target.value)} required />
-              <Input placeholder="Target audience (e.g., small business owners, developers)" value={audience} onChange={(e) => setAudience(e.target.value)} required />
+              <div className="relative">
+                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <Input placeholder="Target keyword" value={keyword} onChange={(e) => setKeyword(e.target.value)} required className="pl-10 bg-background/60 border-border/30 h-11" />
+              </div>
+              <div className="relative">
+                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <Input placeholder="Target audience (e.g., small business owners, developers)" value={audience} onChange={(e) => setAudience(e.target.value)} required className="pl-10 bg-background/60 border-border/30 h-11" />
+              </div>
               <Button type="submit" disabled={loading}>
                 {loading ? <Loader2 className="size-4 animate-spin" /> : <BookOpen className="size-4" />}
                 Generate Brief
@@ -79,7 +85,7 @@ export default function ContentBrief() {
 
         {brief && (
           <>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">{brief.title}</CardTitle>
@@ -111,7 +117,7 @@ export default function ContentBrief() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader><CardTitle className="text-sm">Outline</CardTitle></CardHeader>
               <CardContent className="space-y-3">
                 {brief.outline.map((section, i) => (
@@ -127,8 +133,8 @@ export default function ContentBrief() {
               </CardContent>
             </Card>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <Card>
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader><CardTitle className="text-sm">Questions to Answer</CardTitle></CardHeader>
                 <CardContent>
                   <ul className="space-y-1">
@@ -138,7 +144,7 @@ export default function ContentBrief() {
                   </ul>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader><CardTitle className="text-sm">Competitor Angles</CardTitle></CardHeader>
                 <CardContent>
                   <ul className="space-y-1">
@@ -150,7 +156,7 @@ export default function ContentBrief() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-4">
                 <p className="text-sm"><strong>CTA:</strong> {brief.callToAction}</p>
               </CardContent>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { openai } from '@/integrations/openai/client';
 import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -33,7 +34,7 @@ async function fetchSiteContext(url: string): Promise<string> {
 }
 
 export default function KeywordGapFinder() {
-  const [yourSite, setYourSite] = useState('');
+  const [yourSite, setYourSite] = useSiteUrlInput();
   const [competitor, setCompetitor] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<GapResult | null>(null);
@@ -64,8 +65,8 @@ export default function KeywordGapFinder() {
   const scoreColor = (s: number) => s >= 70 ? 'text-emerald-400' : s >= 40 ? 'text-amber-400' : 'text-red-400';
 
   return (
-    <div className="min-h-screen bg-background p-6 md:p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-500/20">
             <Search className="size-5 text-blue-400" />
@@ -76,21 +77,21 @@ export default function KeywordGapFinder() {
           </div>
         </div>
 
-        <Card className="border-border/40 bg-card/50">
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-5 pb-5 space-y-3">
-            <div className="grid gap-3 md:grid-cols-2">
+            <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
               <div className="space-y-1.5">
                 <label className="text-xs font-medium text-muted-foreground">Your Website</label>
                 <div className="relative">
                   <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                  <Input value={yourSite} onChange={(e) => setYourSite(e.target.value)} placeholder="yoursite.com" className="pl-9 bg-background/50 border-border/40" />
+                  <Input value={yourSite} onChange={(e) => setYourSite(e.target.value)} placeholder="yoursite.com" className="h-11 pl-9 bg-background/50 border-border/30" />
                 </div>
               </div>
               <div className="space-y-1.5">
                 <label className="text-xs font-medium text-muted-foreground">Competitor</label>
                 <div className="relative">
                   <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                  <Input value={competitor} onChange={(e) => setCompetitor(e.target.value)} placeholder="competitor.com" className="pl-9 bg-background/50 border-border/40" />
+                  <Input value={competitor} onChange={(e) => setCompetitor(e.target.value)} placeholder="competitor.com" className="h-11 pl-9 bg-background/50 border-border/30" />
                 </div>
               </div>
             </div>
@@ -110,7 +111,7 @@ export default function KeywordGapFinder() {
 
         {result && (
           <>
-            <Card className="border-border/40 bg-card/50">
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-5 pb-5">
                 <p className="text-sm text-muted-foreground leading-relaxed">{result.summary}</p>
               </CardContent>
@@ -133,7 +134,7 @@ export default function KeywordGapFinder() {
               </Card>
             )}
 
-            <Card className="border-border/40 bg-card/50">
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Keyword Gaps ({result.gaps.length})</CardTitle></CardHeader>
               <CardContent className="space-y-2">
                 {result.gaps.map((g, i) => (
@@ -145,7 +146,7 @@ export default function KeywordGapFinder() {
                         <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${difficultyColor(g.difficulty)}`}>{g.difficulty}</span>
                       </div>
                     </div>
-                    <div className="grid gap-2 md:grid-cols-3 text-[11px] text-muted-foreground">
+                    <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-[11px] text-muted-foreground">
                       <div><span className="text-muted-foreground/60">Volume:</span> {g.volume}</div>
                       <div><span className="text-muted-foreground/60">Competitor:</span> {g.competitorPosition}</div>
                       <div className="flex items-start gap-1"><FileText className="size-3 shrink-0 mt-0.5 text-blue-400" />{g.suggestedContent}</div>

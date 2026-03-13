@@ -3,7 +3,7 @@ import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, Loader2, Copy, Plus, Trash2 } from 'lucide-react';
+import { FileText, Loader2, Copy, Plus, Trash2, Globe } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface BriefSection {
@@ -81,8 +81,8 @@ export default function ContentBriefTemplates() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <FileText className="size-6" />
@@ -91,7 +91,7 @@ export default function ContentBriefTemplates() {
           <p className="text-muted-foreground">Pre-built and custom brief templates with AI population</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div className="flex flex-wrap gap-2">
               {defaultTemplates.map((t) => (
@@ -111,7 +111,10 @@ export default function ContentBriefTemplates() {
             </div>
 
             <div className="flex gap-2">
-              <Input value={newSection} onChange={(e) => setNewSection(e.target.value)} placeholder="Add custom section" className="flex-1" />
+              <div className="relative flex-1">
+                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <Input value={newSection} onChange={(e) => setNewSection(e.target.value)} placeholder="Add custom section" className="pl-10 bg-background/60 border-border/30 h-11" />
+              </div>
               <Button variant="outline" size="sm" onClick={addSection}><Plus className="size-3.5" /></Button>
             </div>
             {customSections.length > 0 && (
@@ -125,7 +128,10 @@ export default function ContentBriefTemplates() {
               </div>
             )}
 
-            <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Topic or keyword (e.g., 'SaaS email marketing')" />
+            <div className="relative">
+              <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+              <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Topic or keyword (e.g., 'SaaS email marketing')" className="pl-10 bg-background/60 border-border/30 h-11" />
+            </div>
             <Button onClick={generate} disabled={loading}>
               {loading ? <Loader2 className="size-4 animate-spin" /> : <FileText className="size-4" />}
               Generate Brief
@@ -134,7 +140,7 @@ export default function ContentBriefTemplates() {
         </Card>
 
         {briefs.map((brief) => (
-          <Card key={brief.id}>
+          <Card key={brief.id} className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <div>
@@ -161,7 +167,7 @@ export default function ContentBriefTemplates() {
         ))}
 
         {briefs.length === 0 && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-6 pb-6 text-center">
               <p className="text-sm text-muted-foreground">No briefs generated yet. Select a template and enter a topic to start.</p>
             </CardContent>

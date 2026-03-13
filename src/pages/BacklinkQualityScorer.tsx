@@ -62,17 +62,17 @@ export default function BacklinkQualityScorer() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Link2 className="size-6" />
             Backlink Quality Scorer
           </h1>
-          <p className="text-muted-foreground">Score backlinks on authority, relevance, and toxicity</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Score backlinks on authority, relevance, and toxicity</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain to analyze (e.g., example.com)" />
             <Button onClick={score} disabled={loading}>
@@ -84,7 +84,7 @@ export default function BacklinkQualityScorer() {
 
         {result && (
           <>
-            <Card className="border-primary/20">
+            <Card className="border-border/30 bg-card/40 border-primary/20">
               <CardContent className="pt-4">
                 <div className="flex items-center justify-between">
                   <div>
@@ -99,7 +99,7 @@ export default function BacklinkQualityScorer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Backlink Profile</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -122,7 +122,7 @@ export default function BacklinkQualityScorer() {
             </Card>
 
             {result.toxicLinks.length > 0 && (
-              <Card className="border-red-500/20">
+              <Card className="border-border/30 bg-card/40 border-red-500/20">
                 <CardHeader className="pb-2"><CardTitle className="text-sm text-red-400">Toxic Links — Disavow Candidates</CardTitle></CardHeader>
                 <CardContent>
                   <div className="space-y-1.5">
@@ -138,7 +138,7 @@ export default function BacklinkQualityScorer() {
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Acquisition Targets</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

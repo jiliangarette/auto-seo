@@ -42,8 +42,8 @@ export default function MetaTagGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Tags className="size-6" />
@@ -52,7 +52,7 @@ export default function MetaTagGenerator() {
           <p className="text-muted-foreground">Generate optimized meta tags for your pages</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6">
             <form onSubmit={handleGenerate} className="space-y-3">
               <Input
@@ -96,7 +96,7 @@ export default function MetaTagGenerator() {
         {result && (
           <>
             {/* Google Search Preview */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-sm">
                   <Search className="size-4" />
@@ -119,7 +119,7 @@ export default function MetaTagGenerator() {
             </Card>
 
             {/* Generated Tags */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Generated Tags</CardTitle>
@@ -130,7 +130,7 @@ export default function MetaTagGenerator() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="grid gap-2 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
                   <div className="flex justify-between rounded bg-muted/50 px-3 py-2">
                     <span className="text-muted-foreground">Title</span>
                     <span className="font-medium">{result.title}</span>

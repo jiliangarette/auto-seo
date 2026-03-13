@@ -134,17 +134,17 @@ Estimates should be realistic.` },
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Search className="size-6" />
             AI Keyword Research
           </h1>
-          <p className="text-muted-foreground">Discover keywords with AI-powered volume and competition estimates</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Discover keywords with AI-powered volume and competition estimates</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div className="grid gap-3 sm:grid-cols-2">
               <div>
@@ -188,7 +188,7 @@ Estimates should be realistic.` },
             </div>
 
             {/* Keywords Table */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Keyword Suggestions ({result.suggestions.length})</CardTitle>
               </CardHeader>
@@ -247,7 +247,7 @@ Estimates should be realistic.` },
 
             <div className="grid gap-4 lg:grid-cols-2">
               {/* Related Topics */}
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
                     <TrendingUp className="size-4" />
@@ -264,7 +264,7 @@ Estimates should be realistic.` },
               </Card>
 
               {/* People Also Ask */}
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">People Also Ask</CardTitle>
                 </CardHeader>

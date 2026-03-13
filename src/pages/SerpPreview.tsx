@@ -3,7 +3,7 @@ import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Eye, Monitor, Smartphone, AlertTriangle } from 'lucide-react';
+import { Eye, Monitor, Smartphone, AlertTriangle, Globe } from 'lucide-react';
 
 export default function SerpPreview() {
   const [url, setUrl] = useSiteUrlInput();
@@ -40,8 +40,8 @@ export default function SerpPreview() {
   })();
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Eye className="size-6" />
@@ -50,9 +50,12 @@ export default function SerpPreview() {
           <p className="text-muted-foreground">Preview how your page appears in Google search results</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
-            <Input placeholder="Page URL" value={url} onChange={(e) => setUrl(e.target.value)} />
+            <div className="relative">
+              <Globe className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+              <Input placeholder="Page URL" value={url} onChange={(e) => setUrl(e.target.value)} className="pl-10 bg-background/60 border-border/30 h-11" />
+            </div>
             <div>
               <Input placeholder="Title tag (max 60 chars)" value={title} onChange={(e) => setTitle(e.target.value)} />
               <div className="mt-1 flex gap-2 text-xs">
@@ -123,7 +126,7 @@ export default function SerpPreview() {
         </div>
 
         {/* Preview */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm">Google Search Preview — {view}</CardTitle>
           </CardHeader>
