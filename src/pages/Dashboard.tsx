@@ -13,10 +13,13 @@ import {
   CheckCircle2, Circle, ArrowRight, Wand2,
 } from 'lucide-react';
 import OnboardingModal from '@/components/OnboardingModal';
-import AnimatedNumber from '@/components/AnimatedNumber';
 import EmptyState from '@/components/EmptyState';
 import { auditSite } from '@/lib/site-auditor';
 import { useSiteUrl } from '@/contexts/SiteContext';
+import { MagicCard } from '@/components/ui/magic-card';
+import { NumberTicker } from '@/components/ui/number-ticker';
+import { BorderBeam } from '@/components/ui/border-beam';
+import { DotPattern } from '@/components/ui/dot-pattern';
 import type { Analysis } from '@/types/database';
 
 interface AnalyzeAllResult {
@@ -209,23 +212,25 @@ export default function Dashboard() {
       <OnboardingModal />
       <div className="mx-auto max-w-6xl space-y-6">
         {/* Hero Section */}
-        <div className="flex items-end justify-between">
-          <div>
+        <div className="relative flex items-end justify-between overflow-hidden rounded-2xl p-6">
+          <DotPattern className="absolute inset-0 opacity-20 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
+          <div className="relative">
             <h1 className="text-2xl font-bold tracking-tight">
               Welcome back{user?.email ? `, ${user.email.split('@')[0]}` : ''}
             </h1>
             <p className="text-sm text-muted-foreground mt-0.5">Here's how your SEO is doing</p>
           </div>
           {healthScore !== null && (
-            <div className="text-right">
+            <div className="relative text-right">
               <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Overall Health</p>
-              <p className={`text-3xl font-bold ${scoreColor(healthScore)}`}>{healthScore}</p>
+              <NumberTicker value={healthScore} className={`text-3xl font-bold ${scoreColor(healthScore)}`} />
             </div>
           )}
         </div>
 
         {/* Quick Analyze — enter URL once */}
-        <Card className="border-border/30 bg-gradient-to-r from-violet-500/5 via-transparent to-emerald-500/5 shadow-xl shadow-black/5">
+        <Card className="relative border-border/30 bg-gradient-to-r from-violet-500/5 via-transparent to-emerald-500/5 shadow-xl shadow-black/5 overflow-hidden">
+          <BorderBeam size={80} duration={8} colorFrom="#8b5cf6" colorTo="#06b6d4" />
           <CardContent className="pt-5 pb-5">
             <div className="flex items-center gap-2 mb-3">
               <Wand2 className="size-4 text-violet-400" />
@@ -407,18 +412,19 @@ export default function Dashboard() {
             {quickActions.map((action) => {
               const Icon = action.icon;
               return (
-                <button
-                  key={action.path}
-                  onClick={() => navigate(action.path)}
-                  className={`group relative text-left rounded-2xl border ${action.border} bg-gradient-to-br ${action.gradient} p-4 transition-all hover:shadow-lg hover:scale-[1.01]`}
-                >
-                  <div className={`inline-flex items-center justify-center size-9 rounded-xl bg-background/60 mb-2`}>
-                    <Icon className={`size-4 ${action.iconColor}`} />
-                  </div>
-                  <p className="text-sm font-semibold">{action.label}</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5">{action.desc}</p>
-                  <ArrowRight className="absolute top-4 right-4 size-3.5 text-muted-foreground/30 group-hover:text-foreground/50 transition-colors" />
-                </button>
+                <MagicCard key={action.path} className="rounded-2xl cursor-pointer" gradientColor="#1a1a2e" gradientOpacity={0.5}>
+                  <button
+                    onClick={() => navigate(action.path)}
+                    className={`group relative text-left w-full rounded-2xl bg-gradient-to-br ${action.gradient} p-4 transition-all hover:shadow-lg`}
+                  >
+                    <div className="inline-flex items-center justify-center size-9 rounded-xl bg-background/60 mb-2">
+                      <Icon className={`size-4 ${action.iconColor}`} />
+                    </div>
+                    <p className="text-sm font-semibold">{action.label}</p>
+                    <p className="text-[11px] text-muted-foreground mt-0.5">{action.desc}</p>
+                    <ArrowRight className="absolute top-4 right-4 size-3.5 text-muted-foreground/30 group-hover:text-foreground/50 transition-colors" />
+                  </button>
+                </MagicCard>
               );
             })}
           </div>
@@ -524,18 +530,20 @@ export default function Dashboard() {
 function StatCard({ label, value, sub, color, gradient }: { label: string; value: number | string; sub?: string; color?: string; gradient?: string }) {
   const numValue = typeof value === 'number' ? value : null;
   return (
-    <Card className="border-border/30 bg-card/40 overflow-hidden">
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient ?? ''} opacity-30`} />
-      <CardContent className="relative pt-4 pb-4">
+    <MagicCard className="rounded-xl" gradientColor="#1a1a2e" gradientOpacity={0.6}>
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradient ?? ''} opacity-30 rounded-xl`} />
+      <div className="relative pt-4 pb-4 px-4">
         <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{label}</p>
-        {numValue !== null ? (
-          <AnimatedNumber value={numValue} className={`text-2xl font-bold ${color ?? ''}`} />
+        {numValue !== null && numValue > 0 ? (
+          <NumberTicker value={numValue} className={`text-2xl font-bold ${color ?? ''}`} />
+        ) : numValue !== null ? (
+          <p className={`text-2xl font-bold ${color ?? ''}`}>0</p>
         ) : (
           <p className={`text-2xl font-bold ${color ?? ''}`}>{value}</p>
         )}
         {sub && <p className="text-[10px] text-muted-foreground">{sub}</p>}
-      </CardContent>
-    </Card>
+      </div>
+    </MagicCard>
   );
 }
 
