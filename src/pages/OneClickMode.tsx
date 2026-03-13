@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useSiteContext } from '@/contexts/SiteContext';
+import { useBackgroundTasks } from '@/contexts/BackgroundTaskContext';
 import { runOneClick, type OneClickResult, type OneClickStage } from '@/lib/one-click-engine';
 import {
   Rocket, Globe, Shield, Search, CalendarDays, Sparkles,
-  CheckCircle2, Loader2, ArrowRight, AlertCircle, Copy, Check,
+  CheckCircle2, ArrowRight, AlertCircle, Copy, Check,
 } from 'lucide-react';
+import InlineLoader from '@/components/InlineLoader';
 import ReactMarkdown from 'react-markdown';
 
 const STAGES: { key: OneClickStage; label: string; icon: typeof Shield }[] = [
@@ -26,32 +28,53 @@ type ResultTab = 'audit' | 'keywords' | 'calendar' | 'article';
 export default function OneClickMode() {
   const navigate = useNavigate();
   const { siteUrl, setSiteUrl } = useSiteContext();
+  const { tasks, startTask } = useBackgroundTasks();
   const [url, setUrl] = useState(siteUrl || '');
-  const [running, setRunning] = useState(false);
-  const [currentStage, setCurrentStage] = useState<OneClickStage | null>(null);
-  const [stageMessage, setStageMessage] = useState('');
-  const [result, setResult] = useState<OneClickResult | null>(null);
   const [activeTab, setActiveTab] = useState<ResultTab>('audit');
   const [copied, setCopied] = useState(false);
 
-  const handleRun = async () => {
+  // Find the latest task for this route
+  const task = useMemo(() => {
+    const routeTasks = tasks.filter(t => t.route === '/one-click');
+    return routeTasks[routeTasks.length - 1] ?? null;
+  }, [tasks]);
+
+  const running = task?.status === 'running';
+  const result = (task?.status === 'done' ? task.result : null) as OneClickResult | null;
+  const taskError = task?.status === 'error' ? task.error : null;
+
+  // Parse progress message to extract current stage
+  const currentStage = useMemo<OneClickStage | null>(() => {
+    if (!running || !task?.progress) return null;
+    const msg = task.progress;
+    if (msg.includes('Fetching')) return 'fetching';
+    if (msg.includes('audit')) return 'auditing';
+    if (msg.includes('keyword') || msg.includes('Keyword')) return 'keywords';
+    if (msg.includes('calendar') || msg.includes('Calendar')) return 'calendar';
+    if (msg.includes('article') || msg.includes('Article') || msg.includes('Writing')) return 'writing';
+    if (msg.includes('done') || msg.includes('Done')) return 'done';
+    return null;
+  }, [running, task?.progress]);
+
+  const stageMessage = running ? task?.progress ?? '' : '';
+  const stageIndex = currentStage ? STAGE_ORDER.indexOf(currentStage) : -1;
+
+  // When result arrives, auto-select first available tab
+  useEffect(() => {
+    if (result?.audit) setActiveTab('audit');
+  }, [result]);
+
+  const handleRun = () => {
     if (!url.trim() || running) return;
     setSiteUrl(url.trim());
-    setRunning(true);
-    setResult(null);
-    setCurrentStage('fetching');
 
-    const output = await runOneClick(url.trim(), (stage, message) => {
-      setCurrentStage(stage);
-      setStageMessage(message);
+    startTask('/one-click', `One-Click SEO: ${url.trim()}`, async (onProgress) => {
+      const output = await runOneClick(url.trim(), (_stage, message) => {
+        onProgress(message);
+      });
+      return output;
     });
-
-    setResult(output);
-    setRunning(false);
-    if (output.audit) setActiveTab('audit');
   };
-
-  const stageIndex = currentStage ? STAGE_ORDER.indexOf(currentStage) : -1;
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -108,7 +131,7 @@ export default function OneClickMode() {
                 disabled={running || !url.trim()}
                 className="h-12 px-8 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 border-0 text-white text-base font-semibold rounded-xl"
               >
-                {running ? <Loader2 className="size-5 animate-spin" /> : <Rocket className="size-5" />}
+                {running ? <InlineLoader size={20} className="text-white mr-2" /> : <Rocket className="size-5" />}
                 {running ? 'Running...' : 'Go'}
               </Button>
             </div>
@@ -121,7 +144,7 @@ export default function OneClickMode() {
             {STAGES.map((stage, i) => {
               const Icon = stage.icon;
               const isActive = currentStage === stage.key;
-              const isDone = stageIndex > i || currentStage === 'done';
+              const isDone = stageIndex > i || currentStage === 'done' || (!running && result);
               const hasError = currentStage === 'error' && stageIndex === i;
 
               return (
@@ -130,12 +153,12 @@ export default function OneClickMode() {
                     <div className={`size-8 rounded-full flex items-center justify-center border-2 transition-all ${
                       isActive ? 'border-violet-500 bg-violet-500/10' : isDone ? 'border-emerald-500 bg-emerald-500/10' : hasError ? 'border-red-500 bg-red-500/10' : 'border-border/30 bg-muted/20'
                     }`}>
-                      {isDone ? <CheckCircle2 className="size-4" /> : isActive ? <Loader2 className="size-4 animate-spin" /> : hasError ? <AlertCircle className="size-4" /> : <Icon className="size-4" />}
+                      {isDone && !isActive ? <CheckCircle2 className="size-4" /> : isActive ? <InlineLoader size={14} className="text-violet-400" /> : hasError ? <AlertCircle className="size-4" /> : <Icon className="size-4" />}
                     </div>
                     <span className="text-xs font-medium hidden sm:block">{stage.label}</span>
                   </div>
                   {i < STAGES.length - 1 && (
-                    <div className={`flex-1 h-px mx-2 ${isDone ? 'bg-emerald-500/30' : 'bg-border/20'}`} />
+                    <div className={`flex-1 h-px mx-2 ${isDone && !isActive ? 'bg-emerald-500/30' : 'bg-border/20'}`} />
                   )}
                 </div>
               );
@@ -147,7 +170,19 @@ export default function OneClickMode() {
           <p className="text-center text-sm text-muted-foreground animate-pulse">{stageMessage}</p>
         )}
 
-        {/* Errors */}
+        {/* Task error */}
+        {taskError && (
+          <Card className="border-red-500/20 bg-red-500/5">
+            <CardContent className="pt-4 pb-4">
+              <div className="flex items-center gap-2">
+                <AlertCircle className="size-4 text-red-400" />
+                <span className="text-sm font-medium text-red-400">{taskError}</span>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Errors from result */}
         {result && result.errors.length > 0 && (
           <Card className="border-red-500/20 bg-red-500/5">
             <CardContent className="pt-4 pb-4">

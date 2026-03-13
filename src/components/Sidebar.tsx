@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNotifications } from '@/contexts/NotificationContext';
+import { useBackgroundTasks } from '@/contexts/BackgroundTaskContext';
 import GlobalSearch from '@/components/GlobalSearch';
 import ProjectSwitcher from '@/components/ProjectSwitcher';
+import InlineLoader from '@/components/InlineLoader';
 import {
   LayoutDashboard,
   FolderKanban,
@@ -291,6 +293,7 @@ const typeColors: Record<string, string> = {
 export default function Sidebar({ children }: { children: React.ReactNode }) {
   const { user, signOut } = useAuth();
   const { notifications, unreadCount, markAsRead, markAllRead, clearAll } = useNotifications();
+  const { isRouteRunning } = useBackgroundTasks();
   const navigate = useNavigate();
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(() => {
@@ -402,6 +405,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
                   {cat.items.map((item) => {
                     const isActive = location.pathname === item.path;
                     const Icon = item.icon;
+                    const hasRunningTask = isRouteRunning(item.path);
                     return (
                       <button
                         key={item.path}
@@ -409,13 +413,16 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
                         className={`group w-full flex items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] transition-colors ${
                           isActive
                             ? 'bg-primary/10 text-primary font-medium'
+                            : hasRunningTask
+                            ? 'text-violet-400 bg-violet-500/5'
                             : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
                         }`}
                         title={item.desc}
                       >
-                        <Icon className="size-3.5 shrink-0" />
+                        {hasRunningTask ? <InlineLoader size={14} className="text-violet-400 shrink-0" /> : <Icon className="size-3.5 shrink-0" />}
                         <span className="truncate">{item.label}</span>
-                        {isActive && <div className="ml-auto w-1 h-3.5 rounded-full bg-primary shrink-0" />}
+                        {hasRunningTask && <span className="ml-auto text-[9px] text-violet-400 font-medium shrink-0">Running</span>}
+                        {isActive && !hasRunningTask && <div className="ml-auto w-1 h-3.5 rounded-full bg-primary shrink-0" />}
                       </button>
                     );
                   })}

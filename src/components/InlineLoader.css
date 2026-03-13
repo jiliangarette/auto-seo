@@ -1,0 +1,50 @@
+.inline-loader {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.inline-loader::before,
+.inline-loader::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48em;
+  height: 48em;
+  background-image:
+    radial-gradient(circle 10px, currentColor 100%, transparent 0),
+    radial-gradient(circle 10px, currentColor 100%, transparent 0),
+    radial-gradient(circle 10px, currentColor 100%, transparent 0),
+    radial-gradient(circle 10px, currentColor 100%, transparent 0),
+    radial-gradient(circle 10px, currentColor 100%, transparent 0),
+    radial-gradient(circle 10px, currentColor 100%, transparent 0),
+    radial-gradient(circle 10px, currentColor 100%, transparent 0),
+    radial-gradient(circle 10px, currentColor 100%, transparent 0);
+  background-position:
+    0em -18em, 0em 18em, 18em 0em, -18em 0em,
+    13em -13em, -13em -13em, 13em 13em, -13em 13em;
+  background-repeat: no-repeat;
+  font-size: 0.17px;
+  border-radius: 50%;
+  animation: inline-blast 1s ease-in infinite;
+}
+
+.inline-loader::after {
+  font-size: 0.33px;
+  background: currentColor;
+  animation: inline-bounce 1s ease-in infinite;
+}
+
+@keyframes inline-bounce {
+  0%, 100% { font-size: 0.25px; }
+  50% { font-size: 0.5px; }
+}
+
+@keyframes inline-blast {
+  0%, 40% { font-size: 0.17px; }
+  70% { opacity: 1; font-size: 1.3px; }
+  100% { font-size: 2px; opacity: 0; }
+}

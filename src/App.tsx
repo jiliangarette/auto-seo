@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { NotificationProvider } from '@/contexts/NotificationContext';
 import { SiteProvider } from '@/contexts/SiteContext';
+import { BackgroundTaskProvider } from '@/contexts/BackgroundTaskContext';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import Sidebar from '@/components/Sidebar';
@@ -208,6 +209,7 @@ export default function App() {
       <AuthProvider>
         <NotificationProvider>
         <SiteProvider>
+        <BackgroundTaskProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<LazyPage><Login /></LazyPage>} />
@@ -1807,6 +1809,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
         <Toaster />
+        </BackgroundTaskProvider>
         </SiteProvider>
         </NotificationProvider>
       </AuthProvider>
