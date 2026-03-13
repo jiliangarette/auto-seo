@@ -1,6 +1,4 @@
 import { useEffect, useRef, type ComponentPropsWithoutRef } from "react"
-import { useInView, useMotionValue, useSpring } from "motion/react"
-
 import { cn } from "@/lib/utils"
 
 interface NumberTickerProps extends ComponentPropsWithoutRef<"span"> {
@@ -21,41 +19,41 @@ export function NumberTicker({
   ...props
 }: NumberTickerProps) {
   const ref = useRef<HTMLSpanElement>(null)
-  const motionValue = useMotionValue(direction === "down" ? value : startValue)
-  const springValue = useSpring(motionValue, {
-    damping: 60,
-    stiffness: 100,
-  })
-  const isInView = useInView(ref, { once: true, margin: "0px" })
 
   useEffect(() => {
-    let timer: ReturnType<typeof setTimeout> | null = null
+    const el = ref.current
+    if (!el) return
 
-    if (isInView) {
-      timer = setTimeout(() => {
-        motionValue.set(direction === "down" ? startValue : value)
-      }, delay * 1000)
-    }
+    const start = direction === "down" ? value : startValue
+    const end = direction === "down" ? startValue : value
+    const duration = 1000
+    let startTime: number | null = null
+    let animFrame: number
+
+    const timer = setTimeout(() => {
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp
+        const progress = Math.min((timestamp - startTime) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        const current = start + (end - start) * eased
+
+        el.textContent = Intl.NumberFormat("en-US", {
+          minimumFractionDigits: decimalPlaces,
+          maximumFractionDigits: decimalPlaces,
+        }).format(Number(current.toFixed(decimalPlaces)))
+
+        if (progress < 1) {
+          animFrame = requestAnimationFrame(animate)
+        }
+      }
+      animFrame = requestAnimationFrame(animate)
+    }, delay * 1000)
 
     return () => {
-      if (timer !== null) {
-        clearTimeout(timer)
-      }
+      clearTimeout(timer)
+      cancelAnimationFrame(animFrame)
     }
-  }, [motionValue, isInView, delay, value, direction, startValue])
-
-  useEffect(
-    () =>
-      springValue.on("change", (latest) => {
-        if (ref.current) {
-          ref.current.textContent = Intl.NumberFormat("en-US", {
-            minimumFractionDigits: decimalPlaces,
-            maximumFractionDigits: decimalPlaces,
-          }).format(Number(latest.toFixed(decimalPlaces)))
-        }
-      }),
-    [springValue, decimalPlaces]
-  )
+  }, [value, startValue, direction, delay, decimalPlaces])
 
   return (
     <span
