@@ -13,6 +13,8 @@ import {
   FileText, Image, Clock, Code2, Search, Loader2, Check, X,
   ExternalLink, Hash, Link2, Eye,
 } from 'lucide-react';
+import { CardSkeleton } from '@/components/LoadingSkeleton';
+import { BorderBeam } from '@/components/ui/border-beam';
 
 const severityConfig = {
   critical: { icon: AlertCircle, color: 'text-red-400', bg: 'bg-red-500/5', border: 'border-red-500/20', badge: 'bg-red-500/15 text-red-400' },
@@ -130,7 +132,7 @@ export default function SiteAudit() {
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+      <div className="mx-auto max-w-6xl space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 to-sky-500/20 border border-emerald-500/20">
@@ -166,44 +168,56 @@ export default function SiteAudit() {
 
         {/* Loading with live scan steps */}
         {loading && (
-          <Card className="border-border/30 bg-card/40">
-            <CardContent className="pt-6 pb-6">
-              <div className="flex flex-col items-center gap-5">
-                <div className="relative">
-                  <div className="size-16 rounded-full border-2 border-emerald-500/20 animate-ping absolute inset-0" />
-                  <div className="size-16 rounded-full border-2 border-t-emerald-400 border-r-sky-400 border-b-transparent border-l-transparent animate-spin flex items-center justify-center">
-                    <Shield className="size-6 text-emerald-400" />
+          <>
+            <Card className="border-border/30 bg-card/40">
+              <CardContent className="pt-6 pb-6">
+                <div className="flex flex-col items-center gap-5">
+                  <div className="relative">
+                    <div className="size-16 rounded-full border-2 border-emerald-500/20 animate-ping absolute inset-0" />
+                    <div className="size-16 rounded-full border-2 border-t-emerald-400 border-r-sky-400 border-b-transparent border-l-transparent animate-spin flex items-center justify-center">
+                      <Shield className="size-6 text-emerald-400" />
+                    </div>
+                  </div>
+                  <div className="w-full max-w-sm space-y-2">
+                    {scanSteps.map((step, i) => (
+                      <div key={i} className={`flex items-center gap-2 text-xs transition-all duration-300 ${i < scanStep ? 'text-emerald-400' : i === scanStep ? 'text-foreground' : 'text-muted-foreground/30'}`}>
+                        {i < scanStep ? (
+                          <Check className="size-3.5 text-emerald-400" />
+                        ) : i === scanStep ? (
+                          <Loader2 className="size-3.5 animate-spin" />
+                        ) : (
+                          <div className="size-3.5 rounded-full border border-muted-foreground/20" />
+                        )}
+                        {step}
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="w-full max-w-sm space-y-2">
-                  {scanSteps.map((step, i) => (
-                    <div key={i} className={`flex items-center gap-2 text-xs transition-all duration-300 ${i < scanStep ? 'text-emerald-400' : i === scanStep ? 'text-foreground' : 'text-muted-foreground/30'}`}>
-                      {i < scanStep ? (
-                        <Check className="size-3.5 text-emerald-400" />
-                      ) : i === scanStep ? (
-                        <Loader2 className="size-3.5 animate-spin" />
-                      ) : (
-                        <div className="size-3.5 rounded-full border border-muted-foreground/20" />
-                      )}
-                      {step}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+
+            {/* Skeleton placeholders while loading */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <CardSkeleton key={i} />
+              ))}
+            </div>
+          </>
         )}
 
         {result && d && (
           <>
             {/* Score + Quick Stats */}
             <div className="grid gap-4 md:grid-cols-[auto_1fr]">
-              <Card className="border-border/30 bg-card/40">
-                <CardContent className="flex flex-col items-center justify-center pt-6 pb-6 px-8">
-                  <ScoreRing score={result.summary.score} />
-                  <p className="text-xs text-muted-foreground mt-2">SEO Score</p>
-                </CardContent>
-              </Card>
+              <div className="relative overflow-hidden rounded-xl">
+                <Card className="border-border/30 bg-card/40">
+                  <CardContent className="flex flex-col items-center justify-center pt-6 pb-6 px-8">
+                    <ScoreRing score={result.summary.score} />
+                    <p className="text-xs text-muted-foreground mt-2">SEO Score</p>
+                  </CardContent>
+                </Card>
+                <BorderBeam />
+              </div>
 
               <div className="grid gap-3 grid-cols-2 md:grid-cols-4">
                 <Card className="border-red-500/15 bg-red-500/5">
@@ -453,31 +467,33 @@ export default function SiteAudit() {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-2">
-                {filtered.map((issue, i) => {
-                  const cfg = severityConfig[issue.severity];
-                  const Icon = cfg.icon;
-                  return (
-                    <div key={i} className={`rounded-lg border p-3 ${cfg.border} ${cfg.bg} transition-colors`}>
-                      <div className="flex items-start gap-3">
-                        <Icon className={`mt-0.5 size-4 shrink-0 ${cfg.color}`} />
-                        <div className="flex-1 min-w-0 space-y-1">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <h4 className="font-medium text-sm">{issue.title}</h4>
-                            <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${cfg.badge}`}>
-                              {issue.category}
-                            </span>
-                          </div>
-                          <p className="text-xs text-muted-foreground leading-relaxed">{issue.description}</p>
-                          <div className="flex items-start gap-1.5 pt-0.5">
-                            <span className="text-[10px] font-medium text-emerald-400 shrink-0 mt-0.5">FIX</span>
-                            <p className="text-xs text-foreground/70">{issue.recommendation}</p>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {filtered.map((issue, i) => {
+                    const cfg = severityConfig[issue.severity];
+                    const Icon = cfg.icon;
+                    return (
+                      <div key={i} className={`rounded-lg border p-3 ${cfg.border} ${cfg.bg} transition-colors h-full flex flex-col`}>
+                        <div className="flex items-start gap-3 flex-1">
+                          <Icon className={`mt-0.5 size-4 shrink-0 ${cfg.color}`} />
+                          <div className="flex-1 min-w-0 space-y-1">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <h4 className="font-medium text-sm">{issue.title}</h4>
+                              <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${cfg.badge}`}>
+                                {issue.category}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground leading-relaxed">{issue.description}</p>
+                            <div className="flex items-start gap-1.5 pt-0.5">
+                              <span className="text-[10px] font-medium text-emerald-400 shrink-0 mt-0.5">FIX</span>
+                              <p className="text-xs text-foreground/70">{issue.recommendation}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </CardContent>
             </Card>
 

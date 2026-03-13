@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { generateSEOContent, type GeneratedContent, type GenerateMode } from '@/lib/content-generator';
 import { Button } from '@/components/ui/button';
+import { ShimmerButton } from '@/components/ui/shimmer-button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
@@ -160,7 +161,7 @@ export default function Generator() {
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+      <div className="mx-auto max-w-6xl space-y-6">
         {/* Header */}
         <div className="flex items-center gap-3">
           <div className={`flex size-10 items-center justify-center rounded-xl bg-gradient-to-br ${activeMode.bg} border ${activeMode.border}`}>
@@ -281,7 +282,7 @@ export default function Generator() {
               </>
             )}
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="space-y-1.5">
                 <label className="text-xs font-medium text-muted-foreground">Tone</label>
                 <select value={tone} onChange={(e) => setTone(e.target.value)} className="w-full rounded-xl border border-border/30 bg-background/60 px-3 py-2.5 text-sm">
@@ -298,10 +299,20 @@ export default function Generator() {
               </div>
             </div>
 
-            <Button
+            <ShimmerButton
               onClick={handleGenerate}
               disabled={loading}
-              className={`w-full h-12 bg-gradient-to-r ${activeMode.gradient} hover:opacity-90 border-0 text-white font-medium text-sm rounded-xl shadow-lg transition-all duration-200`}
+              shimmerColor="rgba(255,255,255,0.3)"
+              shimmerSize="0.08em"
+              background={
+                mode === 'topic'
+                  ? 'linear-gradient(to right, #8b5cf6, #d946ef)'
+                  : mode === 'url-audit'
+                  ? 'linear-gradient(to right, #10b981, #06b6d4)'
+                  : 'linear-gradient(to right, #f97316, #f43f5e)'
+              }
+              borderRadius="12px"
+              className="w-full h-12 font-medium text-sm shadow-lg gap-2"
             >
               {loading ? <Loader2 className="size-4 animate-spin" /> : <Sparkles className="size-4" />}
               {loading
@@ -310,7 +321,7 @@ export default function Generator() {
                 : 'Generating content...'
                 : 'Generate Content'
               }
-            </Button>
+            </ShimmerButton>
           </CardContent>
         </Card>
 
