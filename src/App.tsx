@@ -172,6 +172,7 @@ const SeoHealthMonitor = lazy(() => import('@/pages/SeoHealthMonitor'));
 const KeywordGapFinder = lazy(() => import('@/pages/KeywordGapFinder'));
 const AiMetaTagOptimizer = lazy(() => import('@/pages/AiMetaTagOptimizer'));
 const SiteSpeedAnalyzer = lazy(() => import('@/pages/SiteSpeedAnalyzer'));
+const OneClickMode = lazy(() => import('@/pages/OneClickMode'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 const queryClient = new QueryClient({
@@ -217,6 +218,16 @@ export default function App() {
                 <ProtectedRoute>
                   <AppLayout>
                     <LazyPage><Dashboard /></LazyPage>
+                  </AppLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/one-click"
+              element={
+                <ProtectedRoute>
+                  <AppLayout>
+                    <LazyPage><OneClickMode /></LazyPage>
                   </AppLayout>
                 </ProtectedRoute>
               }

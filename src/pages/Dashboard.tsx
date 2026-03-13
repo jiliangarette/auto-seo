@@ -342,6 +342,23 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* One-Click CTA */}
+        <button
+          onClick={() => navigate('/one-click')}
+          className="w-full group relative rounded-2xl border border-violet-500/20 bg-gradient-to-r from-violet-500/10 via-fuchsia-500/10 to-violet-500/10 p-5 text-left transition-all hover:shadow-lg hover:shadow-violet-500/5 hover:border-violet-500/30"
+        >
+          <div className="flex items-center gap-4">
+            <div className="size-12 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/20 shrink-0">
+              <Zap className="size-6 text-white" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-semibold">One-Click SEO</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Paste a URL — we audit, find keywords, plan content, and write an article. All automatic.</p>
+            </div>
+            <ArrowRight className="size-5 text-muted-foreground/30 group-hover:text-violet-400 transition-colors shrink-0" />
+          </div>
+        </button>
+
         {/* Stats Row */}
         <div className="grid gap-3 grid-cols-2 md:grid-cols-5">
           <StatCard label="Projects" value={projects?.length ?? 0} gradient="from-blue-500/20 to-cyan-500/20" />

@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNotifications } from '@/contexts/NotificationContext';
 import GlobalSearch from '@/components/GlobalSearch';
+import ProjectSwitcher from '@/components/ProjectSwitcher';
 import {
   LayoutDashboard,
   FolderKanban,
@@ -36,6 +37,7 @@ import {
   X,
   Users,
   Clock,
+  Star,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -59,6 +61,7 @@ const categories: NavCategory[] = [
     icon: LayoutDashboard,
     color: 'text-blue-400',
     items: [
+      { label: 'One-Click SEO', path: '/one-click', icon: Star, desc: 'Full auto-pilot SEO' },
       { label: 'Dashboard', path: '/', icon: LayoutDashboard, desc: 'Overview of your SEO' },
       { label: 'Projects', path: '/projects', icon: FolderKanban, desc: 'Manage your websites' },
       { label: 'Multi-Dashboard', path: '/multi-dashboard', icon: LayoutGrid, desc: 'Compare all projects' },
@@ -358,6 +361,9 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
         </div>
         {(!collapsed || isMobile) && <span className="font-bold text-sm tracking-tight">Auto-SEO</span>}
       </div>
+
+      {/* Project Switcher */}
+      <ProjectSwitcher collapsed={collapsed && !isMobile} />
 
       {/* Categorized nav */}
       <nav className="flex-1 overflow-y-auto py-2 px-2 space-y-0.5">
