@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -42,7 +43,7 @@ interface CtrAnalysis {
 export default function SearchConsole() {
   const [activeTab, setActiveTab] = useState<'connect' | 'rankings' | 'ctr' | 'appearance'>('connect');
   const [connected, setConnected] = useState(false);
-  const [siteUrl, setSiteUrl] = useState('');
+  const [siteUrl, setSiteUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
   const [rankings, setRankings] = useState<RankingData[]>([]);
   const [ctrAnalysis, setCtrAnalysis] = useState<CtrAnalysis | null>(null);

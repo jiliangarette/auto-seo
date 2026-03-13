@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -40,7 +41,7 @@ interface HistoricalPoint {
 
 export default function Benchmarking() {
   const [niche, setNiche] = useState('');
-  const [siteUrl, setSiteUrl] = useState('');
+  const [siteUrl, setSiteUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
   const [metrics, setMetrics] = useState<BenchmarkMetric[]>([]);
   const [goals, setGoals] = useState<KpiGoal[]>([]);

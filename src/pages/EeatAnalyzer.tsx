@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,7 +37,7 @@ const pillarIcons: Record<string, typeof Award> = {
 };
 
 export default function EeatAnalyzer() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useSiteUrlInput();
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<EeatResult | null>(null);

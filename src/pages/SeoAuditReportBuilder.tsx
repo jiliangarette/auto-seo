@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -38,7 +39,7 @@ const sevIcons = {
 };
 
 export default function SeoAuditReportBuilder() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useSiteUrlInput();
   const [selectedCats, setSelectedCats] = useState<Set<string>>(new Set(categories));
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AuditReport | null>(null);

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { analyzeSEO, type SEOAnalysisResult } from '@/lib/seo-analyzer';
 import { useSaveAnalysis } from '@/hooks/useAnalyses';
 import { useProjects } from '@/hooks/useProjects';
@@ -16,7 +17,7 @@ export default function Analyzer() {
   const { data: projects } = useProjects();
   const saveAnalysis = useSaveAnalysis();
 
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useSiteUrlInput();
   const [htmlContent, setHtmlContent] = useState('');
   const [mode, setMode] = useState<'url' | 'paste'>('url');
   const [loading, setLoading] = useState(false);

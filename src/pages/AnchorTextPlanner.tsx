@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -28,7 +29,7 @@ const typeColors: Record<string, string> = {
 };
 
 export default function AnchorTextPlanner() {
-  const [targetUrl, setTargetUrl] = useState('');
+  const [targetUrl, setTargetUrl] = useSiteUrlInput();
   const [keyword, setKeyword] = useState('');
   const [brand, setBrand] = useState('');
   const [loading, setLoading] = useState(false);

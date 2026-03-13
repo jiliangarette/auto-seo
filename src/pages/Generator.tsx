@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { generateSEOContent, type GeneratedContent, type GenerateMode } from '@/lib/content-generator';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -86,7 +87,7 @@ export default function Generator() {
   const [mode, setMode] = useState<GenerateMode>('url-audit');
   const [topic, setTopic] = useState('');
   const [keywords, setKeywords] = useState('');
-  const [siteUrl, setSiteUrl] = useState('');
+  const [siteUrl, setSiteUrl] = useSiteUrlInput();
   const [placeholderIdx, setPlaceholderIdx] = useState(0);
 
   useEffect(() => {

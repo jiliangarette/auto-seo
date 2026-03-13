@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,7 +22,7 @@ interface TestResult {
 }
 
 export default function SeoAbTestPlanner() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useSiteUrlInput();
   const [hypothesis, setHypothesis] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<TestResult | null>(null);

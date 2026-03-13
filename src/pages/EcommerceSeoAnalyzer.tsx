@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,7 +27,7 @@ interface EcomResult {
 const statusColors: Record<string, string> = { pass: 'text-green-400', warning: 'text-yellow-400', fail: 'text-red-400' };
 
 export default function EcommerceSeoAnalyzer() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<EcomResult | null>(null);
 

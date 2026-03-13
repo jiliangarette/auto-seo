@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useSiteUrl } from '@/contexts/SiteContext';
+import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
@@ -48,11 +48,9 @@ function ScoreRing({ score }: { score: number }) {
 }
 
 export default function SiteSpeedAnalyzer() {
-  const { siteUrl: globalUrl } = useSiteUrl();
-  const [url, setUrl] = useState(globalUrl);
+  const [url, setUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => { if (globalUrl && !url) setUrl(globalUrl); }, [globalUrl]);
   const [result, setResult] = useState<SpeedResult | null>(null);
 
   const analyze = async () => {

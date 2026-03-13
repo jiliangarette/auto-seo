@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Eye, Monitor, Smartphone, AlertTriangle } from 'lucide-react';
 
 export default function SerpPreview() {
-  const [url, setUrl] = useState('https://example.com/page');
+  const [url, setUrl] = useSiteUrlInput();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [keyword, setKeyword] = useState('');

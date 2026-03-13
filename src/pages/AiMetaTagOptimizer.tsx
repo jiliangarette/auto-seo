@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useSiteUrl } from '@/contexts/SiteContext';
+import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
@@ -26,11 +26,9 @@ interface MetaResult {
 }
 
 export default function AiMetaTagOptimizer() {
-  const { siteUrl: globalUrl } = useSiteUrl();
-  const [url, setUrl] = useState(globalUrl);
+  const [url, setUrl] = useSiteUrlInput();
   const [bulkUrls, setBulkUrls] = useState('');
 
-  useEffect(() => { if (globalUrl && !url) setUrl(globalUrl); }, [globalUrl]);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<MetaResult | null>(null);
   const [copied, setCopied] = useState<string | null>(null);

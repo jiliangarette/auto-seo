@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,7 +9,7 @@ import { toast } from 'sonner';
 const PLACEHOLDER_IMG = 'https://placehold.co/1200x630/1a1a2e/e2e8f0?text=OG+Image';
 
 export default function SocialPreview() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useSiteUrlInput();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
