@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
+import { useBackgroundRun } from '@/hooks/useBackgroundRun';
 import { generateSEOContent, type GeneratedContent, type GenerateMode } from '@/lib/content-generator';
 import { Button } from '@/components/ui/button';
 import { ShimmerButton } from '@/components/ui/shimmer-button';
@@ -8,9 +9,10 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
 import {
-  Sparkles, Copy, Check, Globe, Swords, FileText, Loader2,
+  Sparkles, Copy, Check, Globe, Swords, FileText,
   Eye, Code2, RotateCcw, Download, Lightbulb, Wand2,
 } from 'lucide-react';
+import InlineLoader from '@/components/InlineLoader';
 
 const modes = [
   {
@@ -100,35 +102,32 @@ export default function Generator() {
   const [competitorUrl, setCompetitorUrl] = useState('');
   const [tone, setTone] = useState('professional');
   const [length, setLength] = useState<'short' | 'medium' | 'long'>('medium');
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<GeneratedContent | null>(null);
+  const bg = useBackgroundRun<GeneratedContent>('Generating content');
+  const loading = bg.running;
+  const result = bg.result;
   const [copied, setCopied] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'preview' | 'markdown'>('preview');
 
-  const handleGenerate = async () => {
+  bg.onDone(() => toast.success('Content generated!'));
+  bg.onError((err) => toast.error(err));
+
+  const handleGenerate = () => {
     if (mode === 'topic' && !topic.trim()) { toast.error('Enter a topic'); return; }
     if (mode === 'url-audit' && !siteUrl.trim()) { toast.error('Enter your website URL'); return; }
     if (mode === 'competitor' && !competitorUrl.trim()) { toast.error('Enter competitor URL'); return; }
 
-    setLoading(true);
-    setResult(null);
-    try {
-      const content = await generateSEOContent({
-        mode,
-        topic: topic.trim() || undefined,
-        keywords: keywords ? keywords.split(',').map(k => k.trim()).filter(Boolean) : undefined,
-        tone,
-        length,
-        siteUrl: siteUrl.trim() || undefined,
-        competitorUrl: competitorUrl.trim() || undefined,
-      });
-      setResult(content);
-      toast.success('Content generated!');
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Generation failed');
-    } finally {
-      setLoading(false);
-    }
+    const opts = {
+      mode,
+      topic: topic.trim() || undefined,
+      keywords: keywords ? keywords.split(',').map(k => k.trim()).filter(Boolean) : undefined,
+      tone,
+      length,
+      siteUrl: siteUrl.trim() || undefined,
+      competitorUrl: competitorUrl.trim() || undefined,
+    };
+    bg.run(async () => {
+      return await generateSEOContent(opts);
+    });
   };
 
   const copyToClipboard = async (text: string, label: string) => {
@@ -314,7 +313,7 @@ export default function Generator() {
               borderRadius="12px"
               className="w-full h-12 font-medium text-sm shadow-lg gap-2"
             >
-              {loading ? <Loader2 className="size-4 animate-spin" /> : <Sparkles className="size-4" />}
+              {loading ? <InlineLoader size={16} className="text-white" /> : <Sparkles className="size-4" />}
               {loading
                 ? mode === 'url-audit' ? 'Analyzing site & generating...'
                 : mode === 'competitor' ? 'Analyzing competitor & generating...'

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,6 +31,7 @@ const trendColors: Record<string, string> = { up: 'text-green-400', down: 'text-
 export default function SeoDashboardWidgets() {
   const [domain, setDomain] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<DashboardResult | null>(null);
 
   const generate = async () => {

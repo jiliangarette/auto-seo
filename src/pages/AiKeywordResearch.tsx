@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -34,6 +35,7 @@ export default function AiKeywordResearch() {
   const [seedKeyword, setSeedKeyword] = useState('');
   const [niche, setNiche] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<ResearchResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<Set<string>>(new Set());

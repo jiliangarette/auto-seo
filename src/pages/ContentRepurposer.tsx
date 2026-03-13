@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -23,6 +24,7 @@ interface RepurposedContent {
 export default function ContentRepurposer() {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<RepurposedContent | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'social' | 'email' | 'video'>('social');

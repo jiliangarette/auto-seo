@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -37,6 +38,7 @@ const qualityColors: Record<string, string> = {
 export default function BacklinkQualityScorer() {
   const [domain, setDomain] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<ScorerResult | null>(null);
 
   const score = async () => {

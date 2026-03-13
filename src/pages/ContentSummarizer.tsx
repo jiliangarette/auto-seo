@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,6 +17,7 @@ interface SummaryResult {
 export default function ContentSummarizer() {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<SummaryResult | null>(null);
 
   const summarize = async () => {

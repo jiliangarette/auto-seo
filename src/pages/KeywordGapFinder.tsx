@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
@@ -37,6 +38,7 @@ export default function KeywordGapFinder() {
   const [yourSite, setYourSite] = useSiteUrlInput();
   const [competitor, setCompetitor] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<GapResult | null>(null);
 
   const analyze = async () => {

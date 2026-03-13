@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { scoreContent, type ScoringResult } from '@/lib/content-scoring';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,6 +11,7 @@ export default function ContentScoring() {
   const [content, setContent] = useState('');
   const [keyword, setKeyword] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<ScoringResult | null>(null);
 
   const handleScore = async () => {

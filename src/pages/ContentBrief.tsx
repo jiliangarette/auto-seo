@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useNavigate } from 'react-router-dom';
 import { generateContentBrief } from '@/lib/brief-generator';
 import { Button } from '@/components/ui/button';
@@ -14,6 +15,7 @@ export default function ContentBrief() {
   const [keyword, setKeyword] = useState('');
   const [audience, setAudience] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [brief, setBrief] = useState<Brief | null>(null);
 
   const handleGenerate = async (e: React.FormEvent) => {

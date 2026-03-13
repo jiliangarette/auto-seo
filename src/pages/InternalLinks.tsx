@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { suggestInternalLinks } from '@/lib/internal-linker';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,6 +11,7 @@ export default function InternalLinks() {
   const [article, setArticle] = useState('');
   const [pages, setPages] = useState<string[]>(['']);
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<Awaited<ReturnType<typeof suggestInternalLinks>> | null>(null);
 
   const addPage = () => setPages([...pages, '']);

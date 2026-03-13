@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
+import { useBackgroundRun } from '@/hooks/useBackgroundRun';
 import { analyzeSEO, type SEOAnalysisResult } from '@/lib/seo-analyzer';
 import { useSaveAnalysis } from '@/hooks/useAnalyses';
 import { useProjects } from '@/hooks/useProjects';
@@ -8,8 +9,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { Search, Save, ClipboardPaste, Loader2, Globe } from 'lucide-react';
+import { Search, Save, ClipboardPaste, Globe } from 'lucide-react';
 import { NumberTicker } from '@/components/ui/number-ticker';
+import InlineLoader from '@/components/InlineLoader';
 
 export default function Analyzer() {
   const [searchParams] = useSearchParams();
@@ -21,11 +23,15 @@ export default function Analyzer() {
   const [url, setUrl] = useSiteUrlInput();
   const [htmlContent, setHtmlContent] = useState('');
   const [mode, setMode] = useState<'url' | 'paste'>('url');
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<SEOAnalysisResult | null>(null);
+  const bg = useBackgroundRun<SEOAnalysisResult>('Analyzing SEO');
+  const loading = bg.running;
+  const result = bg.result;
   const [selectedProject, setSelectedProject] = useState(preselectedProject);
 
-  const handleAnalyze = async () => {
+  bg.onDone((analysis) => toast.success(`Analysis complete — Score: ${analysis.score}/100`));
+  bg.onError((err) => toast.error(err));
+
+  const handleAnalyze = () => {
     const content = mode === 'paste' ? htmlContent : '';
 
     if (mode === 'url' && !url.trim()) {
@@ -37,19 +43,14 @@ export default function Analyzer() {
       return;
     }
 
-    setLoading(true);
-    try {
-      const analysis = await analyzeSEO(
-        mode === 'paste' ? content : `URL to analyze: ${url}. Note: I cannot fetch the URL directly. Please analyze based on the URL structure and common SEO practices for this domain.`,
-        mode === 'url' ? url : 'pasted-content',
+    const inputUrl = url;
+    const inputMode = mode;
+    bg.run(async () => {
+      return await analyzeSEO(
+        inputMode === 'paste' ? content : `URL to analyze: ${inputUrl}. Note: I cannot fetch the URL directly. Please analyze based on the URL structure and common SEO practices for this domain.`,
+        inputMode === 'url' ? inputUrl : 'pasted-content',
       );
-      setResult(analysis);
-      toast.success(`Analysis complete — Score: ${analysis.score}/100`);
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Analysis failed');
-    } finally {
-      setLoading(false);
-    }
+    });
   };
 
   const handleSave = async () => {
@@ -129,7 +130,7 @@ export default function Analyzer() {
               />
             )}
             <Button onClick={handleAnalyze} disabled={loading} className="w-full h-11 bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl">
-              {loading ? <Loader2 className="size-4 animate-spin mr-2" /> : <Search className="size-4 mr-2" />}
+              {loading ? <InlineLoader size={16} className="text-white mr-2" /> : <Search className="size-4 mr-2" />}
               {loading ? 'Analyzing...' : 'Analyze SEO'}
             </Button>
           </CardContent>

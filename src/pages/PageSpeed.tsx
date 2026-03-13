@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { auditPageSpeed } from '@/lib/speed-auditor';
 import { Button } from '@/components/ui/button';
@@ -24,6 +25,7 @@ const priorityColors = {
 export default function PageSpeed() {
   const [url, setUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<Result | null>(null);
 
   const handleAudit = async (e: React.FormEvent) => {

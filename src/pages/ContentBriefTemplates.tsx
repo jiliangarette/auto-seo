@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -31,6 +32,7 @@ export default function ContentBriefTemplates() {
   const [selectedTemplate, setSelectedTemplate] = useState(defaultTemplates[0].name);
   const [topic, setTopic] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [briefs, setBriefs] = useState<Brief[]>([]);
   const [customSections, setCustomSections] = useState<string[]>([]);
   const [newSection, setNewSection] = useState('');

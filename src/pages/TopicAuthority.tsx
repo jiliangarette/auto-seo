@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { mapTopicAuthority, type TopicAuthorityResult } from '@/lib/topic-authority';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,6 +11,7 @@ export default function TopicAuthority() {
   const [niche, setNiche] = useState('');
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<TopicAuthorityResult | null>(null);
 
   const handleAnalyze = async () => {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { optimizeContent } from '@/lib/content-optimizer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,6 +13,7 @@ export default function ContentOptimizer() {
   const [content, setContent] = useState('');
   const [keyword, setKeyword] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<Result | null>(null);
   const [showOptimized, setShowOptimized] = useState(false);
 

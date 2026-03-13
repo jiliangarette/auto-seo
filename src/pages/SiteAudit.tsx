@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
+import { useBackgroundRun } from '@/hooks/useBackgroundRun';
 import { auditSite, type SiteAuditResult } from '@/lib/site-auditor';
 import { useSaveAudit } from '@/hooks/useAudits';
 import { useProjects } from '@/hooks/useProjects';
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 import { CardSkeleton } from '@/components/LoadingSkeleton';
 import { BorderBeam } from '@/components/ui/border-beam';
+import InlineLoader from '@/components/InlineLoader';
 
 const severityConfig = {
   critical: { icon: AlertCircle, color: 'text-red-400', bg: 'bg-red-500/5', border: 'border-red-500/20', badge: 'bg-red-500/15 text-red-400' },
@@ -74,40 +76,39 @@ export default function SiteAudit() {
 
   const urlParam = searchParams.get('url') ?? '';
   const [url, setUrl] = useSiteUrlInput();
-  const [loading, setLoading] = useState(false);
+  const bg = useBackgroundRun<SiteAuditResult>('Site Audit');
 
   useEffect(() => {
     if (urlParam && !url) setUrl(urlParam);
   }, [urlParam]); // eslint-disable-line react-hooks/exhaustive-deps
-  const [result, setResult] = useState<SiteAuditResult | null>(null);
+
+  const loading = bg.running;
+  const result = bg.result;
+
   const [selectedProject, setSelectedProject] = useState(preselectedProject);
   const [filter, setFilter] = useState<'all' | 'critical' | 'warning' | 'info'>('all');
   const [scanStep, setScanStep] = useState(0);
   const [showRawData, setShowRawData] = useState(false);
 
-  const handleAudit = async () => {
-    if (!url.trim()) { toast.error('Enter a URL to audit'); return; }
-    setLoading(true);
+  // Animate scan steps while loading
+  useEffect(() => {
+    if (!loading) return;
     setScanStep(0);
-
-    // Animate through scan steps
     const interval = setInterval(() => {
-      setScanStep(prev => {
-        if (prev < scanSteps.length - 1) return prev + 1;
-        return prev;
-      });
+      setScanStep(prev => prev < scanSteps.length - 1 ? prev + 1 : prev);
     }, 1200);
+    return () => clearInterval(interval);
+  }, [loading]);
 
-    try {
-      const audit = await auditSite(url.trim());
-      setResult(audit);
-      toast.success(`Audit complete — score: ${audit.summary.score}/100`);
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Audit failed — check the URL and try again');
-    } finally {
-      clearInterval(interval);
-      setLoading(false);
-    }
+  // Toast on completion
+  bg.onDone((audit) => toast.success(`Audit complete — score: ${audit.summary.score}/100`));
+  bg.onError((err) => toast.error(err));
+
+  const handleAudit = () => {
+    if (!url.trim()) { toast.error('Enter a URL to audit'); return; }
+    bg.run(async () => {
+      return await auditSite(url.trim());
+    });
   };
 
   const handleSave = async () => {
@@ -159,7 +160,7 @@ export default function SiteAudit() {
                 />
               </div>
               <Button onClick={handleAudit} disabled={loading} className="h-11 px-6 bg-gradient-to-r from-emerald-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 border-0 text-white rounded-xl">
-                {loading ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />}
+                {loading ? <InlineLoader size={16} className="text-white" /> : <Search className="size-4" />}
                 {loading ? 'Scanning...' : 'Run Audit'}
               </Button>
             </div>

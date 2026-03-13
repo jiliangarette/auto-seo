@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { analyzeCompetitiveResearch, type CompetitiveResearchResult } from '@/lib/competitive-research';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -23,6 +24,7 @@ export default function CompetitiveResearch() {
   const [keywords, setKeywords] = useState('');
   const [competitors, setCompetitors] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<CompetitiveResearchResult | null>(null);
 
   const handleAnalyze = async () => {

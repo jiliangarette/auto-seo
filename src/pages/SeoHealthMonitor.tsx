@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
 import { Button } from '@/components/ui/button';
@@ -38,6 +39,7 @@ function ScoreRing({ score }: { score: number }) {
 export default function SeoHealthMonitor() {
   const [site, setSite] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<HealthResult | null>(null);
 
   const monitor = async () => {

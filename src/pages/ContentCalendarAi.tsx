@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { Button } from '@/components/ui/button';
@@ -37,6 +38,7 @@ export default function ContentCalendarAi() {
   const [goals, setGoals] = useState('');
   const [keywords, setKeywords] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<CalendarResult | null>(null);
 
   const generate = async () => {

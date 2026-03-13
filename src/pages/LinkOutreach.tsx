@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -39,6 +40,7 @@ export default function LinkOutreach() {
   const [prospects, setProspects] = useState<Prospect[]>([]);
   const [templates, setTemplates] = useState<EmailTemplate[]>([]);
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   // New prospect form

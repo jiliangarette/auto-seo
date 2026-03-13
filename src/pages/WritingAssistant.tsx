@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { calculateBasicMetrics } from '@/lib/readability';
 import { Button } from '@/components/ui/button';
@@ -20,6 +21,7 @@ export default function WritingAssistant() {
   const [existingPages, setExistingPages] = useState('');
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [appliedRewrites, setAppliedRewrites] = useState<Set<number>>(new Set());
 
   // Real-time readability metrics

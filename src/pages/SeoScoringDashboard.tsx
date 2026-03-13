@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { Button } from '@/components/ui/button';
@@ -51,6 +52,7 @@ const impactColors = {
 export default function SeoScoringDashboard() {
   const [domain, setDomain] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<ScoringResult | null>(null);
 
   const analyze = async () => {

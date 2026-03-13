@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { fetchSiteHtml, parseHtml } from '@/lib/fetch-site';
@@ -30,6 +31,7 @@ export default function AiMetaTagOptimizer() {
   const [bulkUrls, setBulkUrls] = useState('');
 
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<MetaResult | null>(null);
   const [copied, setCopied] = useState<string | null>(null);
   const [mode, setMode] = useState<'single' | 'bulk'>('single');

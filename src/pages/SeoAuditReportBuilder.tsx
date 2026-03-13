@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
@@ -42,6 +43,7 @@ export default function SeoAuditReportBuilder() {
   const [url, setUrl] = useSiteUrlInput();
   const [selectedCats, setSelectedCats] = useState<Set<string>>(new Set(categories));
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<AuditReport | null>(null);
 
   const toggleCat = (cat: string) => {

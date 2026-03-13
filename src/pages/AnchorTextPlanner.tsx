@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
@@ -33,6 +34,7 @@ export default function AnchorTextPlanner() {
   const [keyword, setKeyword] = useState('');
   const [brand, setBrand] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<AnchorResult | null>(null);
 
   const plan = async () => {

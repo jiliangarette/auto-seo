@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
@@ -46,6 +47,7 @@ const scoreColors = {
 export default function CoreWebVitals() {
   const [url, setUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<CwvResult | null>(null);
 
   const analyze = async () => {

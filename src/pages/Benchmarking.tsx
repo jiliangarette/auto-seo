@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
@@ -43,6 +44,7 @@ export default function Benchmarking() {
   const [niche, setNiche] = useState('');
   const [siteUrl, setSiteUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [metrics, setMetrics] = useState<BenchmarkMetric[]>([]);
   const [goals, setGoals] = useState<KpiGoal[]>([]);
   const [activeTab, setActiveTab] = useState<'benchmark' | 'history' | 'goals'>('benchmark');

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
@@ -25,6 +26,7 @@ export default function SeoAbTestPlanner() {
   const [url, setUrl] = useSiteUrlInput();
   const [hypothesis, setHypothesis] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<TestResult | null>(null);
 
   const generate = async () => {

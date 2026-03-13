@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
@@ -45,6 +46,7 @@ export default function SearchConsole() {
   const [connected, setConnected] = useState(false);
   const [siteUrl, setSiteUrl] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [rankings, setRankings] = useState<RankingData[]>([]);
   const [ctrAnalysis, setCtrAnalysis] = useState<CtrAnalysis | null>(null);
   const [appearances, setAppearances] = useState<SearchAppearance[]>([]);

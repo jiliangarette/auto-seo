@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { openai } from '@/integrations/openai/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -38,6 +39,7 @@ export default function ContentRoi() {
     { id: String(nextId++), title: '', monthlyTraffic: 0, conversions: 0, productionCost: 0, revenuePerConversion: 0 },
   ]);
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<RoiResult | null>(null);
 
   const addPiece = () => {

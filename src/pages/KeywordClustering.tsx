@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { clusterKeywords, type ClusterResult } from '@/lib/keyword-clustering';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,6 +16,7 @@ const intentColors = {
 export default function KeywordClustering() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<ClusterResult | null>(null);
   const [copied, setCopied] = useState(false);
 

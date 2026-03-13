@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageLoading } from '@/hooks/usePageLoading';
 import { analyzeBacklinkQuality, type BacklinkQualityResult } from '@/lib/backlink-quality';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,6 +25,7 @@ export default function BacklinkQuality() {
   const [niche, setNiche] = useState('');
   const [backlinkInput, setBacklinkInput] = useState('');
   const [loading, setLoading] = useState(false);
+  usePageLoading(loading);
   const [result, setResult] = useState<BacklinkQualityResult | null>(null);
   const [copied, setCopied] = useState(false);
 
