@@ -70,7 +70,7 @@ export default function HreflangTagGenerator() {
           <p className="text-muted-foreground">Generate and validate hreflang tags for international SEO</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={pages}
@@ -111,7 +111,7 @@ export default function HreflangTagGenerator() {
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Hreflang References ({result.tags.length})</CardTitle>
               </CardHeader>
@@ -128,7 +128,7 @@ export default function HreflangTagGenerator() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Output</CardTitle>

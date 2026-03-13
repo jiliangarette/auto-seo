@@ -67,7 +67,7 @@ export default function SearchFeatureOptimizer() {
           <p className="text-muted-foreground">Identify and win SERP features like snippets, PAA, and rich results</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="Target keyword (e.g., how to start a blog)" />
             <Button onClick={analyze} disabled={loading}>
@@ -86,7 +86,7 @@ export default function SearchFeatureOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Available Features ({result.features.filter(f => f.available).length}/{result.features.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -114,7 +114,7 @@ export default function SearchFeatureOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Competitor Feature Ownership</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -132,7 +132,7 @@ export default function SearchFeatureOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Recommendations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

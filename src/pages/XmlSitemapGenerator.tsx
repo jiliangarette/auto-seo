@@ -99,19 +99,19 @@ export default function XmlSitemapGenerator() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold">{entries.length}</p>
               <p className="text-[10px] text-muted-foreground">URLs</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className={`text-2xl font-bold ${issues.length === 0 ? 'text-green-400' : 'text-yellow-400'}`}>{issues.length}</p>
               <p className="text-[10px] text-muted-foreground">Issues</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold text-muted-foreground">{(50000 - entries.length).toLocaleString()}</p>
               <p className="text-[10px] text-muted-foreground">Remaining Capacity</p>
@@ -134,7 +134,7 @@ export default function XmlSitemapGenerator() {
           </Card>
         )}
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Add URL</CardTitle>
           </CardHeader>
@@ -156,7 +156,7 @@ export default function XmlSitemapGenerator() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">URL Entries ({entries.length})</CardTitle>
           </CardHeader>
@@ -182,7 +182,7 @@ export default function XmlSitemapGenerator() {
 
         {entries.length > 0 && (
           <>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Generated XML</CardTitle>
               </CardHeader>

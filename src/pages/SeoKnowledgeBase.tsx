@@ -87,7 +87,7 @@ export default function SeoKnowledgeBase() {
           <p className="text-muted-foreground">Searchable glossary, best practices, and interactive explanations</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Ask SEO Questions</CardTitle>
           </CardHeader>
@@ -106,7 +106,7 @@ export default function SeoKnowledgeBase() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <div className="flex items-center justify-between">
               <CardTitle className="text-sm">SEO Glossary ({filteredTerms.length} terms)</CardTitle>
@@ -140,7 +140,7 @@ export default function SeoKnowledgeBase() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Quick Reference Guides</CardTitle>
           </CardHeader>

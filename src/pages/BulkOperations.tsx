@@ -157,7 +157,7 @@ export default function BulkOperations() {
         {selectedProject && (
           <>
             {/* Import Section */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Upload className="size-4" />
@@ -196,7 +196,7 @@ export default function BulkOperations() {
             </Card>
 
             {/* Export Section */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Download className="size-4" />

@@ -70,7 +70,7 @@ export default function LinkBuildingOutreach() {
           <p className="text-muted-foreground">Generate personalized outreach campaigns for link building</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Your domain (e.g., example.com)" />
             <Input value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="Your niche (e.g., SaaS marketing)" />
@@ -90,7 +90,7 @@ export default function LinkBuildingOutreach() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Outreach Targets ({result.targets.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-3">
@@ -115,7 +115,7 @@ export default function LinkBuildingOutreach() {
             </Card>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2"><CardTitle className="text-sm">Campaign Tips</CardTitle></CardHeader>
                 <CardContent>
                   <ul className="space-y-1.5">
@@ -129,7 +129,7 @@ export default function LinkBuildingOutreach() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2"><CardTitle className="text-sm">Success Metrics</CardTitle></CardHeader>
                 <CardContent>
                   <div className="space-y-1.5">

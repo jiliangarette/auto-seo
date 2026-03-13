@@ -69,7 +69,7 @@ export default function BrandSerpManager() {
           <p className="text-muted-foreground">Audit and optimize your brand's Google search results</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={brand} onChange={(e) => setBrand(e.target.value)} placeholder="Brand name (e.g., Acme Corp)" />
             <Button onClick={audit} disabled={loading}>
@@ -96,7 +96,7 @@ export default function BrandSerpManager() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">SERP Results (Page 1)</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -133,7 +133,7 @@ export default function BrandSerpManager() {
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">SERP Domination Plan</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

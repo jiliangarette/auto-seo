@@ -68,7 +68,7 @@ export default function SeoClientReport() {
           <p className="text-muted-foreground">Generate executive-level SEO reports for clients</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div className="grid grid-cols-3 gap-3">
               <Input value={client} onChange={(e) => setClient(e.target.value)} placeholder="Client name" />
@@ -114,7 +114,7 @@ export default function SeoClientReport() {
               </Card>
             ))}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Recommendations</CardTitle>
               </CardHeader>

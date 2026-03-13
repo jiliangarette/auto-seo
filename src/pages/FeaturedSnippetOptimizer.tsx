@@ -102,7 +102,7 @@ Return JSON:
           <p className="text-muted-foreground">Win position zero with AI-optimized snippet content</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Target Keyword & Content</CardTitle>
           </CardHeader>
@@ -130,7 +130,7 @@ Return JSON:
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.yourChance >= 60 ? 'text-green-400' : result.yourChance >= 30 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.yourChance}%
@@ -138,13 +138,13 @@ Return JSON:
                   <p className="text-[10px] text-muted-foreground">Win Probability</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-sm font-bold text-primary">{result.snippetType}</p>
                   <p className="text-[10px] text-muted-foreground">Expected Format</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-xs font-mono text-muted-foreground truncate">{result.currentSnippetHolder}</p>
                   <p className="text-[10px] text-muted-foreground">Current Holder</p>
@@ -186,7 +186,7 @@ Return JSON:
               })}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Optimization Tips</CardTitle>
               </CardHeader>

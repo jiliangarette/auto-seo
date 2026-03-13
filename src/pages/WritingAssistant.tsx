@@ -130,7 +130,7 @@ ${pages.length ? '- 2-3 internal link suggestions (where to add links to existin
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Editor */}
           <div className="lg:col-span-2 space-y-4">
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-6 space-y-3">
                 <div className="flex gap-3">
                   <Input
@@ -166,7 +166,7 @@ ${pages.length ? '- 2-3 internal link suggestions (where to add links to existin
           {/* Sidebar */}
           <div className="space-y-4">
             {/* Live metrics */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Live Stats</CardTitle>
               </CardHeader>
@@ -195,7 +195,7 @@ ${pages.length ? '- 2-3 internal link suggestions (where to add links to existin
 
             {/* Suggestions */}
             {suggestions.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Suggestions ({suggestions.length})</CardTitle>
                 </CardHeader>

@@ -71,7 +71,7 @@ export default function BacklinkOutreachEmails() {
           <p className="text-muted-foreground">AI-generated personalized outreach with A/B subject lines and follow-ups</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={targetSite} onChange={(e) => setTargetSite(e.target.value)} placeholder="Target site (e.g., blog.example.com)" />
             <Input value={yourSite} onChange={(e) => setYourSite(e.target.value)} placeholder="Your site URL (optional)" />
@@ -110,7 +110,7 @@ export default function BacklinkOutreachEmails() {
               </Card>
             ))}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Subject Line A/B Tests</CardTitle>
               </CardHeader>
@@ -131,7 +131,7 @@ export default function BacklinkOutreachEmails() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Follow-Up Sequence</CardTitle>
               </CardHeader>

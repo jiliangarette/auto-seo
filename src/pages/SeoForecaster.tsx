@@ -71,7 +71,7 @@ export default function SeoForecaster() {
           <p className="text-muted-foreground">12-month traffic forecast with scenario modeling</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div className="grid grid-cols-3 gap-3">
               <Input value={traffic} onChange={(e) => setTraffic(e.target.value)} placeholder="Current monthly traffic" />
@@ -93,7 +93,7 @@ export default function SeoForecaster() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Required Monthly Investment</CardTitle>
               </CardHeader>
@@ -115,7 +115,7 @@ export default function SeoForecaster() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">12-Month Traffic Forecast</CardTitle>
               </CardHeader>
@@ -145,7 +145,7 @@ export default function SeoForecaster() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Milestones</CardTitle>
               </CardHeader>

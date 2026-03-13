@@ -92,7 +92,7 @@ export default function SeoChecklistGenerator() {
           <p className="text-muted-foreground">Generate customized SEO checklists by page type</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div className="flex flex-wrap gap-2">
               {pageTypes.map((pt) => (

@@ -71,7 +71,7 @@ export default function SeoRevenueCalculator() {
           <p className="text-muted-foreground">Project revenue from SEO improvements</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={traffic} onChange={(e) => setTraffic(e.target.value)} placeholder="Monthly organic traffic (e.g., 10000)" type="number" />
             <Input value={convRate} onChange={(e) => setConvRate(e.target.value)} placeholder="Conversion rate % (e.g., 2.5)" type="number" />
@@ -120,7 +120,7 @@ export default function SeoRevenueCalculator() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Monthly Growth Projections</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -136,7 +136,7 @@ export default function SeoRevenueCalculator() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Recommendations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

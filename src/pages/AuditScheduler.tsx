@@ -150,7 +150,7 @@ export default function AuditScheduler() {
         {/* Schedules */}
         {activeTab === 'schedules' && (
           <div className="space-y-4">
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Plus className="size-4" />
@@ -188,7 +188,7 @@ export default function AuditScheduler() {
             </Card>
 
             {schedules.length === 0 ? (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-6 text-center">
                   <Clock className="size-8 mx-auto text-muted-foreground mb-2" />
                   <p className="text-sm text-muted-foreground">No scheduled audits. Create one above.</p>
@@ -228,7 +228,7 @@ export default function AuditScheduler() {
 
         {/* Comparison */}
         {activeTab === 'comparison' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm">Previous vs Current Audit</CardTitle>
             </CardHeader>
@@ -255,7 +255,7 @@ export default function AuditScheduler() {
 
         {/* Issue Tracking */}
         {activeTab === 'issues' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm">Automated Issue Tracking</CardTitle>
             </CardHeader>
@@ -291,7 +291,7 @@ export default function AuditScheduler() {
 
         {/* Score Trends */}
         {activeTab === 'trends' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm flex items-center gap-2">
                 <BarChart3 className="size-4" />

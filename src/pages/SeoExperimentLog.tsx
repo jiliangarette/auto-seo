@@ -73,7 +73,7 @@ export default function SeoExperimentLog() {
           <p className="text-muted-foreground">Log experiments with hypotheses, track results, and generate insights</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={hypothesis} onChange={(e) => setHypothesis(e.target.value)} placeholder="Experiment hypothesis (e.g., Adding FAQ schema increases CTR by 15%)" />
             <Input value={context} onChange={(e) => setContext(e.target.value)} placeholder="Context (optional, e.g., e-commerce product pages)" />
@@ -124,7 +124,7 @@ export default function SeoExperimentLog() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Cross-Experiment Insights</CardTitle>
               </CardHeader>

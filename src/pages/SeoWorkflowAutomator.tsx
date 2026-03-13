@@ -105,7 +105,7 @@ export default function SeoWorkflowAutomator() {
           <p className="text-muted-foreground">Create multi-step SEO workflows and chain tools together</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Create Workflow</CardTitle>
           </CardHeader>
@@ -180,7 +180,7 @@ export default function SeoWorkflowAutomator() {
         })}
 
         {workflows.length === 0 && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-6 pb-6 text-center">
               <p className="text-sm text-muted-foreground">No workflows created yet</p>
             </CardContent>

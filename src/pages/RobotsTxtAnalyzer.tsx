@@ -108,7 +108,7 @@ Return JSON:
           <p className="text-muted-foreground">Analyze and optimize your robots.txt for better crawling</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Robots.txt Content</CardTitle>
           </CardHeader>
@@ -129,7 +129,7 @@ Return JSON:
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   {result.valid ? (
                     <CheckCircle2 className="size-5 mx-auto mb-1 text-green-400" />
@@ -142,13 +142,13 @@ Return JSON:
                   <p className="text-[10px] text-muted-foreground">Syntax</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.issueCount}</p>
                   <p className="text-[10px] text-muted-foreground">Issues Found</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.crawlBudgetScore >= 70 ? 'text-green-400' : result.crawlBudgetScore >= 40 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.crawlBudgetScore}/100
@@ -159,7 +159,7 @@ Return JSON:
             </div>
 
             {result.issues.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Issues</CardTitle>
                 </CardHeader>
@@ -182,7 +182,7 @@ Return JSON:
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Optimized Robots.txt</CardTitle>
@@ -198,7 +198,7 @@ Return JSON:
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Optimization Suggestions</CardTitle>
               </CardHeader>

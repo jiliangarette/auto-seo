@@ -83,7 +83,7 @@ export default function SeoTaskPrioritizer() {
           <p className="text-muted-foreground">Score and prioritize SEO tasks by impact, effort, and urgency</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={goal} onChange={(e) => setGoal(e.target.value)} placeholder="SEO goal (e.g., Increase organic traffic 50%)" />
             <Input value={tasks} onChange={(e) => setTasks(e.target.value)} placeholder="Tasks (comma-separated, e.g., fix meta tags, build backlinks, update blog)" />
@@ -103,7 +103,7 @@ export default function SeoTaskPrioritizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Prioritized Tasks</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -146,7 +146,7 @@ export default function SeoTaskPrioritizer() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Quick Wins</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

@@ -55,7 +55,7 @@ export default function VideoSeoOptimizer() {
           <p className="text-muted-foreground">Optimize video titles, descriptions, tags, and schema</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Video topic (e.g., How to Start a YouTube Channel)" />
             <Button onClick={optimize} disabled={loading}>
@@ -74,7 +74,7 @@ export default function VideoSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Title Options</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -88,14 +88,14 @@ export default function VideoSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Optimized Description</CardTitle></CardHeader>
               <CardContent>
                 <p className="text-xs text-muted-foreground whitespace-pre-line">{result.description}</p>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Tags ({result.tags.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-1.5">
@@ -107,7 +107,7 @@ export default function VideoSeoOptimizer() {
             </Card>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2"><CardTitle className="text-sm">Thumbnail Tips</CardTitle></CardHeader>
                 <CardContent>
                   <ul className="space-y-1.5">
@@ -121,7 +121,7 @@ export default function VideoSeoOptimizer() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2"><CardTitle className="text-sm">Engagement Tips</CardTitle></CardHeader>
                 <CardContent>
                   <ul className="space-y-1.5">
@@ -136,7 +136,7 @@ export default function VideoSeoOptimizer() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Video Schema Markup</CardTitle></CardHeader>
               <CardContent>
                 <pre className="text-[10px] text-muted-foreground bg-muted/20 p-3 rounded-md overflow-x-auto whitespace-pre-wrap">{result.schema}</pre>

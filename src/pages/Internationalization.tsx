@@ -223,7 +223,7 @@ export default function Internationalization() {
 
         {/* Language Detection */}
         {activeTab === 'detect' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm flex items-center gap-2">
                 <Languages className="size-4" />
@@ -273,7 +273,7 @@ export default function Internationalization() {
 
         {/* Hreflang Generator */}
         {activeTab === 'hreflang' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm flex items-center gap-2">
                 <Globe className="size-4" />
@@ -336,7 +336,7 @@ export default function Internationalization() {
 
         {/* Regional SERP Preview */}
         {activeTab === 'serp' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm flex items-center gap-2">
                 <MapPin className="size-4" />
@@ -380,7 +380,7 @@ export default function Internationalization() {
 
         {/* Translation Quality Checker */}
         {activeTab === 'translate' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm flex items-center gap-2">
                 <AlertTriangle className="size-4" />

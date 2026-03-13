@@ -116,7 +116,7 @@ ${result.pages.filter((p) => p.status === 'ok').map((p) => `  <url>
           <p className="text-muted-foreground">Analyze your sitemap, detect issues, and generate optimized versions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6">
             <div className="flex gap-2">
               <Input
@@ -138,28 +138,28 @@ ${result.pages.filter((p) => p.status === 'ok').map((p) => `  <url>
           <>
             {/* Stats */}
             <div className="grid gap-4 md:grid-cols-4">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <FileText className="size-5 mx-auto text-blue-400 mb-1" />
                   <p className="text-2xl font-bold">{result.totalPages}</p>
                   <p className="text-[10px] text-muted-foreground">Total Pages</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <CheckCircle2 className="size-5 mx-auto text-green-400 mb-1" />
                   <p className="text-2xl font-bold text-green-400">{result.pages.filter((p) => p.status === 'ok').length}</p>
                   <p className="text-[10px] text-muted-foreground">Healthy</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <AlertTriangle className="size-5 mx-auto text-yellow-400 mb-1" />
                   <p className="text-2xl font-bold text-yellow-400">{result.orphanedPages.length}</p>
                   <p className="text-[10px] text-muted-foreground">Orphaned</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <Link2 className="size-5 mx-auto text-red-400 mb-1" />
                   <p className="text-2xl font-bold text-red-400">{result.brokenUrls.length}</p>
@@ -198,7 +198,7 @@ ${result.pages.filter((p) => p.status === 'ok').map((p) => `  <url>
 
             {/* Overview — Depth Distribution */}
             {activeTab === 'overview' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
                     <Layers className="size-4" />
@@ -230,7 +230,7 @@ ${result.pages.filter((p) => p.status === 'ok').map((p) => `  <url>
 
             {/* All Pages */}
             {activeTab === 'pages' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm">Pages ({filteredPages.length})</CardTitle>
@@ -272,7 +272,7 @@ ${result.pages.filter((p) => p.status === 'ok').map((p) => `  <url>
             {activeTab === 'issues' && (
               <div className="space-y-3">
                 {result.orphanedPages.length > 0 && (
-                  <Card>
+                  <Card className="border-border/30 bg-card/40">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm text-yellow-400 flex items-center gap-2">
                         <AlertTriangle className="size-4" />
@@ -288,7 +288,7 @@ ${result.pages.filter((p) => p.status === 'ok').map((p) => `  <url>
                   </Card>
                 )}
                 {result.brokenUrls.length > 0 && (
-                  <Card>
+                  <Card className="border-border/30 bg-card/40">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm text-red-400 flex items-center gap-2">
                         <Link2 className="size-4" />
@@ -308,7 +308,7 @@ ${result.pages.filter((p) => p.status === 'ok').map((p) => `  <url>
 
             {/* Optimize */}
             {activeTab === 'optimize' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Optimization Suggestions</CardTitle>
                 </CardHeader>

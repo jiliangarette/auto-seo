@@ -63,7 +63,7 @@ export default function ContentLocalizationPlanner() {
           <p className="text-muted-foreground">Plan locale-specific SEO for international markets</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={content} onChange={(e) => setContent(e.target.value)} placeholder="Content topic (e.g., Best CRM Software Guide)" />
             <Input value={markets} onChange={(e) => setMarkets(e.target.value)} placeholder="Target markets (e.g., Germany, Japan, Brazil, France)" />
@@ -122,7 +122,7 @@ export default function ContentLocalizationPlanner() {
               </Card>
             ))}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Implementation Guide</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

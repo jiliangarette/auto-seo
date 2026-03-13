@@ -142,7 +142,7 @@ Predict CTR for each variant. Return JSON:
           <p className="text-muted-foreground">Test title and description variants with AI-powered CTR predictions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Target Keyword</label>

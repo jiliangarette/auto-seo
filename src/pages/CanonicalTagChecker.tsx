@@ -76,7 +76,7 @@ export default function CanonicalTagChecker() {
           <p className="text-muted-foreground">Detect missing, conflicting, and cross-domain canonical tags</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={urls}
@@ -94,19 +94,19 @@ export default function CanonicalTagChecker() {
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalChecked}</p>
                   <p className="text-[10px] text-muted-foreground">URLs Checked</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-red-400">{result.issueCount}</p>
                   <p className="text-[10px] text-muted-foreground">Issues Found</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-green-400">{result.totalChecked - result.issueCount}</p>
                   <p className="text-[10px] text-muted-foreground">Correct</p>
@@ -120,7 +120,7 @@ export default function CanonicalTagChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Canonical Tag Results</CardTitle>
               </CardHeader>
@@ -148,7 +148,7 @@ export default function CanonicalTagChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Recommendations</CardTitle>
               </CardHeader>

@@ -115,7 +115,7 @@ Generate 3-6 realistic cannibalization pairs.` },
           <p className="text-muted-foreground">Find pages competing for the same keywords</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">URLs to Check</CardTitle>
           </CardHeader>
@@ -148,19 +148,19 @@ Generate 3-6 realistic cannibalization pairs.` },
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalPairs}</p>
                   <p className="text-[10px] text-muted-foreground">Cannibalized Pairs</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-red-400">{result.highSeverity}</p>
                   <p className="text-[10px] text-muted-foreground">High Severity</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   {result.highSeverity === 0 ? (
                     <CheckCircle2 className="size-5 mx-auto mb-1 text-green-400" />

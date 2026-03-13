@@ -85,7 +85,7 @@ export default function SeoCompetitorPlaybook() {
           <p className="text-muted-foreground">Deep competitor analysis with counter-strategies and action plan</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Competitor domain (e.g., competitor.com)" />
             <Input value={yourDomain} onChange={(e) => setYourDomain(e.target.value)} placeholder="Your domain (optional)" />
@@ -136,7 +136,7 @@ export default function SeoCompetitorPlaybook() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Counter-Strategies ({result.strategies.length})</CardTitle>
               </CardHeader>
@@ -159,7 +159,7 @@ export default function SeoCompetitorPlaybook() {
             </Card>
 
             <div className="grid md:grid-cols-2 gap-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Quick Wins</CardTitle>
                 </CardHeader>
@@ -173,7 +173,7 @@ export default function SeoCompetitorPlaybook() {
                   </ul>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Long-Term Plays</CardTitle>
                 </CardHeader>

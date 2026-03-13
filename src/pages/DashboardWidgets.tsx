@@ -250,7 +250,7 @@ export default function DashboardWidgets() {
 
         {/* Widget Library */}
         {showLibrary && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm">Widget Library</CardTitle>
             </CardHeader>
@@ -278,7 +278,7 @@ export default function DashboardWidgets() {
         )}
 
         {/* Presets */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-4">
             <div className="flex items-center gap-2">
               <Input
@@ -342,7 +342,7 @@ export default function DashboardWidgets() {
         </div>
 
         {widgets.length === 0 && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-8 pb-8 text-center">
               <LayoutGrid className="size-10 mx-auto text-muted-foreground mb-3" />
               <p className="text-sm text-muted-foreground">No widgets. Click "Add Widget" to customize your dashboard.</p>

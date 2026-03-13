@@ -53,7 +53,7 @@ export default function SearchIntentClassifier() {
           <p className="text-muted-foreground">Classify keywords by search intent and get content recommendations</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={keywords} onChange={(e) => setKeywords(e.target.value)} placeholder="Keywords (e.g., best running shoes, how to tie shoes, Nike store)" />
             <Button onClick={classify} disabled={loading}>
@@ -72,7 +72,7 @@ export default function SearchIntentClassifier() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Intent Classifications</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -92,7 +92,7 @@ export default function SearchIntentClassifier() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Content Format Recommendations</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -111,7 +111,7 @@ export default function SearchIntentClassifier() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">SERP Feature Targeting</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -130,7 +130,7 @@ export default function SearchIntentClassifier() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Recommendations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

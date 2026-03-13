@@ -72,7 +72,7 @@ export default function ContentReadabilityGrader() {
           <p className="text-muted-foreground">Multi-metric readability analysis with sentence-level highlighting</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={content}
@@ -96,13 +96,13 @@ export default function ContentReadabilityGrader() {
                   <p className="text-[10px] text-muted-foreground">Overall Grade</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.gradeLevel}</p>
                   <p className="text-[10px] text-muted-foreground">Grade Level</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-sm font-medium text-primary">{result.targetAudience}</p>
                   <p className="text-[10px] text-muted-foreground">Target Audience</p>
@@ -116,7 +116,7 @@ export default function ContentReadabilityGrader() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Readability Scores</CardTitle>
               </CardHeader>
@@ -140,7 +140,7 @@ export default function ContentReadabilityGrader() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Complex Sentences</CardTitle>
               </CardHeader>
@@ -160,7 +160,7 @@ export default function ContentReadabilityGrader() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Recommendations</CardTitle>
               </CardHeader>

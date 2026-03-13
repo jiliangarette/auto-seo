@@ -69,7 +69,7 @@ export default function ContentFreshnessMonitor() {
           <p className="text-muted-foreground">Monitor content staleness and schedule refreshes</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain to monitor (e.g., example.com)" />
             <Button onClick={analyze} disabled={loading}>
@@ -96,7 +96,7 @@ export default function ContentFreshnessMonitor() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Content Items ({result.items.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -119,7 +119,7 @@ export default function ContentFreshnessMonitor() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Refresh Schedule</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

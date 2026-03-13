@@ -98,7 +98,7 @@ Return JSON:
           <p className="text-muted-foreground">Transform blog posts into social media, newsletters, and video scripts</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <label className="mb-1 block text-xs text-muted-foreground">Paste Your Blog Post</label>
             <textarea
@@ -167,7 +167,7 @@ Return JSON:
 
             {/* Newsletter */}
             {activeTab === 'email' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm flex items-center gap-2">
@@ -197,7 +197,7 @@ Return JSON:
 
             {/* Video Script */}
             {activeTab === 'video' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm flex items-center gap-2">

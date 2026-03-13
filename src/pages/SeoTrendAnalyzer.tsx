@@ -73,7 +73,7 @@ export default function SeoTrendAnalyzer() {
           <p className="text-muted-foreground">Identify emerging SEO trends and seasonal opportunities</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="Industry or niche (e.g., E-commerce fashion)" />
             <Button onClick={analyze} disabled={loading}>
@@ -92,7 +92,7 @@ export default function SeoTrendAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Emerging Trends ({result.trends.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -111,7 +111,7 @@ export default function SeoTrendAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Seasonal Patterns</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -128,7 +128,7 @@ export default function SeoTrendAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Competitor Trend Comparison</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -143,7 +143,7 @@ export default function SeoTrendAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Predictions</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

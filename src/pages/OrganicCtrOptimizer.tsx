@@ -65,7 +65,7 @@ export default function OrganicCtrOptimizer() {
           <p className="text-muted-foreground">Benchmark and optimize click-through rates for organic results</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="Target keyword" />
             <Input value={position} onChange={(e) => setPosition(e.target.value)} placeholder="Current SERP position (e.g., 5)" type="number" />
@@ -95,7 +95,7 @@ export default function OrganicCtrOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Title Variants</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -113,7 +113,7 @@ export default function OrganicCtrOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Description Suggestions</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -127,7 +127,7 @@ export default function OrganicCtrOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Impact Projections</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

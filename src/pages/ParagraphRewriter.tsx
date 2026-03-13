@@ -78,7 +78,7 @@ Generate 4 variants with different tones and keyword integration approaches.` },
           <p className="text-muted-foreground">AI-powered SEO paragraph rewrites with score comparison</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Target Keyword (optional)</label>

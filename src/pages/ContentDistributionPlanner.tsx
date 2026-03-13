@@ -62,7 +62,7 @@ export default function ContentDistributionPlanner() {
           <p className="text-muted-foreground">Plan multi-channel content distribution with platform adaptations</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={content} onChange={(e) => setContent(e.target.value)} placeholder="Content title or topic (e.g., Ultimate Guide to SEO in 2026)" />
             <Input value={audience} onChange={(e) => setAudience(e.target.value)} placeholder="Target audience (e.g., SaaS marketers, small business owners)" />
@@ -103,7 +103,7 @@ export default function ContentDistributionPlanner() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">7-Day Posting Schedule</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -118,7 +118,7 @@ export default function ContentDistributionPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Tracking Metrics</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

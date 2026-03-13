@@ -117,7 +117,7 @@ Generate 10-15 realistic content gaps sorted by priority.` },
           <p className="text-muted-foreground">Discover missing content topics your competitors cover</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Your Sitemap or Domain</label>
@@ -142,19 +142,19 @@ Generate 10-15 realistic content gaps sorted by priority.` },
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalGaps}</p>
                   <p className="text-[10px] text-muted-foreground">Content Gaps</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-red-400">{result.highPriority}</p>
                   <p className="text-[10px] text-muted-foreground">High Priority</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <Button variant="outline" size="sm" onClick={exportCsv}>
                     <Download className="size-3.5" /> Export CSV

@@ -65,7 +65,7 @@ export default function PageRankFlowAnalyzer() {
           <p className="text-muted-foreground">Analyze internal PageRank distribution and identify bottlenecks</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain to analyze (e.g., example.com)" />
             <Button onClick={analyze} disabled={loading}>
@@ -92,7 +92,7 @@ export default function PageRankFlowAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Page Nodes ({result.pages.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -129,7 +129,7 @@ export default function PageRankFlowAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Consolidation Targets</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -144,7 +144,7 @@ export default function PageRankFlowAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Optimizations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

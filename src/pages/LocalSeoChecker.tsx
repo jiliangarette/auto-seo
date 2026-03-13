@@ -99,7 +99,7 @@ Generate 6-8 NAP checks, 5-7 GBP tips, and 8-10 citation opportunities.` },
           <p className="text-muted-foreground">NAP consistency, GBP optimization, and citation opportunities</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={business} onChange={(e) => setBusiness(e.target.value)} placeholder="Business name" />
             <Input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Full address (optional)" />
@@ -125,7 +125,7 @@ Generate 6-8 NAP checks, 5-7 GBP tips, and 8-10 citation opportunities.` },
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">NAP Consistency Check</CardTitle>
               </CardHeader>
@@ -151,7 +151,7 @@ Generate 6-8 NAP checks, 5-7 GBP tips, and 8-10 citation opportunities.` },
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Google Business Profile Tips</CardTitle>
               </CardHeader>
@@ -167,7 +167,7 @@ Generate 6-8 NAP checks, 5-7 GBP tips, and 8-10 citation opportunities.` },
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Citation Opportunities</CardTitle>
               </CardHeader>

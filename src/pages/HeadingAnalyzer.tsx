@@ -102,7 +102,7 @@ Return JSON:
           <p className="text-muted-foreground">Validate H1-H6 hierarchy and detect structural issues</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Page Content or HTML</CardTitle>
           </CardHeader>
@@ -123,7 +123,7 @@ Return JSON:
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   {result.valid ? (
                     <CheckCircle2 className="size-5 mx-auto mb-1 text-green-400" />
@@ -136,7 +136,7 @@ Return JSON:
                   <p className="text-[10px] text-muted-foreground">Hierarchy</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.score >= 80 ? 'text-green-400' : result.score >= 50 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.score}/100
@@ -144,7 +144,7 @@ Return JSON:
                   <p className="text-[10px] text-muted-foreground">Structure Score</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.headings.length}</p>
                   <p className="text-[10px] text-muted-foreground">Total Headings</p>
@@ -152,7 +152,7 @@ Return JSON:
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Heading Tree</CardTitle>
               </CardHeader>
@@ -177,7 +177,7 @@ Return JSON:
             </Card>
 
             {result.issues.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Issues</CardTitle>
                 </CardHeader>
@@ -194,7 +194,7 @@ Return JSON:
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Suggested Structure</CardTitle>

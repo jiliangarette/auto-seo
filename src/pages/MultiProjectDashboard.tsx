@@ -295,7 +295,7 @@ export default function MultiProjectDashboard() {
         </div>
 
         {activeProjects.length === 0 && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="py-12 text-center text-muted-foreground">
               {showArchived ? 'No archived projects.' : 'No active projects.'}
             </CardContent>
@@ -304,7 +304,7 @@ export default function MultiProjectDashboard() {
 
         {/* Side-by-side comparison */}
         {compareProjects.length >= 2 && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader>
               <CardTitle className="text-sm flex items-center gap-2">
                 <BarChart3 className="size-4" />
@@ -375,7 +375,7 @@ export default function MultiProjectDashboard() {
 
 function StatCard({ label, value, suffix, color }: { label: string; value: number; suffix?: string; color?: string }) {
   return (
-    <Card>
+    <Card className="border-border/30 bg-card/40">
       <CardContent className="pt-4 text-center">
         <p className={`text-2xl font-bold ${color ?? ''}`}>
           {value}{suffix}

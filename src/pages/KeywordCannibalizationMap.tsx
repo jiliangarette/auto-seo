@@ -69,7 +69,7 @@ export default function KeywordCannibalizationMap() {
           <p className="text-muted-foreground">Visualize keyword-to-page assignments and detect overlaps</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={input}
@@ -87,19 +87,19 @@ export default function KeywordCannibalizationMap() {
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.pages.length}</p>
                   <p className="text-[10px] text-muted-foreground">Pages Mapped</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-red-400">{result.overlaps.filter((o) => o.severity === 'critical').length}</p>
                   <p className="text-[10px] text-muted-foreground">Critical Overlaps</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-yellow-400">{result.overlaps.filter((o) => o.severity === 'warning').length}</p>
                   <p className="text-[10px] text-muted-foreground">Warnings</p>
@@ -113,7 +113,7 @@ export default function KeywordCannibalizationMap() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Keyword-Page Map</CardTitle>
               </CardHeader>
@@ -135,7 +135,7 @@ export default function KeywordCannibalizationMap() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Overlap Detection</CardTitle>
               </CardHeader>
@@ -168,7 +168,7 @@ export default function KeywordCannibalizationMap() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Differentiation Plan</CardTitle>
               </CardHeader>

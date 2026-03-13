@@ -77,7 +77,7 @@ export default function ContentPerformanceTracker() {
           <p className="text-muted-foreground">Track content KPIs with trends and optimization priorities</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={urls}
@@ -100,7 +100,7 @@ export default function ContentPerformanceTracker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Content Performance ({result.content.length})</CardTitle>
               </CardHeader>
@@ -127,7 +127,7 @@ export default function ContentPerformanceTracker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Optimization Priorities</CardTitle>
               </CardHeader>

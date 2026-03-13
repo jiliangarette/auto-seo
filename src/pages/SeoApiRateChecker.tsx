@@ -67,7 +67,7 @@ export default function SeoApiRateChecker() {
           <p className="text-muted-foreground">Analyze API rate limits and crawl budget impact</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain or API base URL (e.g., api.example.com)" />
             <Button onClick={check} disabled={loading}>
@@ -94,7 +94,7 @@ export default function SeoApiRateChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Endpoints ({result.endpoints.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -115,7 +115,7 @@ export default function SeoApiRateChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Performance Optimizations</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -134,7 +134,7 @@ export default function SeoApiRateChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Rate Limit Recommendations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

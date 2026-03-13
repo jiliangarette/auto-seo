@@ -95,7 +95,7 @@ export default function CompetitorContentTracker() {
           <p className="text-muted-foreground">Monitor publishing frequency, new pages, and trending topics</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Competitor domain (e.g., competitor.com)" />
             <Button onClick={track} disabled={loading}>
@@ -108,19 +108,19 @@ export default function CompetitorContentTracker() {
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalPagesTracked}</p>
                   <p className="text-[10px] text-muted-foreground">Pages Tracked</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-primary">{result.publishingFrequency}</p>
                   <p className="text-[10px] text-muted-foreground">Publishing Rate</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-green-400">{result.pages.filter((p) => p.status === 'new').length}</p>
                   <p className="text-[10px] text-muted-foreground">New Pages</p>
@@ -135,7 +135,7 @@ export default function CompetitorContentTracker() {
             </Card>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-1.5"><BarChart3 className="size-3.5" /> Content Distribution</CardTitle>
                 </CardHeader>
@@ -156,7 +156,7 @@ export default function CompetitorContentTracker() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-1.5"><TrendingUp className="size-3.5" /> Trending Topics</CardTitle>
                 </CardHeader>
@@ -176,7 +176,7 @@ export default function CompetitorContentTracker() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-1.5"><FileText className="size-3.5" /> Tracked Pages</CardTitle>
               </CardHeader>

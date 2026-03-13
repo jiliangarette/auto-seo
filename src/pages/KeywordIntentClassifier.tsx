@@ -74,7 +74,7 @@ export default function KeywordIntentClassifier() {
           <p className="text-muted-foreground">Classify keywords by search intent with content type suggestions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={input}
@@ -97,7 +97,7 @@ export default function KeywordIntentClassifier() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Intent Distribution</CardTitle>
               </CardHeader>
@@ -117,7 +117,7 @@ export default function KeywordIntentClassifier() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Classified Keywords ({result.keywords.length})</CardTitle>
               </CardHeader>

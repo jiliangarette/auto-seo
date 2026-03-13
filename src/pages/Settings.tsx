@@ -99,7 +99,7 @@ export default function Settings() {
         </div>
 
         {/* Profile */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-sm">
               <User className="size-4" />
@@ -128,7 +128,7 @@ export default function Settings() {
         </Card>
 
         {/* API Usage */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm">API Usage</CardTitle>
             <CardDescription>OpenAI API call tracking</CardDescription>
@@ -147,7 +147,7 @@ export default function Settings() {
         </Card>
 
         {/* Theme */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm">Appearance</CardTitle>
             <CardDescription>Toggle between dark and light mode</CardDescription>

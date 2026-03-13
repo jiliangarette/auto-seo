@@ -61,7 +61,7 @@ export default function PodcastSeoPlanner() {
           <p className="text-muted-foreground">Plan SEO-optimized podcast episodes and distribution</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Podcast topic (e.g., Digital Marketing Tips)" />
             <Input value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="Niche (e.g., B2B SaaS)" />
@@ -81,7 +81,7 @@ export default function PodcastSeoPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Episode Ideas ({result.episodes.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -99,14 +99,14 @@ export default function PodcastSeoPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Show Notes Template</CardTitle></CardHeader>
               <CardContent>
                 <pre className="text-xs text-muted-foreground whitespace-pre-wrap bg-muted/20 p-3 rounded-md">{result.showNotesTemplate}</pre>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Distribution Strategy</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -121,7 +121,7 @@ export default function PodcastSeoPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Discovery Tips</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

@@ -109,7 +109,7 @@ Return JSON:
           <p className="text-muted-foreground">Analyze anchor text distribution and flag over-optimization</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Anchor Texts</CardTitle>
           </CardHeader>
@@ -142,13 +142,13 @@ Return JSON:
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalBacklinks}</p>
                   <p className="text-[10px] text-muted-foreground">Total Anchors</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   {result.overOptimized ? (
                     <AlertTriangle className="size-5 mx-auto mb-1 text-red-400" />
@@ -161,7 +161,7 @@ Return JSON:
                   <p className="text-[10px] text-muted-foreground">Optimization Status</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.riskScore <= 30 ? 'text-green-400' : result.riskScore <= 60 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.riskScore}/100
@@ -171,7 +171,7 @@ Return JSON:
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Distribution Breakdown</CardTitle>
@@ -211,7 +211,7 @@ Return JSON:
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Diversification Strategies</CardTitle>
               </CardHeader>

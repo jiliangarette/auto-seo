@@ -115,7 +115,7 @@ Return JSON:
           <p className="text-muted-foreground">Validate JSON-LD and check Rich Results eligibility</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Paste JSON-LD</CardTitle>
           </CardHeader>
@@ -136,7 +136,7 @@ Return JSON:
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-4">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   {result.valid ? (
                     <CheckCircle2 className="size-5 mx-auto mb-1 text-green-400" />
@@ -149,13 +149,13 @@ Return JSON:
                   <p className="text-[10px] text-muted-foreground">Syntax</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.schemaType}</p>
                   <p className="text-[10px] text-muted-foreground">Schema Type</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.completeness >= 80 ? 'text-green-400' : result.completeness >= 50 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.completeness}%
@@ -163,7 +163,7 @@ Return JSON:
                   <p className="text-[10px] text-muted-foreground">Completeness</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   {result.richResultsEligible ? (
                     <Sparkles className="size-5 mx-auto mb-1 text-green-400" />
@@ -179,7 +179,7 @@ Return JSON:
             </div>
 
             {result.issues.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
                     Issues
@@ -208,7 +208,7 @@ Return JSON:
             )}
 
             {result.fixedJsonLd && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm">Fixed JSON-LD</CardTitle>

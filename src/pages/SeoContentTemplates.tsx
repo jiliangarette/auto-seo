@@ -63,7 +63,7 @@ export default function SeoContentTemplates() {
           <p className="text-muted-foreground">Browse and customize SEO-optimized content templates</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="Target keyword (e.g., best email marketing tools)" />
             <Input value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="Niche (e.g., digital marketing)" />
@@ -120,7 +120,7 @@ export default function SeoContentTemplates() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Customization Tips</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

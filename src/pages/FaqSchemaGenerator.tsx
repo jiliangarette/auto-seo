@@ -104,7 +104,7 @@ Make questions natural and answer-worthy. Answers should be informative but conc
           <p className="text-muted-foreground">Generate FAQ rich result schema with AI-powered question generation</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">AI FAQ Generator</CardTitle>
           </CardHeader>
@@ -120,7 +120,7 @@ Make questions natural and answer-worthy. Answers should be informative but conc
         </Card>
 
         {generatedFaqs.length > 0 && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-sm">AI-Generated FAQs</CardTitle>
@@ -145,7 +145,7 @@ Make questions natural and answer-worthy. Answers should be informative but conc
           </Card>
         )}
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">FAQ Pairs</CardTitle>
           </CardHeader>
@@ -182,7 +182,7 @@ Make questions natural and answer-worthy. Answers should be informative but conc
         {allFaqs.length > 0 && (
           <>
             {/* Google Preview */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Google FAQ Rich Result Preview</CardTitle>
               </CardHeader>
@@ -199,7 +199,7 @@ Make questions natural and answer-worthy. Answers should be informative but conc
             </Card>
 
             {/* JSON-LD Output */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">FAQ Schema JSON-LD</CardTitle>

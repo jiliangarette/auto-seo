@@ -78,7 +78,7 @@ export default function ContentDecayDetector() {
           <p className="text-muted-foreground">Detect content losing rankings and get refresh recommendations</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={urls}
@@ -116,7 +116,7 @@ export default function ContentDecayDetector() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Decaying Content ({result.items.length})</CardTitle>
               </CardHeader>

@@ -68,7 +68,7 @@ export default function ContentToneAnalyzer() {
           <p className="text-muted-foreground">Detect tone, audience alignment, and get adjustment suggestions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={content}
@@ -92,7 +92,7 @@ export default function ContentToneAnalyzer() {
                   <p className="text-[10px] text-muted-foreground">Primary Tone</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.audienceAlignment >= 70 ? 'text-green-400' : result.audienceAlignment >= 40 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.audienceAlignment}%
@@ -108,7 +108,7 @@ export default function ContentToneAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Tone Breakdown</CardTitle>
               </CardHeader>
@@ -130,7 +130,7 @@ export default function ContentToneAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Tone Adjustments</CardTitle>
               </CardHeader>

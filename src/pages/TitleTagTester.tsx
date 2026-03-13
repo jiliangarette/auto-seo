@@ -81,7 +81,7 @@ Return JSON:
           <p className="text-muted-foreground">Compare title variants with AI-predicted CTR</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Target Keyword (optional)</label>

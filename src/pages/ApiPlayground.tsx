@@ -273,7 +273,7 @@ export default function ApiPlayground() {
 
         {/* API Keys */}
         {activeTab === 'keys' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-sm flex items-center gap-2">
@@ -321,7 +321,7 @@ export default function ApiPlayground() {
 
         {/* Rate Limits */}
         {activeTab === 'rate' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm flex items-center gap-2">
                 <Activity className="size-4" />
@@ -373,7 +373,7 @@ export default function ApiPlayground() {
 
         {/* Webhooks */}
         {activeTab === 'webhooks' && (
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm flex items-center gap-2">
                 <Webhook className="size-4" />

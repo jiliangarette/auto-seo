@@ -79,7 +79,7 @@ export default function CompetitorAlertSystem() {
           <p className="text-muted-foreground">Monitor competitor content, rankings, and backlinks with priority alerts</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={competitors}
@@ -108,7 +108,7 @@ export default function CompetitorAlertSystem() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Competitor Activity</CardTitle>
               </CardHeader>
@@ -128,7 +128,7 @@ export default function CompetitorAlertSystem() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Alerts ({result.alerts.length})</CardTitle>
               </CardHeader>
@@ -154,7 +154,7 @@ export default function CompetitorAlertSystem() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Weekly Digest</CardTitle>

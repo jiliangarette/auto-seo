@@ -71,7 +71,7 @@ export default function KeywordOpportunityFinder() {
           <p className="text-muted-foreground">Discover untapped keywords with difficulty vs volume scoring</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={seeds} onChange={(e) => setSeeds(e.target.value)} placeholder="Seed keywords (comma-separated)" />
             <Input value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="Niche (optional, e.g., SaaS, e-commerce)" />
@@ -105,7 +105,7 @@ export default function KeywordOpportunityFinder() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Opportunities ({result.opportunities.length})</CardTitle>
               </CardHeader>

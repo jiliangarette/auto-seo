@@ -71,7 +71,7 @@ export default function PageTitleOptimizer() {
           <p className="text-muted-foreground">Optimize titles with keyword placement, power words, and CTR prediction</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Current page title" />
             <Input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="Target keyword (optional)" />
@@ -104,7 +104,7 @@ export default function PageTitleOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Optimized Variants</CardTitle>
               </CardHeader>

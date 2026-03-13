@@ -74,7 +74,7 @@ export default function SeoChangeLogTracker() {
           <p className="text-muted-foreground">Track SEO changes and correlate with traffic impact</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain to track (e.g., example.com)" />
             <Button onClick={track} disabled={loading}>
@@ -93,7 +93,7 @@ export default function SeoChangeLogTracker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Changes ({result.changes.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -113,7 +113,7 @@ export default function SeoChangeLogTracker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Impact Correlations</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

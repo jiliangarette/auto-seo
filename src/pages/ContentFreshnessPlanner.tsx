@@ -110,7 +110,7 @@ Sort items by priority (urgent first). Include 6 months of seasonal suggestions.
           <p className="text-muted-foreground">Prioritize content updates and plan seasonal refreshes</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Content Inventory</CardTitle>
           </CardHeader>
@@ -152,7 +152,7 @@ Sort items by priority (urgent first). Include 6 months of seasonal suggestions.
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Update Priority Queue</CardTitle>
               </CardHeader>
@@ -184,7 +184,7 @@ Sort items by priority (urgent first). Include 6 months of seasonal suggestions.
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Seasonal Content Calendar</CardTitle>
               </CardHeader>

@@ -42,7 +42,7 @@ export default function ContentScoring() {
           <p className="text-muted-foreground">Score content against SEO best practices with actionable checklist</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Target Keyword</label>
@@ -67,7 +67,7 @@ export default function ContentScoring() {
         {result && (
           <>
             {/* Overall Score */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-6">
                   <div className="relative size-24">
@@ -96,7 +96,7 @@ export default function ContentScoring() {
 
             <div className="grid gap-4 lg:grid-cols-2">
               {/* Heading Structure */}
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <CardTitle className="text-sm">Heading Structure</CardTitle>
                 </CardHeader>
@@ -116,7 +116,7 @@ export default function ContentScoring() {
               </Card>
 
               {/* Keyword Placement */}
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <CardTitle className="text-sm">Keyword Placement — "{keyword}"</CardTitle>
                 </CardHeader>
@@ -136,7 +136,7 @@ export default function ContentScoring() {
             </div>
 
             {/* Content Quality */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm">Content Quality</CardTitle>
               </CardHeader>
@@ -152,7 +152,7 @@ export default function ContentScoring() {
             </Card>
 
             {/* Checklist */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm">SEO Checklist</CardTitle>
               </CardHeader>

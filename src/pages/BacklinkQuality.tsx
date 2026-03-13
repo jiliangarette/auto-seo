@@ -79,7 +79,7 @@ export default function BacklinkQuality() {
           <p className="text-muted-foreground">Score backlinks, flag toxic links, and get acquisition opportunities</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Your Niche</label>
@@ -104,7 +104,7 @@ export default function BacklinkQuality() {
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-3xl font-bold ${result.overallScore >= 70 ? 'text-green-400' : result.overallScore >= 40 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.overallScore}
@@ -112,13 +112,13 @@ export default function BacklinkQuality() {
                   <p className="text-xs text-muted-foreground">Profile Health</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-3xl font-bold">{result.assessments.length}</p>
                   <p className="text-xs text-muted-foreground">Links Analyzed</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-3xl font-bold ${result.toxicCount > 0 ? 'text-red-400' : 'text-green-400'}`}>
                     {result.toxicCount}
@@ -129,7 +129,7 @@ export default function BacklinkQuality() {
             </div>
 
             {/* Assessments */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm">Link Assessments</CardTitle>
               </CardHeader>
@@ -162,7 +162,7 @@ export default function BacklinkQuality() {
 
             {/* Disavow */}
             {result.disavowList.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm text-red-400 flex items-center gap-2">
@@ -190,7 +190,7 @@ export default function BacklinkQuality() {
             )}
 
             {/* Opportunities */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm">Acquisition Opportunities</CardTitle>
               </CardHeader>

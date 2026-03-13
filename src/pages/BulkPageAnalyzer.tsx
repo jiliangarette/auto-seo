@@ -84,7 +84,7 @@ export default function BulkPageAnalyzer() {
           <p className="text-muted-foreground">Batch SEO analysis with sortable scores and CSV export</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={urls}
@@ -123,7 +123,7 @@ export default function BulkPageAnalyzer() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Results ({sortedPages.length})</CardTitle>
               </CardHeader>

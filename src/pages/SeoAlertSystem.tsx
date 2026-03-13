@@ -53,7 +53,7 @@ export default function SeoAlertSystem() {
           <p className="text-muted-foreground">Monitor SEO metrics and get alerted on critical changes</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={site} onChange={(e) => setSite(e.target.value)} placeholder="Site URL (e.g., example.com)" />
             <Button onClick={analyze} disabled={loading}>
@@ -72,7 +72,7 @@ export default function SeoAlertSystem() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Active Alerts</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -93,7 +93,7 @@ export default function SeoAlertSystem() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Ranking Drops</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -115,7 +115,7 @@ export default function SeoAlertSystem() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Crawl Errors</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -132,7 +132,7 @@ export default function SeoAlertSystem() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Recommended Actions</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

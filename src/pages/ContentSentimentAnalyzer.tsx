@@ -66,7 +66,7 @@ export default function ContentSentimentAnalyzer() {
           <p className="text-muted-foreground">Detect emotional tone and engagement signals in content</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={content}
@@ -98,7 +98,7 @@ export default function ContentSentimentAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Paragraph Breakdown</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -116,7 +116,7 @@ export default function ContentSentimentAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Tone Adjustments</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -131,7 +131,7 @@ export default function ContentSentimentAnalyzer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-4">
                 <p className="text-xs font-bold mb-1">Audience Match</p>
                 <p className="text-xs text-muted-foreground">{result.audienceMatch}</p>

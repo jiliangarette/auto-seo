@@ -104,7 +104,7 @@ Generate realistic analysis with 3-4 bots and 4-6 waste categories.` },
           <p className="text-muted-foreground">Analyze server logs for crawl efficiency and budget optimization</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Server Log Entries</CardTitle>
           </CardHeader>
@@ -125,19 +125,19 @@ Generate realistic analysis with 3-4 bots and 4-6 waste categories.` },
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalRequests.toLocaleString()}</p>
                   <p className="text-[10px] text-muted-foreground">Total Requests</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.uniquePages}</p>
                   <p className="text-[10px] text-muted-foreground">Unique Pages</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.budgetScore >= 70 ? 'text-green-400' : result.budgetScore >= 40 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.budgetScore}/100
@@ -147,7 +147,7 @@ Generate realistic analysis with 3-4 bots and 4-6 waste categories.` },
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Bot Crawl Breakdown</CardTitle>
               </CardHeader>
@@ -174,7 +174,7 @@ Generate realistic analysis with 3-4 bots and 4-6 waste categories.` },
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Crawl Waste</CardTitle>
               </CardHeader>
@@ -201,7 +201,7 @@ Generate realistic analysis with 3-4 bots and 4-6 waste categories.` },
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Crawl Budget Recommendations</CardTitle>
               </CardHeader>

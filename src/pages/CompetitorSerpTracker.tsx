@@ -63,7 +63,7 @@ export default function CompetitorSerpTracker() {
           <p className="text-muted-foreground">Track competitor positions with change alerts and trends</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={keywords}

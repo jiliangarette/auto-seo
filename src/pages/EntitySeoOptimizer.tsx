@@ -66,7 +66,7 @@ export default function EntitySeoOptimizer() {
           <p className="text-muted-foreground">Extract entities, map to Knowledge Graph, and optimize relationships</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={content}
@@ -97,7 +97,7 @@ export default function EntitySeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Entities ({result.entities.length})</CardTitle>
               </CardHeader>
@@ -122,7 +122,7 @@ export default function EntitySeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Entity Relationships</CardTitle>
               </CardHeader>
@@ -139,7 +139,7 @@ export default function EntitySeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Optimization Recommendations</CardTitle>
               </CardHeader>

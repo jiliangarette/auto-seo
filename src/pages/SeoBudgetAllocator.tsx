@@ -78,7 +78,7 @@ export default function SeoBudgetAllocator() {
           <p className="text-muted-foreground">AI-optimized budget allocation with ROI projections</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div className="grid grid-cols-3 gap-3">
               <Input value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="Monthly budget ($)" />
@@ -103,7 +103,7 @@ export default function SeoBudgetAllocator() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Budget Allocation</CardTitle>
               </CardHeader>
@@ -130,7 +130,7 @@ export default function SeoBudgetAllocator() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Monthly Spend Plan</CardTitle>
               </CardHeader>

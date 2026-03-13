@@ -93,7 +93,7 @@ export default function TopicalMapGenerator() {
           <p className="text-muted-foreground">Generate hierarchical topic clusters for topical authority</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={seed} onChange={(e) => setSeed(e.target.value)} placeholder="Seed topic (e.g., 'Content Marketing')" />
             <Button onClick={generate} disabled={loading}>
@@ -106,7 +106,7 @@ export default function TopicalMapGenerator() {
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-2">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalTopics}</p>
                   <p className="text-[10px] text-muted-foreground">Total Topics</p>
@@ -119,7 +119,7 @@ export default function TopicalMapGenerator() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Topic Hierarchy</CardTitle>
               </CardHeader>

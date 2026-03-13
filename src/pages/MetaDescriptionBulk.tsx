@@ -83,7 +83,7 @@ export default function MetaDescriptionBulk() {
           <p className="text-muted-foreground">Generate unique meta descriptions in bulk with character validation</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={input}
@@ -101,19 +101,19 @@ export default function MetaDescriptionBulk() {
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.descriptions.length}</p>
                   <p className="text-[10px] text-muted-foreground">Descriptions Generated</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-green-400">{optimalCount}</p>
                   <p className="text-[10px] text-muted-foreground">Optimal Length</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-yellow-400">{result.descriptions.length - optimalCount}</p>
                   <p className="text-[10px] text-muted-foreground">Need Adjustment</p>
@@ -121,7 +121,7 @@ export default function MetaDescriptionBulk() {
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Generated Descriptions</CardTitle>
               </CardHeader>

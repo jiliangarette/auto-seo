@@ -88,7 +88,7 @@ export default function SeoMigrationPlanner() {
           <p className="text-muted-foreground">Generate redirect maps, risk assessments, and migration checklists</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={oldUrls}
@@ -118,7 +118,7 @@ export default function SeoMigrationPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Redirect Mappings ({result.redirects.length})</CardTitle>
               </CardHeader>

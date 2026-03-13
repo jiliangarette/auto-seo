@@ -73,7 +73,7 @@ export default function TopicalAuthorityScore() {
           <p className="text-muted-foreground">Calculate authority score with coverage gaps and building roadmap</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Your domain (optional)" />
             <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Niche topic (e.g., email marketing, SaaS pricing)" />
@@ -103,7 +103,7 @@ export default function TopicalAuthorityScore() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Content Coverage Gaps ({result.subtopicGaps.length})</CardTitle>
               </CardHeader>
@@ -128,7 +128,7 @@ export default function TopicalAuthorityScore() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Authority Building Roadmap</CardTitle>
               </CardHeader>

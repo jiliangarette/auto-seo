@@ -82,7 +82,7 @@ export default function ContentPillarPlanner() {
           <p className="text-muted-foreground">Build pillar pages with cluster topics and internal linking maps</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Core topic (e.g., 'Email Marketing')" />
             <Input value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="Niche or industry (optional)" />
@@ -103,7 +103,7 @@ export default function ContentPillarPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Pillar Page Outline</CardTitle>
               </CardHeader>
@@ -119,7 +119,7 @@ export default function ContentPillarPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Cluster Topics ({result.clusterTopics.length})</CardTitle>
               </CardHeader>
@@ -141,7 +141,7 @@ export default function ContentPillarPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-1.5"><Link2 className="size-3.5" /> Internal Linking Map</CardTitle>
               </CardHeader>
@@ -159,7 +159,7 @@ export default function ContentPillarPlanner() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-1.5"><CalendarDays className="size-3.5" /> Production Timeline</CardTitle>
               </CardHeader>

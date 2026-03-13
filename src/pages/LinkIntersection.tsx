@@ -115,7 +115,7 @@ Generate 12-18 realistic link prospects sorted by DA.` },
           <p className="text-muted-foreground">Find sites linking to competitors but not you</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Your Domain (optional)</label>
@@ -145,19 +145,19 @@ Generate 12-18 realistic link prospects sorted by DA.` },
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalProspects}</p>
                   <p className="text-[10px] text-muted-foreground">Prospects Found</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-green-400">{result.highDaCount}</p>
                   <p className="text-[10px] text-muted-foreground">High DA (50+)</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <Button variant="outline" size="sm" onClick={exportList}>
                     <Download className="size-3.5" /> Export List
@@ -174,7 +174,7 @@ Generate 12-18 realistic link prospects sorted by DA.` },
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Link Prospects</CardTitle>
               </CardHeader>

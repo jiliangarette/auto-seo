@@ -77,7 +77,7 @@ export default function ContentAuditScorer() {
           <p className="text-muted-foreground">Score pages on SEO health, freshness, and engagement with action tags</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={urls}
@@ -108,7 +108,7 @@ export default function ContentAuditScorer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Page Scores ({result.pages.length})</CardTitle>
               </CardHeader>

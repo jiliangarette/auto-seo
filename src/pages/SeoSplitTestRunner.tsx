@@ -65,7 +65,7 @@ export default function SeoSplitTestRunner() {
           <p className="text-muted-foreground">A/B test meta titles and descriptions with CTR predictions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="Target keyword (e.g., best project management tools)" />
             <Input value={variantA} onChange={(e) => setVariantA(e.target.value)} placeholder="Variant A title" />
@@ -127,7 +127,7 @@ export default function SeoSplitTestRunner() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Recommendations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

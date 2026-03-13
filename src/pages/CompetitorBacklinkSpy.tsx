@@ -69,7 +69,7 @@ Generate 10 top linking domains and 5 content types. Provide 5-7 replication str
           <p className="text-muted-foreground">Analyze competitor backlink profiles and replication strategies</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 flex gap-2">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="competitor.com" className="font-mono text-xs" />
             <Button onClick={spy} disabled={loading} className="shrink-0">
@@ -82,13 +82,13 @@ Generate 10 top linking domains and 5 content types. Provide 5-7 replication str
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-2">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.estimatedBacklinks.toLocaleString()}</p>
                   <p className="text-[10px] text-muted-foreground">Estimated Backlinks</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-2xl font-bold ${result.estimatedDa >= 50 ? 'text-green-400' : result.estimatedDa >= 30 ? 'text-yellow-400' : 'text-red-400'}`}>
                     DA {result.estimatedDa}
@@ -106,7 +106,7 @@ Generate 10 top linking domains and 5 content types. Provide 5-7 replication str
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Top Linking Domains</CardTitle>
               </CardHeader>
@@ -128,7 +128,7 @@ Generate 10 top linking domains and 5 content types. Provide 5-7 replication str
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Link-Worthy Content Types</CardTitle>
               </CardHeader>
@@ -148,7 +148,7 @@ Generate 10 top linking domains and 5 content types. Provide 5-7 replication str
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Replication Strategies</CardTitle>
               </CardHeader>

@@ -74,7 +74,7 @@ export default function SeoPenaltyChecker() {
           <p className="text-muted-foreground">Detect penalty signals with recovery action plan</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain to check (e.g., example.com)" />
             <Button onClick={check} disabled={loading}>
@@ -101,7 +101,7 @@ export default function SeoPenaltyChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Penalty Signals ({result.signals.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -119,7 +119,7 @@ export default function SeoPenaltyChecker() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Recovery Plan</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

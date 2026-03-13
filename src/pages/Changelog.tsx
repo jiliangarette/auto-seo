@@ -220,7 +220,7 @@ export default function Changelog() {
         {/* Feature Requests */}
         {activeTab === 'requests' && (
           <div className="space-y-4">
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <MessageSquare className="size-4" />

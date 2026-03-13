@@ -71,7 +71,7 @@ export default function CompetitiveIntelligenceHub() {
           <p className="text-muted-foreground">Comprehensive competitive analysis with action plans</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Your domain (e.g., example.com)" />
             <Input value={competitors} onChange={(e) => setCompetitors(e.target.value)} placeholder="Competitors (comma-separated, e.g., comp1.com, comp2.com)" />
@@ -118,7 +118,7 @@ export default function CompetitiveIntelligenceHub() {
               </Card>
             ))}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Market Share by Category</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -139,7 +139,7 @@ export default function CompetitiveIntelligenceHub() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Your Competitive Advantages</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -153,7 +153,7 @@ export default function CompetitiveIntelligenceHub() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Action Plan</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

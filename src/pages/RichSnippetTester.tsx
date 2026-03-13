@@ -79,7 +79,7 @@ export default function RichSnippetTester() {
           <p className="text-muted-foreground">Validate structured data and preview Google rich snippets</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={markup}
@@ -111,7 +111,7 @@ export default function RichSnippetTester() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Google Preview</CardTitle>
               </CardHeader>
@@ -132,7 +132,7 @@ export default function RichSnippetTester() {
             </Card>
 
             {result.issues.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Validation Issues ({result.issues.length})</CardTitle>
                 </CardHeader>
@@ -153,7 +153,7 @@ export default function RichSnippetTester() {
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Fixed Markup</CardTitle>

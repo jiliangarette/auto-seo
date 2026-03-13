@@ -63,7 +63,7 @@ export default function ContentReadinessScorer() {
           <p className="text-muted-foreground">Score draft content for publication readiness</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={content}
@@ -95,7 +95,7 @@ export default function ContentReadinessScorer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Pre-Publish Checklist</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -114,7 +114,7 @@ export default function ContentReadinessScorer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Final Optimizations</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

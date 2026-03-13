@@ -96,25 +96,25 @@ export default function SeoTaskManager() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-4">
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold">{stats.total}</p>
               <p className="text-[10px] text-muted-foreground">Total Tasks</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold text-muted-foreground">{stats.todo}</p>
               <p className="text-[10px] text-muted-foreground">To Do</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold text-yellow-400">{stats.inProgress}</p>
               <p className="text-[10px] text-muted-foreground">In Progress</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold text-green-400">{stats.done}</p>
               <p className="text-[10px] text-muted-foreground">Done ({completionPct}%)</p>
@@ -125,7 +125,7 @@ export default function SeoTaskManager() {
           </Card>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Add Task</CardTitle>
           </CardHeader>
@@ -197,7 +197,7 @@ export default function SeoTaskManager() {
             );
           })}
           {filtered.length === 0 && (
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-6 pb-6 text-center">
                 <p className="text-sm text-muted-foreground">No tasks found</p>
               </CardContent>

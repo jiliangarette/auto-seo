@@ -114,7 +114,7 @@ Generate realistic chains for each URL. Some should be clean (no chains), some w
           <p className="text-muted-foreground">Detect redirect chains, loops, and broken redirects</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">URLs to Check</CardTitle>
           </CardHeader>
@@ -135,19 +135,19 @@ Generate realistic chains for each URL. Some should be clean (no chains), some w
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.totalUrls}</p>
                   <p className="text-[10px] text-muted-foreground">URLs Checked</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-yellow-400">{result.chainsDetected}</p>
                   <p className="text-[10px] text-muted-foreground">Chains Found</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-red-400">{result.brokenChains}</p>
                   <p className="text-[10px] text-muted-foreground">Broken</p>
@@ -199,7 +199,7 @@ Generate realistic chains for each URL. Some should be clean (no chains), some w
             </div>
 
             {result.consolidatedMap && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm">Consolidated Redirect Map</CardTitle>
@@ -216,7 +216,7 @@ Generate realistic chains for each URL. Some should be clean (no chains), some w
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Recommendations</CardTitle>
               </CardHeader>

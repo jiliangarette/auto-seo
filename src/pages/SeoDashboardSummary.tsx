@@ -70,19 +70,19 @@ export default function SeoDashboardSummary() {
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold text-primary">{moduleCount}</p>
               <p className="text-[10px] text-muted-foreground">Active Modules</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold">415</p>
               <p className="text-[10px] text-muted-foreground">Features Built</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-4 text-center">
               <p className="text-2xl font-bold text-green-400">18</p>
               <p className="text-[10px] text-muted-foreground">Phases Complete</p>
@@ -90,7 +90,7 @@ export default function SeoDashboardSummary() {
           </Card>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Category Scores</CardTitle>
           </CardHeader>
@@ -111,7 +111,7 @@ export default function SeoDashboardSummary() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm flex items-center gap-1.5"><Share2 className="size-3.5" /> Quick Launch</CardTitle>
           </CardHeader>
@@ -135,7 +135,7 @@ export default function SeoDashboardSummary() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Recent Activity</CardTitle>
           </CardHeader>

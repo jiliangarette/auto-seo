@@ -73,7 +73,7 @@ export default function SeoContentFunnelBuilder() {
           <p className="text-muted-foreground">Build TOFU/MOFU/BOFU content strategies with keyword mapping</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="Niche (e.g., project management software)" />
             <Input value={product} onChange={(e) => setProduct(e.target.value)} placeholder="Product or service name" />
@@ -118,7 +118,7 @@ export default function SeoContentFunnelBuilder() {
               </Card>
             ))}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Conversion Path</CardTitle></CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 items-center">
@@ -132,7 +132,7 @@ export default function SeoContentFunnelBuilder() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Optimization Tips</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-1.5">

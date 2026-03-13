@@ -90,7 +90,7 @@ Generate 5 CTA variants with different approaches (urgency, value prop, social p
           <p className="text-muted-foreground">AI-powered call-to-action optimization for better conversions</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Current CTA & Context</CardTitle>
           </CardHeader>
@@ -122,7 +122,7 @@ Generate 5 CTA variants with different approaches (urgency, value prop, social p
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-2">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-3xl font-bold ${result.currentScore >= 70 ? 'text-green-400' : result.currentScore >= 40 ? 'text-yellow-400' : 'text-red-400'}`}>
                     {result.currentScore}/100
@@ -130,7 +130,7 @@ Generate 5 CTA variants with different approaches (urgency, value prop, social p
                   <p className="text-[10px] text-muted-foreground">Current CTA Score</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4">
                   <p className="text-xs font-medium mb-1">Issues Found</p>
                   {result.issues.map((issue, i) => (
@@ -140,7 +140,7 @@ Generate 5 CTA variants with different approaches (urgency, value prop, social p
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Optimized Variants</CardTitle>
               </CardHeader>
@@ -167,7 +167,7 @@ Generate 5 CTA variants with different approaches (urgency, value prop, social p
             </Card>
 
             {result.bestPractices.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">CTA Best Practices</CardTitle>
                 </CardHeader>

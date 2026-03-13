@@ -127,7 +127,7 @@ Rank by ROI descending. Provide 4-6 actionable recommendations.` },
           <p className="text-muted-foreground">Calculate return on investment for your content</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Content Pieces</CardTitle>
           </CardHeader>
@@ -182,7 +182,7 @@ Rank by ROI descending. Provide 4-6 actionable recommendations.` },
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <div className="flex items-center justify-center gap-1">
                     {result.roi >= 0 ? <TrendingUp className="size-4 text-green-400" /> : <TrendingDown className="size-4 text-red-400" />}
@@ -193,13 +193,13 @@ Rank by ROI descending. Provide 4-6 actionable recommendations.` },
                   <p className="text-[10px] text-muted-foreground">Overall ROI</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-green-400">${result.totalRevenue.toLocaleString()}</p>
                   <p className="text-[10px] text-muted-foreground">Total Revenue</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-red-400">${result.totalCost.toLocaleString()}</p>
                   <p className="text-[10px] text-muted-foreground">Total Cost</p>
@@ -207,7 +207,7 @@ Rank by ROI descending. Provide 4-6 actionable recommendations.` },
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-sm">Performance Ranking</CardTitle>
@@ -238,7 +238,7 @@ Rank by ROI descending. Provide 4-6 actionable recommendations.` },
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Investment Recommendations</CardTitle>
               </CardHeader>

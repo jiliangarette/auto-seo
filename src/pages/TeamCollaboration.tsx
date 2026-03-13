@@ -135,7 +135,7 @@ export default function TeamCollaboration() {
         </div>
 
         {/* Project selector */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6">
             <label className="mb-1 block text-xs text-muted-foreground">Select Project</label>
             <select
@@ -154,7 +154,7 @@ export default function TeamCollaboration() {
         {projectId && (
           <>
             {/* Invite */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <UserPlus className="size-4" />
@@ -188,7 +188,7 @@ export default function TeamCollaboration() {
             </Card>
 
             {/* Members */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Users className="size-4" />
@@ -255,7 +255,7 @@ export default function TeamCollaboration() {
 
             <div className="grid gap-6 lg:grid-cols-2">
               {/* Activity Log */}
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
                     <Activity className="size-4" />
@@ -285,7 +285,7 @@ export default function TeamCollaboration() {
               </Card>
 
               {/* Comment Threads */}
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
                     <MessageSquare className="size-4" />

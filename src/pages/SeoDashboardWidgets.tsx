@@ -65,7 +65,7 @@ export default function SeoDashboardWidgets() {
           <p className="text-muted-foreground">Customizable widget-based SEO dashboard</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="Domain (e.g., example.com)" />
             <Button onClick={generate} disabled={loading}>
@@ -101,7 +101,7 @@ export default function SeoDashboardWidgets() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Quick Actions</CardTitle></CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

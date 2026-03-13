@@ -74,7 +74,7 @@ export default function KeywordClusteringPro() {
           <p className="text-muted-foreground">AI-cluster keywords by semantic similarity with page assignments</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={keywords}

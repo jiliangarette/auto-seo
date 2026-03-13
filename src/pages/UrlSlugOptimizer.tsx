@@ -73,7 +73,7 @@ export default function UrlSlugOptimizer() {
           <p className="text-muted-foreground">Generate SEO-friendly URL slugs with keyword validation</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={input}
@@ -96,7 +96,7 @@ export default function UrlSlugOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Optimized Slugs ({result.slugs.length})</CardTitle>
               </CardHeader>
@@ -131,7 +131,7 @@ export default function UrlSlugOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">URL Slug Tips</CardTitle>
               </CardHeader>

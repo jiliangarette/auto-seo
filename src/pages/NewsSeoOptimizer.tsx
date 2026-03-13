@@ -54,7 +54,7 @@ export default function NewsSeoOptimizer() {
           <p className="text-muted-foreground">Optimize articles for Google News, Discover, and AMP</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={headline} onChange={(e) => setHeadline(e.target.value)} placeholder="Article headline (e.g., Tech Giants Report Record Q4 Earnings)" />
             <Button onClick={optimize} disabled={loading}>
@@ -73,7 +73,7 @@ export default function NewsSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Google News Eligibility</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -90,7 +90,7 @@ export default function NewsSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Discover Eligibility</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -107,7 +107,7 @@ export default function NewsSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Headline Variations</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -121,7 +121,7 @@ export default function NewsSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">AMP Readiness</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -138,7 +138,7 @@ export default function NewsSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">NewsArticle Schema Markup</CardTitle></CardHeader>
               <CardContent>
                 <pre className="text-[10px] text-muted-foreground bg-muted/20 p-3 rounded-md overflow-x-auto whitespace-pre-wrap">{result.structuredData}</pre>

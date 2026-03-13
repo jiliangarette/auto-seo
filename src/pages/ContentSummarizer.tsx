@@ -56,7 +56,7 @@ export default function ContentSummarizer() {
           <p className="text-muted-foreground">Generate executive summaries, key points, and social snippets</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={content}
@@ -88,7 +88,7 @@ export default function ContentSummarizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">TL;DR</CardTitle>
               </CardHeader>
@@ -100,7 +100,7 @@ export default function ContentSummarizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Key Points</CardTitle>
               </CardHeader>
@@ -119,7 +119,7 @@ export default function ContentSummarizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Social Media Snippets</CardTitle>
               </CardHeader>

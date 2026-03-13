@@ -44,7 +44,7 @@ export default function TopicAuthority() {
           <p className="text-muted-foreground">Map your topical coverage and find gaps to build authority</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Your Niche / Topic Area</label>
@@ -70,19 +70,19 @@ export default function TopicAuthority() {
           <>
             {/* Overall Authority */}
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-3xl font-bold ${coverageColor(result.overallAuthority)}`}>{result.overallAuthority}</p>
                   <p className="text-xs text-muted-foreground">Overall Authority Score</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className={`text-3xl font-bold ${coverageColor(result.totalCoverage)}`}>{result.totalCoverage}%</p>
                   <p className="text-xs text-muted-foreground">Niche Coverage</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-3xl font-bold">{result.topics.length}</p>
                   <p className="text-xs text-muted-foreground">Topic Areas Identified</p>
@@ -91,7 +91,7 @@ export default function TopicAuthority() {
             </div>
 
             {/* Top Priorities */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Star className="size-4 text-yellow-400" />

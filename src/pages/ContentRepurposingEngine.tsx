@@ -53,7 +53,7 @@ export default function ContentRepurposingEngine() {
           <p className="text-muted-foreground">Transform content into multiple formats for maximum reach</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={content} onChange={(e) => setContent(e.target.value)} placeholder="Content topic or URL (e.g., 10 Tips for Better SEO)" />
             <Button onClick={repurpose} disabled={loading}>
@@ -72,7 +72,7 @@ export default function ContentRepurposingEngine() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Social Posts ({result.socialPosts.length})</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -94,7 +94,7 @@ export default function ContentRepurposingEngine() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Email Snippets</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -109,7 +109,7 @@ export default function ContentRepurposingEngine() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Infographic Outline</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -124,7 +124,7 @@ export default function ContentRepurposingEngine() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Repurposing Calendar</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

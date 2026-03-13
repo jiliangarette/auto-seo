@@ -64,7 +64,7 @@ export default function MultiSiteSeoManager() {
           <p className="text-muted-foreground">Manage and compare SEO across multiple domains</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={domains} onChange={(e) => setDomains(e.target.value)} placeholder="Domains (comma-separated, e.g., site1.com, site2.com, site3.com)" />
             <Button onClick={analyze} disabled={loading}>
@@ -103,7 +103,7 @@ export default function MultiSiteSeoManager() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Benchmarks</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -119,7 +119,7 @@ export default function MultiSiteSeoManager() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Priority Actions</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

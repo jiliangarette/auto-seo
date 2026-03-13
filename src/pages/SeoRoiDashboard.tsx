@@ -54,7 +54,7 @@ export default function SeoRoiDashboard() {
           <p className="text-muted-foreground">Calculate and visualize SEO campaign return on investment</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={campaign} onChange={(e) => setCampaign(e.target.value)} placeholder="Campaign name (e.g., Q1 Content Marketing)" />
             <Input value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="Monthly budget (e.g., $5,000)" />
@@ -74,7 +74,7 @@ export default function SeoRoiDashboard() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">CPC Estimates</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -92,7 +92,7 @@ export default function SeoRoiDashboard() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Channel Attribution</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -112,7 +112,7 @@ export default function SeoRoiDashboard() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Monthly Trends</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -130,7 +130,7 @@ export default function SeoRoiDashboard() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Projections</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">

@@ -64,7 +64,7 @@ export default function ContentVelocityCalc() {
           <p className="text-muted-foreground">Calculate publishing rate needed to hit traffic goals</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div className="grid grid-cols-3 gap-3">
               <Input value={currentRate} onChange={(e) => setCurrentRate(e.target.value)} placeholder="Current posts/month" />
@@ -103,7 +103,7 @@ export default function ContentVelocityCalc() {
               ))}
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Resource Plan</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1">
@@ -118,7 +118,7 @@ export default function ContentVelocityCalc() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Timeline Projection</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1">

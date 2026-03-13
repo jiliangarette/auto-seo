@@ -176,7 +176,7 @@ Return JSON array: [{ "name": "template name", "subject": "email subject", "body
         {/* Prospects */}
         {activeTab === 'prospects' && (
           <div className="space-y-4">
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Plus className="size-4" />
@@ -197,7 +197,7 @@ Return JSON array: [{ "name": "template name", "subject": "email subject", "body
             </Card>
 
             {prospects.length === 0 ? (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-6 text-center">
                   <Link2 className="size-8 mx-auto text-muted-foreground mb-2" />
                   <p className="text-sm text-muted-foreground">No prospects yet. Add domains to start outreach.</p>
@@ -248,7 +248,7 @@ Return JSON array: [{ "name": "template name", "subject": "email subject", "body
         {/* Templates */}
         {activeTab === 'templates' && (
           <div className="space-y-4">
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <Send className="size-4" />
@@ -300,19 +300,19 @@ Return JSON array: [{ "name": "template name", "subject": "email subject", "body
         {activeTab === 'analytics' && (
           <div className="space-y-4">
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{stats.total}</p>
                   <p className="text-[10px] text-muted-foreground">Total Prospects</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-blue-400">{stats.emailed}</p>
                   <p className="text-[10px] text-muted-foreground">Emails Sent</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-green-400">{stats.linked}</p>
                   <p className="text-[10px] text-muted-foreground">Links Acquired</p>
@@ -320,7 +320,7 @@ Return JSON array: [{ "name": "template name", "subject": "email subject", "body
               </Card>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                   <BarChart3 className="size-4" />

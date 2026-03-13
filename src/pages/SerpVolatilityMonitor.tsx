@@ -71,7 +71,7 @@ export default function SerpVolatilityMonitor() {
           <p className="text-muted-foreground">Monitor ranking fluctuations and algorithm update alerts</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <textarea
               value={keywords}
@@ -106,7 +106,7 @@ export default function SerpVolatilityMonitor() {
             </Card>
 
             {result.alerts.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Alerts</CardTitle>
                 </CardHeader>
@@ -123,7 +123,7 @@ export default function SerpVolatilityMonitor() {
               </Card>
             )}
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Keyword Volatility</CardTitle>
               </CardHeader>
@@ -159,7 +159,7 @@ export default function SerpVolatilityMonitor() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Industry Benchmarks</CardTitle>
               </CardHeader>

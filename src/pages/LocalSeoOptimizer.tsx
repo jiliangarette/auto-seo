@@ -74,7 +74,7 @@ export default function LocalSeoOptimizer() {
           <p className="text-muted-foreground">Optimize Google Business Profile, citations, and reviews</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <Input value={business} onChange={(e) => setBusiness(e.target.value)} placeholder="Business name (e.g., Joe's Coffee Shop)" />
             <Input value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location (e.g., Austin, TX)" />
@@ -99,7 +99,7 @@ export default function LocalSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Google Business Profile</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -116,7 +116,7 @@ export default function LocalSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Citation Consistency</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1.5">
@@ -131,7 +131,7 @@ export default function LocalSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Review Strategy</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -145,7 +145,7 @@ export default function LocalSeoOptimizer() {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2"><CardTitle className="text-sm">Local Keywords</CardTitle></CardHeader>
               <CardContent>
                 <div className="space-y-1">

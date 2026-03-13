@@ -148,7 +148,7 @@ Return JSON:
           <p className="text-muted-foreground">Optimize image alt text, formats, and generate image sitemaps</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">Image URLs & Alt Text</CardTitle>
           </CardHeader>
@@ -252,7 +252,7 @@ Return JSON:
             </div>
 
             {result.sitemapXml && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm">Image Sitemap XML</CardTitle>

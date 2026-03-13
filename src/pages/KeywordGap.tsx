@@ -105,7 +105,7 @@ Generate 15-20 realistic keyword gaps sorted by opportunity score.` },
           <p className="text-muted-foreground">Find keywords your competitors rank for that you don't</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 space-y-3">
             <div>
               <label className="mb-1 block text-xs text-muted-foreground">Your Domain</label>
@@ -130,13 +130,13 @@ Generate 15-20 realistic keyword gaps sorted by opportunity score.` },
         {result && (
           <>
             <div className="grid gap-4 md:grid-cols-3">
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold">{result.gaps.length}</p>
                   <p className="text-[10px] text-muted-foreground">Keywords Found</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-green-400">
                     {result.gaps.filter((g) => g.difficulty === 'easy').length}
@@ -144,7 +144,7 @@ Generate 15-20 realistic keyword gaps sorted by opportunity score.` },
                   <p className="text-[10px] text-muted-foreground">Easy Wins</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardContent className="pt-4 text-center">
                   <p className="text-2xl font-bold text-blue-400">
                     {Math.round(result.gaps.reduce((s, g) => s + g.estimatedVolume, 0) / 1000)}K
@@ -180,7 +180,7 @@ Generate 15-20 realistic keyword gaps sorted by opportunity score.` },
               </Button>
             </div>
 
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Keyword Opportunities</CardTitle>
               </CardHeader>
