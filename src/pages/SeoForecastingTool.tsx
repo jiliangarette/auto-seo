@@ -45,7 +45,7 @@ export default function SeoForecastingTool() {
 
   return (
     <div className="min-h-screen bg-background p-6 md:p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-sky-500/20">
             <BarChart3 className="size-5 text-sky-400" />

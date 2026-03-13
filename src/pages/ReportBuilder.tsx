@@ -172,9 +172,9 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
-        <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
               <FileBarChart className="size-6" />
@@ -187,7 +187,7 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
               <Eye className="size-4" />
               {previewMode ? 'Edit' : 'Preview'}
             </Button>
-            <Button onClick={exportPdf}>
+            <Button onClick={exportPdf} className="bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl">
               <Download className="size-4" />
               Export PDF
             </Button>
@@ -196,7 +196,7 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
 
         {previewMode ? (
           /* Preview mode */
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardContent className="pt-6">
               <div className="rounded-lg border border-border p-6 bg-white text-black dark:bg-gray-50">
                 <div className="flex items-center gap-3 mb-6 border-b-2 pb-4" style={{ borderColor: brand.primaryColor }}>
@@ -238,7 +238,7 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
 
             {/* Sections Tab */}
             {activeTab === 'sections' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm">Report Sections ({enabledSections.length} active)</CardTitle>
@@ -299,7 +299,7 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
 
             {/* Branding Tab */}
             {activeTab === 'brand' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
                     <Palette className="size-4" />
@@ -317,7 +317,7 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
                     </label>
                     <Input value={brand.logoUrl} onChange={(e) => setBrand({ ...brand, logoUrl: e.target.value })} placeholder="https://example.com/logo.png" />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="mb-1 block text-xs text-muted-foreground">Primary Color</label>
                       <div className="flex gap-2 items-center">
@@ -348,7 +348,7 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
 
             {/* Schedule Tab */}
             {activeTab === 'schedule' && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm flex items-center gap-2">
                     <Clock className="size-4" />
@@ -409,7 +409,7 @@ ${enabledSections.map((s) => `<div class="section"><h2>${s.label}</h2><p class="
                       )}
                     </>
                   )}
-                  <Button onClick={saveSchedule}>
+                  <Button onClick={saveSchedule} className="bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl">
                     <Clock className="size-4" />
                     {schedule.frequency === 'none' ? 'Clear Schedule' : 'Save Schedule'}
                   </Button>

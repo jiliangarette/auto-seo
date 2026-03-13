@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { openai } from '@/integrations/openai/client';
+import { useSiteUrlInput } from '@/hooks/useSiteUrlInput';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -48,7 +49,7 @@ const impactColors = {
 };
 
 export default function SeoScoringDashboard() {
-  const [domain, setDomain] = useState('');
+  const [domain, setDomain] = useSiteUrlInput();
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ScoringResult | null>(null);
 
@@ -115,8 +116,8 @@ Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <Gauge className="size-6" />
@@ -125,7 +126,7 @@ Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
           <p className="text-muted-foreground">Unified SEO health score with actionable improvement roadmap</p>
         </div>
 
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardContent className="pt-6 flex gap-2">
             <Input
               value={domain}
@@ -133,7 +134,7 @@ Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
               placeholder="yourdomain.com"
               className="font-mono text-xs"
             />
-            <Button onClick={analyze} disabled={loading} className="shrink-0">
+            <Button onClick={analyze} disabled={loading} className="shrink-0 bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl">
               {loading ? <Loader2 className="size-4 animate-spin" /> : <Gauge className="size-4" />}
               Calculate Score
             </Button>
@@ -143,7 +144,7 @@ Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
         {result && (
           <>
             {/* Overall Score */}
-            <Card className="border-primary/20">
+            <Card className="border-border/30 bg-card/40">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-6">
                   <div className="relative size-28 shrink-0">
@@ -171,11 +172,11 @@ Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
             </Card>
 
             {/* Category Breakdown */}
-            <div className="grid gap-4 md:grid-cols-4">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
               {result.categories.map((cat) => {
                 const pct = Math.round((cat.score / cat.maxScore) * 100);
                 return (
-                  <Card key={cat.name}>
+                  <Card key={cat.name} className="border-border/30 bg-card/40">
                     <CardContent className="pt-4">
                       <p className="text-xs font-medium mb-2">{cat.name}</p>
                       <div className="flex items-end gap-1 mb-1">
@@ -199,7 +200,7 @@ Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
             </div>
 
             {/* Weekly Trend */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Score Trend</CardTitle>
               </CardHeader>
@@ -238,7 +239,7 @@ Generate 8-12 improvement items sorted by impact. Make scores realistic.` },
             </Card>
 
             {/* Improvement Roadmap */}
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm">Improvement Roadmap (sorted by impact)</CardTitle>
               </CardHeader>

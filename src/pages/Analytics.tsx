@@ -147,8 +147,8 @@ export default function Analytics() {
   const scoreColor = (s: number) => (s >= 70 ? 'text-green-400' : s >= 40 ? 'text-yellow-400' : 'text-red-400');
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <BarChart3 className="size-6" />
@@ -158,7 +158,7 @@ export default function Analytics() {
         </div>
 
         {/* Weekly Summary */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm flex items-center gap-2">
               <Calendar className="size-4" />
@@ -166,7 +166,7 @@ export default function Analytics() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4 md:grid-cols-4">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
               <SummaryCard
                 label="Analyses"
                 current={weeklySummary.thisWeekAnalyses}
@@ -193,7 +193,7 @@ export default function Analytics() {
         </Card>
 
         {/* Keyword Ranking Trends */}
-        <Card>
+        <Card className="border-border/30 bg-card/40">
           <CardHeader>
             <CardTitle className="text-sm flex items-center gap-2">
               <TrendingUp className="size-4" />
@@ -247,9 +247,9 @@ export default function Analytics() {
           </CardContent>
         </Card>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
           {/* Content Performance */}
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader>
               <CardTitle className="text-sm flex items-center gap-2">
                 <Activity className="size-4" />
@@ -284,7 +284,7 @@ export default function Analytics() {
           </Card>
 
           {/* Health Score Timeline */}
-          <Card>
+          <Card className="border-border/30 bg-card/40">
             <CardHeader>
               <CardTitle className="text-sm">SEO Health Score Timeline</CardTitle>
             </CardHeader>

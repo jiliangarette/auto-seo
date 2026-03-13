@@ -45,7 +45,7 @@ export default function CompetitorBacklinkAnalyzer() {
 
   return (
     <div className="min-h-screen bg-background p-6 md:p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 border border-orange-500/20">
             <Link2 className="size-5 text-orange-400" />

@@ -140,7 +140,7 @@ export default function Changelog() {
   const sortedRequests = [...requests].sort((a, b) => b.votes - a.votes);
 
   return (
-    <div className="min-h-screen bg-background p-8">
+    <div className="min-h-screen bg-background p-4 md:p-8">
       <div className="mx-auto max-w-4xl space-y-6">
         <div className="flex items-center justify-between">
           <div>

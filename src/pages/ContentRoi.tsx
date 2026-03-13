@@ -117,8 +117,8 @@ Rank by ROI descending. Provide 4-6 actionable recommendations.` },
   const effColors = { high: 'text-green-400 bg-green-950/30', medium: 'text-yellow-400 bg-yellow-950/30', low: 'text-red-400 bg-red-950/30' };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
             <DollarSign className="size-6" />

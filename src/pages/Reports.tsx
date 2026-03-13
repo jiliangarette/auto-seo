@@ -82,9 +82,9 @@ export default function Reports() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="mx-auto max-w-4xl space-y-6">
-        <div className="flex items-center justify-between">
+    <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="mx-auto max-w-6xl space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
               <FileText className="size-6" />
@@ -106,12 +106,12 @@ export default function Reports() {
 
         {selectedProject && (
           <>
-            <Card>
+            <Card className="border-border/30 bg-card/40">
               <CardHeader>
                 <CardTitle className="text-sm">Actions</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
-                <Button size="sm" onClick={handleGenerate} disabled={saveReport.isPending}>
+                <Button size="sm" onClick={handleGenerate} disabled={saveReport.isPending} className="bg-gradient-to-r from-violet-600 to-emerald-600 hover:from-violet-500 hover:to-emerald-500 border-0 text-white rounded-xl">
                   <FileText className="size-4" />
                   Generate SEO Report
                 </Button>
@@ -127,7 +127,7 @@ export default function Reports() {
             </Card>
 
             {reports && reports.length > 0 && (
-              <Card>
+              <Card className="border-border/30 bg-card/40">
                 <CardHeader>
                   <CardTitle className="text-sm">Saved Reports ({reports.length})</CardTitle>
                 </CardHeader>
